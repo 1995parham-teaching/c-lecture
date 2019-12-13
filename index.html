@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+
+    <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Fundamentals of Computer and Programming</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
+  </head>
+  <body>
+
+    <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <br>
+    <div class="container">
+      <div class="header">
+        <h2>Fundamentals of Computer and Programming</h2>
+        <h6>Computer Engineering Department</h6>
+        <h6>Amirkabir University of Technology</h6>
+      </div>
+      <h2>Announcements</h2>
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th class="announcement-text">Description</th>
+            <th class="announcement-date">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="announcement-text" data-tag="new">
+              Comming Sonn...
+            </td>
+            <td class="announcement-date">98/09/10</td>
+          </tr>
+          <tr>
+            <td class="announcement-text">
+              Comming Sonn...
+            </td>
+            <td class="announcement-date">98/09/10</td>
+          </tr>
+          <tr>
+            <td class="announcement-text" data-tag="correction">
+              Comming Sonn...
+            </td>
+            <td class="announcement-date">98/09/10</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class ="button-container">
+      </div>
+      <div style ="float:left;" class ="button-container">
+          <div id="email-list" class="email-container">
+            <ul>
+              <li>parham.alvani@gmail.com</li>
+            </ul>
+          </div>
+        <a id="email-btn" class="button">Teaching Assistants</a>
+      </div>
+    </div>
+  </body>
+
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <script>
+    let announcements = document.getElementsByClassName("announcement-text");
+    for(let i = 0; i < announcements.length; i++) {
+      if (announcements[i].hasAttribute('data-tag')) {
+        let div = document.createElement('div');
+        div.innerHTML = announcements[i].getAttribute('data-tag');
+        div.setAttribute('class','news-status');
+        announcements[i].appendChild(div);
+      }
+    }
+  </script>
+</script>
+</html>
