@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Introduction</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+    <!-- Parham theme! -->
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: #ffea00;">Introduction</h1>
+          <h5>Fundamentals of Computer and Programming</h5>
+          <span class="cyan-select">Spring 2020</span>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">This Course</h2>
+          <ul>
+            <li>Introduction to Computer &amp; Programming</li>
+          </ul>
+          <h1>How to use computers to solve our problems</h1>
+          <ul>
+            <li>The problems are computational problems</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">This Course (cont’d)</h2>
+          <ul>
+            <li>What we learn</li>
+            <ul>
+              <li>Overall overview of computer organization</li>
+              <li>Problem solving steps</li>
+              <ul>
+                <li>Algorithm design</li>
+                <li>A programming language: the <span class="orange-select">C</span></li>
+              </ul>
+            </ul>
+            <li>What we don’t learn</li>
+            <ul>
+              <li>In depth computer hardware/software details</li>
+              <li>Most advanced algorithms</li>
+              <li>System programming using C</li>
+              <li>Other programming languages: Java, PHP, etc.</li>
+            </ul>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          {
+            src: '../plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              'What is this course?',
+              'Computer organization',
+              'Algorithms & Programming',
+              'Solving problems'
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
