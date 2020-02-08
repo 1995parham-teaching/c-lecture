@@ -24,7 +24,6 @@
     <!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
   </head>
   <body>
-
     <!-- Primary Page Layout
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <br>
@@ -45,10 +44,11 @@
         <tbody>
           <tr>
             <td class="announcement-text" data-tag="new">
-              Comming Sonn...
+              <a href="slides/lecture-1">Lecture-1 (WIP)</a>
             </td>
-            <td class="announcement-date">98/09/10</td>
+            <td class="announcement-date">98/11/19</td>
           </tr>
+          <!--
           <tr>
             <td class="announcement-text">
               Comming Sonn...
@@ -61,6 +61,7 @@
             </td>
             <td class="announcement-date">98/09/10</td>
           </tr>
+          -->
         </tbody>
       </table>
       <div class ="button-container">
@@ -75,22 +76,18 @@
         <a id="email-btn" class="button">Teaching Assistants</a>
       </div>
     </div>
-  </body>
-
-
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
-  <script>
-    let announcements = document.getElementsByClassName("announcement-text");
-    for(let i = 0; i < announcements.length; i++) {
-      if (announcements[i].hasAttribute('data-tag')) {
-        let div = document.createElement('div');
-        div.innerHTML = announcements[i].getAttribute('data-tag');
-        div.setAttribute('class','news-status');
-        announcements[i].appendChild(div);
+    <script>
+      let announcements = document.getElementsByClassName("announcement-text");
+      for(let i = 0; i < announcements.length; i++) {
+        if (announcements[i].hasAttribute('data-tag')) {
+          let div = document.createElement('div');
+          div.innerHTML = announcements[i].getAttribute('data-tag');
+          div.setAttribute('class','news-status');
+          announcements[i].appendChild(div);
+        }
       }
-    }
-  </script>
-</script>
+    </script>
+  </body>
 </html>
