@@ -363,6 +363,14 @@
           <h2 style="color: #ff033e;">Character Coding</h2>
           <ul>
             <li>Common character encoding: <span class="green-select">ASCII</span></li>
+            <li>8 bits can represent 256 characters; but,</li>
+            <ul>
+              <li>There are so many characters (Farsi, Arabic, …)</li>
+              <li>Solution: UTF (Variable length coding)</li>
+              <li>0xxxxxxx: 1 byte code</li>
+              <li>110xxxxx 10xxxxxx: 2 byte code</li>
+              <li>…</li>
+            </ul>
           </ul>
         </section>
         <section>
@@ -519,7 +527,7 @@
             <li>An application program</li>
             <ul>
               <li>Users use them to do some specific things</li>
-              <li>Without knowing the details of the computer</li>
+              <li class="orange-select">Without knowing the details of the computer</li>
             </ul>
             <li>Common application programs</li>
             <ul>
@@ -539,6 +547,27 @@
             <li>Instructions run</li>
             <li>Required inputs are got from input device &amp; saved in main memory &amp; used by CPU</li>
             <li>Result is saved in main/secondary memory or sent to output devices</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Programming Execution Phases</h2>
+          <img src="img/cycle.png" alt="cycle">
+        </section>
+        <section>
+          <ul>
+            <li>Basic steps in running instructions</li>
+            <li>Read instruction from main memory: <span class="green-select">fetch</span></li>
+            <li><span class="green-select">Decode</span> the instruction</li>
+            <li>Get required <span class="green-select">operands</span> from main memory</li>
+            <li><span class="green-select">Run</span> the instruction</li>
+            <li>Save the <span class="green-select">result</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Von Neumann architecture</h2>
+          <ul>
+            <li>also known as the von Neumann model or Princeton architecture</li>
+            <li>Keeping both program instructions and data in read-write, random-access memory (RAM).</li>
           </ul>
         </section>
         <section>
@@ -595,6 +624,62 @@
             <li>Compression algorithms</li>
             <li>Cryptography algorithms</li>
             <li>...</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Algorithms: Description</h2>
+          <ul>
+            <li>Algorithms are the problem solving steps in our mind!!!</li>
+            <li>How can we document it (don’t forget it)?</li>
+            <li>How can we explain/teach it to others peoples?</li>
+            <li>How can we explain it to computers?</li>
+            <li>We need some methods to describe algorithms!</li>
+            <ul>
+              <li>Flow chart</li>
+              <li>Pseudo-codes</li>
+              <li>Codes/Programs</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
+          <ul>
+            <li>Flowcharts:</li>
+            <img src='img/flowchart.png' alt="flowchart" height="500">
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
+          <ul>
+            <li>Pseudo-codes:</li>
+            <li>A sequence of English and mathematical statements</li>
+            <pre><code>
+Algorithm: calculate 1 ^ 2 + 2 ^ 2 + ... + n ^ 2
+Input: n
+Output: sum
+---
+sum = 0
+i = 1
+Repeat the following three steps while i &lt;= n:
+  sq = i * i
+  sum = sum + sq
+  i = i + 1
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
+          <ul>
+            <li>Flowcharts and Pseudo-code are for humans not for computer</li>
+            <ul>
+              <li>Computer <span class="orange-select">cannot</span> run them</li>
+            </ul>
+            <li>What can computer run?</li>
+            <ul>
+              <li>Instructions in main memory</li>
+              <li>The instructions are in <span class=cyan-select>“011100001…”</span> format</li>
+              <li>To use computers <q>We should describe your algorithm in “01” format</q></li>
+            </ul>
           </ul>
         </section>
       </div>
