@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>C Programming Basics</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Parham theme! -->
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: #ffea00;">C Programming Basics</h1>
+          <h5>Fundamentals of Computer and Programming</h5>
+          <span class="cyan-select">Spring 2020</span>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">The C Language</h2>
+          <ul>
+            <li><span class="orange-select">C</span> is a <span class="orange-select">general-purpose</span> programming language</li>
+            <li><span class="green-select">C</span> is developed by <span class="green-select">Dennis Ritchie</span> at <span class="green-select">Bell Laboratories</span></li>
+            <li><span class="orange-select">C</span> is one of the widely used languages</li>
+            <ul>
+              <li>Application development</li>
+              <li>System programs, most operating systems are developed in C: Unix, Linux</li>
+              <li>Many other languages are based on it</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Programming in C Language</h2>
+          <ul>
+            <li>C programming language</li>
+            <ul>
+              <li>A set of notations for representing programs</li>
+            </ul>
+            <li>C standard libraries</li>
+            <ul>
+              <li>A set of developed programs (functions)</li>
+            </ul>
+            <li>C programming environment</li>
+            <ul>
+              <li>A set of tools to aid program development</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">The First Example</h2>
+          <ul>
+            <li>Write a program that prints</li>
+          </ul>
+          <pre><code class="hljs plaintext">
+“Hello the CE juniors :-)”
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">The First C Program</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  printf("Hello the CE juniors :-) \n");
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">General Rules</h2>
+          <ul>
+            <li>C is case sensitive: <span class="orange-select">main</span> is not <span class="green-select">MaIn</span></li>
+            <li>A “;” is required after each statement</li>
+            <li>Each program should have a <span class="orange-select">main</span> function</li>
+            <pre><code class="hljs lang-c">
+int main(void){…
+void main(void){…
+main(){…
+int main(int argc, char ** argv){…
+            </code></pre>
+            <li>Program starts running from the main</li>
+            <li>You should follow coding style (beautiful code)</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Comments</h2>
+          <pre><code class="hljs lang-c">
+/* Our first
+C program */
+#include &lt;stdio.h&gt;
+
+int main(void){
+  //This program prints a simple message
+  printf("Hello the CE juniors :-) \n");
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">The First C Program</h2>
+          <ul>
+            <li>You should</li>
+            <ul>
+              <li>Develop the source code of program</li>
+              <li>Compile</li>
+              <li>Run</li>
+              <li>Debug</li>
+            </ul>
+            <li>All of them can be done in IDE</li>
+            <ul>
+              <li>Code::Blocks</li>
+              <li>CLion</li>
+              <li>VS Code</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Legends</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          {
+            src: '../plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              "What is the C",
+              "Variables",
+              "Values",
+              "Casting",
+              "Constants & Definition"
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
