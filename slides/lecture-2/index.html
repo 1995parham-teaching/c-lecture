@@ -70,9 +70,9 @@ else
           <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter an integer”
 read n
-if(n < 0)
+if(n &lt; 0)
   n = -1 * n
-while(n >= 2)
+while(n &gt;= 2)
   n = n – 2
 if(n = 0)
   print “even”
@@ -85,7 +85,7 @@ else
           <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter an integer”
 read n
-while (n >= 2) or (n <= -1)
+while (n &gt;= 2) or (n &lt;= -1)
   n = n - sign(n) * 2
   if (n = 1)
     print “odd”
@@ -143,7 +143,7 @@ while (n != 0)
   n = floor (n / 8)
   i = i + 1
   i = i - 1
-while (i >= 0)
+while (i &gt;= 0)
   print x[i]
   i = i - 1
           </code></pre>
@@ -155,7 +155,7 @@ print “Please enter a positive integer”
 read n
 i = 1
 result = 1
-while (i <= n)
+while (i &lt;= n)
   result = i * result
   i = i + 1
   return result
@@ -167,7 +167,7 @@ while (i <= n)
 print “Please enter a positive integer”
 read n
 result = 1
-while (n > 0)
+while (n &gt; 0)
   result = result * n
   n = n - 1
 return result
@@ -196,8 +196,8 @@ while (start != end)
           <pre><code class="hljs plaintext" data-line-numbers>
 i = start
 arg_min = i
-while (i <= end)
-  if(x[i] < x[arg_min])
+while (i &lt;= end)
+  if(x[i] &lt; x[arg_min])
     arg_min = i
     i = i + 1
 return arg_min
@@ -214,7 +214,7 @@ x[i] = temp
         <section>
           <h2 style="color: #ff033e;">reverse(A, start, end)</h2>
           <pre><code class="hljs plaintext" data-line-numbers>
-if (start >= end)
+if (start &gt;= end)
   return
 else
   swap(A, start, end)
