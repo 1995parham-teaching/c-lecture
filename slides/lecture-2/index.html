@@ -58,8 +58,8 @@ print "Average = " average
           <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter an integer”
 read n
-y = n mod 2
-if (y == 0)
+r = n mod 2
+if (r == 0)
   print “Number is even”
 else
   print “Number is odd”
@@ -74,7 +74,7 @@ if(n &lt; 0)
   n = -1 * n
 while(n &gt;= 2)
   n = n – 2
-if(n = 0)
+if (n == 0)
   print “even”
 else
   print “odd”
@@ -87,7 +87,7 @@ print “Please enter an integer”
 read n
 while (n &gt;= 2) or (n &lt;= -1)
   n = n - sign(n) * 2
-  if (n = 1)
+  if (n == 1)
     print “odd”
   else
     print “even”
@@ -107,8 +107,8 @@ even_cnt = 0
 print “Please enter an integer”
 read n
 while (n != 0)
-  y = n mod 2
-  if (y == 0)
+  r = n mod 2
+  if (r == 0)
     even_cnt = even_cnt + 1
   else
     odd_cnt = odd_cnt + 1
@@ -125,9 +125,9 @@ read n
 sum = 0
 m = n
 while (n != 0)
-  y = n mod 10
-  sum = sum + y
-  n = n - y
+  d = n mod 10
+  sum = sum + d
+  n = n - d
   n = n / 10
 print “sum of digits of” m “ = “ sum
           </code></pre>
@@ -158,7 +158,7 @@ result = 1
 while (i &lt;= n)
   result = i * result
   i = i + 1
-  return result
+return result
           </code></pre>
         </section>
         <section>
@@ -199,7 +199,7 @@ arg_min = i
 while (i &lt;= end)
   if(x[i] &lt; x[arg_min])
     arg_min = i
-    i = i + 1
+  i = i + 1
 return arg_min
           </code></pre>
         </section>
