@@ -338,6 +338,176 @@ int main(void){
           </ul>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Variables: Identifier</h2>
+          <ul>
+            <li>Valid identifiers</li>
+            <p>
+              student -- grade -- sum -- all_students -- average_grade_1
+            </p>
+            <li>Invalid identifiers</li>
+            <p>
+              if -- 32_test -- wrong* -- $sds$
+            </p>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables: Declaration</h2>
+          <ul>
+            <li>Reserve memory for variable: <span class="orange-select">declaration</span></li>
+            <ul>
+              <li>&lt;type&gt; &lt;identifier&gt;;</li>
+            </ul>
+            <li>A variable must be declared <span class="green-select">before</span> use</li>
+            <pre><code class="hljs lang-c">
+char test_char;
+int sample_int;
+long my_long;
+double sum, average, total;
+int id, counter, value;
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variable Type Effect (in complied Lang.)</h2>
+          <ul>
+            <li><span class="orange-select">Important note:</span> the type of variable is NOT stored in the main memory</li>
+            <li>After compiling the program, NO type is associated to memory locations!!!</li>
+          </ul>
+          <ul>
+            <li>So, what does do the type?!</li>
+            <li>It determines the <span class="green-select">operations</span> that work with the memory location</li>
+          </ul>
+          <ul>
+            <li>int x, y, z; z = x + y performed by <span class="cyan-select">ALU</span></li>
+              <li>float a, b, c; c = a + b performed by <span class="cyan-select">FPU</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables: Initial Values</h2>
+          <ul>
+            <li>What this the initial value of a variable?</li>
+            <ul>
+              <li>In C: we do not know</li>
+              <li>In C: it is not 0.</li>
+            </ul>
+          </ul>
+          <p>
+            We need to assign a value to each variable before use it.
+          </p>
+        </section>
+        <section>
+          <div class="toc" data-selected="2"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Constants in C</h2>
+          <ul>
+            <li>Values</li>
+            <ul>
+              <li>Integer numbers</li>
+              <li>Float numbers</li>
+              <li>Char</li>
+              <li>Strings</li>
+            </ul>
+            <li>Symbolic constant</li>
+            <li>Constant variables</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Values</h2>
+          <ul>
+            <li>Variables</li>
+            <li>Declaration specifies the type and name (identifier) of variable</li>
+            <li>Assigning value to the variable: <span class="orange-select">assignment</span></li>
+            <ul>
+              <li>&lt;identifier&gt; = &lt;value&gt;;</li>
+              <li>Compute the &lt;value&gt; and save result in memory location specified by &lt;identifier&gt;</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Values: Examples</h2>
+          <pre><code class="hljs lang-c">
+int i, j;
+long l;
+float f;
+double d;
+i = 10;
+j = 20;
+f = 20.0;
+l = 218;
+d = 19.9;
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Value Types</h2>
+          <ul>
+            <li>Where are the values stored?!</li>
+            <ul>
+              <li>In main memory</li>
+              <li>There is a logical section for these constant values</li>
+            </ul>
+            <li>So, we need to specify the type of the value</li>
+            <ul>
+              <li>The coding of 01s of the value</li>
+            </ul>
+            <li>The type of value is determined from the value itself</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Values: Integers</h2>
+          <ul>
+            <li>Valid integer values</li>
+            <p>10; -20; +400; 0x12A; 011; 5000L</p>
+            <li>Invalid integer values</li>
+            <p>10.0; -+20; -40 0; 600,000; 5000 L</p>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Values: Float & Double</h2>
+          <ul>
+            <li>Valid numbers:</li>
+            <p>0.2; .5; -.67; 20.0; 60e10; 7e-2</p>
+            <li>Invalid numbers:</li>
+            <p>0. 2; 20. 0; 20 .0; 7 e; 6e; e12</p>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Values: Chars</h2>
+          <ul>
+            <li>Char values</li>
+            <ul>
+              <li>Should be enclosed in single quotation</li>
+            </ul>
+            <li>Each character has a code: ASCII code</li>
+            <li>Character vs. Integer</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Effect of Value Types</h2>
+          <ul>
+            <li>The type of values have the same effect of the type of variables</li>
+            <li>It determines the “operations” that work on the values</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Basic Input Output</h2>
+          <ul>
+            <li>To read something: <span class="green-select">scanf</span></li>
+            <li>Integer: scanf("%d", &amp;int_variable);</li>
+            <li>Float: scanf("%f", &amp;float_variable);</li>
+            <li>Double: scanf("%lf", &amp;double_variable);</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Basic Input Output</h2>
+          <ul>
+            <li>To print something: <span class="orange-select">printf</span></li>
+            <li>Integer: printf("%d", int_variable);</li>
+            <li>Float: printf("%f", float_variable);</li>
+            <li>Message: printf("message");</li>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
           <img src="img/van.jpg" alt="van" height="500">
         </section>
