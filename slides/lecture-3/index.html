@@ -137,6 +137,199 @@ int main(void){
           </ul>
         </section>
         <section>
+          <div class="toc" data-selected="1"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables</h2>
+          <ul>
+            <li>Solving problems</li>
+            <ul>
+              <li>Input data - Algorithm - Output date</li>
+            </ul>
+            <li>What we need</li>
+            <ul>
+              <li>Implementing the algorithm</li>
+              <ul>
+                <li>Named <span class="orange-select">Functions</span></li>
+                <li>We will discuss later</li>
+              </ul>
+              <li>Storing the input/output data</li>
+              <ul>
+                <li><span class="orange-select">Variables</span></li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables (cont’d)</h2>
+          <ul>
+            <li>Data is stored in the main memory</li>
+            <li>Variables</li>
+            <ul>
+              <li>Are the <span class="orange-select">name</span> of locations in the main memory</li>
+              <ul>
+                <li>We use names instead of physical addresses</li>
+              </ul>
+              <li>Specify the <span class="green-select">coding</span> of the location</li>
+              <ul>
+                <li>What do the “01”s means?</li>
+                <li>What is the <span class="cyan-select">type</span> of data?</li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables (cont’d)</h2>
+          <ul>
+            <li>Variables in the C</li>
+            <ul>
+              <li>
+                &lt;Qualifier&gt;
+                &lt;Type&gt;
+                &lt;Identifier&gt;
+              </li>
+            </ul>
+            <li><span class="orange-select">&lt;Qualifier&gt;</span></li>
+            <ul>
+              <li>Is optional</li>
+              <li>We will discuss later</li>
+            </ul>
+            <li><span class="green-select">&lt;Type&gt;</span></li>
+            <ul>
+              <li>Specifies the coding</li>
+            </ul>
+            <li><span class="cyan-select">&lt;Identifier&gt;</span></li>
+            <ul>
+              <li>Is the name</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Types: Integers</h2>
+          <ul>
+            <li>Integer numbers</li>
+            <ul>
+              <li>Different types, different sizes, different ranges</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Types: Integers</h2>
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Size</th>
+              <th>Unsigned</th>
+              <th>Signed</th>
+            </tr>
+            <tr>
+              <td>short</td>
+              <td>16 bits</td>
+              <td>0 ~ 2^16 - 1</td>
+              <td>-2^15 ~ 2^15 - 1</td>
+            </tr>
+            <tr>
+              <td>int</td>
+              <td>32 bits</td>
+              <td>0 ~ 2^32 - 1</td>
+              <td>-2^31 ~ 2^31 - 1</td>
+            </tr>
+            <tr>
+              <td>long - long int</td>
+              <td>32/64 bits</td>
+              <td>0 ~ 2^32/64 - 1</td>
+              <td>-2^31/63 ~ 2^31/63 - 1</td>
+            </tr>
+            <tr>
+              <td>long long - long long int</td>
+              <td>64 bits</td>
+              <td>0 ~ 2^64 - 1</td>
+              <td>-2^63 ~ 2^63 - 1</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Types: Float &amp; Double</h2>
+          <ul>
+            <li>Floating point number</li>
+          </ul>
+          <table>
+            <tr>
+              <td>float</td>
+              <td>32 bits</td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>64 bits</td>
+            </tr>
+            <tr>
+              <td>long double</td>
+              <td>96 bits</td>
+            </tr>
+          </table>
+          <ul>
+            <li>Limited precision</li>
+            <ul>
+              <li>float: 8 digits precision</li>
+              <li>double: 16 digits precision</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Overflow &amp; Underflow</h2>
+          <ul>
+            <li>All types have limited number of bits</li>
+            <ul>
+              <li>Limited range of number are supported</li>
+              <li>Limited precision</li>
+            </ul>
+            <li>Overflow</li>
+            <ul>
+              <li>Assign a very big number to a variable that is larger than the limit of the variable</li>
+            </ul>
+            <li>Underflow</li>
+            <ul>
+              <li> Assign a very small number to a variable that is smaller than the limit of the variable</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Types: Char</h2>
+          <ul>
+            <li>Character</li>
+            <ul>
+              <li>Type: char</li>
+            </ul>
+            <li>Single letters of the alphabet, punctuation symbols</li>
+            <li>Should be single quotation</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables: Identifier</h2>
+          <ul>
+            <li>The name of variables: <span class="orange-select">identifier</span></li>
+            <li>Identifier is string <span class="green-select">(single word)</span> of</li>
+            <ul>
+              <li>Alphabet</li>
+              <li>Numbers</li>
+              <li>_</li>
+            </ul>
+            <li>But</li>
+            <ul>
+              <li>Can<span class="cyan-select">not</span> start with digits</li>
+              <li>Can<span class="cyan-select">not</span> be the key-words (reserved words)</li>
+              <li>Can<span class="cyan-select">not</span> be duplicated</li>
+              <li>Should <span class="cyan-select">not</span> be library function names: printf</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables: Identifier</h2>
+          <ul>
+            <li>Use readable identifiers</li>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
