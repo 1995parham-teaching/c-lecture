@@ -508,6 +508,94 @@ d = 19.9;
           </ul>
         </section>
         <section>
+          <div class="toc" data-selected="3"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Casting</h2>
+          <ul>
+            <li>What is the casting?</li>
+            <ul>
+              <li>When the type of variable and value <span class="cyan-select">are not the same</span></li>
+              <li>Example: Assigning double value to integer variable</li>
+            </ul>
+            <li>It is not a syntax error in C (only warning)</li>
+            <ul>
+              <li>But can cause <span class="orange-select">runtime errors</span></li>
+            </ul>
+            <li>It is useful (in special situations)</li>
+            <ul>
+              <li>But we should be very very careful</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Implicit casting</h2>
+          <ul>
+            <li>Implicit</li>
+            <ul>
+              <li>We don’t say it</li>
+              <li>But we do it</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+char f2 = 50e6; /* cast from double to char */
+int i = 98.01; /* cast from double to int */
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Explicit casting</h2>
+          <ul>
+            <li>Explicit</li>
+            <ul>
+              <li>We say it</li>
+              <li>And we do it</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i = (int) 98.1; /* cast from double to int */
+char c = (char) 90; /* cast from int to char */
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Casting effects</h2>
+          <ul>
+            <li>Casting from small types to large types</li>
+            <ul>
+              <li>There is not any problem</li>
+              <li>No loss of data</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i;
+short s;
+float f;
+double d;
+s = 'A'; // s = 65
+i = 'B'; // i = 66
+f = 4566; // f = 4566.0
+d = 5666; // d = 5666.0
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Casting effects (cont’d)</h2>
+          <ul>
+            <li>Casting from large types to small types</li>
+            <ul>
+              <li>Data loss is possible</li>
+              <li>Depends on the values</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+float f = 65536; // 65536.0
+double d = 65536; // 65536.0
+short s = 720; // 720
+char c = (char) 65536; // c = 0
+short s = (short) 65536; // s = 0
+int i = 1.22; // i = 1
+int j = 1e23; // j = ???
+          </code></pre>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
           <img src="img/van.jpg" alt="van" height="500">
         </section>
