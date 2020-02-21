@@ -596,6 +596,68 @@ int j = 1e23; // j = ???
           </code></pre>
         </section>
         <section>
+          <div class="toc" data-selected="4"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Constant Variables</h2>
+          <ul>
+            <li>Constants</li>
+            <ul>
+              <li>Do not want to change the value</li>
+              <li>Example: pi = 3.14</li>
+            </ul>
+            <li>We can only initialize a constant variable</li>
+            <ul>
+              <li>We MUST initialize the constant variables (why?!)</li>
+            </ul>
+            <li><span class="green-select">const</span> is a qualifier</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+const int STUDENTS = 38;
+const long int MAX_GRADE = 20;
+int i;
+i = MAX_GRADE;
+STUDENT = 39; //ERROR
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Definitions</h2>
+          <ul>
+            <li>Another tool to define constants</li>
+            <ul>
+              <li>Definition is not variable</li>
+              <ul>
+                <li>We define definition, don’t declare them</li>
+              </ul>
+              <li>Pre-processor replaces them by their values before compiling</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+#define STUDENTS 38
+int main(void) {
+  int i;
+  i = STUDENTS;
+  STUDENTS = 90; //ERROR! What compiler sees: 38 = 90
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Summary</h2>
+          <ul>
+            <li>Simple programs in C</li>
+            <li>Two basics</li>
+            <ul>
+              <li>Variables</li>
+              <li>Values</li>
+            </ul>
+            <li>Casting</li>
+            <ul>
+              <li>The type mismatch</li>
+            </ul>
+            <li>Constant variables &amp; definitions</li>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
           <img src="img/van.jpg" alt="van" height="500">
         </section>
