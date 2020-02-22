@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>C Programming Basics</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Parham theme! -->
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: #ffea00;">Calculations</h1>
+          <h5>Fundamentals of Computer and Programming</h5>
+          <span class="cyan-select">Spring 2020</span>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Basic operations</h2>
+          <table>
+            <thead style="color: #ff9966;">
+              <th>Name</th>
+              <th>in C</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Addition</td>
+                <td>+</td>
+              </tr>
+              <tr>
+                <td>Subtraction</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Division</td>
+                <td>/</td>
+              </tr>
+              <tr>
+                <td>Multiplication</td>
+                <td>*</td>
+              </tr>
+              <tr>
+                <td>Modulus</td>
+                <td>%</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Modulo</h2>
+          <ul>
+            <li>Only can be used by <span class="orange-select">int</span> operands</li>
+            <ul>
+              <li>5 % 4 = 1</li>
+              <li>7 % 88 = 7</li>
+              <li>-20 % 7 = -6</li>
+              <li>20 % -7 = 6</li>
+              <li>-20 % -7 = -6</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Mean of 3 Numbers</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+int main(void){
+  float num1, num2, num3, sum, average;
+  printf("Enter 3 number: \n");
+  scanf("%f",&amp;num1);
+  scanf("%f",&amp;num2);
+  scanf("%f",&amp;num3);
+  sum = num1 + num2 + num3;
+  average = sum / 3;
+  printf("mean = ");
+  printf("%f\n", average);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="1"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">General rules of type conversion</h2>
+          <ul>
+            <li>If either operand is <span class="orange-select">long double</span>, convert the other to <span class="orange-select">long double</span>.</li>
+            <li>Otherwise, if either operand is <span class="green-select">double</span>, convert the other to <span class="green-select">double</span>.</li>
+            <li>Otherwise, if either operand is <span class="cyan-select">float</span>, convert the other to <span class="cyan-select">float</span>.</li>
+            <li>Otherwise, convert <span class="orange-select">char</span> and <span class="orange-select">short</span> to <span class="orange-select">int</span>.</li>
+            <li>Then, if either operand is <span class="green-select">long</span>, convert the other to <span class="green-select">long</span>.</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Effect of types</h2>
+          <ul>
+            <li>Type of operands determines the type of the result</li>
+            <ul>
+              <li>The type of output is the type of operands (after conversion)</li>
+            </ul>
+            <li>int &lt;op&gt; int &rarr; int</li>
+            <li>int &lt;op&gt; long &rarr; long</li>
+            <li>float &lt;op&gt; float &rarr; float</li>
+            <li>float &lt;op&gt; int &rarr; float</li>
+            <li>double &lt;op&gt; float &rarr; double</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Legends</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          {
+            src: '../plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              "Basic mathematic operations in C",
+              "Effect of type and type conversion",
+              "Precedence",
+              "Advanced mathematical operations",
+              "Mathematic library"
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
