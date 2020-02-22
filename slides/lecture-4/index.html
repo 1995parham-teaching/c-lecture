@@ -128,6 +128,55 @@ int main(void){
           </ul>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Effect of types</h2>
+          <ul>
+            <li>If both operand of division (/) is <span class="orange-select">int</span></li>
+            <li>&rarr; data lost</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Effect of types &amp; Explicit casts</h2>
+          <table>
+            <thead>
+              <th>Expression</th>
+              <th>Result</th>
+              <th>Type of result</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(double) 1 + 2.0f</td>
+                <td>3.0</td>
+                <td>double</td>
+              </tr>
+              <tr>
+                <td>(int) 2.69 + 4</td>
+                <td>6</td>
+                <td>int</td>
+              </tr>
+              <tr>
+                <td>(double) 1 / 2</td>
+                <td>0.5</td>
+                <td>double</td>
+              </tr>
+              <tr>
+                <td>1 / (int) 2.0</td>
+                <td>0</td>
+                <td>int</td>
+              </tr>
+              <tr>
+                <td>(double) (1 / 2)</td>
+                <td>0.0</td>
+                <td>double</td>
+              </tr>
+              <tr>
+                <td>(int)((double) 1 / 2)</td>
+                <td>0</td>
+                <td>int</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
