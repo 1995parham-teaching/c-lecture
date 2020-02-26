@@ -539,6 +539,26 @@ int main(void){
           </ul>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Random Numbers</h2>
+          <ul>
+            <li>We usually want different random number</li>
+            <ul>
+              <li>Run 1: 10, 20, 17, 1000, 23, 345, 30</li>
+              <li>Run 2: 23, 904, 23, 346, 85, 234, 63</li>
+            </ul>
+            <li>We should use different seed in each run</li>
+            <ul>
+              <li>How?</li>
+              <li>Initialize seed by system time</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+#include &lt;time.h&gt;
+time_t t = time(NULL);
+srand(t);
+          </code></pre>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
