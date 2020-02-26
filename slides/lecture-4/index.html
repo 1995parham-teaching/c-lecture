@@ -559,7 +559,48 @@ srand(t);
           </code></pre>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Random Numbers</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+int main(void){
+  int r1, r2;
+  srand(0);
+  r1 = rand();
+  printf("r1 = %d\n", r1);
+  time_t t = time(NULL);
+  srand(t);
+  r2 = rand();
+  printf("r2 = %d\n", r2);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Random Numbers</h2>
+          <ul>
+            <li>First Run</li>
+            <ul>
+              <li>r1 = 38</li>
+              <li>r2 = 1873</li>
+            </ul>
+            <li>Second Run</li>
+            <ul>
+              <li>r1 = 38</li>
+              <li>r2 = 1866</li>
+            </ul>
+            <li>Third Run</li>
+            <ul>
+              <li>r1 = 38</li>
+              <li>r2 = 1860</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
+          <img src="img/ken.jpg" alt="ken">
         </section>
       </div>
     </div>
