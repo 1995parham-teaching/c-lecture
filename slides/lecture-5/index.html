@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>C Programming Basics</title>
+    <title>Interaction</title>
 
     <link rel="stylesheet" href="../css/reveal.css">
     <link rel="stylesheet" href="../css/theme/league.css">
@@ -37,6 +37,88 @@
         </section>
         <section>
           <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Printing</h2>
+          <ul>
+            <li>Printing messages</li>
+            <ul>
+              <li><span class="orange-select">printf("This is message \n");</span></li>
+            </ul>
+            <li>Printing variables</li>
+            <ul>
+              <li><span class="green-select">printf("format", parameters);</span></li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i = 20;
+char c = 'a';
+printf("%d, %c", i, c);
+printf("i is %d and char is %c", i, '6');
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Printing Integers</h2>
+          <ul>
+            <li><span class="orange-select">%d, %i, %ld</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+printf("%d", 100);
+100
+printf("%d, %d", +1000, -100);
+1000, -100
+printf("%i", 100);
+100
+printf("%ld, %i", +1000, -100);
+1000, -100
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Printing Unsigned Integers</h2>
+          <ul>
+            <li><span class="orange-select">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+unsigned int i = 26;
+printf("%u\n", i); //26
+printf("%o\n", i); //32
+printf("%x\n", i); //1a
+printf("%X\n", i); //1A
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Printing Floats</h2>
+          <ul>
+            <li><span class="orange-select">%f, %e, %E, %lf</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+printf("%f", 100.5f);
+100.500000
+
+float f = -2;
+double d = 100;
+printf("%f, %f", f, d);
+-2.000000, 100.000000
+printf("%f, %e", 1e3, 1e3);
+1000.000000, 1.000000e+003
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Printing Chars</h2>
+          <ul>
+            <li><span class="orange-select">%c</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+printf("%c", 'a');
+a
+
+printf("%c, %c", 'a','b');
+a, b
+
+char c1 = 'a';
+printf("%c, %c, %c", c1, 'b', 65);
+a, b, A
+          </code></pre>
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
