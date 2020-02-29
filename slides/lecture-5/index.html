@@ -121,6 +121,207 @@ a, b, A
           </code></pre>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Special Character</h2>
+          <table>
+            <thead>
+              <th>Characters in <span class="orange-select">printf</span></th>
+              <th>result</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\n</td>
+                <td>newline</td>
+              </tr>
+              <tr>
+                <td>\r</td>
+                <td>carriage return</td>
+              </tr>
+              <tr>
+                <td>\b</td>
+                <td>backspace</td>
+              </tr>
+              <tr>
+                <td>\"</td>
+                <td>"</td>
+              </tr>
+              <tr>
+                <td>%%</td>
+                <td>%</td>
+              </tr>
+              <tr>
+                <td>\%</td>
+                <td>%</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Printing Strings</h2>
+          <ul>
+            <li>%s</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+printf("This is message");
+This is message
+
+printf("This is %s", "message");
+This is message
+
+char str1[20] = "This is message";
+printf("%s", str1);
+This is message
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Field length</h2>
+          <ul>
+            <li>Field length is a <span class="orange-select">number</span></li>
+            <li>Comes after % (and before the type char)</li>
+            <li>It is the <span class="cyan-select">minimum</span> space reserved for print</li>
+            <ul>
+              <li>If value is smaller than the space</li>
+              <ul>
+                <li>Empty space</li>
+              </ul>
+              <li>If value is larger than the space</li>
+              <ul>
+                <li>No effect</li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Field length</h2>
+          <pre><code class="hljs lang-c">
+printf("|%4d|\n", 1);       // |    1|
+printf("|%4d|\n", 12345);   // |12345|
+printf("|%4d|\n", -12345);  // |-12345|
+printf("|%4f|\n", 1234.0);  // |1234.000000|
+printf("|%15f|\n", 1234.0); // |    1234.000000|
+printf("|%4c|\n", 'A');     // |   A|
+printf("|%4s|\n", "ABC");   // | ABC|
+printf("|%4s|\n", "ABCDE"); // |ABCDE|
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Precision</h2>
+          <ul>
+            <li>Precision is a <span class="green-select">.number</span> and comes after %</li>
+            <li>For Integer</li>
+            <ul>
+              <li>The <span class="orange-select">minimum</span> number of digits</li>
+              <li>If (# of digits &lt; precision) then empty space = 0</li>
+            </ul>
+            <li>For floats</li>
+            <ul>
+              <li>With %f, %e</li>
+              <li>The number of digits <span class="cyan-select">after .</span></li>
+            </ul>
+            <li>For strings</li>
+            <ul>
+              <li>The <span class="orange-select">maximum</span> number of characters</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Precision</h2>
+          <pre><code class="hljs lang-c">
+printf("|%.4d|\n", 1); // |0001|
+printf("|%.4d|\n", 12345); // |12345|
+printf("|%.4d|\n", -12345); // |-12345|
+printf("|%.4f|\n", 1234.0); // |1234.0000|
+printf("|%.10f|\n", 1234.0);// |1234.0000000000|
+printf("|%.4s|\n", "ABC"); // |ABC|
+printf("|%.4s|\n", "ABCDEF"); // |ABCD|
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Field length and Precision</h2>
+          <ul>
+            <li>This is a number with format <span class="orange-select">a.b</span></li>
+            <li>First <span class="green-select">b</span> determines the precision</li>
+            <li>Then <span class="cyan-select">a</span> specifies the field length</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Field length and Precision</h2>
+          <pre><code class="hljs lang-c">
+printf("|%10.5d|\n", 12);
+| 00012|
+
+printf("|%3.5d|\n", 12);
+|00012|
+
+printf("|%10.5f|\n", 1.234567890123);
+| 1.23457|
+
+printf("|%0.5f|\n", 1.234567890123);
+|1.23457|
+
+printf("|%15.10s|\n", "Hello, world");
+| Hello, wor|
+
+printf("|%5.10s|\n", "Hello, world");
+|Hello, wor|
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variable Field Length & Precision : *</h2>
+          <ul>
+            <li>* can be used to specify field length and precision which is replaced by a variable</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i = 30;
+int j = 2;
+float f = 1.23456789;
+printf("%0*.*f\n", i, j, f);
+
+000000000000000000000000001.23
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Cast in printing (do NOT use)</h2>
+          <pre><code class="hljs lang-c">
+int i = -60;
+unsigned int j = 4147482648;
+float f = -700.05;
+
+printf("i = %f\n", i);
+i = 0.000000
+
+printf("i = %u\n", i);
+i = 4294967236
+
+printf("j = %d\n", j);
+j = -147484648
+
+printf("f = %d\n", f);
+f = 1610612736
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="1"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading</h2>
+          <ul>
+            <li>Read from keyboard (console)</li>
+            <li>What should be determined in reading</li>
+            <ul>
+              <li>Keyboard enters “characters”, so, how to read int, char, …?</li>
+              <li>Which type the chars should be converted?</li>
+              <li>Where should be saved?</li>
+            </ul>
+            <li>scanf(“format”, parameters)</li>
+            <ul>
+              <li>Format: The type that input should be converted to</li>
+              <li>Parameters: Where should be saved</li>
+            </ul>
+            <li>scanf blocks until ‘Enter’ at the end of input (why?!)</li>
+            <li>Reads from beginning until to white spaces (except reading chars)</li>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
           <img src="img/ghodsi.jpg" alt="ghodsi">
         </section>
