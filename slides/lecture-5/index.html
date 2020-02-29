@@ -322,6 +322,94 @@ f = 1610612736
           </ul>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Reading Integers (base 10)</h2>
+          <ul>
+            <li>%d, %u, %ld, %lu</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i;
+unsigned int j;
+long int l;
+scanf("%d", &amp;i);
+scanf("%u", &amp;j);
+scanf("%ld",&amp;l);
+
+-90 → -90 is saved in memory location i
+78 60L → 78 is saved in memory location j
+→ 60 is saved in memory location l
+
+Spaces at the beginning are ignored 
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading Integers (cont’d)</h2>
+          <ul>
+            <li>%o, %x, %X, %i</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+scanf("%o", &amp;i);
+Input: 12 → i = 10
+
+scanf("%x", &amp;i);
+Input: 1a → i = 26
+
+scanf("%i", &amp;i);
+Input: 12 → i = 12
+Input: 012 → i = 10 (It reads in base 8)
+Input: 0x12 → i = 18 (It reads in base 16)
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading floats and doubles</h2>
+          <ul>
+            <li>%f, %lf, %e</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+float f;
+double d;
+scanf("%f", &amp;f);
+scanf("%lf", &amp;d);
+
+90.9 → 90.9 is saved in memory f
+88.123456789 → 88.123456789 saved in memory d
+Spaces at the beginning are ignored
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading floats and doubles</h2>
+          <pre><code class="hljs lang-c">
+float f1, f2;
+scanf("%f", &amp;f1);
+scanf("%e", &amp;f2);
+
+Input:
+1.23 → f1 = 1.23
+4.56 → f2 = 4.56
+
+Input:
+1.23e+1 → f1 = 12.3
+4.56e-1 → f2 = 0.456
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading chars</h2>
+          <ul>
+            <li>%c</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+char c1, c2, c3;
+scanf("%c", &amp;c1); /* spaces */
+scanf("%c", &amp;c2);
+scanf("%c", &amp;c3);
+
+Input: azb →
+c1 = 'a'
+c2 = 'z'
+c3 = 'b'
+Spaces at the beginning are NOT ignored
+          </code></pre>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
           <img src="img/ghodsi.jpg" alt="ghodsi">
         </section>
