@@ -338,7 +338,7 @@ scanf("%ld",&amp;l);
 78 60L → 78 is saved in memory location j
 → 60 is saved in memory location l
 
-Spaces at the beginning are ignored 
+Spaces at the beginning are ignored
           </code></pre>
         </section>
         <section>
@@ -408,6 +408,117 @@ c2 = 'z'
 c3 = 'b'
 Spaces at the beginning are NOT ignored
           </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
+          <ul>
+            <li>White spaces (space, tab, enter) are not ignored when reading char</li>
+            <li>To ignore white spaces, use “ “ before %c</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+scanf("%d%c%d", &amp;i, &amnp;c, &amp;j);
+Input: 123 45 → I = 123 c = ‘ ‘ j = 45
+
+scanf("%d %c%d", &amp;i, &amp;c, &amp;j);
+Input: 123 4 56 → I = 123 c = ‘4’ j = 56
+Input: 123 456 → I = 123 c = ‘4’ j = 56
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
+          <ul>
+            <li>getchar()</li>
+            <ul>
+              <li>Read char <span class="orange-select">after Enter</span></li>
+            </ul>
+            <li>getch()</li>
+            <ul>
+              <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">does NOT show</span> the char</li>
+            </ul>
+            <li>getche()</li>
+            <ul>
+              <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">shows</span> the char</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading Strings</h2>
+          <ul>
+            <li>How to read a line</li>
+            <li>Contains spaces (read until end of line)</li>
+            <li>gets(s)</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+char str[20];
+gets(str);
+
+Input: ABC DEF → str = "ABC DEF"
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Field length in scanf</h2>
+          <ul>
+            <li>Field length specifies the <span class="orange-select">maximum</span> number of input characters (in the buffer) used for scanning</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i, j;
+
+scanf("%5d", &amp;i);
+Input: 122 → i = 122
+Input: 1234567 → i = 12345
+
+scanf("%5d%d", &amp;i, &amp;j);
+Input: 1 2 → i = 1, j = 2
+Input: 1234567 → i = 12345, j = 67
+Input: 123456 7 → i = 12345, j = 6
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Special input format</h2>
+          <ul>
+            <li>If input data has special format with extra characters</li>
+            <li>scanf can ignore them</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+int y, m, d;
+scanf("%d/%d/%d", &amp;y, &amp;m, &amp;d);
+
+Input: 1389/12/1 → y = 1389, m = 12, d = 1
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Format of actual input data</h2>
+          <ul>
+            <li>The format of actual input data <span class="orange-select">MUST</span> match with the format of scanf</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+int a, b;
+float f;
+scanf("%d--%d%f", &amp;a, &amp;b, &amp;f);
+
+Input: 1--2 3.0 → a = 1, b = 2, f = 3.0
+Input: 1-2 3.0 → a = 1, b = 57, f = 0.0
+Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Common Bugs</h2>
+          <ul>
+            <li>Casting in printf or scanf</li>
+            <ul>
+              <li>printf("%d", 120.23);</li>
+              <li>double d; scanf("%f", &amp;d);</li>
+            </ul>
+            <li>Mismatch between format and the number of expressions</li>
+            <ul>
+              <li>printf("%d %d", 10);</li>
+              <li>printf("%d", 10, 20);</li>
+            </ul>
+            <li>Using name of variable instead of <span class="orange-select">address</span></li>
+            <ul>
+              <li>scanf("%d", i);</li>
+            </ul>
+          </ul>
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
