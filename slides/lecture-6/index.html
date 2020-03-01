@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Making Decisions</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Parham theme! -->
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: #ffea00;">Making Decisions</h1>
+          <h5>Fundamentals of Computer and Programming</h5>
+          <span class="cyan-select">Spring 2020</span>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Decision</h2>
+          <ul>
+            <li>Decisions are based on <span class="orange-select">conditions</span></li>
+            <ul>
+              <li><span class="green-select">If</span> it is snowing <span class="orange-select">then</span> We will cancel the game</li>
+              <li><span class="green-select">If</span> the class is not canceled <span class="orange-select">then</span> I will attend <span class="cyan-select">else</span> I will go to gym</li>
+            </ul>
+            <li>In programming</li>
+            <ul>
+              <li>Do statements based on conditions</li>
+              <ul>
+                <li><span class="green-select">True</span>: The statements will be done</li>
+                <li><span class="red-select">False</span>: The statement wont be done</li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Conditions</h2>
+          <ul>
+            <li>Conditions by comparisons; e.g.,</li>
+            <ul>
+              <li>Weather vs. snowing</li>
+              <li>Variable x vs. a value</li>
+            </ul>
+            <li>Comparing numbers: Relational Operators</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Conditions</h2>
+            <table>
+              <thead>
+                <th>Relational Operator</th>
+                <th>Meaning</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&lt;</td>
+                  <td>is less than</td>
+                </tr>
+                <tr>
+                  <td>&lt;=</td>
+                  <td>is less than or equal to</td>
+                </tr>
+                <tr>
+                  <td>&gt;</td>
+                  <td>is greater than</td>
+                </tr>
+                <tr>
+                  <td>&gt;=</td>
+                  <td>is greater than or equal to</td>
+                </tr>
+                <tr>
+                  <td>==</td>
+                  <td>is equal to</td>
+                </tr>
+                <tr>
+                  <td>!=</td>
+                  <td>is not equal to</td>
+                </tr>
+              </tbody>
+            </table>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Relations</h2>
+          <ul>
+            <li>Relations are not a complete statement</li>
+            <pre><code class="hljs lang-c">
+int a, b;
+a == b; //ERROR
+a &lt;= b; //ERROR
+            </code></pre>
+            <li>Relations produce a boolean value</li>
+            <pre><code class="hljs lang-c">
+int a, b;
+bool bl; // #include &lt;stdbool.h&gt;
+bl = a == b;
+bl = a &lt;= b;
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Boolean operationsx</h2>
+          <ul>
+            <li>Multiple conditions in decision making</li>
+            <li>Logical relation between conditions</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Legends</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          {
+            src: '../plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              "Introduction",
+              "Conditions and Boolean operations",
+              "if-else statement",
+              "switch-case statement",
+              "Conditional expressions"
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
