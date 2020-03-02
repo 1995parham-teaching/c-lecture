@@ -195,6 +195,82 @@ c = !a || b; // c = false
           <img src="img/c-precedence.png" alt="c-precedence">
         </section>
         <section>
+          <h2 style="color: #ff033e;">Relations, No type effect</h2>
+          <pre><code class="hljs lang-c">
+int a = 10, b = 20;
+float f = 54.677f;
+double d = 547.775;
+char c1 = 'A', c2 = 'a';
+bool b1;
+
+b1 = a == f; // false
+b1 = a &lt;= d + 5; // true
+b1 = d &lt; c1 * 10; // true
+b1 = c1 == c2; // false
+b1 = '1' &lt; '2'; // true
+b1 = c1 + f &lt; d + a; // true
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Casting</h2>
+          <ul>
+            <li>In logical operations</li>
+            <ul>
+              <li>0: False</li>
+              <li>non-zero: True</li>
+            </ul>
+            <li>In mathematical &amp; comparison operations</li>
+            <ul>
+              <li>False: 0</li>
+              <li>True: 1</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+bool b1, b2;
+int i = 0, j = 20;
+b1 = i &amp;&amp; j; // b1 = false
+b2 = j || j; // b2 = true
+i = b1 + b2; // i = 1
+j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
+          </code></pre>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: #ff033e;">Examples</h2>
+            <ul>
+              <li>x in [10, 20]</li>
+              <li><span class="red-select">Wrong Version</span></li>
+              <ul>
+                <li>10 &lt;= x &lt;= 20</li>
+                <li>Let x = 30</li>
+                <ol>
+                  <li>10 &lt;= 30 &lt;= 20</li>
+                  <li>(10 &lt;= 30) &lt;= 20</li>
+                  <li>true &lt;= 20</li>
+                  <li>1 &lt; 20</li>
+                  <li>True</li>
+                </ol>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2 style="color: #ff033e;">Examples</h2>
+            <ul>
+              <li>x in [10, 20]</li>
+              <li><span class="green-select">Correct Version</span></li>
+              <ul>
+                <li>(10 &lt;= x) &amp;&amp; (x &lt;= 20)</li>
+                <li>Let x = 30</li>
+                <ol>
+                  <li>(10 &lt;= 30) &amp;&amp; (30 &lt;= 20)</li>
+                  <li>true &amp;&amp; false</li>
+                  <li>false</li>
+                </ol>
+              </ul>
+            </ul>
+          </section>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
