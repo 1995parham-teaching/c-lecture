@@ -271,6 +271,42 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
           </section>
         </section>
         <section>
+          <section>
+            <h2 style="color: #ff033e;">Examples</h2>
+            <ul>
+              <li>a, b &gt; 0</li>
+              <li><span class="red-select">Wrong Version</span></li>
+              <ul>
+                <li>a &amp;&amp; b &gt; 0</li>
+                <li>Let a = -10, b = 20</li>
+                <ol>
+                  <li>-10 &amp;&amp; 20 &gt; 0</li>
+                  <li>-10 &amp;&amp; (20 &gt; 0)</li>
+                  <li>-10 &amp;&amp; true</li>
+                  <li>true &amp;&amp; true</li>
+                  <li>true</li>
+                </ol>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2 style="color: #ff033e;">Examples</h2>
+            <ul>
+              <li>a, b &gt; 0</li>
+              <li><span class="green-select">Correct Version</span></li>
+              <ul>
+                <li>(a &gt; 0) &amp;&amp; (b &gt; 0)</li>
+                <li>Let a = -10, b = 20</li>
+                <ol>
+                  <li>(-10 &gt; 0) &amp;&amp; (20 &gt; 0)</li>
+                  <li>false &amp;&amp; true</li>
+                  <li>false</li>
+                </ol>
+              </ul>
+            </ul>
+          </section>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
@@ -299,7 +335,6 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
               }
             },
             callback: function() { toc.initToCOnLoad([
-              "Introduction",
               "Conditions and Boolean operations",
               "if-else statement",
               "switch-case statement",
