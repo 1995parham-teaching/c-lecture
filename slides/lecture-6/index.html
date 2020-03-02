@@ -131,6 +131,70 @@ bl = a &lt;= b;
           </ul>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Boolean operations</h2>
+          <ul>
+            <li>and &nbsp; &amp;&amp;</li>
+            <li>or &nbsp; ||</li>
+            <li>not &nbsp; !</li>
+          </ul>
+          <table>
+            <thead>
+              <th>p</th>
+              <th>q</th>
+              <th>p &amp;&amp; q</th>
+              <th>p || q</th>
+              <th>!p</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>False</td>
+                <td>False</td>
+                <td>False</td>
+                <td>False</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                <td>False</td>
+                <td>True</td>
+                <td>False</td>
+                <td>True</td>
+                <td>True</td>
+              </tr>
+              <tr>
+                <td>True</td>
+                <td>False</td>
+                <td>False</td>
+                <td>True</td>
+                <td>False</td>
+              </tr>
+              <tr>
+                <td>True</td>
+                <td>True</td>
+                <td>True</td>
+                <td>True</td>
+                <td>False</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Boolean operations (cont’d)</h2>
+          <ul>
+            <li>Examples</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+bool a = true, b = false, c;
+c = !a; // c = false
+c = a &amp;&amp; b; // c = false
+c = a || b; // c = true
+c = !a || b; // c = false
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Precedence</h2>
+          <img src="img/c-precedence.png" alt="c-precedence">
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
