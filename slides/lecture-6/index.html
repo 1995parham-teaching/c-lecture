@@ -432,7 +432,7 @@ int main(void){
           <pre><code class="hljs lang-c">
 int numg;
 char alphag;
-if((numg &lt; 25)
+if(numg &lt; 25)
   alphag = 'D';
 if((numg &gt;= 25) &amp;&amp; (numg &lt; 50))
   alphag = 'C';
@@ -441,6 +441,124 @@ if((numg &gt;= 50) &amp;&amp; (numg &lt; 75))
 if(numg &gt;= 75)
   alphag = 'A';
           </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">More than two choices</h2>
+          <ul>
+            <li>To avoid repeating conditions in if statements</li>
+            <li>To avoid running unnecessary statements</li>
+            <li><span class="red-select">Nested</span> if: check multiple conditions</li>
+            <ul>
+              <li>&lt;Statements 1&gt; becomes an if-else statement</li>
+              <li>&lt;Statements 2&gt; becomes an if-else statement</li>
+              <li>Repeat it as many as needed</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Nested if-else</h2>
+          <pre><code class="hljs lang-c">
+if(c1 &amp;&amp; c2)
+  s1
+if(c1 &amp;&amp; !(c2))
+  s2
+if(!(c1) &amp;&amp; c3)
+  s3
+if(!(c1) &amp;&amp; !(c3))
+  s4
+          </code></pre>
+          <pre><code class="hljs lang-c">
+if(c1)
+  if(c2)
+    s1
+  else
+    s2
+else
+  if(c3)
+    s3
+  else
+    s4
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
+          <pre><code class="hljs lang-c">
+int numg;
+char alphag;
+
+if (numg &lt; 25)
+  alphag = ‘D’;
+else {
+  if (numg &lt; 50)
+    alphag = ‘C’;
+  else {
+    if (numg &lt; 75)
+      alphag = ‘B’;
+    else
+      alphag = ‘A’;
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Nested if-else</h2>
+            <pre><code class="hljs lang-c">
+if (&lt;condition 1&gt;)
+  &lt;statement 1&gt;
+else {
+  if(&lt;condition 2&gt;)
+    &lt;statement 2&gt;
+  else
+    &lt;statement 3&gt;
+}
+            </code></pre>
+            <pre><code class="hljs lang-c">
+if (&lt;condition 1&gt;)
+  &lt;statement 1&gt;
+else if (&lt;condition 2&gt;)
+  &lt;statement 2&gt;
+else
+  &lt;statement 3&gt;
+            </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
+          <pre><code class="hljs lang-c">
+int numg;
+char alphag;
+
+if(numg &lt; 25)
+  alphag = 'D';
+else if(numg &lt; 50)
+  alphag = 'C';
+else if(numg &lt; 75)
+  alphag = 'B';
+else
+  alphag = 'A';
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Nested if: Incomplete branch</h2>
+          <ol>
+            <li><span class="orange-select">else</span> part is optional</li>
+            <li><span class="orange-select">else</span> always associates with the <span class="green-select">nearest</span> <span class="orange-select">if</span></li>
+            <li>1 + 2 can be dangerous specially in incomplete branchs</li>
+          </ol>
+          <p>Example: Tell user to move or game over</p>
+          <pre><code class="hljs lang-c">
+if(gameIsOver == 0)
+  if(playerToMove == YOU)
+    printf ("Your Move\n");
+else
+  printf ("The game is over\n");
+          </code></pre>
+          <ul>
+            <li>To avoid error you should</li>
+            <li>Close off you code or Use Empty statements</li>
+          </ul>
+        </section>
+        <section>
+          <div class="toc" data-selected="2"></div>
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
