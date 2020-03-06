@@ -310,6 +310,139 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
           <div class="toc" data-selected="1"></div>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Type of statements</h2>
+          <ul>
+            <li>Expression statement</li>
+            <ul>
+              <li>Single statements</li>
+            </ul>
+            <pre><code class="hljs lang-c">
+x = y + 10;
+scanf("%d", &amp;i);
+            </code></pre>
+            <li>Control statement</li>
+            <ul>
+              <li>Control the flow of program</li>
+              <li>Decisions and loops</li>
+            </ul>
+            <li>Compound statement</li>
+            <ul>
+              <li>Starts with { and ends with }</li>
+              <li>All statements can be between { and }</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">if statement</h2>
+          <ul>
+            <li>Decision making in C</li>
+            <pre><code class="hljs lang-c">
+if( &lt;expression&gt; )
+  &lt;statements1&gt;
+else
+  &lt;statements2&gt;
+            </code></pre>
+            <li>Expression</li>
+            <ul>
+              <li>A boolean statement: <span class="green-select">a &lt;= b</span></li>
+              <li>A mathematical statement: <span class="green-select">a + b</span> or a variable: <span class="green-select">a</span></li>
+              <ul>
+                <li>zero &rarr; false</li>
+                <li>non-zero &rarr; true</li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Even-Odd</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+int main(void){
+  int number_to_test, remainder;
+  printf("Enter your number to be tested: ");
+  scanf("%d", &amp;number_to_test);
+  remainder = number_to_test % 2;
+  if(remainder == 0)
+    printf ("The number is even.\n");
+  else
+    printf ("The number is odd.\n");
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Statements in if-else</h2>
+          <ul>
+            <li>Empty statement</li>
+            <pre><code class="hljs lang-c">
+if(a &gt; b)
+  printf("A is larger \n");
+else
+  ;
+            </code></pre>
+            <li>Block statements</li>
+            <pre><code class="hljs lang-c">
+if(a &lt;= b){
+  printf("A is less than b or ");
+  printf("A is equal b\n");
+}
+else
+  printf("A is greater than b\n");
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+int main(void){
+  int i;
+  char c;
+
+  printf("Enter a char: ");
+  scanf(" %c", &amp;c);
+
+  printf("Enter an int: ");
+  scanf("%d", &amp;i);
+
+  if(i &gt; 0)
+    printf("Your number is larger than 0\n");
+  else
+    printf("Your number is less than or equal 0\n");
+
+  if((c &gt;= '0') &amp;&amp; (c &lt;= '9'))
+    printf("Your char is Numeric \n");
+
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">More than two choices</h2>
+          <ul>
+            <li>If statement: 2 choices</li>
+            <ul>
+              <li>If conditions are true &rarr; if statements</li>
+              <li>If conditions are false &rarr; else statements</li>
+            </ul>
+            <li>How to make decisions when there are multiple choices?</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
+          <pre><code class="hljs lang-c">
+int numg;
+char alphag;
+if((numg &lt; 25)
+  alphag = 'D';
+if((numg &gt;= 25) &amp;&amp; (numg &lt; 50))
+  alphag = 'C';
+if((numg &gt;= 50) &amp;&amp; (numg &lt; 75))
+  alphag = 'B';
+if(numg &gt;= 75)
+  alphag = 'A';
+          </code></pre>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
