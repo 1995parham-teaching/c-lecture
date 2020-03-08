@@ -561,6 +561,243 @@ else
           <div class="toc" data-selected="2"></div>
         </section>
         <section>
+          <h2 style="color: #ff033e;">switch-case: Multiple choices</h2>
+          <ul>
+            <li>Multiple conditions</li>
+            <ul>
+              <li>if-else if-else if-….</li>
+            </ul>
+            <li>Select from alternative <span class="orange-select">values</span> of a <span class="green-select">variable</span></li>
+            <ul>
+              <li>switch-case</li>
+              <li>Values should be <span class="orange-select">constant</span> not expression: i, i+j,</li>
+              <li>Values &amp; Variables should be <span class="orange-select">int</span> or <span class="orange-select">char</span></li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+switch (variable) {
+  case value1:
+    &lt;statements 1&gt;
+  case value2:
+    &lt;statements 2&gt;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">How does switch-case work?</h2>
+          <ul>
+            <li>Each switch-case can be rewritten by if-else</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+if(variable == value1)}
+  &lt;statements 1&gt;
+  &lt;statements 2&gt;
+}
+else if(variable == value2){
+  &lt;statements 2&gt;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">switch-case: complete version</h2>
+          <pre><code class="hljs lang-c">
+switch(variable) {
+  case value1:
+    &lt;statements 1&gt;
+    break;
+  case value2:
+    &lt;statements 2&gt;
+    break;
+  default:
+    &lt;statements 3&gt;
+}
+          </code></pre>
+          <pre><code class="hljs lang-c">
+if(variable == value1) {
+  &lt;statements 1&gt;
+}
+else if(variable == value2) {
+  &lt;statements 2&gt;
+}
+else {
+  &lt;statements 3&gt;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">switch-case (cont’d)</h2>
+          <ul>
+            <li>All values used in case should be different</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+switch(i){ //Error
+case 1:
+…
+case 2:
+…
+case 1:
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">switch-case (cont’d)</h2>
+          <ul>
+            <li>All values must be value, not expression of variables</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+switch(i){ //Error
+case j:
+…
+case 2:
+…
+case k+10:
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">switch-case: multiple matches</h2>
+          <pre><code class="hljs lang-c">
+switch(variable) {
+  case value1:
+  case value2:
+    &lt;statements 1&gt;
+    break;
+  case value3:
+    &lt;statements 2&gt;
+}
+          </code></pre>
+          <pre><code class="hljs lang-c">
+if(
+  (variable == value1) ||
+  (variable == value2)
+){
+    &lt;statements 1&gt;
+} else if (variable == value3) {
+    &lt;statements 2&gt;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">switch-case vs. if-else</h2>
+          <ul>
+            <li><span class="orange-select">if-else</span> is more powerful than <span class="orange-select">switch-case</span></li>
+            <li><span class="orange-select">switch-case</span> is only for checking the <span class="green-select">values of a variable</span> and the values must be <span class="green-select">constant</span></li>
+            <li>if-else is more suitable in some cases , e.g.,</li>
+            <pre><code class="hljs lang-c">
+double var1, var2;
+if(var1 &lt;= 1.1)
+  &lt;statements 1&gt;
+if(var1 == var2)
+  &lt;statements 2&gt;
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Nested switch-case</h2>
+          <pre><code class="hljs lang-c">
+bool b; //b = x &amp;&amp; y
+switch (x){
+  case 0:
+    b = 0;
+    break;
+  case 1:
+    switch(y){
+      case 0:
+        b = 0;
+        break;
+      case 1:
+        b = 1;
+        break;
+    }
+    break;
+}
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="3"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Conditional Expression</h2>
+          <ul>
+            <li>Assign value according to conditions</li>
+            <li>A ternary operator</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+int i, j, k;
+bool b;
+
+i = b ? j : k;
+          </code></pre>
+          <pre><code class="hljs lang-c">
+if (b)
+  i = j;
+else
+  i = k;
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Conditional Expression: Examples</h2>
+          <pre><code class="hljs lang-c">
+y = (x &gt; 0) ? x : -x
+
+sign = (x &lt; 0) ? -1 : ((x &gt; 0) ? 1 : 0)
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="4"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Common Bugs</h2>
+          <ul>
+            <li>Equality of floating point numbers</li>
+            <li>Two float numbers may or may <span class="red-select">NOT</span> be equal</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+double d1, d2;
+d1 = 1e20 + 1;
+d2 = 1e20 - 1;
+if(d1 == d2)
+  printf("They are equal :-o \n");
+else
+  printf("They are not equal :D \n");
+          </code></pre>
+          <p><span class="red-select">They are equal :-o</span></p>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Common Bugs</h2>
+          <ul>
+            <li>Danger of empty statement</li>
+            <li>Danger of assignment (=) and equality (==)</li>
+            <pre><code class="hljs lang-c">
+int a = 10;
+int b = 20;
+if (a = b) // logical but not compile error!!!
+            </code></pre>
+            <li>Danger of similarity between C and mathematic</li>
+            <pre><code class="hljs lang-c">
+if (a &lt; b &lt; c) // Logical Error
+if (a &amp;&amp; b &gt; 0) // Logical Error
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Avoiding Bugs</h2>
+          <ul>
+            <li>Precedence of operators</li>
+            <li>Use parenthesis in conditions</li>
+            <li>Close-off code as much as you can</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Debugging by assert</h2>
+          <ul>
+            <li>The assert macro is defined in <span class="orange-select">assert.h</span></li>
+            <li>assert(an expression)</li>
+            <ul>
+              <li>If the expression is true &rarr; nothing</li>
+              <li>If the expression is false &rarr; error message + halt</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
@@ -592,7 +829,8 @@ else
               "Conditions and Boolean operations",
               "if-else statement",
               "switch-case statement",
-              "Conditional expressions"
+              "Conditional expressions",
+              "Common Bugs"
             ]); }
           }
         ]
