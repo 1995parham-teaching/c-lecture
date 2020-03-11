@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Repeating Statements</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Parham theme! -->
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: #ffea00;">Repeating Statements</h1>
+          <h5>Fundamentals of Computer and Programming</h5>
+          <span class="cyan-select">Spring 2020</span>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Repetition</h2>
+          <ul>
+            <li>Example: Write a program that read 3 integer and compute average</li>
+            <ul>
+              <li>It is easy. 3 scanf, an addition, a division and, a printf</li>
+            </ul>
+            <li>Example: Write a program that read 3000 integer and compute average</li>
+            <ul>
+              <li>?? 3000 scanf !!!</li>
+            </ul>
+            <li>Example: Write a program that read n integer and compute average</li>
+            <ul>
+              <li>N??? scanf</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Repetition: counter controlled</h2>
+          <ul>
+            <li>When we know the number of iteration</li>
+            <ul>
+              <li>Average of 10 number</li>
+            </ul>
+          </ul>
+          <pre><code>
+initialize counter = 0
+initialize other variables
+
+while (counter &lt; number of loop repetition)
+  do something (e.g. read input, take sum)
+  counter = counter + 1
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Legends</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          {
+            src: '../plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              "Introduction",
+              "while statement",
+              "do-while statement",
+              "for statement",
+              "Arrays",
+              "Advanced loops",
+              "Bugs and avoiding them"
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
