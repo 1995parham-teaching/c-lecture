@@ -150,6 +150,36 @@ int main(void){
           </p>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Sum of the n term: 1/2 + 2/3 ...</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void) {
+  int n;
+  double number, sum;
+
+  printf("Enter n &gt; 0: ");
+  scanf("%d", &amp;n);
+
+  if(n &lt; 1){
+    printf("wrong input");
+    return -1;
+  }
+
+  sum = 0;
+  number = 0.0;
+  do {
+    number++;
+    sum += number / (number + 1.0);
+  } while(number &lt; n);
+  
+  printf("sum = %f\n", sum);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
           <div class="toc" data-selected="3"></div>
         </section>
         <section>
