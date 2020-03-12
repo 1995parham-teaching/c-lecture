@@ -173,7 +173,7 @@ int main(void) {
     number++;
     sum += number / (number + 1.0);
   } while(number &lt; n);
-  
+
   printf("sum = %f\n", sum);
   return 0;
 }
@@ -183,7 +183,431 @@ int main(void) {
           <div class="toc" data-selected="3"></div>
         </section>
         <section>
-          <h2 style="color: #ff033e;">Legends</h2>
+          <h2 style="color: #ff033e;">for statement</h2>
+          <p>
+            for(&lt;expression1&gtl;; &lt;expression2&gt;; &lt;expression3&gt;)
+              &lt;statements&gt;
+          </p>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">N students average grade</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  int grade, count, i;
+  double average, sum;
+  sum = 0;
+  printf("Enter the number of students: ");
+  scanf("%d", &amp;count);
+  for(i = 0; i &lt; count; i++){
+    printf("Enter the grade of %d-th student: ", (i + 1));
+    scanf("%d", &amp;grade);
+    sum += grade;
+  }
+  average = sum / count;
+  printf("The average of your class is %0.3f\n", average);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Expressions in for statements</h2>
+          <ul>
+            <li>Expression1 and Expression3 can be any number of expressions, they execute in the order</li>
+            <pre><code class="hljs lang-c">
+for(i = 0, j = 0; i &lt; 10; i++, j--)
+            </code></pre>
+            <li>Expression2 at most should be a single expression</li>
+            <li>If multiple expressions then the value of the last one is evaluated as True/False</li>
+            <pre><code class="hljs lang-c">
+for(i = 0, j = 0; i &lt; 10, j &gt; -100; i++, j--)
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Expressions in for statements</h2>
+          <ul>
+            <li>Any expression can be empty expression</li>
+            <pre><code class="hljs lang-c">
+for( ; i &lt; 10; i++)
+for(;;)
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <div class="toc" data-selected="4"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Introduction</h2>
+          <ul>
+            <li>Algorithms usually work on large data sets</li>
+            <ul>
+              <li>Sort a set of numbers</li>
+              <li>Search a specific number in a set of numbers</li>
+            </ul>
+            <li>How to read and store a set of data?</li>
+            <li>To Read</li>
+            <ul>
+              <li>Repeat the scanf statement</li>
+              <li>Use the loop statements</li>
+            </ul>
+            <li>To store the data</li>
+            <ul>
+              <li>Save each data in a single variable??</li>
+              <li>3000 int variables!!!!</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Array</h2>
+          <ul>
+            <li>An <span class="orange-select">ordered</span> collection of <span class="orange-select">same type</span> variables</li>
+            <li>A nx1 vector of</li>
+            <ul>
+              <li>Integers, chars, floats, ...</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+              <li>An array of 8 integers</li>
+              <table>
+                <tr>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>11</td>
+                  <td>10</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td>12</td>
+                </tr>
+              </table>
+              <li>An array of 5 chars</li>
+              <table>
+                <tr>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                </tr>
+                <tr>
+                  <td>a</td>
+                  <td>z</td>
+                  <td>F</td>
+                  <td>z</td>
+                  <td>k</td>
+                </tr>
+              </table>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Arrays in C</h2>
+          <ul>
+            <li>Array declaration in C</li>
+            <p>
+              <span class="orange-select">&lt;Elements’ Type&gt;</span>
+              <span class="green-select">&lt;identifier&gt;</span>[<span class="red-select">&lt;size&gt;</span>]
+            </p>
+            <p>
+              <span class="orange-select">int</span> <span class="green-select">arr</span>[<span class="red-select">20</span>]
+            </p>
+            <li><span class="orange-select">&lt;Elements’ Type&gt;</span>: int, char, float, ...</li>
+            <li><span class="red-select">&lt;size&gt;</span></li>
+            <ul>
+              <li>Old compilers (standard): it should be constant</li>
+              <li>New compilers (standard): it can be variable</li>
+            </ul>
+            <li>Elements in array</li>
+            <ul>
+              <li>From 0 to (size – 1)</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Example</h2>
+          <p>
+            <span class="orange-select">int</span> <span class="green-select">num</span>[<span class="red-select">20</span>]
+          </p>
+          <ul>
+            <li>num is array of 20 <span class="cyan-select">integers</span></li>
+            <li>num[0] is the first integer variable</li>
+            <li>num[19] is the last integer</li>
+          </ul>
+          <p>
+            <span class="orange-select">float</span> <span class="green-select">farr</span>[<span class="red-select">100</span>]
+          </p>
+          <ul>
+            <li>farr is array of <span class="cyan-select">100</span> floats</li>
+            <li>farr[0] is the first float</li>
+            <li>farr[49] is the 50th float</li>
+            <li>farr[99] is the last float</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Array Initialization: Known Length</h2>
+          <ul>
+            <pre><code class="hljs lang-c">int num[3]={10, 20, 60};</code></pre>
+            <li>num is the array of 3 integers, num[0] is 10, …</li>
+            <pre><code class="hljs lang-c">nt num[]={40, 50, 60, 70, 70, 80};</code></pre>
+            <li>num is the array of 6 integers</li>
+            <pre><code class="hljs lang-c">int num[10]={40, 50, 60};</code></pre>
+            <li>num is the array of 10 integers</li>
+            <li>num[0] is 40, num[1] is 50, num[2] is 60</li>
+            <li>num[3], num[4], ..., num[9] are 0</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Array Initialization (cont’d)</h2>
+          <pre><code class="hljs lang-c">
+int num[2]={40, 50, 60, 70};
+/* Compile warning */
+
+int num[5]={[0] = 3, [4] = 6};
+/* num[5] = {3, 0, 0, 0, 6} */
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Initializing Variable Length Arrays</h2>
+          <pre><code class="hljs lang-c">
+int n;
+scanf("%d", &amp;n);
+int num[n]={0}; /* Compile error */
+          </code></pre>
+          <p>Variable length arrays cannot be initialized!</p>
+          <pre><code class="hljs lang-c">
+for(i = 0; i &lt; n; i++)
+  num[i] = 0;
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variable Length Array Declaration</h2>
+          <pre><code class="hljs lang-c">
+int n;
+scanf("%d", &amp;n);
+int num[n];
+          </code></pre>
+          <p><span class="orange-select">num</span> is usable</p>
+          <pre><code class="hljs lang-c">
+int n;
+int num[n];
+scanf("%d", &amp;n);
+          </code></pre>
+          <p><span class="orange-select">num</span> is <span class="red-select">not</span> usable, why?</p>
+        </section>
+        <section>
+          <div class="toc" data-selected="5"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Empty statements</h2>
+          <ul>
+            <li>&lt;statement&gt; in loops can be empty</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+while(&lt;expression&gt;) ;
+E.g.,
+while(i++ &lt;= n) ;
+
+for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;) ;
+E.g.,
+for(i = 0; i &lt; 10; printf("%d\n",i), i++) ;
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Nested loops</h2>
+          <ul>
+            <li>&lt;statement&gt; in loops can be loop itself</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+while(&lt;expression0&gt;)
+  for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
+    &lt;statements&gt;
+          </code></pre>
+          <pre><code class="hljs lang-c">
+for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
+  do
+    &lt;statements&gt;
+  while(&lt;expression&gt;)
+          </code></pre>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: #ff033e;">Nested loops example</h2>
+            <ul>
+              <li>A program that takes n and m and prints</li>
+              <p>
+                *** ….* (m * in each line)<br>
+                *** ….*<br>
+                …<br>
+                *** ….*<br>
+                (n lines)
+              </p>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  int i, j, n, m;
+  printf("Enter n &amp; m: ");
+  scanf("%d %d", &amp;n, &amp;m);
+
+  for(i = 0; i &lt; n; i++){
+    for(j = 0; j &lt; m; j++) {
+      printf("*");
+    }
+    printf("\n");
+  }
+  return 0;
+}
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: #ff033e;">Nested loops example</h2>
+            <ul>
+              <li>A program that takes n and prints</li>
+              <p>
+                * (i * in i-th line)<br>
+                ** <br>
+                *** <br>
+                *** ….* <br>
+                (n lines)
+              </p>
+            </ul>
+          </section>
+          <section>
+            <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  int i, j, n;
+  printf("Enter n: ");
+  scanf("%d", &amp;n);
+
+  i = 1;
+  while(i &lt;= n) {
+    for(j = 0; j &lt; i; j++) {
+      printf("*");
+    }
+    printf("\n");
+    i++;
+  }
+  return 0;
+}
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">break statement</h2>
+          <ul>
+            <li>Exit from loop based on some conditions</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+do{
+  scanf("%d", &amp;a);
+  scanf("%d", &amp;b);
+
+  if(b == 0)
+    break;
+
+  res = a / b;
+  printf("a / b = %d\n", res);
+} while(b &gt; 0);
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">continue statement</h2>
+          <ul>
+            <li>Jump to end of loop and continue repetition</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+do{
+  scanf("%f", &amp;a);
+  scanf("%f", &amp;b);
+  if(b == 0)
+    continue;
+  res = a / b;
+  printf("a / b = %f\n", res);
+} while(a &gt; 0);
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Which loop?</h2>
+          <ul>
+            <li>When you know the number of repetition</li>
+            <ul>
+              <li>Counter-controlled loops</li>
+              <li>Usually, <span class="orange-select">for</span> statements</li>
+            </ul>
+            <li>When you don’t know the number of repetitions (sentinel loop)</li>
+            <ul>
+              <li>Some condition should be check before starting loop</li>
+              <ul>
+                <li>Usually, <span class="green-select">while</span> statement</li>
+              </ul>
+              <li>The loop should be executed at least one time</li>
+              <ul>
+                <li>Usually, <span class="cyan-select">do-while</span></li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <div class="toc" data-selected="6"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Common bugs and avoiding them</h2>
+          <ul>
+            <li>Loop should terminate</li>
+            <ul>
+              <li>E.g., in for loops, after each iteration, we should approach to the stop condition</li>
+            </ul>
+            <pre><code class="hljs lang-c">
+for(i = 0; i &lt; 10; i++) //OK
+for(i = 0; i &lt; 10; i--) //Bug
+            </code></pre>
+            <li>Initialize loop control variables</li>
+            <pre><code class="hljs lang-c">
+int i;
+for( ; i &lt; 10; i++)
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Common bugs and avoiding them</h2>
+          <ul>
+            <li>Don’t modify for loop controller in loop body</li>
+            <pre><code class="hljs lang-c">
+for(i = 0; i &lt; 10; i++) {
+  ...
+  i--; //Bug
+}
+            </code></pre>
+            <li>Take care about wrong control conditions</li>
+            <ul>
+              <li>&lt; vs. &lt;=</li>
+              <li>= vs. ==</li>
+            </ul>
+            <pre><code class="hljs lang-c">
+int b = 10;
+while(a = b){ //it means while(true)
+  scanf("%d", &amp;a)
+            </code></pre>
+          </ul>
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
