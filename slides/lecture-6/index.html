@@ -745,12 +745,13 @@ sign = (x &lt; 0) ? -1 : ((x &gt; 0) ? 1 : 0)
           <div class="toc" data-selected="4"></div>
         </section>
         <section>
-          <h2 style="color: #ff033e;">Common Bugs</h2>
-          <ul>
-            <li>Equality of floating point numbers</li>
-            <li>Two float numbers may or may <span class="red-select">NOT</span> be equal</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+          <section>
+            <h2 style="color: #ff033e;">Common Bugs</h2>
+            <ul>
+              <li>Equality of floating point numbers</li>
+              <li>Two float numbers may or may <span class="red-select">NOT</span> be equal</li>
+            </ul>
+            <pre><code class="hljs lang-c">
 double d1, d2;
 d1 = 1e20 + 1;
 d2 = 1e20 - 1;
@@ -758,8 +759,23 @@ if(d1 == d2)
   printf("They are equal :-o \n");
 else
   printf("They are not equal :D \n");
-          </code></pre>
-          <p><span class="red-select">They are equal :-o</span></p>
+            </code></pre>
+            <p><span class="red-select">They are equal :-o</span></p>
+          </section>
+          <section>
+            <p>
+              Instead of checking for equality, check their difference to be in a small-enough period.
+            </p>
+            <pre><code class="hljs lang-c">
+double d1, d2;
+d1 = 1e20 + 1;
+d2 = 1e20 - 1;
+if(fabs(d1 - d2) &lt;= 0.0000001)
+  printf("They are equal :-o \n");
+else
+  printf("They are not equal :D \n");
+            </code></pre>
+          </section>
         </section>
         <section>
           <h2 style="color: #ff033e;">Common Bugs</h2>
@@ -799,6 +815,7 @@ if (a &amp;&amp; b &gt; 0) // Logical Error
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
+          <img src="img/coronavirus.jpg" alt="coronavirus">
         </section>
       </div>
     </div>
