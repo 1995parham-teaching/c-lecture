@@ -267,6 +267,129 @@ int main(void){
           <div class="toc" data-selected="1"></div>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Input Parameters</h2>
+          <ul>
+            <li>Inputs of function</li>
+            <ul>
+              <li>No input: <span class="orange-select">void</span></li>
+              <li>One or multiple inputs</li>
+            </ul>
+            <li>Each input should have a type</li>
+            <li>Input parameters are split by “,”</li>
+            <pre><code class="hljs lang-c">
+void f(void)
+void f(int a)
+void f(int a, float b)
+void f(int a, b) //compile error
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void print_sub(double a, double b) {
+  double res;
+  res = a - b;
+  printf("Sub of %lf and %lf is %lf\n", a, b, res);
+}
+
+int main(void) {
+  double d1 = 10, d2 = 20;
+  print_sub(56.0, 6.0);
+  print_sub(d1, d2);
+  print_sub(d1, d2 + d2);
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">How Does Function Call Work?</h2>
+          <ul>
+            <li>Function call is implemented by <span class="orange-select">“stack”</span></li>
+            <li>Stack is a <span class="green-select">logical</span> part of the main memory</li>
+            <li>Variables of function and its input variables are in stack</li>
+            <li>When a function calls</li>
+            <ul>
+              <li>Its variables including the inputs are allocated in stack</li>
+              <li>The value of input parameters from caller function is pushed to stack of called function</li>
+              <ul>
+                <li>They are <span class="cyan-select">copied</span> in to the variables of function</li>
+              </ul>
+            </ul>
+            <li>When function finished, its stack is freed</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">print_sub: What happen?</h2>
+          <p>
+            print_sub(56.0, 6.0);
+          </p>
+          <ul>
+            <li>56.0 is copied the memory location <span class="green-select">a</span></li>
+            <li>6.0 is copied to memory location <span class="orange-select">b</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+double a = 56.0;
+double b = 6.0;
+double res;
+res = a - b;
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">print_sub: What happen?</h2>
+          <p>
+            print_sub(d1, d2);
+          </p>
+          <ul>
+            <li>value of d1 is copied the memory location <span class="green-select">a</span></li>
+            <li>value of d2 is copied to memory location <span class="orange-select">b</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+double a = 10.1;
+double b = 6.0;
+double res;
+res = a - b;
+          </code></pre>
+          <p><span class="red-select">Call by Value</span></p>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Call by value</h2>
+          <ul>
+            <li>In call by value mechanism</li>
+            <ul>
+              <li>The values are <span class="orange-select">copied</span> to the function</li>
+            </ul>
+            <li>If we change values in the function</li>
+            <ul>
+              <li>The copied version is changed</li>
+              <li>The original value does <span class="red-select">not</span> affected</li>
+            </ul>
+            <li>Call by value inputs <span class="red-select">cannot</span> be used to produce output</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">add function (wrong version)</h2>
+          <pre><code class="hljs lang-c">
+void add(double a, double b, double res){
+  res = a + b;
+  return;
+}
+
+int main(void){
+  double d1 = 10.1, d2 = 20.2;
+  double result = 0;
+  add(56.0, 6.7, result);
+  printf("result = %f\n", result);
+  add(d1, d2, result);
+  printf("result = %f\n", result);
+}
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="2"></div>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
