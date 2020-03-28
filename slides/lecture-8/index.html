@@ -390,6 +390,403 @@ int main(void){
           <div class="toc" data-selected="2"></div>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Producing output</h2>
+          <ul>
+            <li>What we have seen are the “Command”</li>
+            <li>Query functions</li>
+            <ul>
+              <li>Produce output</li>
+              <li>Output <span class="red-select">cannot</span> be produced by the “call by value” parameters</li>
+            </ul>
+            <li>To produce an output</li>
+            <ul>
+              <li>Declare output type</li>
+              <li>Generate the output by <span class="orange-select">return</span></li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">The return command</h2>
+          <ul>
+            <li>To generate a result by a function</li>
+            <p>
+              return &lt;value&gt;;
+            </p>
+            <li>Only one value can be returned</li>
+            <li><span class="green-select">return</span> finishes running the function</li>
+            <li>Function can have multiple return</li>
+            <ul>
+              <li>Only one of them runs each time</li>
+            </ul>
+            <li>The type of the returned value = the result type</li>
+            <ul>
+              <li>Otherwise, cast</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Exmaple: my_fabs (Version 1)</h2>
+          <pre><code class="hljs lang-c">
+double my_fabs(double x){
+  double res;
+  if(x &gt;= 0)
+    res = x;
+  else
+    res = -1 * x;
+  return res;
+}
+
+void main(void){
+  double d = -10;
+  double b;
+  b = my_fabs(d);
+  printf("%lf\n", b);
+  printf("%lf\n", my_fabs(-2 * b));
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Exmaple: my_fabs (Version 2)</h2>
+          <pre><code class="hljs lang-c">
+double my_fabs(double x){
+  if(x &gt;= 0)
+    return x;
+  return (-1 * x);
+}
+
+void main(void){
+  double d = -10;
+  double b;
+  b = my_fabs(d);
+  printf("b = %lf\n", b);
+  b = my_fabs(-2 * d);
+  printf("b = %lf\n", b);
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Output of functions</h2>
+          <ul>
+            <li>A function can produce <span class="orange-select">at most one</span> output</li>
+            <li>Output of functions can be dropped</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+double f;
+sin(f); // we drop the output of sin
+gcd(10, 20); // we drop the output of gcd
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Casting in functions</h2>
+          <ul>
+            <li>Cast for input</li>
+            <ul>
+              <li>Prototype: <span class="orange-select">void f(int a, double b);</span></li>
+              <li>Call: <span class="green-select">f(10.1, 20.2);</span></li>
+            </ul>
+            <li>Cast for output</li>
+            <ul>
+              <li>Prototype: <span class="orange-select">int f(int a);</span></li>
+              <li>Call: <span class="green-select">double d = f(10);</span></li>
+              <li>In return: <span class="cyan-select">return 10.20</span></li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Be careful: empty input/output type</h2>
+          <ul>
+            <li>If output or input type is not specified &rarr; <span class="orange-select">int</span></li>
+            <ul>
+              <li>Casting may not work</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+f1(a){
+  printf("a = %d\n", a); return a / 2;
+}
+f2(int a){
+  printf("a = %d\n", a); return a / 2;
+}
+f3(float a){
+    printf("a = %f\n", a);  return a / 2;
+}
+int main(){
+  printf("%d\n", f1(10.5));
+  printf("%d\n", f2(10.5));
+  printf("%d\n", f3(10.5));
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Inline Functions &amp; Macro</h2>
+          <ul>
+            <li>Function call using stack has its overhead</li>
+            <ul>
+              <li>2 approaches to reduce the overhead</li>
+            </ul>
+            <li><span class="orange-select">inline</span> function</li>
+            <ul>
+              <li>To ask from compiler to compile it as inline, but no guarantee</li>
+              <pre><code class="hljs lang-c">
+inline int f(float x)
+              </code></pre>
+            </ul>
+            <li>Macros</li>
+            <pre><code class="hljs lang-c">
+#define PRINT_INT(X) printf("%d\n", X)
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Example: GCD</h2>
+          <pre><code class="hljs lang-c">
+#define PRINT_INT(x) printf("%d\n",x); \
+                      printf("===================\n");
+
+inline int gcd(int a, int b){ /* return gcd of a and b */
+  int temp;
+  while(b != 0){
+    temp = a % b;
+    a = b;
+    b = temp;
+  }
+  return a;
+}
+
+void main(void){
+  int i = 20, j = 35, g;
+
+  g = gcd(i, j);
+  printf("GCD of %d and %d = ", i , j);
+  PRINT_INT(g);
+
+  g = gcd(j, i);
+  printf("GCD of %d and %d = ", j , i);
+  PRINT_INT(g);
+}
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="3"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Scope of Variables</h2>
+          <ul>
+            <li>Variables</li>
+            <ul>
+              <li>Are declared in the start of functions</li>
+              <li>Are used any where in the function <span class="orange-select">after declaration</span></li>
+              <li>Cannot be used outside of function</li>
+              <li>Cannot be used in other functions</li>
+            </ul>
+            <li><span class="orange-select">Scope</span> of variable</li>
+            <ul>
+              <li>A range of code that the variable can be used</li>
+            </ul>
+            <li>Variable cannot not be used outside of its scope</li>
+            <ul>
+              <li>Compile error</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Scopes and Blocks</h2>
+          <ul>
+            <li>Scopes are determined by Blocks</li>
+            <ul>
+              <li>Start with { and finished by }</li>
+              <li>Example: statements of a function, statement of a if or while, ...</li>
+            </ul>
+            <li>Variables</li>
+            <ul>
+              <li><span class="orange-select">Can be</span> declared in a block</li>
+              <li><span class="green-select">Can be</span> used in the declared block</li>
+              <li><span class="cyan-select">Cannot be</span> used outside the declared block</li>
+            </ul>
+            <li>The declared block is the scope of the variable</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables in Blocks</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+int main(void){
+  int i;
+  for(i = 1; i &lt;= 10; i++){
+    int number;
+    printf("Enter %d-th number: ", i);
+    scanf("%d", &amp;number);
+
+    if((number % 2) == 0)
+        printf("Your number is even\n");
+     else
+         printf("Your number is odd\n");
+  }
+  /* compile error
+   printf("The last number is %d\n", number); */
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Nested Scopes/Blocks</h2>
+          <ul>
+            <li>Scopes can be nested</li>
+            <ul>
+              <li>Example: Nested if, nested for, ...</li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+void main(){ //block 1
+  int i;
+  { //block 2
+    int j;
+    { //block 3
+       int k;
+    }
+    int m;
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables in Nested Blocks</h2>
+          <ul>
+            <li>All variables from outer block can be used inner blocks</li>
+            <ul>
+              <li>Scope of inner block contains the outer block</li>
+            </ul>
+            <li>Variables in inner block <span class="red-select">cannot</span> be used in outer block</li>
+            <ul>
+              <li>Scope of the outer block <span class="red-select">does not</span> contains the inner block</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables in Nested Blocks: Example</h2>
+          <pre><code class="hljs lang-c">
+int k;
+
+for(int i = 0; i &lt; 10; i++){
+  /* block 1 */
+  if(i &gt; 5){
+    /* block 2 */
+    int j = i;
+    ...
+  }
+
+  while(k &gt; 10){
+    /* block 3 */
+    int l = i;
+    /* int m = j; compile error */
+    ...
+  }
+
+  /* k = l; compile error */
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Variables in Nested Blocks: Example</h2>
+          <ul>
+            <li>If a variable in inner block has the same identifier of a variable in outer block</li>
+            <ul>
+              <li>The inner variable <span class="orange-select">hides</span> the outer variable</li>
+              <li>Changing inner variables <span class="green-select">does not</span> change outer variable</li>
+            </ul>
+          </ul>
+          <p class="red-select" style="font-size: 120px;">Do Not Use It</p>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Local Variables</h2>
+          <ul>
+            <li>All variables defined in a function are the <span class="orange-select">local variable</span> of the function</li>
+            <li>Can <span class="green-select">ONLY</span> be used in the function, not other functions</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+void func(void){
+  /* These are local variables */
+  int i, j;
+  float f;
+}
+
+int main(void){
+  i = 10; /* compile error, why? */
+  f = 0; /* compile error, why? */
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Global/External Variables</h2>
+          <ul>
+            <li>Global variables are defined outside of all functions</li>
+            <li>Global variables are <span class="orange-select">initialized</span> to zero</li>
+            <li>Global variables are available to all subsequent functions</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+void f(){
+   i = 0; // compile error
+}
+int i;
+void g(){
+   int j = i; // g can use i
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Global/External Variables: Example</h2>
+          <pre><code class="hljs lang-c">
+int i, j;
+float f;
+
+void func(void){
+  printf("i = %d \n", i);
+  printf("f = %f \n", f);
+  i = 20;
+}
+
+void f1(){
+  printf("%d", i);
+}
+
+int main(void){
+  f = 1000;
+  func();
+  f1();
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: #ff033e;">Parameter Passing by Global Variables: my_fabs (V.3)</h2>
+            <pre><code class="hljs lang-c">
+double x;
+
+void my_fabs(void){
+  x = (x &gt; 0) ? x : -1 * x;
+}
+
+void main(void){
+  double b, d = -10;
+  x = d;
+  my_fabs();
+  b = x;
+  printf("b = %f\n", b);
+}
+            </code></pre>
+          </section>
+          <section>
+            <ul>
+              <li>Don’t use this method. Parameters should be passed by input parameter list.</li>
+              <li>Global variable are used to define (large) variables that are used in many functions</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
