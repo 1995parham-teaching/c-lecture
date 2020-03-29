@@ -785,6 +785,90 @@ void main(void){
           </section>
         </section>
         <section>
+          <div class="toc" data-selected="4"></div>
+        </section>
+        <section>
+          <ul>
+            <li>Storage class</li>
+            <ul>
+              <li>How memory is allocated for the variable</li>
+              <li>Until when the variable exists</li>
+              <li>How it is initialized</li>
+            </ul>
+            <li>Storage classes in C</li>
+            <ul>
+              <li>Automatic</li>
+              <li>External</li>
+              <li>Static</li>
+              <li>Register</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes: Automatic</h2>
+          <ul>
+            <li>All local variables are automatic by default</li>
+            <ul>
+              <li>Input parameters of a function</li>
+              <li>Variables defined inside a function/block</li>
+              <li>Keyword <span class="orange-select">auto</span> is optional before them</li>
+            </ul>
+            <li>Generated at the <span class="green-select">start of each run of the block</span></li>
+            <li>Destroyed at the <span class="cyan-select">end of each run of the block</span></li>
+            <li>Are not initialized</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes: External</h2>
+          <ul>
+            <li>All global variables are external by default</li>
+            <ul>
+              <li>Are initialized by 0</li>
+              <li>Are generated when program starts</li>
+              <li>Are destroyed when program finishes</li>
+            </ul>
+            <li>Usage of keyword <span class="orange-select">extern</span></li>
+            <ul>
+              <li>To use global variables in other files</li>
+              <li>To use global variables before definition</li>
+              <li>To emphasize that variable is global</li>
+              <ul>
+                <li>This usage is optional</li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes: Static</h2>
+          <ul>
+            <li>Keyword <span class="orange-select">static</span> comes before them</li>
+            <li>For local variables:</li>
+            <ul>
+              <li>Generated in <span class="green-select">the first run of the block</span></li>
+              <li>Destroyed <span class="cyan-select">when program finishes</span></li>
+              <li>Initialized</li>
+              <ul>
+                <li>If no value &rarr; initialized by 0</li>
+                <li>Only initialized in the first run of the block</li>
+              </ul>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes: Static</h2>
+          <ul>
+            <li>Keyword <span class="orange-select">static</span> comes before them</li>
+            <li>For global variables:</li>
+            <ul>
+              <li>Generated <span class="green-select">when program starts</span></li>
+              <li>Destroyed <span class="cyan-select">when program finishes</span></li>
+              <li>Initialized</li>
+              <ul>
+                <li>If no value &rarr; initialized by 0</li>
+              </ul>
+              <li>Is not accessible for other files</li>
+            </ul>
+          </ul>
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
