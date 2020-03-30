@@ -871,6 +871,262 @@ void main(void){
           </ul>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Storage Classes: Register</h2>
+          <ul>
+            <li>Keyword <span class="orange-select">register</span> comes before them</li>
+            <li>Can be used for local variables</li>
+            <li>Compiler tries to allocated the variable in registers of CPU</li>
+            <ul>
+              <li>But does <span class="red-select">not</span> guaranteed</li>
+              <li>Registers are very fast and small memories</li>
+            </ul>
+            <li>Improve performance</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes, Auto: Examples</h2>
+          <pre><code class="hljs lang-c">
+void f(int i, double d){
+  int i2;
+  auto int i3;
+  double d2;
+  auto double d3;
+}
+          </code></pre>
+          <p>
+            All variables (i, d, i2, i3, d2, d3) are auto variables
+          </p>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes, Extern: Examples</h2>
+          <pre><code class="hljs lang-c">
+int i = 10, j = 20;
+
+void print(void){
+  printf("i = %d, j = %d\n", i, j);
+}
+
+int main(void){
+  extern int i; // i refers the global i
+  int j;
+  print();
+  i = 1000;
+  j = 2000;
+  print();
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes: Examples</h2>
+          <pre><code class="hljs lang-c">
+int i;
+
+void func(void){
+  int j;
+  printf("i = %d \n", i);
+  printf("j = %d \n", j);
+  i = 20;
+}
+
+int main(void){
+  func();
+  func();
+  i = 30;
+  func();
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes, Static: Examples</h2>
+          <pre><code class="hljs lang-c">
+void func(void){
+  int j;
+  static int i;
+  printf("i = %d \n", i);
+  printf("j = %d \n", j);
+  i = 20;
+}
+int main(void){
+  func();
+  func();
+  /* i = 30; compile error, why? */
+  func();
+  return 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Storage Classes, Register: Examples</h2>
+          <pre><code class="hljs lang-c">
+register int i;
+for(i = 0; i &lt; 100; i++)
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Be careful: loop & automatic variables</h2>
+          <ul>
+            <li>According to standard:</li>
+            <q>
+              For such an object that does not have a variable length array type, its lifetime extends from entry into the block with which it
+is associated until execution of that block ends in any way.
+            </q>
+            <li>Variable is defined in a block of a loop</li>
+            <li>The variable retains its value between iterations of the loop if it is <span class="red-select">NOT</span> variable length array</li>
+            <li>The variable does <span class="red-select">NOT</span> retain its value between iterations of the loop if it is a variable length array</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">loop & automatic variables</h2>
+          <pre><code class="hljs lang-c">
+int main(){
+    int i;
+    for(i = 0; i &lt; 5; i++) {
+        int j;
+        if(i) {
+          printf("&amp;j = %p, j = %d\n", &amp;j, j);
+          j++;
+        } else {
+          j = i;
+        }
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">loop & automatic variables</h2>
+          <pre><code class="hljs lang-c">
+int main(){
+    int i;
+    for(i = 0; i &lt; 5; i++) {
+        int j[5 * i + 1];
+        if(i) {
+          printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
+          j[0]++;
+        } else {
+          j[0] = i;
+        }
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">loop & automatic variables</h2>
+          <pre><code class="hljs lang-c">
+int main(){
+    int i;
+    for(i = 0; i &lt; 5; i++) {
+        int j[5 * 3 + 1];
+        if(i) {
+          printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
+          j[0]++;
+        } else {
+          j[0] = i;
+        }
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="5"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">How to use functions: Example</h2>
+          <ul>
+            <li>An Example</li>
+            <ul>
+              <li>Goldbach’s Conjecture</li>
+              <li>Any even number larger than 2 can be expressed as sum of two prim numbers</li>
+            </ul>
+            <li>It is not proved yet!</li>
+            <ul>
+              <li>1,000,000$ to proof 😋</li>
+            </ul>
+            <li>Write a program that takes a set numbers which ends by 0 and checks correctness of the conjecture</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Main Overall Algorithm</h2>
+          <pre><code class="hljs lang-c">
+while(number is not zero)
+  if(number &gt;= 2 and even)
+    Check Goldbach’s Conjecture
+  else
+    Print some message
+  read next number
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Check Goldbach’s Conjecture Algorithm</h2>
+          <p>
+            <b>Algorithm:</b> Goldbach<br>
+            <b>Input:</b> n<br>
+            <b>Output:</b> 0 if conjecture is incorrect else 1<br>
+          </p>
+          <pre><code class="hljs lang-c">
+for(i from 2 to n/2)
+  j = n – i
+  if(is_prime(j))
+    conjecture is correct
+  i = next_prime_number(i)
+
+Conjecture is incorrect
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">is_prime algorithm</h2>
+          <p>
+            <b>Algorithm:</b> is_prime<br>
+            <b>Input:</b> n<br>
+            <b>Output:</b> 1 if n is prime else 0<br>
+          </p>
+          <pre><code class="hljs lang-c">
+for(i from 2 to sqrt(n))
+  if(n % i == 0)
+    n is not prime
+
+n is prime
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">next_prime_number algorithm</h2>
+          <p>
+            <b>Algorithm:</b> next_prime_number<br>
+            <b>Input:</b> n<br>
+            <b>Output:</b> prime number<br>
+          </p>
+          <pre><code class="hljs lang-c">
+if n is 2
+  output is 3
+else
+  do
+    n = n + 2
+  while(is_prime(n) == 0)
+    output is n
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Putting them altogether</h2>
+          <pre><code class="hljs lang-c">
+int is_prime(int n) {
+  ...
+}
+int next_prime_number(int n) {
+  ...
+}
+int check_Goldbach(int n) {
+  ...
+}
+int main(void) {
+  ...
+}
+          </code></pre>
+        </section>
+        <section>
+          <div class="toc" data-selected="6"></div>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
