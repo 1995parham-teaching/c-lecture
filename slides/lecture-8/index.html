@@ -739,7 +739,7 @@ int main(void){
           <ul>
             <li>Global variables are defined outside of all functions</li>
             <li>Global variables are <span class="orange-select">initialized</span> to zero</li>
-            <li>Global variables are available to all subsequent functions</li>
+            <li>Global variables are available to all <span class="green-select">subsequent</span> functions</li>
           </ul>
           <pre><code class="hljs lang-c">
 void f(){
@@ -995,55 +995,85 @@ is associated until execution of that block ends in any way.
           </ul>
         </section>
         <section>
-          <h2 style="color: #ff033e;">loop & automatic variables</h2>
-          <pre><code class="hljs lang-c">
+          <section>
+            <h2 style="color: #ff033e;">loop & automatic variables</h2>
+            <pre><code class="hljs lang-c">
 int main(){
-    int i;
-    for(i = 0; i &lt; 5; i++) {
-        int j;
-        if(i) {
-          printf("&amp;j = %p, j = %d\n", &amp;j, j);
-          j++;
-        } else {
-          j = i;
-        }
+  int i;
+  for(i = 0; i &lt; 5; i++) {
+    int j;
+    if(i) { // when i != 0 update j
+      printf("&amp;j = %p, j = %d\n", &amp;j, j);
+      j++;
+    } else { // when i == 0 set j to 0
+      j = i;
+    }
   }
 }
-          </code></pre>
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+&amp;j = 0x7ffeed9f3964, j = 0
+&amp;j = 0x7ffeed9f3964, j = 1
+&amp;j = 0x7ffeed9f3964, j = 2
+&amp;j = 0x7ffeed9f3964, j = 3
+            </code></pre>
+          </section>
         </section>
         <section>
-          <h2 style="color: #ff033e;">loop & automatic variables</h2>
-          <pre><code class="hljs lang-c">
+          <section>
+            <h2 style="color: #ff033e;">loop & automatic variables</h2>
+            <pre><code class="hljs lang-c">
 int main(){
-    int i;
-    for(i = 0; i &lt; 5; i++) {
-        int j[5 * i + 1];
-        if(i) {
-          printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
-          j[0]++;
-        } else {
-          j[0] = i;
-        }
+  int i;
+  for(i = 0; i &lt; 5; i++) {
+    int j[5 * i + 1];
+    if(i) {
+      printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
+      j[0]++;
+    } else {
+      j[0] = i;
+    }
   }
 }
-          </code></pre>
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+&amp;j[0] = 0x7ffee735b910, j[0] = -415909520
+&amp;j[0] = 0x7ffee735b900, j[0] = -415909520
+&amp;j[0] = 0x7ffee735b8f0, j[0] = -415909520
+&amp;j[0] = 0x7ffee735b8d0, j[0] = -415909872
+            </code></pre>
+          </section>
         </section>
         <section>
-          <h2 style="color: #ff033e;">loop & automatic variables</h2>
-          <pre><code class="hljs lang-c">
+          <section>
+            <h2 style="color: #ff033e;">loop & automatic variables</h2>
+            <pre><code class="hljs lang-c">
 int main(){
-    int i;
-    for(i = 0; i &lt; 5; i++) {
-        int j[5 * 3 + 1];
-        if(i) {
-          printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
-          j[0]++;
-        } else {
-          j[0] = i;
-        }
+  int i;
+  for(i = 0; i &lt; 5; i++) {
+    int j[5 * 3 + 1];
+    if(i) {
+      printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
+      j[0]++;
+    } else {
+      j[0] = i;
+    }
   }
 }
-          </code></pre>
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+&amp;j[0] = 0x7ffee2a4d920, j[0] = 0
+&amp;j[0] = 0x7ffee2a4d920, j[0] = 1
+&amp;j[0] = 0x7ffee2a4d920, j[0] = 2
+&amp;j[0] = 0x7ffee2a4d920, j[0] = 3
+            </code></pre>
+          </section>
         </section>
         <section>
           <div class="toc" data-selected="5"></div>
