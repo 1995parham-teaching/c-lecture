@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Arrays</title>
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Parham theme! -->
+    <link rel="stylesheet" href="../css/theme.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 style="color: #ffea00;">Arrays</h1>
+          <h5>Fundamentals of Computer and Programming</h5>
+          <span class="cyan-select">Spring 2020</span>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="0"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Introduction</h2>
+          <ul>
+            <li>Algorithms usually work on large data sets</li>
+            <ul>
+              <li>Sort a set of numbers</li>
+              <li>Search a specific number in a set of numbers</li>
+            </ul>
+            <li>How to read and store a set of data?</li>
+            <li>To read</li>
+            <ul>
+              <li>Repeat the scanf statement</li>
+              <li>Use the loop statements</li>
+            </ul>
+            <li>To store the data</li>
+            <ul>
+              <li>Save each data in a single variable??</li>
+              <li><span class="orange-select">3000 int variables 😱</span></li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Array</h2>
+          <ul>
+            <li>A collection of <span class="orange-select">same type</span> variables</li>
+            <li>A nx1 vector of</li>
+            <ul>
+              <li>Integers, chars, floats, ...</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+              <li>An array of 8 integer</li>
+              <table>
+                <tr>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>11</td>
+                  <td>10</td>
+                  <td>19</td>
+                  <td>0</td>
+                  <td>12</td>
+                </tr>
+              </table>
+              <li>An array of 5 chars</li>
+              <table>
+                <tr>
+                  <td>'a'</td>
+                  <td>'z'</td>
+                  <td>'F'</td>
+                  <td>'z'</td>
+                  <td>'k'</td>
+                </tr>
+              </table>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Arrays in C</h2>
+          <ul>
+            <li>Array declaration in C</li>
+            <p>
+              <span class="orange-select">
+                &lt;Elements’ Type&gt;
+              </span>
+              <span class="green-select">
+                &lt;identifier&gt;
+              </span>
+              [
+              <span class="cyan-select">
+                &lt;size&gt;
+              </span>
+              ]
+            </p>
+            <li>
+              <span class="orange-select">
+                &lt;Elements’ Type&gt;
+              </span>:
+              int, char, float, ...
+            </li>
+            <li>
+              <span class="cyan-select">
+                &lt;size&gt;
+              </span>:
+              <ul>
+                <li>Old compilers (standard): <span class="red-select">it should be constant</span></li>
+                <li>New compilers (standard): <span class="red-select">it can be variable</span></li>
+              </ul>
+              <li>Elements in array</li>
+              <ul>
+                <li>From 0 to (size – 1)</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Example</h2>
+          <p>
+            <span class="red-select">int num[20];</span>
+          </p>
+          <ul>
+            <li><span class="orange-select">num</span> is array of 20 <span class="green-select">integers</span></li>
+            <li><span class="orange-select">num[0]</span> is the first integer variable</li>
+            <li><span class="orange-select">num[19]</span> is the last integer</li>
+          </ul>
+          <p>
+            <span class="red-select">float farr[100];</span>
+          </p>
+          <ul>
+            <li><span class="orange-select">farr</span> is array of 100 <span class="green-select">floats</span></li>
+            <li><span class="orange-select">farr[0]</span> is the first float</li>
+            <li><span class="orange-select">farr[49]</span> is the 50th <span class="green-select">float</span></li>
+            <li><span class="orange-select">farr[99]</span> is the last float</li>
+          </ul>
+        </section>
+        <section>
+          <div class="toc" data-selected="1"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Legends</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        slideNumber: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          {
+            src: '../plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              "Introduction",
+              "Arrays in functions",
+              "Multidimensional arrays",
+              "String",
+              "String functions",
+              "Array of strings"
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
