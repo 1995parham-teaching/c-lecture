@@ -157,6 +157,108 @@
           <div class="toc" data-selected="1"></div>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Arrays in Functions</h2>
+          <p>
+            int number[20];
+          </p>
+          <ul>
+            <li><span class="green-select">number[i]</span> is an <span class="orange-select">integer</span> variable</li>
+            <li>Array element can be used for call by value input</li>
+            <li>Array element can be use for output</li>
+            <pre><code class="hljs lang-c">
+int f(int x);
+void h(void) {
+  int arr[50];
+  // Array element in call by value arr[30] = f(arr[5]);
+}
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Arrays in Functions (cont’d)</h2>
+          <ul>
+            <li>Array can<span class="red-select">not</span> be used as output type of function</li>
+            <p>
+              <span class="red-select">int []</span> f(int x, int y); <span class="red-select">//compile error</span>
+            </p>
+            <li>Arrays can be used in input list of functions</li>
+            <li>Arrays are <span class="orange-select">not</span> passed by Call By Value</li>
+            <li>Arrays are passed by Call By <span class="green-select">Reference</span></li>
+            <ul>
+              <li>If we change array elements in a function</li>
+              <li>The element is changed in the caller function</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Arrays in Functions (version 1)</h2>
+          <ul>
+            <li>Function <span class="orange-select">arr_func</span> takes an array of integers</li>
+            <pre><code class="hljs lang-c">
+int arr_func(int num[90]){
+}
+            </code></pre>
+            <pre><code class="hljs lang-c">
+int arr_func(int num[]){
+}
+            </code></pre>
+            <li>Array <span class="green-select">a</span> is passed to function <span class="orange-select">arr_func</span></li>
+            <pre><code class="hljs lang-c">
+int a[90];
+i = arr_func(a);
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void init_array(int arr[10]){
+  int i;
+  for(i = 0; i &lt; 10; i++)
+    arr[i] = i;
+}
+
+void main(void){
+  int a[10];
+  init_array(a);
+  int j;
+  for(j = 0; j &lt; 10; j++)
+     printf("a[%d] = %d\n", j, a[j]);
+}
+          </code></pre>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: #ff033e;">Array Size in Functions</h2>
+            <ul>
+              <li>If array is an <span class="orange-select">input parameter</span> of a function</li>
+              <ul>
+                <li>It <span class="red-select">cannot</span> find out the size of the array</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>Array size should be passed from caller function to called function</li>
+              <ul>
+                <li>Using definitions</li>
+                <pre><code class="hljs lang-c">
+  #define SIZE 20
+  void func(int a[]){ for(int i = 0; i &lt; SIZE; i++)
+                </code></pre>
+                <li>Using input variable</li>
+                <pre><code class="hljs lang-c">
+  void read(int a[], int size){ for(int i = 0; i &lt; size; i++)
+                </code></pre>
+                <pre><code class="hljs lang-c">
+  void read(int size, int a[size]){ for(int i = 0; i &lt; size; i++)
+                </code></pre>
+              </ul>
+            </ul>
+          </section>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
