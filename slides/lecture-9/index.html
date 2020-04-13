@@ -259,6 +259,80 @@ void main(void){
           </section>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Array Size in Functions (cont’d)</h2>
+          <ul>
+            <li>If array is declared in a function</li>
+            <ul>
+              <li>It knows the size of the array</li>
+              <li>It <span class="orange-select">can</span> find out the size of the array using <span class="green-select">sizeof</span></li>
+            </ul>
+          </ul>
+          <pre><code class="hljs lang-c">
+void func(void){
+  int i, a[200];
+  for(i = 0; i &lt; 200; i++)
+    a[i] = 0;
+  // or
+  for(i = 0; i &lt; sizeof(a)/sizeof(a[0]); i++)
+    a[i] = 0;
+}
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Out-of-range access</h2>
+          <ul>
+            <li>C compiler does not check the range you access</li>
+            <ul>
+              <pre><code class="hljs lang-c">
+int x[10]; x[20] = 30; y = x[100];
+              </code></pre>
+              <li>No compiler error!</li>
+            </ul>
+            <li>What happen</li>
+            <ul>
+              <li>Read: Logical error</li>
+              <pre><code class="hljs lang-c">
+y = x[100];
+              </code></pre>
+              <li>Write: May or may not logical or runtime error</li>
+              <pre><code class="hljs lang-c">
+x[20] = 30;
+              </code></pre>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Out-of-range Example</h2>
+          <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void init_array(int size, int arr[]){
+  int i;
+  for(i = 0; i &lt; size; i++)
+    arr[i] = i;
+}
+
+void print_array(int size, int arr[]){
+  int i;
+  for(i = 0; i &lt; size; i++)
+    printf("arr[%d] = %d\n", i, arr[i]);
+}
+
+void main(void){
+  int x = 1;
+  int y = 2;
+  int a[10] = {0};
+  init_array(10, a);   // OK
+  print_array(10, a);  // OK
+  print_array(30, a);  // Wrong output
+  init_array(1000, a); // May be Run-time error!!!
+  init_array(20, a);   // May changes X, Y!!!
+                       // Logical error
+  printf("x = %d, y = %d\n" , x, y);
+}
+          </code></pre>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
