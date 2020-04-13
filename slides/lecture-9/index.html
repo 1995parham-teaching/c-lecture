@@ -452,6 +452,34 @@ t[1][1]; //t[1,1] &rarr; compile error
           </ul>
         </section>
         <section>
+          <section>
+            <h2 style="color: #ff033e;">Initializing Multidimensional Arrays</h2>
+            <ul>
+              <pre><code class="hljs lang-c">
+int num[2][3] = {1, 2, 0, 3, 4 , 7};
+int num[2][3] = {{1, 2, 0},{3, 4, 7}};
+              </code></pre>
+              <li>num[0][2] is 0, num[1][0] is 3</li>
+              <pre><code class="hljs lang-c">
+int num[5][3] = {{1, 2, 0},{3, 4, 7}};
+              </code></pre>
+              <li>num[2][2] is 0, num[1][2] is 7</li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <pre><code class="hljs lang-c">
+int num[2][3][2] = { { {1,2},{3,4},{5,6} }, { {1},{2},{3} } };
+              </code></pre>
+              <li>num[0][2][1] is 6, num[1][0][1] is 0</li>
+              <pre><code class="hljs lang-c">
+int num[][2] = {{1,1},{2,2},{3,3}};
+              </code></pre>
+              <li>num[1][1] is 2, num[2][0] is 3</li>
+            </ul>
+          </section>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
