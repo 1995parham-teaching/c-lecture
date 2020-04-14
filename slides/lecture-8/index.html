@@ -1084,7 +1084,7 @@ int main(){
             <li>An Example</li>
             <ul>
               <li>Goldbach’s Conjecture</li>
-              <li>Any even number larger than 2 can be expressed as sum of two prim numbers</li>
+              <li>Any even number larger than 2 can be expressed as sum of two prime numbers</li>
             </ul>
             <li>It is not proved yet!</li>
             <ul>
@@ -1140,8 +1140,8 @@ n is prime
           <h2 style="color: #ff033e;">next_prime_number algorithm</h2>
           <p>
             <b>Algorithm:</b> next_prime_number<br>
-            <b>Input:</b> n<br>
-            <b>Output:</b> prime number<br>
+            <b>Input:</b> n (is prime)<br>
+            <b>Output:</b> the first prime number that is greater than n<br>
           </p>
           <pre><code class="hljs lang-c">
 if n is 2
@@ -1150,7 +1150,7 @@ else
   do
     n = n + 2
   while(is_prime(n) == 0)
-    output is n
+  output is n
           </code></pre>
         </section>
         <section>
