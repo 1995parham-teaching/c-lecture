@@ -1,233 +1,211 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: lecture
+title: Arrays
+topics:
+- Introduction
+- Arrays in functions
+- Multidimensional arrays
+- String
+- String functions
+- Array of strings
+---
 
-    <title>Arrays</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Arrays</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <div class="toc"></div>
-        </section>
-        <section>
-          <div class="toc" data-selected="0"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Introduction</h2>
-          <ul>
-            <li>Algorithms usually work on large data sets</li>
-            <ul>
-              <li>Sort a set of numbers</li>
-              <li>Search a specific number in a set of numbers</li>
-            </ul>
-            <li>How to read and store a set of data?</li>
-            <li>To read</li>
-            <ul>
-              <li>Repeat the scanf statement</li>
-              <li>Use the loop statements</li>
-            </ul>
-            <li>To store the data</li>
-            <ul>
-              <li>Save each data in a single variable??</li>
-              <li><span class="orange-select">3000 int variables 😱</span></li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Array</h2>
-          <ul>
-            <li>A collection of <span class="orange-select">same type</span> variables</li>
-            <li>A nx1 vector of</li>
-            <ul>
-              <li>Integers, chars, floats, ...</li>
-            </ul>
-            <li>Example</li>
-            <ul>
-              <li>An array of 8 integer</li>
-              <table class="cell">
-                <tr>
-                  <th>0</th>
-                  <th>1</th>
-                  <th>2</th>
-                  <th>3</th>
-                  <th>4</th>
-                  <th>5</th>
-                  <th>6</th>
-                  <th>7</th>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>1</td>
-                  <td>5</td>
-                  <td>11</td>
-                  <td>10</td>
-                  <td>19</td>
-                  <td>0</td>
-                  <td>12</td>
-                </tr>
-              </table>
-              <li>An array of 5 chars</li>
-              <table class="cell">
-                <tr>
-                  <th>0</th>
-                  <th>1</th>
-                  <th>2</th>
-                  <th>3</th>
-                  <th>4</th>
-                </tr>
-                <tr>
-                  <td>'a'</td>
-                  <td>'z'</td>
-                  <td>'F'</td>
-                  <td>'z'</td>
-                  <td>'k'</td>
-                </tr>
-              </table>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Arrays in C</h2>
-          <ul>
-            <li>Array declaration in C</li>
-            <p>
-              <span class="orange-select">
-                &lt;Elements’ Type&gt;
-              </span>
-              <span class="green-select">
-                &lt;identifier&gt;
-              </span>
-              [
-              <span class="cyan-select">
-                &lt;size&gt;
-              </span>
-              ]
-            </p>
-            <li>
-              <span class="orange-select">
-                &lt;Elements’ Type&gt;
-              </span>:
-              int, char, float, ...
-            </li>
-            <li>
-              <span class="cyan-select">
-                &lt;size&gt;
-              </span>:
-              <ul>
-                <li>Old compilers (standard): <span class="red-select">it should be constant</span></li>
-                <li>New compilers (standard): <span class="red-select">it can be variable</span></li>
-              </ul>
-              <li>Elements in array</li>
-              <ul>
-                <li>From 0 to (size – 1)</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example</h2>
-          <p>
-            <span class="red-select">int num[20];</span>
-          </p>
-          <ul>
-            <li><span class="orange-select">num</span> is array of 20 <span class="green-select">integers</span></li>
-            <li><span class="orange-select">num[0]</span> is the first integer variable</li>
-            <li><span class="orange-select">num[19]</span> is the last integer</li>
-          </ul>
-          <p>
-            <span class="red-select">float farr[100];</span>
-          </p>
-          <ul>
-            <li><span class="orange-select">farr</span> is array of 100 <span class="green-select">floats</span></li>
-            <li><span class="orange-select">farr[0]</span> is the first float</li>
-            <li><span class="orange-select">farr[49]</span> is the 50th <span class="green-select">float</span></li>
-            <li><span class="orange-select">farr[99]</span> is the last float</li>
-          </ul>
-        </section>
-        <section>
-          <div class="toc" data-selected="1"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Arrays in Functions</h2>
-          <p>
-            int number[20];
-          </p>
-          <ul>
-            <li><span class="green-select">number[i]</span> is an <span class="orange-select">integer</span> variable</li>
-            <li>Array element can be used for call by value input</li>
-            <li>Array element can be use for output</li>
-            <pre><code class="hljs lang-c">
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Introduction</h2>
+  <ul>
+    <li>Algorithms usually work on large data sets</li>
+    <ul>
+      <li>Sort a set of numbers</li>
+      <li>Search a specific number in a set of numbers</li>
+    </ul>
+    <li>How to read and store a set of data?</li>
+    <li>To read</li>
+    <ul>
+      <li>Repeat the scanf statement</li>
+      <li>Use the loop statements</li>
+    </ul>
+    <li>To store the data</li>
+    <ul>
+      <li>Save each data in a single variable??</li>
+      <li><span class="orange-select">3000 int variables 😱</span></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Array</h2>
+  <ul>
+    <li>A collection of <span class="orange-select">same type</span> variables</li>
+    <li>A nx1 vector of</li>
+    <ul>
+      <li>Integers, chars, floats, ...</li>
+    </ul>
+    <li>Example</li>
+    <ul>
+      <li>An array of 8 integer</li>
+      <table class="cell">
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1</td>
+          <td>5</td>
+          <td>11</td>
+          <td>10</td>
+          <td>19</td>
+          <td>0</td>
+          <td>12</td>
+        </tr>
+      </table>
+      <li>An array of 5 chars</li>
+      <table class="cell">
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+        </tr>
+        <tr>
+          <td>'a'</td>
+          <td>'z'</td>
+          <td>'F'</td>
+          <td>'z'</td>
+          <td>'k'</td>
+        </tr>
+      </table>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Arrays in C</h2>
+  <ul>
+    <li>Array declaration in C</li>
+    <p>
+      <span class="orange-select">
+        &lt;Elements’ Type&gt;
+      </span>
+      <span class="green-select">
+        &lt;identifier&gt;
+      </span>
+      [
+      <span class="cyan-select">
+        &lt;size&gt;
+      </span>
+      ]
+    </p>
+    <li>
+      <span class="orange-select">
+        &lt;Elements’ Type&gt;
+      </span>:
+      int, char, float, ...
+    </li>
+    <li>
+      <span class="cyan-select">
+        &lt;size&gt;
+      </span>:
+      <ul>
+        <li>Old compilers (standard): <span class="red-select">it should be constant</span></li>
+        <li>New compilers (standard): <span class="red-select">it can be variable</span></li>
+      </ul>
+      <li>Elements in array</li>
+      <ul>
+        <li>From 0 to (size – 1)</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example</h2>
+  <p>
+    <span class="red-select">int num[20];</span>
+  </p>
+  <ul>
+    <li><span class="orange-select">num</span> is array of 20 <span class="green-select">integers</span></li>
+    <li><span class="orange-select">num[0]</span> is the first integer variable</li>
+    <li><span class="orange-select">num[19]</span> is the last integer</li>
+  </ul>
+  <p>
+    <span class="red-select">float farr[100];</span>
+  </p>
+  <ul>
+    <li><span class="orange-select">farr</span> is array of 100 <span class="green-select">floats</span></li>
+    <li><span class="orange-select">farr[0]</span> is the first float</li>
+    <li><span class="orange-select">farr[49]</span> is the 50th <span class="green-select">float</span></li>
+    <li><span class="orange-select">farr[99]</span> is the last float</li>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Arrays in Functions</h2>
+  <p>
+    int number[20];
+  </p>
+  <ul>
+    <li><span class="green-select">number[i]</span> is an <span class="orange-select">integer</span> variable</li>
+    <li>Array element can be used for call by value input</li>
+    <li>Array element can be use for output</li>
+    <pre><code class="hljs lang-c">
 int f(int x);
 void h(void) {
   int arr[50];
   // Array element in call by value arr[30] = f(arr[5]);
 }
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Arrays in Functions (cont’d)</h2>
-          <ul>
-            <li>Array can<span class="red-select">not</span> be used as output type of function</li>
-            <p>
-              <span class="red-select">int []</span> f(int x, int y); <span class="red-select">//compile error</span>
-            </p>
-            <li>Arrays can be used in input list of functions</li>
-            <li>Arrays are <span class="orange-select">not</span> passed by Call By Value</li>
-            <li>Arrays are passed by Call By <span class="green-select">Reference</span></li>
-            <ul>
-              <li>If we change array elements in a function</li>
-              <li>The element is changed in the caller function</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Arrays in Functions (version 1)</h2>
-          <ul>
-            <li>Function <span class="orange-select">arr_func</span> takes an array of integers</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Arrays in Functions (cont’d)</h2>
+  <ul>
+    <li>Array can<span class="red-select">not</span> be used as output type of function</li>
+    <p>
+      <span class="red-select">int []</span> f(int x, int y); <span class="red-select">//compile error</span>
+    </p>
+    <li>Arrays can be used in input list of functions</li>
+    <li>Arrays are <span class="orange-select">not</span> passed by Call By Value</li>
+    <li>Arrays are passed by Call By <span class="green-select">Reference</span></li>
+    <ul>
+      <li>If we change array elements in a function</li>
+      <li>The element is changed in the caller function</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Arrays in Functions (version 1)</h2>
+  <ul>
+    <li>Function <span class="orange-select">arr_func</span> takes an array of integers</li>
+    <pre><code class="hljs lang-c">
 int arr_func(int num[90]){
 }
-            </code></pre>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <pre><code class="hljs lang-c">
 int arr_func(int num[]){
 }
-            </code></pre>
-            <li>Array <span class="green-select">a</span> is passed to function <span class="orange-select">arr_func</span></li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Array <span class="green-select">a</span> is passed to function <span class="orange-select">arr_func</span></li>
+    <pre><code class="hljs lang-c">
 int a[90];
 i = arr_func(a);
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void init_array(int arr[10]){
@@ -243,48 +221,48 @@ void main(void){
   for(j = 0; j &lt; 10; j++)
      printf("a[%d] = %d\n", j, a[j]);
 }
-          </code></pre>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Array Size in Functions</h2>
-            <ul>
-              <li>If array is an <span class="orange-select">input parameter</span> of a function</li>
-              <ul>
-                <li>It <span class="red-select">cannot</span> find out the size of the array</li>
-              </ul>
-            </ul>
-          </section>
-          <section>
-            <ul>
-              <li>Array size should be passed from caller function to called function</li>
-              <ul>
-                <li>Using definitions</li>
-                <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Array Size in Functions</h2>
+    <ul>
+      <li>If array is an <span class="orange-select">input parameter</span> of a function</li>
+      <ul>
+        <li>It <span class="red-select">cannot</span> find out the size of the array</li>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>Array size should be passed from caller function to called function</li>
+      <ul>
+        <li>Using definitions</li>
+        <pre><code class="hljs lang-c">
   #define SIZE 20
   void func(int a[]){ for(int i = 0; i &lt; SIZE; i++)
-                </code></pre>
-                <li>Using input variable</li>
-                <pre><code class="hljs lang-c">
+        </code></pre>
+        <li>Using input variable</li>
+        <pre><code class="hljs lang-c">
   void read(int a[], int size){ for(int i = 0; i &lt; size; i++)
-                </code></pre>
-                <pre><code class="hljs lang-c">
+        </code></pre>
+        <pre><code class="hljs lang-c">
   void read(int size, int a[size]){ for(int i = 0; i &lt; size; i++)
-                </code></pre>
-              </ul>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Array Size in Functions (cont’d)</h2>
-          <ul>
-            <li>If array is declared in a function</li>
-            <ul>
-              <li>It knows the size of the array</li>
-              <li>It <span class="orange-select">can</span> find out the size of the array using <span class="green-select">sizeof</span></li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+        </code></pre>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Array Size in Functions (cont’d)</h2>
+  <ul>
+    <li>If array is declared in a function</li>
+    <ul>
+      <li>It knows the size of the array</li>
+      <li>It <span class="orange-select">can</span> find out the size of the array using <span class="green-select">sizeof</span></li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 void func(void){
   int i, a[200];
   for(i = 0; i &lt; 200; i++)
@@ -293,34 +271,34 @@ void func(void){
   for(i = 0; i &lt; sizeof(a)/sizeof(a[0]); i++)
     a[i] = 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Out-of-range access</h2>
-          <ul>
-            <li>C compiler does not check the range you access</li>
-            <ul>
-              <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Out-of-range access</h2>
+  <ul>
+    <li>C compiler does not check the range you access</li>
+    <ul>
+      <pre><code class="hljs lang-c">
 int x[10]; x[20] = 30; y = x[100];
-              </code></pre>
-              <li>No compiler error!</li>
-            </ul>
-            <li>What happen</li>
-            <ul>
-              <li>Read: Logical error</li>
-              <pre><code class="hljs lang-c">
+      </code></pre>
+      <li>No compiler error!</li>
+    </ul>
+    <li>What happen</li>
+    <ul>
+      <li>Read: Logical error</li>
+      <pre><code class="hljs lang-c">
 y = x[100];
-              </code></pre>
-              <li>Write: May or may not logical or runtime error</li>
-              <pre><code class="hljs lang-c">
+      </code></pre>
+      <li>Write: May or may not logical or runtime error</li>
+      <pre><code class="hljs lang-c">
 x[20] = 30;
-              </code></pre>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Out-of-range Example</h2>
-          <pre><code class="hljs lang-c">
+      </code></pre>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Out-of-range Example</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void init_array(int size, int arr[]){
@@ -347,11 +325,11 @@ void main(void){
                        // Logical error
   printf("x = %d, y = %d\n" , x, y);
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Max Index Example</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Max Index Example</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 int max_index(int a[], int size){
@@ -367,11 +345,11 @@ void main(void){
   int arr[] = {1, 4, 12, 93, 23};
   printf("max index = %d\n", max_index(arr, 5));
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Array Swap Example</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Array Swap Example</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void array_swap(int a[], int i, int j){
@@ -389,11 +367,11 @@ void main(void){
   array_swap(num, x, y);
   printf("num[%d] = %d, num[%d] = %d\n", x, num[x], y, num[y]);
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Sort</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Sort</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void array_swap(int a[], int i, int j){
@@ -433,18 +411,18 @@ int main(void){
 
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Binary Search</h2>
-            <ul>
-              <li>Given a <span class="orange-select">sorted array</span> arr[] of n elements, write a function to <span class="green-select">search a given element</span> x in arr[].</li>
-            </ul>
-            <img src="img/binary-search.png" alt="binary-search">
-          </section>
-          <section>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Binary Search</h2>
+    <ul>
+      <li>Given a <span class="orange-select">sorted array</span> arr[] of n elements, write a function to <span class="green-select">search a given element</span> x in arr[].</li>
+    </ul>
+    <img src="img/binary-search.png" alt="binary-search">
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
 int bsearch(int start, int end, int a[], int value){
   int mid = (start + end) / 2;
 
@@ -456,81 +434,81 @@ int bsearch(int start, int end, int a[], int value){
     return bsearch(mid + 1, end, a, value);
   else
     return bsearch(start, mid - 1 , a, value); }
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <div class="toc" data-selected="2"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Multidimensional Arrays</h2>
-          <ul>
-            <li>If element of an array is array itself, it will be Multidimensional array</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Multidimensional Arrays</h2>
+  <ul>
+    <li>If element of an array is array itself, it will be Multidimensional array</li>
+    <pre><code class="hljs lang-c">
 int t[10][20];
-            </code></pre>
-            <li>10x20 matrix of integers</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>10x20 matrix of integers</li>
+    <pre><code class="hljs lang-c">
 t[1][1]; //t[1,1] &rarr; compile error
-            </code></pre>
-            <li>Integer variable in location (1,1)</li>
-          </ul>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Initializing Multidimensional Arrays</h2>
-            <ul>
-              <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Integer variable in location (1,1)</li>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Initializing Multidimensional Arrays</h2>
+    <ul>
+      <pre><code class="hljs lang-c">
 int num[2][3] = {1, 2, 0, 3, 4 , 7};
-int num[2][3] = {{1, 2, 0},{3, 4, 7}};
-              </code></pre>
-              <li>num[0][2] is 0, num[1][0] is 3</li>
-              <pre><code class="hljs lang-c">
-int num[5][3] = {{1, 2, 0},{3, 4, 7}};
-              </code></pre>
-              <li>num[2][2] is 0, num[1][2] is 7</li>
-            </ul>
-          </section>
-          <section>
-            <ul>
-              <pre><code class="hljs lang-c">
+int num[2][3] = { {1, 2, 0}, {3, 4, 7} };
+      </code></pre>
+      <li>num[0][2] is 0, num[1][0] is 3</li>
+      <pre><code class="hljs lang-c">
+int num[5][3] = { {1, 2, 0}, {3, 4, 7} };
+      </code></pre>
+      <li>num[2][2] is 0, num[1][2] is 7</li>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <pre><code class="hljs lang-c">
 int num[2][3][2] = { { {1,2},{3,4},{5,6} }, { {1},{2},{3} } };
-              </code></pre>
-              <li>num[0][2][1] is 6, num[1][0][1] is 0</li>
-              <pre><code class="hljs lang-c">
-int num[][2] = {{1,1},{2,2},{3,3}};
-              </code></pre>
-              <li>num[1][1] is 2, num[2][0] is 3</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Multidimensional Arrays in Functions</h2>
-          <ul>
-            <li>
-              Can be used as input of functions.
-              All dimensions except the first one <span class="orange-select">must</span> be given.
-            </li>
-            <pre><code class="hljs lang-c">
+      </code></pre>
+      <li>num[0][2][1] is 6, num[1][0][1] is 0</li>
+      <pre><code class="hljs lang-c">
+int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
+      </code></pre>
+      <li>num[1][1] is 2, num[2][0] is 3</li>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Multidimensional Arrays in Functions</h2>
+  <ul>
+    <li>
+      Can be used as input of functions.
+      All dimensions except the first one <span class="orange-select">must</span> be given.
+    </li>
+    <pre><code class="hljs lang-c">
 void func(int a[10][20][5]);
-            </code></pre>
-            <ul>
-              <li>Input is a 10x20x5 integer matrix</li>
-            </ul>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <ul>
+      <li>Input is a 10x20x5 integer matrix</li>
+    </ul>
+    <pre><code class="hljs lang-c">
 void func(int a[][20][30], int size);
-            </code></pre>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <pre><code class="hljs lang-c">
 void func(int size1, int size2, int a[size1][size2]);
-            </code></pre>
-            <ul>
-              <li>Input is a matrix of integers that both rows and columns are variable</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Matrix Transpose</h2>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+    <ul>
+      <li>Input is a matrix of integers that both rows and columns are variable</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Matrix Transpose</h2>
+  <pre><code class="hljs lang-c">
 #define SIZE 5
 
 void swap(int a[SIZE][SIZE], int i, int j){
@@ -546,12 +524,12 @@ void transpose(int a[][SIZE]){
     for(j = i; j &lt; SIZE; j++)
       swap(a, i, j);
 }
-          </code></pre>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Matrix Print</h2>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Matrix Print</h2>
+    <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void display_matrix(int n_rows, int n_cols, int matrix[n_rows][n_cols]) {
@@ -574,154 +552,154 @@ int main (void){
     printf ("Original matrix:\n");
     display_matrix(3, 5, sample);
 }
-            </code></pre>
-          </section>
-          <section>
-            <pre><code>
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
 Original matrix:
     7    16    55    13    12
    12    10    52     0     7
    -2     1     2     4     9
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Array In Memory </h2>
-          <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
-        </section>
-        <section>
-          <div class="toc" data-selected="3"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Introduction</h2>
-          <ul>
-            <li>Until now</li>
-            <ul>
-              <li>We have seen strings in <span class="cyan-select">printf</span></li>
-              <li>Our old definition: string is a set of char between “” 😂</li>
-              <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Array In Memory </h2>
+  <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Introduction</h2>
+  <ul>
+    <li>Until now</li>
+    <ul>
+      <li>We have seen strings in <span class="cyan-select">printf</span></li>
+      <li>Our old definition: string is a set of char between “” 😂</li>
+      <pre><code class="hljs lang-c">
 printf("This is a string\n");
 printf("This is %s\n", "a string\n");
-              </code></pre>
-            </ul>
-            <li>Strings:</li>
-            <ul>
-              <li>An array of chars</li>
-              <li>Terminated by the <span class="orange-select">null char</span> '\0'</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Strings in C</h2>
-          <ul>
-            <li>Since strings are array</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+      </code></pre>
+    </ul>
+    <li>Strings:</li>
+    <ul>
+      <li>An array of chars</li>
+      <li>Terminated by the <span class="orange-select">null char</span> '\0'</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Strings in C</h2>
+  <ul>
+    <li>Since strings are array</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 char str3[] = {'p', 'r', 'o', 'g', 'r', 'a', 'm', '\0'};
 char str1[8] = "program";
 char str2[] = "program";
 char *str3 = "program"; //we will see later
-          </code></pre>
-          <table class="cell">
-            <tr>
-              <td>'p'</td>
-              <td>'r'</td>
-              <td>'o'</td>
-              <td>'g'</td>
-              <td>'r'</td>
-              <td>'a'</td>
-              <td>'m'</td>
-              <td class="orange-select">'\0'</td>
-            </tr>
-          </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading &amp; Writing Strings </h2>
-          <ul>
-            <li><span class="orange-select">printf</span> can be used to print strings</li>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+  <table class="cell">
+    <tr>
+      <td>'p'</td>
+      <td>'r'</td>
+      <td>'o'</td>
+      <td>'g'</td>
+      <td>'r'</td>
+      <td>'a'</td>
+      <td>'m'</td>
+      <td class="orange-select">'\0'</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading &amp; Writing Strings </h2>
+  <ul>
+    <li><span class="orange-select">printf</span> can be used to print strings</li>
+    <pre><code class="hljs lang-c">
 printf("program");
 printf("%s", "program");
-            </code></pre>
-          </ul>
-          <ul>
-            <li><span class="green-select">scanf</span> can be used to read strings</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+  <ul>
+    <li><span class="green-select">scanf</span> can be used to read strings</li>
+    <pre><code class="hljs lang-c">
 char str[200];
 scanf("%s", str);
-            </code></pre>
-            <li>Initial white spaces are ignored</li>
-            <li>Read until <span class="cyan-select">space</span> or <span class="cyan-select">'\n'</span> (which is replaced by \0)</li>
-            <li>We must allocate <span class="material-select">sufficient size</span></li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading &amp; Writing Strings (cont’d)</h2>
-          <ul>
-            <li><span class="orange-select">puts(str)</span> is very simple version of <span class="green-select">printf</span></li>
-            <ul>
-              <li>Can only be used to print strings</li>
-              <li>Adds <span class="green-select">‘\n’</span> to end of string</li>
-            </ul>
-            <li><span class="orange-select">gets(char str[])</span> can be used to read strings</li>
-            <li><span class="orange-select">gets</span> does <span class="red-select">not</span> ignore the white spaces</li>
-            <ul>
-              <li>Read until \n</li>
-            </ul>
-            <li>String should be large enough</li>
-          </ul>
-        </section>
-        <section>
-          <div class="toc" data-selected="4"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">String Library</h2>
-          <ul>
-            <li>Access to string library by</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Initial white spaces are ignored</li>
+    <li>Read until <span class="cyan-select">space</span> or <span class="cyan-select">'\n'</span> (which is replaced by \0)</li>
+    <li>We must allocate <span class="material-select">sufficient size</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading &amp; Writing Strings (cont’d)</h2>
+  <ul>
+    <li><span class="orange-select">puts(str)</span> is very simple version of <span class="green-select">printf</span></li>
+    <ul>
+      <li>Can only be used to print strings</li>
+      <li>Adds <span class="green-select">‘\n’</span> to end of string</li>
+    </ul>
+    <li><span class="orange-select">gets(char str[])</span> can be used to read strings</li>
+    <li><span class="orange-select">gets</span> does <span class="red-select">not</span> ignore the white spaces</li>
+    <ul>
+      <li>Read until \n</li>
+    </ul>
+    <li>String should be large enough</li>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="4"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">String Library</h2>
+  <ul>
+    <li>Access to string library by</li>
+    <pre><code class="hljs lang-c">
 #include &lt;string.h&gt;
-            </code></pre>
-            <li>Many functions to work with strings</li>
-            <ul>
-              <li>Find the length of string</li>
-              <li>Compare strings</li>
-              <li>Copy strings</li>
-              <li>Search in strings</li>
-              <li>...</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Length of String</h2>
-          <ul>
-            <li><span class="orange-select">strlen(str)</span>: Length of string</li>
-            <li>From start to first occurrence of the <span class="green-select">null char</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Many functions to work with strings</li>
+    <ul>
+      <li>Find the length of string</li>
+      <li>Compare strings</li>
+      <li>Copy strings</li>
+      <li>Search in strings</li>
+      <li>...</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Length of String</h2>
+  <ul>
+    <li><span class="orange-select">strlen(str)</span>: Length of string</li>
+    <li>From start to first occurrence of the <span class="green-select">null char</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 char str[] = "This is test";
 char str1[10] = {'a', 'b', '\0', 'c', '\0'};
 strlen(str)  // returns 12
 strlen(str1) // returns 2 😱
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Compare Strings</h2>
-          <ul>
-            <li>str1 and str2 are compared as follows</li>
-            <ul>
-              <li>Compare <span class="green-select">char by char</span> from <span class="cyan-select">left to right</span> until str1 and str2 has same chars.</li>
-              <li>In the first different char</li>
-              <ul>
-                <li>If(char of str1 &lt; char of str2) &rarr; str1 &lt; str2</li>
-              </ul>
-              <li>If (both string finish) &rarr; str1 = str2</li>
-            </ul>
-            <li><span class="orange-select">strcmp(str1, str2)</span>:compare str1 and str2</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Compare Strings: Examples</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Compare Strings</h2>
+  <ul>
+    <li>str1 and str2 are compared as follows</li>
+    <ul>
+      <li>Compare <span class="green-select">char by char</span> from <span class="cyan-select">left to right</span> until str1 and str2 has same chars.</li>
+      <li>In the first different char</li>
+      <ul>
+        <li>If(char of str1 &lt; char of str2) &rarr; str1 &lt; str2</li>
+      </ul>
+      <li>If (both string finish) &rarr; str1 = str2</li>
+    </ul>
+    <li><span class="orange-select">strcmp(str1, str2)</span>:compare str1 and str2</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Compare Strings: Examples</h2>
+  <pre><code class="hljs lang-c">
 char s1[] = "abc";
 char s2[] = "abc";
 i = strcmp(s1, s2); // i = 0, s1 is equal to s2
@@ -741,33 +719,33 @@ i = strcmp(s7, s8); // i = -1, s7 is lower than s8
 char s9[] = "abc";
 char s10[] = "aBc";
 i = strcmp(s9, s10); // i = 1, s9 is greater than s10
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Compare Strings</h2>
-          <ul>
-            <li><span class="orange-select">strcmpi(str1, str2)</span></li>
-            <li>Compares str1 and str2 similar to strcmp</li>
-            <li>But ignores uppercase/lowercase difference</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Compare Strings</h2>
+  <ul>
+    <li><span class="orange-select">strcmpi(str1, str2)</span></li>
+    <li>Compares str1 and str2 similar to strcmp</li>
+    <li>But ignores uppercase/lowercase difference</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 char str1[] = "ABC";
 cahr str2[] = "abC";
 strcmpi(str1, str2) &rarr; 0
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Copy Strings</h2>
-          <ul>
-            <li>Strings should be copied char by char</li>
-            <li><span class="orange-select">strcpy(dst_str, src_str)</span>: copy the <span class="green-select">src_str</span> to the <span class="cyan-select">dst_str</span></li>
-            <li><span class="green-select">src_str</span> is a <span class="material-select">constant</span> string</li>
-            <li><span class="cyan-select">dst_str</span> should have <span class="material-select">sufficient size</span></li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Copy Strings: Example</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Copy Strings</h2>
+  <ul>
+    <li>Strings should be copied char by char</li>
+    <li><span class="orange-select">strcpy(dst_str, src_str)</span>: copy the <span class="green-select">src_str</span> to the <span class="cyan-select">dst_str</span></li>
+    <li><span class="green-select">src_str</span> is a <span class="material-select">constant</span> string</li>
+    <li><span class="cyan-select">dst_str</span> should have <span class="material-select">sufficient size</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Copy Strings: Example</h2>
+  <pre><code class="hljs lang-c">
 char str1[] = "Test String";
 char str2[20];
 
@@ -775,53 +753,14 @@ strcpy(str2, str1);
 
 printf("%s\n", str2); // Test String
 printf("%s\n", str1); // Test String
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Concatenate Strings</h2>
-          <ul>
-            <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the src string to the end of dst</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-              "Introduction",
-              "Arrays in functions",
-              "Multidimensional arrays",
-              "String",
-              "String functions",
-              "Array of strings"
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Concatenate Strings</h2>
+  <ul>
+    <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the src string to the end of dst</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+</section>

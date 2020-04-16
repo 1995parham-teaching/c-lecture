@@ -1,220 +1,200 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: lecture
+title: Functions
+topics:
+- Introduction
+- Passing input parameters
+- Producing output
+- Scope of variables
+- Storage Class of variables
+- Function usage example
+- Recursion
+- Bugs & Avoiding Them
+---
 
-    <title>Functions</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Functions</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <div class="toc"></div>
-        </section>
-        <section>
-          <div class="toc" data-selected="0"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Introduction</h2>
-          <ul>
-            <li>Until now, we learned to develop simple algorithms</li>
-            <ul>
-              <li>Interactions, Mathematics, Decisions, and Loops</li>
-            </ul>
-            <li>Real problems: very complex</li>
-            <ul>
-              <li>Compressing a file</li>
-              <li>Calculator</li>
-              <li>Games, MS Word, Firefox, ...</li>
-            </ul>
-            <li>Cannot be developed at once</li>
-            <ul>
-              <li>Divide the problem into smaller sub-problems</li>
-              <li>Solve the sub-problems</li>
-              <li>Put the solutions altogether to get the final solution</li>
-            </ul>
-            <li>Modular <span class="red-select">programming</span></li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Modular programming</h2>
-          <ul>
-            <li>Solving a large and complex problem</li>
-            <li>Design the overall algorithm</li>
-            <li>Some portions are <span class="orange-select">black-box</span></li>
-            <ul>
-              <li>We know <span class="green-select">what</span> each box does</li>
-              <li>But we don't worry <span class="cyan-select">how</span></li>
-              <li>Later, we think about the black-boxes and develop them</li>
-            </ul>
-            <li>Black-boxes are implemented by <span class="red-select">functions</span></li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Modular programming: Advantages</h2>
-          <ul>
-            <li>Easy to develop and understand</li>
-            <li>Reusability</li>
-            <ul>
-              <li>Something is used frequently</li>
-              <ul>
-                <li>Mathematic: Square, Power, Sin, ...</li>
-                <li>Programming: Printing, Reading</li>
-              </ul>
-              <li>Develop it <span class="orange-select">one time</span>, use it <span class="green-select">many times</span></li>
-            </ul>
-            <li>Multiple developers can work on different parts</li>
-            <li>Each module can be tested and debugged separately</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Functions in C</h2>
-          <ul>
-            <li>Functions in mathematics</li>
-            <ul>
-              <li>z = f(x, y)</li>
-            </ul>
-            <li>Functions in C</li>
-            <ul>
-              <li><span class="orange-select">Queries</span>: Return a value</li>
-              <ul>
-                <li>sin(), fabs()</li>
-              </ul>
-              <li><span class="orange-select">Commands</span>: do some tasks, do not return any value</li>
-              <ul>
-                <li>printf_my_info(...)</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Functions in C</h2>
-          <p>Three steps to use functions in C</p>
-          <ol>
-            <li>Function prototype (declaration)</li>
-            <ul>
-              <li>Introduce the function to compiler</li>
-            </ul>
-            <li>Function definition</li>
-            <ul>
-              <li>What the function does</li>
-            </ul>
-            <li>Function call</li>
-            <ul>
-              <li>Use the function</li>
-            </ul>
-          </ol>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Function prototype</h2>
-          <p>
-            <span class="orange-select">&lt;output type&gt;</span>
-            <span class="green-select">&lt;function name&gt;</span>
-            (
-            <span class="cyan-select">&lt;input parameter types&gt;</span>
-            );
-          </p>
-          <ul>
-            <li><span class="orange-select">&lt;output type&gt;</span></li>
-            <ul>
-              <li><span class="red-select">Queries</span>: int, float, ...</li>
-              <li><span class="red-select">Command</span>: void</li>
-            </ul>
-            <li><span class="green-select">&lt;function name&gt;</span> is an identifier</li>
-            <li><span class="cyan-select">&lt;input parameter types&gt;</span></li>
-            <ul>
-              <li>&lt;type&gt;, &lt;type&gt;, ...</li>
-              <ul>
-                <li>int, float, ...</li>
-              </ul>
-              <li>void</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Function definition</h2>
-            <p>
-              <span class="orange-select">&lt;output type&gt;</span>
-              <span class="green-select">&lt;function name&gt;</span>
-              (
-              <span class="cyan-select">&lt;input parameters&gt;</span>
-              );<br>
-              {<br>
-              &lt;statements&gt;<br>
-              }
-            </p>
-            <ul>
-              <li><span class="orange-select">&lt;output type&gt;</span></li>
-              <ul>
-                <li><span class="red-select">Queries</span>: int, float, ...</li>
-                <li><span class="red-select">Command</span>: void</li>
-              </ul>
-              <li><span class="green-select">&lt;function name&gt;</span> is an identifier</li>
-              <li><span class="cyan-select">&lt;input parameter&gt;</span></li>
-              <ul>
-                <li>&lt;type&gt; &lt;identifier&gt;, &lt;type&gt; &lt;identifier&gt;, ...</li>
-                <ul>
-                  <li>int in, float f, ...</li>
-                </ul>
-                <li>void</li>
-              </ul>
-            </ul>
-          </section>
-          <section>
-            <ul>
-              <li>Function definition should be out of other functions</li>
-              <ul>
-                <li>Function in function is not allowed</li>
-              </ul>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Function call</h2>
-          <ul>
-            <li>Command function</li>
-            <p>
-              <span class="green-select">&lt;function name&gt;</span>(inputs)
-            </p>
-            <li>Query function</li>
-            <p>
-              &lt;variable&gt; = <span class="green-select">&lt;function name&gt;</span>(inputs)
-            </p>
-            <li>Inputs should match by function definition</li>
-            <li>Functions are called by another function</li>
-            <ul>
-              <li>Function call comes inside in a function</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example</h2>
-          <pre><code class="hljs lang-c">
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Introduction</h2>
+  <ul>
+    <li>Until now, we learned to develop simple algorithms</li>
+    <ul>
+      <li>Interactions, Mathematics, Decisions, and Loops</li>
+    </ul>
+    <li>Real problems: very complex</li>
+    <ul>
+      <li>Compressing a file</li>
+      <li>Calculator</li>
+      <li>Games, MS Word, Firefox, ...</li>
+    </ul>
+    <li>Cannot be developed at once</li>
+    <ul>
+      <li>Divide the problem into smaller sub-problems</li>
+      <li>Solve the sub-problems</li>
+      <li>Put the solutions altogether to get the final solution</li>
+    </ul>
+    <li>Modular <span class="red-select">programming</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Modular programming</h2>
+  <ul>
+    <li>Solving a large and complex problem</li>
+    <li>Design the overall algorithm</li>
+    <li>Some portions are <span class="orange-select">black-box</span></li>
+    <ul>
+      <li>We know <span class="green-select">what</span> each box does</li>
+      <li>But we don't worry <span class="cyan-select">how</span></li>
+      <li>Later, we think about the black-boxes and develop them</li>
+    </ul>
+    <li>Black-boxes are implemented by <span class="red-select">functions</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Modular programming: Advantages</h2>
+  <ul>
+    <li>Easy to develop and understand</li>
+    <li>Reusability</li>
+    <ul>
+      <li>Something is used frequently</li>
+      <ul>
+        <li>Mathematic: Square, Power, Sin, ...</li>
+        <li>Programming: Printing, Reading</li>
+      </ul>
+      <li>Develop it <span class="orange-select">one time</span>, use it <span class="green-select">many times</span></li>
+    </ul>
+    <li>Multiple developers can work on different parts</li>
+    <li>Each module can be tested and debugged separately</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Functions in C</h2>
+  <ul>
+    <li>Functions in mathematics</li>
+    <ul>
+      <li>z = f(x, y)</li>
+    </ul>
+    <li>Functions in C</li>
+    <ul>
+      <li><span class="orange-select">Queries</span>: Return a value</li>
+      <ul>
+        <li>sin(), fabs()</li>
+      </ul>
+      <li><span class="orange-select">Commands</span>: do some tasks, do not return any value</li>
+      <ul>
+        <li>printf_my_info(...)</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Functions in C</h2>
+  <p>Three steps to use functions in C</p>
+  <ol>
+    <li>Function prototype (declaration)</li>
+    <ul>
+      <li>Introduce the function to compiler</li>
+    </ul>
+    <li>Function definition</li>
+    <ul>
+      <li>What the function does</li>
+    </ul>
+    <li>Function call</li>
+    <ul>
+      <li>Use the function</li>
+    </ul>
+  </ol>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Function prototype</h2>
+  <p>
+    <span class="orange-select">&lt;output type&gt;</span>
+    <span class="green-select">&lt;function name&gt;</span>
+    (
+    <span class="cyan-select">&lt;input parameter types&gt;</span>
+    );
+  </p>
+  <ul>
+    <li><span class="orange-select">&lt;output type&gt;</span></li>
+    <ul>
+      <li><span class="red-select">Queries</span>: int, float, ...</li>
+      <li><span class="red-select">Command</span>: void</li>
+    </ul>
+    <li><span class="green-select">&lt;function name&gt;</span> is an identifier</li>
+    <li><span class="cyan-select">&lt;input parameter types&gt;</span></li>
+    <ul>
+      <li>&lt;type&gt;, &lt;type&gt;, ...</li>
+      <ul>
+        <li>int, float, ...</li>
+      </ul>
+      <li>void</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Function definition</h2>
+    <p>
+      <span class="orange-select">&lt;output type&gt;</span>
+      <span class="green-select">&lt;function name&gt;</span>
+      (
+      <span class="cyan-select">&lt;input parameters&gt;</span>
+      );<br>
+      {<br>
+      &lt;statements&gt;<br>
+      }
+    </p>
+    <ul>
+      <li><span class="orange-select">&lt;output type&gt;</span></li>
+      <ul>
+        <li><span class="red-select">Queries</span>: int, float, ...</li>
+        <li><span class="red-select">Command</span>: void</li>
+      </ul>
+      <li><span class="green-select">&lt;function name&gt;</span> is an identifier</li>
+      <li><span class="cyan-select">&lt;input parameter&gt;</span></li>
+      <ul>
+        <li>&lt;type&gt; &lt;identifier&gt;, &lt;type&gt; &lt;identifier&gt;, ...</li>
+        <ul>
+          <li>int in, float f, ...</li>
+        </ul>
+        <li>void</li>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>Function definition should be out of other functions</li>
+      <ul>
+        <li>Function in function is not allowed</li>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Function call</h2>
+  <ul>
+    <li>Command function</li>
+    <p>
+      <span class="green-select">&lt;function name&gt;</span>(inputs)
+    </p>
+    <li>Query function</li>
+    <p>
+      &lt;variable&gt; = <span class="green-select">&lt;function name&gt;</span>(inputs)
+    </p>
+    <li>Inputs should match by function definition</li>
+    <li>Functions are called by another function</li>
+    <ul>
+      <li>Function call comes inside in a function</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example</h2>
+  <pre><code class="hljs lang-c">
 /* Function declaration */
 void my_info(void);
 
@@ -230,11 +210,11 @@ void my_info(void){
   printf("Student name is Parham Alvani\n");
   printf("Student number: 9231058\n");
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example</h2>
+  <pre><code class="hljs lang-c">
 /* Function definition */
 void my_info(void){
   printf("Student name is Parham Alvani\n");
@@ -247,45 +227,45 @@ int main(void){
   printf("=============");
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Function Declaration?!!!!</h2>
-          <ul>
-            <li>Is function declaration needed?</li>
-            <li>Is there any useful application of function declaration?</li>
-            <li><span class="orange-select">Yes!</span></li>
-            <li>Libraries are implemented using it</li>
-            <ul>
-              <li>.h files contains the function declarations</li>
-              <li>and also other definitions</li>
-              <li>.so, .a, .dll, ... are the compiled function definitions</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <div class="toc" data-selected="1"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Input Parameters</h2>
-          <ul>
-            <li>Inputs of function</li>
-            <ul>
-              <li>No input: <span class="orange-select">void</span></li>
-              <li>One or multiple inputs</li>
-            </ul>
-            <li>Each input should have a type</li>
-            <li>Input parameters are split by “,”</li>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Function Declaration?!!!!</h2>
+  <ul>
+    <li>Is function declaration needed?</li>
+    <li>Is there any useful application of function declaration?</li>
+    <li><span class="orange-select">Yes!</span></li>
+    <li>Libraries are implemented using it</li>
+    <ul>
+      <li>.h files contains the function declarations</li>
+      <li>and also other definitions</li>
+      <li>.so, .a, .dll, ... are the compiled function definitions</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Input Parameters</h2>
+  <ul>
+    <li>Inputs of function</li>
+    <ul>
+      <li>No input: <span class="orange-select">void</span></li>
+      <li>One or multiple inputs</li>
+    </ul>
+    <li>Each input should have a type</li>
+    <li>Input parameters are split by “,”</li>
+    <pre><code class="hljs lang-c">
 void f(void)
 void f(int a)
 void f(int a, float b)
 void f(int a, b) //compile error
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void print_sub(double a, double b) {
@@ -301,92 +281,92 @@ int main(void) {
   print_sub(d1, d2 + d2);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">How Does Function Call Work?</h2>
-          <ul>
-            <li>Function call is implemented by <span class="orange-select">“stack”</span></li>
-            <li>Stack is a <span class="green-select">logical</span> part of the main memory</li>
-            <li>Variables of function and its input variables are in stack</li>
-            <li>When a function calls</li>
-            <ul>
-              <li>Its variables including the inputs are allocated in stack</li>
-              <li>The value of input parameters from caller function is pushed to stack of called function</li>
-              <ul>
-                <li>They are <span class="cyan-select">copied</span> in to the variables of function</li>
-              </ul>
-            </ul>
-            <li>When function finished, its stack is freed</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">print_sub: What happen?</h2>
-          <p>
-            print_sub(56.0, 6.0);
-          </p>
-          <ul>
-            <li>56.0 is copied the memory location <span class="green-select">a</span></li>
-            <li>6.0 is copied to memory location <span class="orange-select">b</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">How Does Function Call Work?</h2>
+  <ul>
+    <li>Function call is implemented by <span class="orange-select">“stack”</span></li>
+    <li>Stack is a <span class="green-select">logical</span> part of the main memory</li>
+    <li>Variables of function and its input variables are in stack</li>
+    <li>When a function calls</li>
+    <ul>
+      <li>Its variables including the inputs are allocated in stack</li>
+      <li>The value of input parameters from caller function is pushed to stack of called function</li>
+      <ul>
+        <li>They are <span class="cyan-select">copied</span> in to the variables of function</li>
+      </ul>
+    </ul>
+    <li>When function finished, its stack is freed</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">print_sub: What happen?</h2>
+  <p>
+    print_sub(56.0, 6.0);
+  </p>
+  <ul>
+    <li>56.0 is copied the memory location <span class="green-select">a</span></li>
+    <li>6.0 is copied to memory location <span class="orange-select">b</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 double a = 56.0;
 double b = 6.0;
 double res;
 res = a - b;
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">print_sub: What happen?</h2>
-          <p>
-            print_sub(d1, d2);
-          </p>
-          <ul>
-            <li>value of d1 is copied the memory location <span class="green-select">a</span></li>
-            <li>value of d2 is copied to memory location <span class="orange-select">b</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">print_sub: What happen?</h2>
+  <p>
+    print_sub(d1, d2);
+  </p>
+  <ul>
+    <li>value of d1 is copied the memory location <span class="green-select">a</span></li>
+    <li>value of d2 is copied to memory location <span class="orange-select">b</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 double a = 10.1;
 double b = 6.0;
 double res;
 res = a - b;
-          </code></pre>
-          <p><span class="red-select">Call by Value</span></p>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Call by value</h2>
-            <ul>
-              <li>In call by value mechanism</li>
-              <ul>
-                <li>The values are <span class="orange-select">copied</span> to the function</li>
-              </ul>
-              <li>If we change values in the function</li>
-              <ul>
-                <li>The copied version is changed</li>
-                <li>The original value does <span class="red-select">not</span> affected</li>
-              </ul>
-              <li>Call by value inputs <span class="red-select">cannot</span> be used to produce output</li>
-            </ul>
-          </section>
-          <section>
-            <img src="img/pass-by-value.png" alt="pass-by-value">
-          </section>
-          <section>
-            <h2 style="color: #ff033e;">Call by Reference</h2>
-            <ul>
-              <li>The local parameters are <span class="orange-select">references</span> to the storage locations of the original arguments passed in.</li>
-              <li>Changes to these variables in the function <span class="green-select">will affect</span> the originals</li>
-              <li><span class="cyan-select">No copy is made</span>, so overhead of copying (time, storage) is saved</li>
-            </ul>
-          </section>
-          <section>
-            <img src="img/pass-by-reference-vs-pass-by-value-animation.gif" alt="pass-by-reference-vs-pass-by-value-animation">
-          </section>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">add function (wrong version)</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <p><span class="red-select">Call by Value</span></p>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Call by value</h2>
+    <ul>
+      <li>In call by value mechanism</li>
+      <ul>
+        <li>The values are <span class="orange-select">copied</span> to the function</li>
+      </ul>
+      <li>If we change values in the function</li>
+      <ul>
+        <li>The copied version is changed</li>
+        <li>The original value does <span class="red-select">not</span> affected</li>
+      </ul>
+      <li>Call by value inputs <span class="red-select">cannot</span> be used to produce output</li>
+    </ul>
+  </section>
+  <section>
+    <img src="img/pass-by-value.png" alt="pass-by-value">
+  </section>
+  <section>
+    <h2 style="color: #ff033e;">Call by Reference</h2>
+    <ul>
+      <li>The local parameters are <span class="orange-select">references</span> to the storage locations of the original arguments passed in.</li>
+      <li>Changes to these variables in the function <span class="green-select">will affect</span> the originals</li>
+      <li><span class="cyan-select">No copy is made</span>, so overhead of copying (time, storage) is saved</li>
+    </ul>
+  </section>
+  <section>
+    <img src="img/pass-by-reference-vs-pass-by-value-animation.gif" alt="pass-by-reference-vs-pass-by-value-animation">
+  </section>
+</section>
+<section>
+  <h2 style="color: #ff033e;">add function (wrong version)</h2>
+  <pre><code class="hljs lang-c">
 void add(double a, double b, double res){
   res = a + b;
   return;
@@ -400,49 +380,49 @@ int main(void){
   add(d1, d2, result);
   printf("result = %f\n", result);
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="2"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Producing output</h2>
-          <ul>
-            <li>What we have seen are the “Command”</li>
-            <li>Query functions</li>
-            <ul>
-              <li>Produce output</li>
-              <li>Output <span class="red-select">cannot</span> be produced by the “call by value” parameters</li>
-            </ul>
-            <li>To produce an output</li>
-            <ul>
-              <li>Declare output type</li>
-              <li>Generate the output by <span class="orange-select">return</span></li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">The return command</h2>
-          <ul>
-            <li>To generate a result by a function</li>
-            <p>
-              return &lt;value&gt;;
-            </p>
-            <li>Only one value can be returned</li>
-            <li><span class="green-select">return</span> finishes running the function</li>
-            <li>Function can have multiple return</li>
-            <ul>
-              <li>Only one of them runs each time</li>
-            </ul>
-            <li>The type of the returned value = the result type</li>
-            <ul>
-              <li>Otherwise, cast</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Exmaple: my_fabs (Version 1)</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Producing output</h2>
+  <ul>
+    <li>What we have seen are the “Command”</li>
+    <li>Query functions</li>
+    <ul>
+      <li>Produce output</li>
+      <li>Output <span class="red-select">cannot</span> be produced by the “call by value” parameters</li>
+    </ul>
+    <li>To produce an output</li>
+    <ul>
+      <li>Declare output type</li>
+      <li>Generate the output by <span class="orange-select">return</span></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">The return command</h2>
+  <ul>
+    <li>To generate a result by a function</li>
+    <p>
+      return &lt;value&gt;;
+    </p>
+    <li>Only one value can be returned</li>
+    <li><span class="green-select">return</span> finishes running the function</li>
+    <li>Function can have multiple return</li>
+    <ul>
+      <li>Only one of them runs each time</li>
+    </ul>
+    <li>The type of the returned value = the result type</li>
+    <ul>
+      <li>Otherwise, cast</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Exmaple: my_fabs (Version 1)</h2>
+  <pre><code class="hljs lang-c">
 double my_fabs(double x){
   double res;
   if(x &gt;= 0)
@@ -459,11 +439,11 @@ void main(void){
   printf("%lf\n", b);
   printf("%lf\n", my_fabs(-2 * b));
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Exmaple: my_fabs (Version 2)</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Exmaple: my_fabs (Version 2)</h2>
+  <pre><code class="hljs lang-c">
 double my_fabs(double x){
   if(x &gt;= 0)
     return x;
@@ -478,45 +458,45 @@ void main(void){
   b = my_fabs(-2 * d);
   printf("b = %lf\n", b);
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Output of functions</h2>
-          <ul>
-            <li>A function can produce <span class="orange-select">at most one</span> output</li>
-            <li>Output of functions can be dropped</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Output of functions</h2>
+  <ul>
+    <li>A function can produce <span class="orange-select">at most one</span> output</li>
+    <li>Output of functions can be dropped</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 double f;
 sin(f); // we drop the output of sin
 gcd(10, 20); // we drop the output of gcd
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Casting in functions</h2>
-          <ul>
-            <li>Cast for input</li>
-            <ul>
-              <li>Prototype: <span class="orange-select">void f(int a, double b);</span></li>
-              <li>Call: <span class="green-select">f(10.1, 20.2);</span></li>
-            </ul>
-            <li>Cast for output</li>
-            <ul>
-              <li>Prototype: <span class="orange-select">int f(int a);</span></li>
-              <li>Call: <span class="green-select">double d = f(10);</span></li>
-              <li>In return: <span class="cyan-select">return 10.20</span></li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Be careful: empty input/output type</h2>
-          <ul>
-            <li>If output or input type is not specified &rarr; <span class="orange-select">int</span></li>
-            <ul>
-              <li>Casting may not work</li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Casting in functions</h2>
+  <ul>
+    <li>Cast for input</li>
+    <ul>
+      <li>Prototype: <span class="orange-select">void f(int a, double b);</span></li>
+      <li>Call: <span class="green-select">f(10.1, 20.2);</span></li>
+    </ul>
+    <li>Cast for output</li>
+    <ul>
+      <li>Prototype: <span class="orange-select">int f(int a);</span></li>
+      <li>Call: <span class="green-select">double d = f(10);</span></li>
+      <li>In return: <span class="cyan-select">return 10.20</span></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Be careful: empty input/output type</h2>
+  <ul>
+    <li>If output or input type is not specified &rarr; <span class="orange-select">int</span></li>
+    <ul>
+      <li>Casting may not work</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 f1(a){
   printf("a = %d\n", a); return a / 2;
 }
@@ -532,32 +512,32 @@ int main(){
   printf("%d\n", f3(10.5));
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Inline Functions &amp; Macro</h2>
-          <ul>
-            <li>Function call using stack has its overhead</li>
-            <ul>
-              <li>2 approaches to reduce the overhead</li>
-            </ul>
-            <li><span class="orange-select">inline</span> function</li>
-            <ul>
-              <li>To ask from compiler to compile it as inline, but no guarantee</li>
-              <li><span class="green-select">GCC</span> and <span class="green-select">Clang</span> don't support <span class="orange-select">inline</span> functions</li>
-              <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Inline Functions &amp; Macro</h2>
+  <ul>
+    <li>Function call using stack has its overhead</li>
+    <ul>
+      <li>2 approaches to reduce the overhead</li>
+    </ul>
+    <li><span class="orange-select">inline</span> function</li>
+    <ul>
+      <li>To ask from compiler to compile it as inline, but no guarantee</li>
+      <li><span class="green-select">GCC</span> and <span class="green-select">Clang</span> don't support <span class="orange-select">inline</span> functions</li>
+      <pre><code class="hljs lang-c">
 inline int f(float x)
-              </code></pre>
-            </ul>
-            <li>Macros</li>
-            <pre><code class="hljs lang-c">
+      </code></pre>
+    </ul>
+    <li>Macros</li>
+    <pre><code class="hljs lang-c">
 #define PRINT_INT(X) printf("%d\n", X)
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example: GCD</h2>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example: GCD</h2>
+  <pre><code class="hljs lang-c">
 #define PRINT_INT(x) printf("%d\n",x); \
                       printf("===================\n");
 
@@ -582,51 +562,51 @@ void main(void){
   printf("GCD of %d and %d = ", j , i);
   PRINT_INT(g);
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="3"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Scope of Variables</h2>
-          <ul>
-            <li>Variables</li>
-            <ul>
-              <li>Are declared in the start of functions</li>
-              <li>Are used any where in the function <span class="orange-select">after declaration</span></li>
-              <li>Cannot be used outside of function</li>
-              <li>Cannot be used in other functions</li>
-            </ul>
-            <li><span class="orange-select">Scope</span> of variable</li>
-            <ul>
-              <li>A range of code that the variable can be used</li>
-            </ul>
-            <li>Variable cannot not be used outside of its scope</li>
-            <ul>
-              <li>Compile error</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Scopes and Blocks</h2>
-          <ul>
-            <li>Scopes are determined by Blocks</li>
-            <ul>
-              <li>Start with { and finished by }</li>
-              <li>Example: statements of a function, statement of a if or while, ...</li>
-            </ul>
-            <li>Variables</li>
-            <ul>
-              <li><span class="orange-select">Can be</span> declared in a block</li>
-              <li><span class="green-select">Can be</span> used in the declared block</li>
-              <li><span class="cyan-select">Cannot be</span> used outside the declared block</li>
-            </ul>
-            <li>The declared block is the scope of the variable</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Variables in Blocks</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Scope of Variables</h2>
+  <ul>
+    <li>Variables</li>
+    <ul>
+      <li>Are declared in the start of functions</li>
+      <li>Are used any where in the function <span class="orange-select">after declaration</span></li>
+      <li>Cannot be used outside of function</li>
+      <li>Cannot be used in other functions</li>
+    </ul>
+    <li><span class="orange-select">Scope</span> of variable</li>
+    <ul>
+      <li>A range of code that the variable can be used</li>
+    </ul>
+    <li>Variable cannot not be used outside of its scope</li>
+    <ul>
+      <li>Compile error</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Scopes and Blocks</h2>
+  <ul>
+    <li>Scopes are determined by Blocks</li>
+    <ul>
+      <li>Start with { and finished by }</li>
+      <li>Example: statements of a function, statement of a if or while, ...</li>
+    </ul>
+    <li>Variables</li>
+    <ul>
+      <li><span class="orange-select">Can be</span> declared in a block</li>
+      <li><span class="green-select">Can be</span> used in the declared block</li>
+      <li><span class="cyan-select">Cannot be</span> used outside the declared block</li>
+    </ul>
+    <li>The declared block is the scope of the variable</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Variables in Blocks</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
   int i;
@@ -644,17 +624,17 @@ int main(void){
    printf("The last number is %d\n", number); */
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Nested Scopes/Blocks</h2>
-          <ul>
-            <li>Scopes can be nested</li>
-            <ul>
-              <li>Example: Nested if, nested for, ...</li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Nested Scopes/Blocks</h2>
+  <ul>
+    <li>Scopes can be nested</li>
+    <ul>
+      <li>Example: Nested if, nested for, ...</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 void main(){ //block 1
   int i;
   { //block 2
@@ -665,24 +645,24 @@ void main(){ //block 1
     int m;
   }
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Variables in Nested Blocks</h2>
-          <ul>
-            <li>All variables from outer block can be used inner blocks</li>
-            <ul>
-              <li>Scope of inner block contains the outer block</li>
-            </ul>
-            <li>Variables in inner block <span class="red-select">cannot</span> be used in outer block</li>
-            <ul>
-              <li>Scope of the outer block <span class="red-select">does not</span> contains the inner block</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Variables in Nested Blocks: Example</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Variables in Nested Blocks</h2>
+  <ul>
+    <li>All variables from outer block can be used inner blocks</li>
+    <ul>
+      <li>Scope of inner block contains the outer block</li>
+    </ul>
+    <li>Variables in inner block <span class="red-select">cannot</span> be used in outer block</li>
+    <ul>
+      <li>Scope of the outer block <span class="red-select">does not</span> contains the inner block</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Variables in Nested Blocks: Example</h2>
+  <pre><code class="hljs lang-c">
 int k;
 
 for(int i = 0; i &lt; 10; i++){
@@ -702,26 +682,26 @@ for(int i = 0; i &lt; 10; i++){
 
   /* k = l; compile error */
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Variables in Nested Blocks: Example</h2>
-          <ul>
-            <li>If a variable in inner block has the same identifier of a variable in outer block</li>
-            <ul>
-              <li>The inner variable <span class="orange-select">hides</span> the outer variable</li>
-              <li>Changing inner variables <span class="green-select">does not</span> change outer variable</li>
-            </ul>
-          </ul>
-          <p class="red-select" style="font-size: 120px;">Do Not Use It</p>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Local Variables</h2>
-          <ul>
-            <li>All variables defined in a function are the <span class="orange-select">local variable</span> of the function</li>
-            <li>Can <span class="green-select">ONLY</span> be used in the function, not other functions</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Variables in Nested Blocks: Example</h2>
+  <ul>
+    <li>If a variable in inner block has the same identifier of a variable in outer block</li>
+    <ul>
+      <li>The inner variable <span class="orange-select">hides</span> the outer variable</li>
+      <li>Changing inner variables <span class="green-select">does not</span> change outer variable</li>
+    </ul>
+  </ul>
+  <p class="red-select" style="font-size: 120px;">Do Not Use It</p>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Local Variables</h2>
+  <ul>
+    <li>All variables defined in a function are the <span class="orange-select">local variable</span> of the function</li>
+    <li>Can <span class="green-select">ONLY</span> be used in the function, not other functions</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 void func(void){
   /* These are local variables */
   int i, j;
@@ -732,16 +712,16 @@ int main(void){
   i = 10; /* compile error, why? */
   f = 0; /* compile error, why? */
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Global/External Variables</h2>
-          <ul>
-            <li>Global variables are defined outside of all functions</li>
-            <li>Global variables are <span class="orange-select">initialized</span> to zero</li>
-            <li>Global variables are available to all <span class="green-select">subsequent</span> functions</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Global/External Variables</h2>
+  <ul>
+    <li>Global variables are defined outside of all functions</li>
+    <li>Global variables are <span class="orange-select">initialized</span> to zero</li>
+    <li>Global variables are available to all <span class="green-select">subsequent</span> functions</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 void f(){
    i = 0; // compile error
 }
@@ -749,11 +729,11 @@ int i;
 void g(){
    int j = i; // g can use i
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Global/External Variables: Example</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Global/External Variables: Example</h2>
+  <pre><code class="hljs lang-c">
 int i, j;
 float f;
 
@@ -773,12 +753,12 @@ int main(void){
   f1();
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Parameter Passing by Global Variables: my_fabs (V.3)</h2>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Parameter Passing by Global Variables: my_fabs (V.3)</h2>
+    <pre><code class="hljs lang-c">
 double x;
 
 void my_fabs(void){
@@ -792,131 +772,131 @@ void main(void){
   b = x;
   printf("b = %f\n", b);
 }
-            </code></pre>
-          </section>
-          <section>
-            <ul>
-              <li>Don’t use this method. Parameters should be passed by input parameter list.</li>
-              <li>Global variable are used to define (large) variables that are used in many functions</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <div class="toc" data-selected="4"></div>
-        </section>
-        <section>
-          <ul>
-            <li>Storage class</li>
-            <ul>
-              <li>How memory is allocated for the variable</li>
-              <li>Until when the variable exists</li>
-              <li>How it is initialized</li>
-            </ul>
-            <li>Storage classes in C</li>
-            <ul>
-              <li>Automatic</li>
-              <li>External</li>
-              <li>Static</li>
-              <li>Register</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes: Automatic</h2>
-          <ul>
-            <li>All local variables are automatic by default</li>
-            <ul>
-              <li>Input parameters of a function</li>
-              <li>Variables defined inside a function/block</li>
-              <li>Keyword <span class="orange-select">auto</span> is optional before them</li>
-            </ul>
-            <li>Generated at the <span class="green-select">start of each run of the block</span></li>
-            <li>Destroyed at the <span class="cyan-select">end of each run of the block</span></li>
-            <li>Are not initialized</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes: External</h2>
-          <ul>
-            <li>All global variables are external by default</li>
-            <ul>
-              <li>Are initialized by 0</li>
-              <li>Are generated when program starts</li>
-              <li>Are destroyed when program finishes</li>
-            </ul>
-            <li>Usage of keyword <span class="orange-select">extern</span></li>
-            <ul>
-              <li>To use global variables in other files</li>
-              <li>To use global variables before definition</li>
-              <li>To emphasize that variable is global</li>
-              <ul>
-                <li>This usage is optional</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes: Static</h2>
-          <ul>
-            <li>Keyword <span class="orange-select">static</span> comes before them</li>
-            <li>For local variables:</li>
-            <ul>
-              <li>Generated in <span class="green-select">the first run of the block</span></li>
-              <li>Destroyed <span class="cyan-select">when program finishes</span></li>
-              <li>Initialized</li>
-              <ul>
-                <li>If no value &rarr; initialized by 0</li>
-                <li>Only initialized in the first run of the block</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes: Static</h2>
-          <ul>
-            <li>Keyword <span class="orange-select">static</span> comes before them</li>
-            <li>For global variables:</li>
-            <ul>
-              <li>Generated <span class="green-select">when program starts</span></li>
-              <li>Destroyed <span class="cyan-select">when program finishes</span></li>
-              <li>Initialized</li>
-              <ul>
-                <li>If no value &rarr; initialized by 0</li>
-              </ul>
-              <li>Is not accessible for other files</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes: Register</h2>
-          <ul>
-            <li>Keyword <span class="orange-select">register</span> comes before them</li>
-            <li>Can be used for local variables</li>
-            <li>Compiler tries to allocated the variable in registers of CPU</li>
-            <ul>
-              <li>But does <span class="red-select">not</span> guaranteed</li>
-              <li>Registers are very fast and small memories</li>
-            </ul>
-            <li>Improve performance</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes, Auto: Examples</h2>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+  <section>
+    <ul>
+      <li>Don’t use this method. Parameters should be passed by input parameter list.</li>
+      <li>Global variable are used to define (large) variables that are used in many functions</li>
+    </ul>
+  </section>
+</section>
+<section>
+  <div class="toc" data-selected="4"></div>
+</section>
+<section>
+  <ul>
+    <li>Storage class</li>
+    <ul>
+      <li>How memory is allocated for the variable</li>
+      <li>Until when the variable exists</li>
+      <li>How it is initialized</li>
+    </ul>
+    <li>Storage classes in C</li>
+    <ul>
+      <li>Automatic</li>
+      <li>External</li>
+      <li>Static</li>
+      <li>Register</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes: Automatic</h2>
+  <ul>
+    <li>All local variables are automatic by default</li>
+    <ul>
+      <li>Input parameters of a function</li>
+      <li>Variables defined inside a function/block</li>
+      <li>Keyword <span class="orange-select">auto</span> is optional before them</li>
+    </ul>
+    <li>Generated at the <span class="green-select">start of each run of the block</span></li>
+    <li>Destroyed at the <span class="cyan-select">end of each run of the block</span></li>
+    <li>Are not initialized</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes: External</h2>
+  <ul>
+    <li>All global variables are external by default</li>
+    <ul>
+      <li>Are initialized by 0</li>
+      <li>Are generated when program starts</li>
+      <li>Are destroyed when program finishes</li>
+    </ul>
+    <li>Usage of keyword <span class="orange-select">extern</span></li>
+    <ul>
+      <li>To use global variables in other files</li>
+      <li>To use global variables before definition</li>
+      <li>To emphasize that variable is global</li>
+      <ul>
+        <li>This usage is optional</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes: Static</h2>
+  <ul>
+    <li>Keyword <span class="orange-select">static</span> comes before them</li>
+    <li>For local variables:</li>
+    <ul>
+      <li>Generated in <span class="green-select">the first run of the block</span></li>
+      <li>Destroyed <span class="cyan-select">when program finishes</span></li>
+      <li>Initialized</li>
+      <ul>
+        <li>If no value &rarr; initialized by 0</li>
+        <li>Only initialized in the first run of the block</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes: Static</h2>
+  <ul>
+    <li>Keyword <span class="orange-select">static</span> comes before them</li>
+    <li>For global variables:</li>
+    <ul>
+      <li>Generated <span class="green-select">when program starts</span></li>
+      <li>Destroyed <span class="cyan-select">when program finishes</span></li>
+      <li>Initialized</li>
+      <ul>
+        <li>If no value &rarr; initialized by 0</li>
+      </ul>
+      <li>Is not accessible for other files</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes: Register</h2>
+  <ul>
+    <li>Keyword <span class="orange-select">register</span> comes before them</li>
+    <li>Can be used for local variables</li>
+    <li>Compiler tries to allocated the variable in registers of CPU</li>
+    <ul>
+      <li>But does <span class="red-select">not</span> guaranteed</li>
+      <li>Registers are very fast and small memories</li>
+    </ul>
+    <li>Improve performance</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes, Auto: Examples</h2>
+  <pre><code class="hljs lang-c">
 void f(int i, double d){
   int i2;
   auto int i3;
   double d2;
   auto double d3;
 }
-          </code></pre>
-          <p>
-            All variables (i, d, i2, i3, d2, d3) are auto variables
-          </p>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes, Extern: Examples</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <p>
+    All variables (i, d, i2, i3, d2, d3) are auto variables
+  </p>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes, Extern: Examples</h2>
+  <pre><code class="hljs lang-c">
 int i = 10, j = 20;
 
 void print(void){
@@ -932,11 +912,11 @@ int main(void){
   print();
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes: Examples</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes: Examples</h2>
+  <pre><code class="hljs lang-c">
 int i;
 
 void func(void){
@@ -953,11 +933,11 @@ int main(void){
   func();
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes, Static: Examples</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes, Static: Examples</h2>
+  <pre><code class="hljs lang-c">
 void func(void){
   int j;
   static int i;
@@ -972,32 +952,32 @@ int main(void){
   func();
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Storage Classes, Register: Examples</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Storage Classes, Register: Examples</h2>
+  <pre><code class="hljs lang-c">
 register int i;
 for(i = 0; i &lt; 100; i++)
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Be careful: loop & automatic variables</h2>
-          <ul>
-            <li>According to standard:</li>
-            <q>
-              For such an object that does not have a variable length array type, its lifetime extends from entry into the block with which it
-is associated until execution of that block ends in any way.
-            </q>
-            <li>Variable is defined in a block of a loop</li>
-            <li>The variable retains its value between iterations of the loop if it is <span class="red-select">NOT</span> variable length array</li>
-            <li>The variable does <span class="red-select">NOT</span> retain its value between iterations of the loop if it is a variable length array</li>
-          </ul>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">loop & automatic variables</h2>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Be careful: loop & automatic variables</h2>
+  <ul>
+    <li>According to standard:</li>
+    <q>
+      For such an object that does not have a variable length array type, its lifetime extends from entry into the block with which it
+      is associated until execution of that block ends in any way.
+    </q>
+    <li>Variable is defined in a block of a loop</li>
+    <li>The variable retains its value between iterations of the loop if it is <span class="red-select">NOT</span> variable length array</li>
+    <li>The variable does <span class="red-select">NOT</span> retain its value between iterations of the loop if it is a variable length array</li>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">loop & automatic variables</h2>
+    <pre><code class="hljs lang-c">
 int main(){
   int i;
   for(i = 0; i &lt; 5; i++) {
@@ -1010,21 +990,21 @@ int main(){
     }
   }
 }
-            </code></pre>
-          </section>
-          <section>
-            <pre><code>
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
 &amp;j = 0x7ffeed9f3964, j = 0
 &amp;j = 0x7ffeed9f3964, j = 1
 &amp;j = 0x7ffeed9f3964, j = 2
 &amp;j = 0x7ffeed9f3964, j = 3
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">loop & automatic variables</h2>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">loop & automatic variables</h2>
+    <pre><code class="hljs lang-c">
 int main(){
   int i;
   for(i = 0; i &lt; 5; i++) {
@@ -1037,21 +1017,21 @@ int main(){
     }
   }
 }
-            </code></pre>
-          </section>
-          <section>
-            <pre><code>
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
 &amp;j[0] = 0x7ffee735b910, j[0] = -415909520
 &amp;j[0] = 0x7ffee735b900, j[0] = -415909520
 &amp;j[0] = 0x7ffee735b8f0, j[0] = -415909520
 &amp;j[0] = 0x7ffee735b8d0, j[0] = -415909872
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">loop & automatic variables</h2>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">loop & automatic variables</h2>
+    <pre><code class="hljs lang-c">
 int main(){
   int i;
   for(i = 0; i &lt; 5; i++) {
@@ -1064,54 +1044,54 @@ int main(){
     }
   }
 }
-            </code></pre>
-          </section>
-          <section>
-            <pre><code>
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
 &amp;j[0] = 0x7ffee2a4d920, j[0] = 0
 &amp;j[0] = 0x7ffee2a4d920, j[0] = 1
 &amp;j[0] = 0x7ffee2a4d920, j[0] = 2
 &amp;j[0] = 0x7ffee2a4d920, j[0] = 3
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <div class="toc" data-selected="5"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">How to use functions: Example</h2>
-          <ul>
-            <li>An Example</li>
-            <ul>
-              <li>Goldbach’s Conjecture</li>
-              <li>Any even number larger than 2 can be expressed as sum of two prime numbers</li>
-            </ul>
-            <li>It is not proved yet!</li>
-            <ul>
-              <li>1,000,000$ to proof 😋</li>
-            </ul>
-            <li>Write a program that takes a set numbers which ends by 0 and checks correctness of the conjecture</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Main Overall Algorithm</h2>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+</section>
+<section>
+  <div class="toc" data-selected="5"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">How to use functions: Example</h2>
+  <ul>
+    <li>An Example</li>
+    <ul>
+      <li>Goldbach’s Conjecture</li>
+      <li>Any even number larger than 2 can be expressed as sum of two prime numbers</li>
+    </ul>
+    <li>It is not proved yet!</li>
+    <ul>
+      <li>1,000,000$ to proof 😋</li>
+    </ul>
+    <li>Write a program that takes a set numbers which ends by 0 and checks correctness of the conjecture</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Main Overall Algorithm</h2>
+  <pre><code class="hljs lang-c">
 while(number is not zero)
   if(number &gt; 2 and even)
     Check Goldbach’s Conjecture
   else
     Print some message
   read next number
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Check Goldbach’s Conjecture Algorithm</h2>
-          <p>
-            <b>Algorithm:</b> Goldbach<br>
-            <b>Input:</b> n<br>
-            <b>Output:</b> 0 if conjecture is incorrect else 1<br>
-          </p>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Check Goldbach’s Conjecture Algorithm</h2>
+  <p>
+    <b>Algorithm:</b> Goldbach<br>
+    <b>Input:</b> n<br>
+    <b>Output:</b> 0 if conjecture is incorrect else 1<br>
+  </p>
+  <pre><code class="hljs lang-c">
 for(i from 2 to n/2)
   j = n – i
   if(is_prime(j))
@@ -1119,31 +1099,31 @@ for(i from 2 to n/2)
   i = next_prime_number(i)
 
 Conjecture is incorrect
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">is_prime algorithm</h2>
-          <p>
-            <b>Algorithm:</b> is_prime<br>
-            <b>Input:</b> n<br>
-            <b>Output:</b> 1 if n is prime else 0<br>
-          </p>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">is_prime algorithm</h2>
+  <p>
+    <b>Algorithm:</b> is_prime<br>
+    <b>Input:</b> n<br>
+    <b>Output:</b> 1 if n is prime else 0<br>
+  </p>
+  <pre><code class="hljs lang-c">
 for(i from 2 to sqrt(n))
   if(n % i == 0)
     n is not prime
 
 n is prime
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">next_prime_number algorithm</h2>
-          <p>
-            <b>Algorithm:</b> next_prime_number<br>
-            <b>Input:</b> n (is prime)<br>
-            <b>Output:</b> the first prime number that is greater than n<br>
-          </p>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">next_prime_number algorithm</h2>
+  <p>
+    <b>Algorithm:</b> next_prime_number<br>
+    <b>Input:</b> n (is prime)<br>
+    <b>Output:</b> the first prime number that is greater than n<br>
+  </p>
+  <pre><code class="hljs lang-c">
 if n is 2
   output is 3
 else
@@ -1151,11 +1131,11 @@ else
     n = n + 2
   while(is_prime(n) == 0)
   output is n
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Putting them altogether</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Putting them altogether</h2>
+  <pre><code class="hljs lang-c">
 int is_prime(int n) {
   ...
 }
@@ -1168,62 +1148,62 @@ int check_Goldbach(int n) {
 int main(void) {
   ...
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="6"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Introduction</h2>
-          <ul>
-            <li>Iteration vs. Recursion</li>
-            <li>Factorial</li>
-            <ul>
-              <li>n! = n x n-1 x ... x 2 x 1</li>
-              <li>n! = n x (n-1)!</li>
-            </ul>
-            <li>GCD</li>
-            <ul>
-              <li>GCD(a, b) = Euclidean Algorithm</li>
-              <li>GCD(a, b) = GCD(b, a mod b)</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Introduction</h2>
-          <ul>
-            <li>Original problem can be solved by</li>
-            <ul>
-              <li>Solving a <span class="orange-select">similar</span> but <span class="green-select">simpler</span> problem (recursion)</li>
-              <ul>
-                <li>(n-1)! in factorial, GCD(b, b mod a)</li>
-              </ul>
-            </ul>
-            <li>There is a simple (<span class="red-select">basic</span>) problem which we can solve it directly (without recursion)</li>
-            <ul>
-              <li>1! = 1 in factorial, b = 0 in GCD</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Recursion in C</h2>
-          <ul>
-            <li>Recursive Algorithm</li>
-            <ul>
-              <li>An algorithm uses itself to solve the problem</li>
-              <li>There is a basic problem with known solution</li>
-            </ul>
-            <li>Recursive Algorithms are implemented by <span class="orange-select">recursive functions</span></li>
-            <li>Recursive function</li>
-            <ul>
-              <li>A function which calls itself</li>
-              <li>There is a condition that it does not call itself</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Factorial</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="6"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Introduction</h2>
+  <ul>
+    <li>Iteration vs. Recursion</li>
+    <li>Factorial</li>
+    <ul>
+      <li>n! = n x n-1 x ... x 2 x 1</li>
+      <li>n! = n x (n-1)!</li>
+    </ul>
+    <li>GCD</li>
+    <ul>
+      <li>GCD(a, b) = Euclidean Algorithm</li>
+      <li>GCD(a, b) = GCD(b, a mod b)</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Introduction</h2>
+  <ul>
+    <li>Original problem can be solved by</li>
+    <ul>
+      <li>Solving a <span class="orange-select">similar</span> but <span class="green-select">simpler</span> problem (recursion)</li>
+      <ul>
+        <li>(n-1)! in factorial, GCD(b, b mod a)</li>
+      </ul>
+    </ul>
+    <li>There is a simple (<span class="red-select">basic</span>) problem which we can solve it directly (without recursion)</li>
+    <ul>
+      <li>1! = 1 in factorial, b = 0 in GCD</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Recursion in C</h2>
+  <ul>
+    <li>Recursive Algorithm</li>
+    <ul>
+      <li>An algorithm uses itself to solve the problem</li>
+      <li>There is a basic problem with known solution</li>
+    </ul>
+    <li>Recursive Algorithms are implemented by <span class="orange-select">recursive functions</span></li>
+    <li>Recursive function</li>
+    <ul>
+      <li>A function which calls itself</li>
+      <li>There is a condition that it does not call itself</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Factorial</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 int factorial(int n){
@@ -1246,55 +1226,55 @@ void main(void){
   int fac = factorial(i);
   printf("%d! = %d\n", i, fac);
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Function Call Graph + Stacks</h2>
-          <ul>
-            <li>factorial(4) = ?</li>
-            <ul>
-              <li>factorial(3) = ?</li>
-              <ul>
-                <li>factorial(2) = ?</li>
-                <ul>
-                  <li>factorial(1) = ?</li>
-                </ul>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Function Call Graph + Stacks</h2>
-          <ul>
-            <li>factorial(4) = 4 * (3 * (2 * 1))</li>
-            <ul>
-              <li>factorial(3) = 3 * (2 * 1)</li>
-              <ul>
-                <li>factorial(2) = 2 * 1</li>
-                <ul>
-                  <li>factorial(1) = 1</li>
-                </ul>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Examples</h2>
-          <ul>
-            <li>Recursive version of GCD?</li>
-            <li>Recursive version of Fibonacci numbers</li>
-            <ul>
-              <li>Fibonacci numbers</li>
-              <ul>
-                <li>1, 1, 2, 3, 5, 8, ...</li>
-              </ul>
-            </ul>
-            <li>Print digits: left-to-right and right-to-left</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example: GCD</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Function Call Graph + Stacks</h2>
+  <ul>
+    <li>factorial(4) = ?</li>
+    <ul>
+      <li>factorial(3) = ?</li>
+      <ul>
+        <li>factorial(2) = ?</li>
+        <ul>
+          <li>factorial(1) = ?</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Function Call Graph + Stacks</h2>
+  <ul>
+    <li>factorial(4) = 4 * (3 * (2 * 1))</li>
+    <ul>
+      <li>factorial(3) = 3 * (2 * 1)</li>
+      <ul>
+        <li>factorial(2) = 2 * 1</li>
+        <ul>
+          <li>factorial(1) = 1</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Examples</h2>
+  <ul>
+    <li>Recursive version of GCD?</li>
+    <li>Recursive version of Fibonacci numbers</li>
+    <ul>
+      <li>Fibonacci numbers</li>
+      <ul>
+        <li>1, 1, 2, 3, 5, 8, ...</li>
+      </ul>
+    </ul>
+    <li>Print digits: left-to-right and right-to-left</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example: GCD</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 int GCD(int a, int b){
@@ -1311,11 +1291,11 @@ int main(void){
   printf("GCD(201, 27) = %d \n", GCD(201, 27));
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example: Fibonacci</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example: Fibonacci</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 int fibo(int n) {
@@ -1334,11 +1314,11 @@ int main(void){
   printf("fibo(8) = %d\n", fibo(8));
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example: Print digits: right-to-left</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example: Print digits: right-to-left</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void print_digit_right_left(int n){
@@ -1357,11 +1337,11 @@ int main(void){
 
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Example: Print digits: left-to-right</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Example: Print digits: left-to-right</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 void print_digit_left_right(int n){
@@ -1380,86 +1360,45 @@ int main(void){
 
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Indirect recursion</h2>
-          <ul>
-            <li>What we have seen are direct recursion</li>
-            <ul>
-              <li>A function calls itself directly</li>
-            </ul>
-            <li>Indirect recursion</li>
-            <ul>
-              <li>A function calls itself using another function</li>
-              <li>Example:</li>
-              <ul>
-                <li>Function A calls function B</li>
-                <li>Function B calls function A</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <div class="toc" data-selected="7">
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Bugs &amp; Avoiding Them</h2>
-          <ul>
-            <li>Be careful about the order of input parameter</li>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Indirect recursion</h2>
+  <ul>
+    <li>What we have seen are direct recursion</li>
+    <ul>
+      <li>A function calls itself directly</li>
+    </ul>
+    <li>Indirect recursion</li>
+    <ul>
+      <li>A function calls itself using another function</li>
+      <li>Example:</li>
+      <ul>
+        <li>Function A calls function B</li>
+        <li>Function B calls function A</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="7"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Bugs &amp; Avoiding Them</h2>
+  <ul>
+    <li>Be careful about the order of input parameter</li>
+    <pre><code class="hljs lang-c">
 int diff(int a, int b){return a - b;}
 diff(x,y) or diff(y,x)
-            </code></pre>
-            <li>Be careful about casting in functions</li>
-            <li>Recursion must finish, be careful about basic problem in the recursive functions</li>
-            <ul>
-              <li>No base problem &rarr; <span class="stackoverflow">Stack Overflow</span></li>
-            </ul>
-            <li>Static variables are useful debugging</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-              "Introduction",
-              "Passing input parameters",
-              "Producing output",
-              "Scope of variables",
-              "Storage Class of variables",
-              "Function usage example",
-              "Recursion",
-              "Bugs & Avoiding Them"
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+    </code></pre>
+    <li>Be careful about casting in functions</li>
+    <li>Recursion must finish, be careful about basic problem in the recursive functions</li>
+    <ul>
+      <li>No base problem &rarr; <span class="stackoverflow">Stack Overflow</span></li>
+    </ul>
+    <li>Static variables are useful debugging</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+</section>
