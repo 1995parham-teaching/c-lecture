@@ -480,6 +480,30 @@ int num[][2] = {{1,1},{2,2},{3,3}};
           </section>
         </section>
         <section>
+          <h2 style="color: #ff033e;">Multidimensional Arrays in Functions</h2>
+          <ul>
+            <li>
+              Can be used as input of functions.
+              All dimensions except the first one <span class="orange-select">must</span> be given.
+            </li>
+            <pre><code class="hljs lang-c">
+void func(int a[10][20][5]);
+            </code></pre>
+            <ul>
+              <li>Input is a 10x20x5 integer matrix</li>
+            </ul>
+            <pre><code class="hljs lang-c">
+void func(int a[][20][30], int size);
+            </code></pre>
+            <pre><code class="hljs lang-c">
+void func(int size1, int size2, int a[size1][size2]);
+            </code></pre>
+            <ul>
+              <li>Input is a matrix of integers that both rows and columns are variable</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
