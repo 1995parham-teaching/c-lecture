@@ -20,7 +20,7 @@
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
   </head>
@@ -70,7 +70,17 @@
             <li>Example</li>
             <ul>
               <li>An array of 8 integer</li>
-              <table>
+              <table class="cell">
+                <tr>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                </tr>
                 <tr>
                   <td>3</td>
                   <td>1</td>
@@ -83,7 +93,14 @@
                 </tr>
               </table>
               <li>An array of 5 chars</li>
-              <table>
+              <table class="cell">
+                <tr>
+                  <th>0</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                </tr>
                 <tr>
                   <td>'a'</td>
                   <td>'z'</td>
@@ -419,8 +436,15 @@ int main(void){
           </code></pre>
         </section>
         <section>
-          <h2 style="color: #ff033e;">Binary Search</h2>
-          <pre><code class="hljs lang-c">
+          <section>
+            <h2 style="color: #ff033e;">Binary Search</h2>
+            <ul>
+              <li>Given a <span class="orange-select">sorted array</span> arr[] of n elements, write a function to <span class="green-select">search a given element</span> x in arr[].</li>
+            </ul>
+            <img src="img/binary-search.png" alt="binary-search">
+          </section>
+          <section>
+            <pre><code class="hljs lang-c">
 int bsearch(int start, int end, int a[], int value){
   int mid = (start + end) / 2;
 
@@ -432,7 +456,8 @@ int bsearch(int start, int end, int a[], int value){
     return bsearch(mid + 1, end, a, value);
   else
     return bsearch(start, mid - 1 , a, value); }
-          </code></pre>
+            </code></pre>
+          </section>
         </section>
         <section>
           <div class="toc" data-selected="2"></div>
@@ -501,6 +526,119 @@ void func(int size1, int size2, int a[size1][size2]);
             <ul>
               <li>Input is a matrix of integers that both rows and columns are variable</li>
             </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Matrix Transpose</h2>
+          <pre><code class="hljs lang-c">
+#define SIZE 5
+
+void swap(int a[SIZE][SIZE], int i, int j){
+  int tmp;
+  tmp = a[i][j];
+  a[i][j] = a[j][i];
+  a[j][i] = tmp;
+}
+
+void transpose(int a[][SIZE]){
+  int i, j;
+  for(i = 0; i &lt; SIZE; i++)
+    for(j = i; j &lt; SIZE; j++)
+      swap(a, i, j);
+}
+          </code></pre>
+        </section>
+        <section>
+          <section>
+            <h2 style="color: #ff033e;">Matrix Print</h2>
+            <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void display_matrix(int n_rows, int n_cols, int matrix[n_rows][n_cols]) {
+  int row, column;
+
+  for (row = 0; row &lt; n_rows; row++) {
+    for (column = 0; column &lt; n_cols; column++)
+      printf("%5i ", matrix[row][column]);
+    printf("\n");
+  }
+}
+
+int main (void){
+  int sample[3][5] =
+    {
+      { 7, 16, 55, 13, 12 },
+      { 12, 10, 52, 0, 7 },
+      { -2, 1, 2, 4, 9 }
+    };
+    printf ("Original matrix:\n");
+    display_matrix(3, 5, sample);
+}
+            </code></pre>
+          </section>
+          <section>
+            <pre><code>
+Original matrix:
+    7    16    55    13    12
+   12    10    52     0     7
+   -2     1     2     4     9
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Array In Memory </h2>
+          <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
+        </section>
+        <section>
+          <div class="toc" data-selected="3"></div>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Introduction</h2>
+          <ul>
+            <li>Until now</li>
+            <ul>
+              <li>We have seen strings in <span class="cyan-select">printf</span></li>
+              <li>Our old definition: string is a set of char between “” 😂</li>
+              <pre><code class="hljs lang-c">
+printf("This is a string\n");
+printf("This is %s\n", "a string\n");
+              </code></pre>
+            </ul>
+            <li>Strings:</li>
+            <ul>
+              <li>An array of chars</li>
+              <li>Terminated by the <span class="orange-select">null char</span> '\0'</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Strings in C</h2>
+          <ul>
+            <li>Since strings are array</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+char str3[] = {'p', 'r', 'o', 'g', 'r', 'a', 'm', '\0'};
+char str1[8] = "program";
+char str2[] = "program";
+char *str3 = "program"; //we will see later
+          </code></pre>
+          <table class="cell">
+            <tr>
+              <td>'p'</td>
+              <td>'r'</td>
+              <td>'o'</td>
+              <td>'g'</td>
+              <td>'r'</td>
+              <td>'a'</td>
+              <td>'m'</td>
+              <td class="orange-select">'\0'</td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading &amp; Writing Strings </h2>
+          <ul>
+            <li><span class="orange-select">printf</span> can be used to print strings</li>
           </ul>
         </section>
         <section>
