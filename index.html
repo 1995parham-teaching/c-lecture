@@ -41,8 +41,8 @@ layout: none
       <table class="u-full-width">
         <thead>
           <tr>
-            <th class="announcement-text">Description</th>
-            <th class="announcement-date">Date</th>
+            <th class="announcement-text">Lecture</th>
+            <th class="announcement-date"></th>
           </tr>
         </thead>
         <tbody>
@@ -50,9 +50,13 @@ layout: none
           {% for lecture in lectures %}
           <tr>
             <td class="announcement-text">
-              <a href="{{ lecture.path | relative_url }}">{{forloop.index}}. {{lecture.title}}</a>
+              <p>{{forloop.index}}. {{lecture.title}}</p>
             </td>
-            <td class="announcement-date">{{lecture.date | date_to_string}}</td>
+            <td class="announcement-date">
+              <div class ="button-container">
+                <a class="button" href="{{ lecture.path | relative_url }}">Slides</a>
+              </div>
+            </td>
           {% endfor %}
           <!--
           <tr>
