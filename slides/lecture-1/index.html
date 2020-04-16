@@ -1,659 +1,640 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: lecture
+title: Introduction
+topics:
+  - What is this course?
+  - Computer organization
+  - Algorithms & Programming
+  - Solving problems
+---
 
-    <title>Introduction</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/zenburn.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Introduction</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <section>
-            <h2>Parham Alvani</h2>
-            <p><a href="https://1995parham.github.io/">1995parham.github.io</a></p>
-            <img src="img/1995parham-logo.png" alt="1995parham-logo" width="500" style="background-color: white;">
-          </section>
-          <section>
-            <h2>
-              Parham
-              <span class="orange-select">[dot]</span>
-              Alvani
-              <span class="orange-select">[at]</span>
-              gmail
-              <span class="orange-select">[dot]</span>
-              com
-            </h2>
-          </section>
-          <section>
-            <h3>No instant messaging</h3>
-            <h2><span class="orange-select">Email</span> is awesome</h2>
-          </section>
-        </section>
-        <section>
-          <div class="toc"></div>
-        </section>
-        <section>
-          <div class="toc" data-selected="0"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">This Course</h2>
-          <ul>
-            <li>Introduction to Computer &amp; Programming</li>
-          </ul>
-          <h1>How to use computers to solve our problems</h1>
-          <ul>
-            <li>The problems are computational problems</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">This Course (cont’d)</h2>
-          <ul>
-            <li>What we learn</li>
-            <ul>
-              <li>Overall overview of computer organization</li>
-              <li>Problem solving steps</li>
-              <ul>
-                <li>Algorithm design</li>
-                <li>A programming language: the <span class="orange-select">C</span></li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">This Course (cont’d)</h2>
-          <ul>
-            <li>What we don’t learn</li>
-            <ul>
-              <li>In depth computer hardware/software details</li>
-              <ul class="fragment" data-fragment-index="0">
-                <li style="color: #66ffcc;">Computer Architecture</li>
-                <li style="color: #66ffcc;">Operating System</li>
-              </ul>
-              <li>Most advanced algorithms</li>
-              <ul class="fragment" data-fragment-index="1">
-                <li style="color: #66ffcc;">Data Structure</li>
-                <li style="color: #66ffcc;">Algorithms</li>
-              </ul>
-              <li>System programming using C</li>
-              <ul class="fragment" data-fragment-index="2">
-                <li style="color: #66ffcc;">Operating System</li>
-              </ul>
-              <li>Other programming languages: Java, PHP, etc.</li>
-              <ul class="fragment" data-fragment-index="3">
-                <li style="color: #66ffcc;">Advanced Programming</li>
-                <li style="color: #66ffcc;">Web Programming</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">This Course (cont'd)</h2>
-          <p>Steps to learn a new language (English, French, … C, Java, Python, …)</p>
-          <ol>
-            <li>Present: what is the new language (course slide)</li>
-            <li>Practice: how to use the new language in practice (the example)</li>
-            <li>Produce: use the language to create a new things (Lab, HW)</li>
-          </ol>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">This Course (cont'd)</h2>
-          <p>Learning Programming Language</p>
-          <ul>
-            <li>is not a pure theoretical course (mathematics, …)</li>
-            <ul>
-              <li>Reading, reading, reading, ….</li>
-            </ul>
-            <li>is a practical course needs the product step</li>
-            <ul>
-              <li>Class, Reading, programming, programming, programming,…</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">This Course (cont'd)</h2>
-          <p>Course Materials</p>
-          <ul>
-            <li>Lecture notes (slides) are in (simple) English</li>
-            <li>Available in the course homepage:</li>
-            <p class="orange-select">
-              https://aut-ce.github.io/C-lecture/
-            </p>
-            <li>Textbook:</li>
-            <p class="green-select">
-              The C Programming Language
-              Book by Brian Kernighan and Dennis Ritchie
-            </p>
-          </ul>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Agenda</h2>
-            <ul>
-              <li>Introduction</li>
-              <li>Number Representation (SBU)</li>
-              <li>Algorithm Design (AUT)</li>
-              <li>Basic Concepts</li>
-              <li>Calculations</li>
-              <li>Interaction</li>
-              <li>Decision</li>
-              <li>Iteration</li>
-            </ul>
-          </section>
-          <section>
-            <ul>
-              <li>Function</li>
-              <li>Array</li>
-              <li>Pointer</li>
-              <li>Struct</li>
-              <li>File</li>
-              <li>Misc.</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Grading (AUT)</h2>
-            <p>Major Parts</p>
-            <table>
-              <tr>
-                <td>Midterm(s)</td>
-                <td>25%</td>
-              </tr>
-              <tr>
-                <td>Final</td>
-                <td>20%</td>
-              </tr>
-              <tr>
-                <td>Lab</td>
-                <td>15%</td>
-              </tr>
-              <tr>
-                <td>Homework</td>
-                <td>30%</td>
-              </tr>
-              <tr>
-                <td>Project</td>
-                <td>10%</td>
-              </tr>
-            </table>
-          </section>
-          <section>
-            <h2 style="color: #ff033e;">Grading (SBU)</h2>
-            <p>Major Parts</p>
-            <table>
-              <tr>
-                <td>Midterm(s)</td>
-                <td>25%</td>
-              </tr>
-              <tr>
-                <td>Final</td>
-                <td>25%</td>
-              </tr>
-              <tr>
-                <td>Quiz (?)</td>
-                <td>15%</td>
-              </tr>
-              <tr>
-                <td>Homework</td>
-                <td>30%</td>
-              </tr>
-              <tr>
-                <td>Project</td>
-                <td>10%</td>
-              </tr>
-            </table>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Extra Classes (AUT)</h2>
-            <p>Lab + TA Classes</p>
-            <ul>
-              <li>Lab: A practical class</li>
-              <li>TA: More details, Practical aspects, Solving HW</li>
-              <li>Homework are not accepted after solutions</li>
-            </ul>
-          </section>
-          <section>
-            <h2 style="color: #ff033e;">Extra Classes (SBU)</h2>
-            <p>TA Classes</p>
-            <ul>
-              <li>TA: More details, Practical aspects, Solving HW</li>
-              <li>Homework are not accepted after solutions</li>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <div class="toc" data-selected="1"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computers: The Computing Machines</h2>
-          <p>Computer Classififcation</p>
-          <dl>
-            <dt>Supercomputers</dt>
-            <dd>Weather forecast, Large scale simulation, … </dd>
-            <dt>Mainframe computers</dt>
-            <dd>The servers in large companies: Google, …</dd>
-            <dt>Midsize computers</dt>
-            <dd>The servers in CE department</dd>
-            <dt>Micro computers (also called PC)</dt>
-            <dd>Our laptop</dd>
-            <dt>Pocket PCs</dt>
-            <dd>Our mobile phones</dd>
-          </dl>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computers</h2>
-          <ul>
-            <li>Computers are anywhere, anytime. <span class="green-select">Why</span>?</li>
-            <li>They can solve many different problems. <span class="green-select">How</span>?</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computers</h2>
-          <ul>
-            <li>Computers are programmable machines capable of performing calculations (computation)</li>
-            <li>Changing program leads to different operation</li>
-            <li>Special-purpose machines</li>
-            <ul>
-              <li>Calculators, game-playing machines, …</li>
-            </ul>
-            <li>General-purpose computers</li>
-            <ul>
-              <li>Personal computers, notebooks, …</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Data Units</h2>
-          <ul>
-            <li>Computers are digital machines</li>
-            <li>Data processed or stored in computer is represented as two-state values</li>
-            <ul>
-              <li>either 1 or 0 - BInary digiTs (BIT)</li>
-              <li>1 Byte = 8 bits</li>
-              <li>1 kilobyte (KB) = 1024 bytes</li>
-              <li>1 megabyte (MB) = 1024 kilobyte</li>
-              <li>1 gigabyte (GB) = 1024 megabyte</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Data Representation/Coding</h2>
-          <ul>
-            <li>How to represent our data by 0-1?</li>
-            <li>In other word, there are some 0 and 1 in the computer, what is the meaning?</li>
-            <li style="color: #cccc00;">Coding (Representation Standards)</li>
-            <li>Major (common) representations (coding)</li>
-            <ul>
-              <li>Integer numbers: 1, 1000, -123, 0, ...</li>
-              <li>Floating point numbers: 1.1, 11.232, -12.23, ...</li>
-              <li>Characters: 'A', 'ب', '@', ...</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Integer Number Coding</h2>
-          <ul>
-            <li>There are different representations</li>
-            <li>One of the (simple) coding is sign-magnitude coding</li>
-            <ul>
-              <li>If we have n bit for coding integers</li>
-              <li>The left bit (the MSB): sign</li>
-              <li>n-1 bits: magnitude</li>
-            </ul>
-            <table>
-              <tr>
-                <td>4</td><td>0000</td><td>0100</td>
-              </tr>
-              <tr>
-                <td>-4</td><td>1000</td><td>0100</td>
-              </tr>
-              <tr>
-                <td>0</td><td>0000</td><td>0000</td>
-              </tr>
-              <tr>
-                <td>-0</td><td>1000</td><td>0000</td>
-              </tr>
-            </table>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Integer Number Coding</h2>
-          <p>Two's Complement</p>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Floating Point Number Coding (IEEE 754)</h2>
-          <ul>
-            <li>Usually, this coding pattern:</li>
-            <img src="img/ieee-754.png" alt="ieee">
-            <li>Two precisions:</li>
-            <ul>
-              <li>Single precision: exponent: 8 bit, fraction: 23 bit</li>
-              <li>Double precision: exponent: 11 bit, fraction: 52 bit</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Character Coding</h2>
-          <ul>
-            <li>Common character encoding: <span class="green-select">ASCII</span></li>
-            <li>8 bits can represent 256 characters; but,</li>
-            <ul>
-              <li>There are so many characters (Farsi, Arabic, …)</li>
-              <li>Solution: UTF (Variable length coding)</li>
-              <li>0xxxxxxx: 1 byte code</li>
-              <li>110xxxxx 10xxxxxx: 2 byte code</li>
-              <li>…</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization</h2>
-          <ul>
-            <li>Major Components</li>
-            <dl>
-              <dt>Hardware</dt>
-              <dd>Physical devices that are wired and performs basic operations</dd>
-              <dt>Software</dt>
-              <dd>Set of programs that run on the hardware</dd>
-            </dl>
-            <li>Hardware</li>
-            <ul>
-              <li>CPU (Central Processing Unit)</li>
-              <li>Main Memory</li>
-              <li>Secondary Storage</li>
-              <li>Input/output</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization</h2>
-          <img src="img/basic.gif" alt="basic">
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: CPU</h2>
-          <ul>
-            <li>ALU (Arithmetic Logic Unit)</li>
-            <ul>
-              <li>Performs mathematic calculations</li>
-              <li>Makes decision based on conditions</li>
-            </ul>
-            <li>Special Floating Point processors</li>
-            <li>Set of working area: Registers</li>
-            <li>Control Unit</li>
-            <ul>
-              <li>Controls system operation</li>
-            </ul>
-            <li>Operation and operands are required</li>
-            <ul>
-              <li>Which are provided by instructions in the main memory</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Main Memory</h2>
-          <ul>
-            <li>Ordered sequence of cells (memory cells)</li>
-            <li>Directly connected to CPU</li>
-            <li>All programs must be in main memory before execution</li>
-            <li>When power is turned off, Main memory is cleared</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Secondary Storage</h2>
-          <ul>
-            <li>Provides permanent storage for information</li>
-            <li>Examples of secondary storages:</li>
-            <ul>
-              <li>Hard Disks</li>
-              <li>Floppy Disks</li>
-              <li>Flash/Cool/USB Disks</li>
-              <li>CD/DVD</li>
-              <li>Tapes</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Input Devices</h2>
-          <ul>
-            <li>Devices that feed data and programs into computers</li>
-            <li>Examples:</li>
-            <ul>
-              <li>Keyboard</li>
-              <li>Mouse</li>
-              <li>Network Interface Card</li>
-              <li>Joystick</li>
-              <li>Microphone</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Output Devices</h2>
-          <ul>
-            <li>Devices that computer uses to generate results/outputs</li>
-            <li>Examples:</li>
-            <ul>
-              <li>Printer</li>
-              <li>Monitor</li>
-              <li>Speaker</li>
-              <li>Network Interface Card</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Software</h2>
-          <ul>
-            <li>What can do the Hardware?</li>
-            <ul>
-              <li>No useful operation, if there isn’t any software</li>
-              <li>We should tell/plan/program it to do something</li>
-            </ul>
-            <li>Software</li>
-            <ul>
-              <li>Programs which are designed for a specific task</li>
-            </ul>
-            <li>Major Software types</li>
-            <ul>
-              <li>Operating System</li>
-              <li>Libraries</li>
-              <li>Applications</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer HW & SW Organization</h2>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: OS</h2>
-          <ul>
-            <li>OS</li>
-            <ul>
-              <li>Manages the hardware, HW is a shared resource</li>
-              <li>Application programmers can easily use HW, Without knowing the HW details</li>
-            </ul>
-            <li>Common operating systems</li>
-            <ul>
-              <li>Windows XP/Vista/8/10, Linux, Unix, …</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Libraries</h2>
-          <ul>
-            <li>The libraries provide the most common functionalities</li>
-            <li>In mathematic programs</li>
-            <ul>
-              <li>sin(x), cos(x), matrix multiplication/inversion</li>
-            </ul>
-            <li>In graphical programs</li>
-            <ul>
-              <li>Draw a line/cycle, set color, new window</li>
-            </ul>
-            <li>In multimedia programs</li>
-            <ul>
-              <li>Open/close files, jump, …</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Computer Organization: Applications</h2>
-          <ul>
-            <li>An application program</li>
-            <ul>
-              <li>Users use them to do some specific things</li>
-              <li class="orange-select">Without knowing the details of the computer</li>
-            </ul>
-            <li>Common application programs</li>
-            <ul>
-              <li>Word, Internet Explorer, FireFox, Messengers</li>
-            </ul>
-            <li>Common applications in mathematic:</li>
-            <ul>
-              <li>Matlab, Mathematica, Maple, GAMS, AIMMS</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Programming Execution Phases</h2>
-          <ol>
-            <li>Program is loaded from secondary storage to main memory by OS</li>
-            <li>OS gives the control to the program</li>
-            <li>Instructions run</li>
-            <li>Required inputs are got from input device &amp; saved in main memory &amp; used by CPU</li>
-            <li>Result is saved in main/secondary memory or sent to output devices</li>
-          </ol>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Programming Execution Phases</h2>
-          <img src="img/cycle.png" alt="cycle">
-        </section>
-        <section>
-          <ul>
-            <li>Basic steps in running instructions</li>
-            <li>Read instruction from main memory: <span class="green-select">fetch</span></li>
-            <li><span class="green-select">Decode</span> the instruction</li>
-            <li>Get required <span class="green-select">operands</span> from main memory</li>
-            <li><span class="green-select">Run</span> the instruction</li>
-            <li>Save the <span class="green-select">result</span></li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Von Neumann architecture</h2>
-          <ul>
-            <li>also known as the von Neumann model or Princeton architecture</li>
-            <li>Keeping both program instructions and data in read-write, random-access memory (RAM).</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">How to be general purpose machine?</h2>
-          <ul>
-            <li>Hardware is simple &amp; general purpose</li>
-            <li>Complex tasks (e.g. average, sort, …) are programmed by software</li>
-            <li>Software is translated to the basic instructions</li>
-            <li>This is the way that we <span class="orange-select">program</span> computers</li>
-          </ul>
-        </section>
-        <section>
-          <div class="toc" data-selected="2"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithm??!!!</h2>
-          <ul>
-            <li>Hardware do the basic operations</li>
-            <li>We want to solve a real problem by computers</li>
-            <li>We need a solution that</li>
-            <ul>
-              <li>Specifies how the real (complex) problem should be solved <span class="orange-select">step-by-step</span> using the basic operations</li>
-            </ul>
-            <li>The solution is the <span class="green-select">“Algorithm”</span> of the problem</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithms (cont’d)</h2>
-          <ul>
-            <li>Common Sense (in computer science):</li>
-            <ol>
-              <li>The way to do some things</li>
-              <li>An abstract way to solve a problem</li>
-            </ol>
-            <li>Formal Definition:</li>
-            <q>
-              An algorithm is a <span class="green-select">finite list</span> of <span class="green-select">well-defined</span>
-              instructions for accomplishing some task that,
-              given an <span class="green-select">initial state</span>, will <span class="green-select">proceed</span> through a welldefined series of successive states, possibly
-              eventually <span class="green-select">terminating</span> in an end-state
-            </q>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithms: Examples</h2>
-          <ul>
-            <li>Finding Common Divisor</li>
-            <li>Finding 2 largest element in a set</li>
-            <li>Finding shortest path in a graph</li>
-            <li>Searching in a sorted array</li>
-            <li>Sorting a set</li>
-            <li>Combining 2 sorted set in a sorted set</li>
-            <li>Solving an equation</li>
-            <li>Compression algorithms</li>
-            <li>Cryptography algorithms</li>
-            <li>...</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithms: Description</h2>
-          <ul>
-            <li>Algorithms are the problem solving steps in our mind!!!</li>
-            <li>How can we document it (don’t forget it)?</li>
-            <li>How can we explain/teach it to others peoples?</li>
-            <li>How can we explain it to computers?</li>
-            <li>We need some methods to describe algorithms!</li>
-            <ul>
-              <li>Flow chart</li>
-              <li>Pseudo-codes</li>
-              <li>Codes/Programs</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
-          <ul>
-            <li>Flowcharts:</li>
-            <img src='img/flowchart.png' alt="flowchart" height="500">
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
-          <ul>
-            <li>Pseudo-codes:</li>
-            <li>A sequence of English and mathematical statements</li>
-            <pre><code>
+<section>
+  <h1 style="color: #ffea00;">Introduction</h1>
+  <h5>Fundamentals of Computer and Programming</h5>
+  <span class="cyan-select">Spring 2020</span>
+</section>
+<section>
+  <section>
+    <h2>Parham Alvani</h2>
+    <p><a href="https://1995parham.github.io/">1995parham.github.io</a></p>
+    <img src="img/1995parham-logo.png" alt="1995parham-logo" width="500" style="background-color: white;">
+  </section>
+  <section>
+    <h2>
+      Parham
+      <span class="orange-select">[dot]</span>
+      Alvani
+      <span class="orange-select">[at]</span>
+      gmail
+      <span class="orange-select">[dot]</span>
+      com
+    </h2>
+  </section>
+  <section>
+    <h3>No instant messaging</h3>
+    <h2><span class="orange-select">Email</span> is awesome</h2>
+  </section>
+</section>
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">This Course</h2>
+  <ul>
+    <li>Introduction to Computer &amp; Programming</li>
+  </ul>
+  <h1>How to use computers to solve our problems</h1>
+  <ul>
+    <li>The problems are computational problems</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">This Course (cont’d)</h2>
+  <ul>
+    <li>What we learn</li>
+    <ul>
+      <li>Overall overview of computer organization</li>
+      <li>Problem solving steps</li>
+      <ul>
+        <li>Algorithm design</li>
+        <li>A programming language: the <span class="orange-select">C</span></li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">This Course (cont’d)</h2>
+  <ul>
+    <li>What we don’t learn</li>
+    <ul>
+      <li>In depth computer hardware/software details</li>
+      <ul class="fragment" data-fragment-index="0">
+        <li style="color: #66ffcc;">Computer Architecture</li>
+        <li style="color: #66ffcc;">Operating System</li>
+      </ul>
+      <li>Most advanced algorithms</li>
+      <ul class="fragment" data-fragment-index="1">
+        <li style="color: #66ffcc;">Data Structure</li>
+        <li style="color: #66ffcc;">Algorithms</li>
+      </ul>
+      <li>System programming using C</li>
+      <ul class="fragment" data-fragment-index="2">
+        <li style="color: #66ffcc;">Operating System</li>
+      </ul>
+      <li>Other programming languages: Java, PHP, etc.</li>
+      <ul class="fragment" data-fragment-index="3">
+        <li style="color: #66ffcc;">Advanced Programming</li>
+        <li style="color: #66ffcc;">Web Programming</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">This Course (cont'd)</h2>
+  <p>Steps to learn a new language (English, French, … C, Java, Python, …)</p>
+  <ol>
+    <li>Present: what is the new language (course slide)</li>
+    <li>Practice: how to use the new language in practice (the example)</li>
+    <li>Produce: use the language to create a new things (Lab, HW)</li>
+  </ol>
+</section>
+<section>
+  <h2 style="color: #ff033e;">This Course (cont'd)</h2>
+  <p>Learning Programming Language</p>
+  <ul>
+    <li>is not a pure theoretical course (mathematics, …)</li>
+    <ul>
+      <li>Reading, reading, reading, ….</li>
+    </ul>
+    <li>is a practical course needs the product step</li>
+    <ul>
+      <li>Class, Reading, programming, programming, programming,…</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">This Course (cont'd)</h2>
+  <p>Course Materials</p>
+  <ul>
+    <li>Lecture notes (slides) are in (simple) English</li>
+    <li>Available in the course homepage:</li>
+    <p class="orange-select">
+      https://aut-ce.github.io/C-lecture/
+    </p>
+    <li>Textbook:</li>
+    <p class="green-select">
+      The C Programming Language
+      Book by Brian Kernighan and Dennis Ritchie
+    </p>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Agenda</h2>
+    <ul>
+      <li>Introduction</li>
+      <li>Number Representation (SBU)</li>
+      <li>Algorithm Design (AUT)</li>
+      <li>Basic Concepts</li>
+      <li>Calculations</li>
+      <li>Interaction</li>
+      <li>Decision</li>
+      <li>Iteration</li>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>Function</li>
+      <li>Array</li>
+      <li>Pointer</li>
+      <li>Struct</li>
+      <li>File</li>
+      <li>Misc.</li>
+    </ul>
+  </section>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Grading (AUT)</h2>
+    <p>Major Parts</p>
+    <table>
+      <tr>
+        <td>Midterm(s)</td>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <td>Final</td>
+        <td>20%</td>
+      </tr>
+      <tr>
+        <td>Lab</td>
+        <td>15%</td>
+      </tr>
+      <tr>
+        <td>Homework</td>
+        <td>30%</td>
+      </tr>
+      <tr>
+        <td>Project</td>
+        <td>10%</td>
+      </tr>
+    </table>
+  </section>
+  <section>
+    <h2 style="color: #ff033e;">Grading (SBU)</h2>
+    <p>Major Parts</p>
+    <table>
+      <tr>
+        <td>Midterm(s)</td>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <td>Final</td>
+        <td>25%</td>
+      </tr>
+      <tr>
+        <td>Quiz (?)</td>
+        <td>15%</td>
+      </tr>
+      <tr>
+        <td>Homework</td>
+        <td>30%</td>
+      </tr>
+      <tr>
+        <td>Project</td>
+        <td>10%</td>
+      </tr>
+    </table>
+  </section>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Extra Classes (AUT)</h2>
+    <p>Lab + TA Classes</p>
+    <ul>
+      <li>Lab: A practical class</li>
+      <li>TA: More details, Practical aspects, Solving HW</li>
+      <li>Homework are not accepted after solutions</li>
+    </ul>
+  </section>
+  <section>
+    <h2 style="color: #ff033e;">Extra Classes (SBU)</h2>
+    <p>TA Classes</p>
+    <ul>
+      <li>TA: More details, Practical aspects, Solving HW</li>
+      <li>Homework are not accepted after solutions</li>
+    </ul>
+  </section>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computers: The Computing Machines</h2>
+  <p>Computer Classififcation</p>
+  <dl>
+    <dt>Supercomputers</dt>
+    <dd>Weather forecast, Large scale simulation, … </dd>
+    <dt>Mainframe computers</dt>
+    <dd>The servers in large companies: Google, …</dd>
+    <dt>Midsize computers</dt>
+    <dd>The servers in CE department</dd>
+    <dt>Micro computers (also called PC)</dt>
+    <dd>Our laptop</dd>
+    <dt>Pocket PCs</dt>
+    <dd>Our mobile phones</dd>
+  </dl>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computers</h2>
+  <ul>
+    <li>Computers are anywhere, anytime. <span class="green-select">Why</span>?</li>
+    <li>They can solve many different problems. <span class="green-select">How</span>?</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computers</h2>
+  <ul>
+    <li>Computers are programmable machines capable of performing calculations (computation)</li>
+    <li>Changing program leads to different operation</li>
+    <li>Special-purpose machines</li>
+    <ul>
+      <li>Calculators, game-playing machines, …</li>
+    </ul>
+    <li>General-purpose computers</li>
+    <ul>
+      <li>Personal computers, notebooks, …</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Data Units</h2>
+  <ul>
+    <li>Computers are digital machines</li>
+    <li>Data processed or stored in computer is represented as two-state values</li>
+    <ul>
+      <li>either 1 or 0 - BInary digiTs (BIT)</li>
+      <li>1 Byte = 8 bits</li>
+      <li>1 kilobyte (KB) = 1024 bytes</li>
+      <li>1 megabyte (MB) = 1024 kilobyte</li>
+      <li>1 gigabyte (GB) = 1024 megabyte</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Data Representation/Coding</h2>
+  <ul>
+    <li>How to represent our data by 0-1?</li>
+    <li>In other word, there are some 0 and 1 in the computer, what is the meaning?</li>
+    <li style="color: #cccc00;">Coding (Representation Standards)</li>
+    <li>Major (common) representations (coding)</li>
+    <ul>
+      <li>Integer numbers: 1, 1000, -123, 0, ...</li>
+      <li>Floating point numbers: 1.1, 11.232, -12.23, ...</li>
+      <li>Characters: 'A', 'ب', '@', ...</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Integer Number Coding</h2>
+  <ul>
+    <li>There are different representations</li>
+    <li>One of the (simple) coding is sign-magnitude coding</li>
+    <ul>
+      <li>If we have n bit for coding integers</li>
+      <li>The left bit (the MSB): sign</li>
+      <li>n-1 bits: magnitude</li>
+    </ul>
+    <table>
+      <tr>
+        <td>4</td><td>0000</td><td>0100</td>
+      </tr>
+      <tr>
+        <td>-4</td><td>1000</td><td>0100</td>
+      </tr>
+      <tr>
+        <td>0</td><td>0000</td><td>0000</td>
+      </tr>
+      <tr>
+        <td>-0</td><td>1000</td><td>0000</td>
+      </tr>
+    </table>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Integer Number Coding</h2>
+  <p>Two's Complement</p>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Floating Point Number Coding (IEEE 754)</h2>
+  <ul>
+    <li>Usually, this coding pattern:</li>
+    <img src="img/ieee-754.png" alt="ieee">
+    <li>Two precisions:</li>
+    <ul>
+      <li>Single precision: exponent: 8 bit, fraction: 23 bit</li>
+      <li>Double precision: exponent: 11 bit, fraction: 52 bit</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Character Coding</h2>
+  <ul>
+    <li>Common character encoding: <span class="green-select">ASCII</span></li>
+    <li>8 bits can represent 256 characters; but,</li>
+    <ul>
+      <li>There are so many characters (Farsi, Arabic, …)</li>
+      <li>Solution: UTF (Variable length coding)</li>
+      <li>0xxxxxxx: 1 byte code</li>
+      <li>110xxxxx 10xxxxxx: 2 byte code</li>
+      <li>…</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization</h2>
+  <ul>
+    <li>Major Components</li>
+    <dl>
+      <dt>Hardware</dt>
+      <dd>Physical devices that are wired and performs basic operations</dd>
+      <dt>Software</dt>
+      <dd>Set of programs that run on the hardware</dd>
+    </dl>
+    <li>Hardware</li>
+    <ul>
+      <li>CPU (Central Processing Unit)</li>
+      <li>Main Memory</li>
+      <li>Secondary Storage</li>
+      <li>Input/output</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization</h2>
+  <img src="img/basic.gif" alt="basic">
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: CPU</h2>
+  <ul>
+    <li>ALU (Arithmetic Logic Unit)</li>
+    <ul>
+      <li>Performs mathematic calculations</li>
+      <li>Makes decision based on conditions</li>
+    </ul>
+    <li>Special Floating Point processors</li>
+    <li>Set of working area: Registers</li>
+    <li>Control Unit</li>
+    <ul>
+      <li>Controls system operation</li>
+    </ul>
+    <li>Operation and operands are required</li>
+    <ul>
+      <li>Which are provided by instructions in the main memory</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Main Memory</h2>
+  <ul>
+    <li>Ordered sequence of cells (memory cells)</li>
+    <li>Directly connected to CPU</li>
+    <li>All programs must be in main memory before execution</li>
+    <li>When power is turned off, Main memory is cleared</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Secondary Storage</h2>
+  <ul>
+    <li>Provides permanent storage for information</li>
+    <li>Examples of secondary storages:</li>
+    <ul>
+      <li>Hard Disks</li>
+      <li>Floppy Disks</li>
+      <li>Flash/Cool/USB Disks</li>
+      <li>CD/DVD</li>
+      <li>Tapes</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Input Devices</h2>
+  <ul>
+    <li>Devices that feed data and programs into computers</li>
+    <li>Examples:</li>
+    <ul>
+      <li>Keyboard</li>
+      <li>Mouse</li>
+      <li>Network Interface Card</li>
+      <li>Joystick</li>
+      <li>Microphone</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Output Devices</h2>
+  <ul>
+    <li>Devices that computer uses to generate results/outputs</li>
+    <li>Examples:</li>
+    <ul>
+      <li>Printer</li>
+      <li>Monitor</li>
+      <li>Speaker</li>
+      <li>Network Interface Card</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Software</h2>
+  <ul>
+    <li>What can do the Hardware?</li>
+    <ul>
+      <li>No useful operation, if there isn’t any software</li>
+      <li>We should tell/plan/program it to do something</li>
+    </ul>
+    <li>Software</li>
+    <ul>
+      <li>Programs which are designed for a specific task</li>
+    </ul>
+    <li>Major Software types</li>
+    <ul>
+      <li>Operating System</li>
+      <li>Libraries</li>
+      <li>Applications</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer HW & SW Organization</h2>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: OS</h2>
+  <ul>
+    <li>OS</li>
+    <ul>
+      <li>Manages the hardware, HW is a shared resource</li>
+      <li>Application programmers can easily use HW, Without knowing the HW details</li>
+    </ul>
+    <li>Common operating systems</li>
+    <ul>
+      <li>Windows XP/Vista/8/10, Linux, Unix, …</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Libraries</h2>
+  <ul>
+    <li>The libraries provide the most common functionalities</li>
+    <li>In mathematic programs</li>
+    <ul>
+      <li>sin(x), cos(x), matrix multiplication/inversion</li>
+    </ul>
+    <li>In graphical programs</li>
+    <ul>
+      <li>Draw a line/cycle, set color, new window</li>
+    </ul>
+    <li>In multimedia programs</li>
+    <ul>
+      <li>Open/close files, jump, …</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Computer Organization: Applications</h2>
+  <ul>
+    <li>An application program</li>
+    <ul>
+      <li>Users use them to do some specific things</li>
+      <li class="orange-select">Without knowing the details of the computer</li>
+    </ul>
+    <li>Common application programs</li>
+    <ul>
+      <li>Word, Internet Explorer, FireFox, Messengers</li>
+    </ul>
+    <li>Common applications in mathematic:</li>
+    <ul>
+      <li>Matlab, Mathematica, Maple, GAMS, AIMMS</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Programming Execution Phases</h2>
+  <ol>
+    <li>Program is loaded from secondary storage to main memory by OS</li>
+    <li>OS gives the control to the program</li>
+    <li>Instructions run</li>
+    <li>Required inputs are got from input device &amp; saved in main memory &amp; used by CPU</li>
+    <li>Result is saved in main/secondary memory or sent to output devices</li>
+  </ol>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Programming Execution Phases</h2>
+  <img src="img/cycle.png" alt="cycle">
+</section>
+<section>
+  <ul>
+    <li>Basic steps in running instructions</li>
+    <li>Read instruction from main memory: <span class="green-select">fetch</span></li>
+    <li><span class="green-select">Decode</span> the instruction</li>
+    <li>Get required <span class="green-select">operands</span> from main memory</li>
+    <li><span class="green-select">Run</span> the instruction</li>
+    <li>Save the <span class="green-select">result</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Von Neumann architecture</h2>
+  <ul>
+    <li>also known as the von Neumann model or Princeton architecture</li>
+    <li>Keeping both program instructions and data in read-write, random-access memory (RAM).</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">How to be general purpose machine?</h2>
+  <ul>
+    <li>Hardware is simple &amp; general purpose</li>
+    <li>Complex tasks (e.g. average, sort, …) are programmed by software</li>
+    <li>Software is translated to the basic instructions</li>
+    <li>This is the way that we <span class="orange-select">program</span> computers</li>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithm??!!!</h2>
+  <ul>
+    <li>Hardware do the basic operations</li>
+    <li>We want to solve a real problem by computers</li>
+    <li>We need a solution that</li>
+    <ul>
+      <li>Specifies how the real (complex) problem should be solved <span class="orange-select">step-by-step</span> using the basic operations</li>
+    </ul>
+    <li>The solution is the <span class="green-select">“Algorithm”</span> of the problem</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithms (cont’d)</h2>
+  <ul>
+    <li>Common Sense (in computer science):</li>
+    <ol>
+      <li>The way to do some things</li>
+      <li>An abstract way to solve a problem</li>
+    </ol>
+    <li>Formal Definition:</li>
+    <q>
+      An algorithm is a <span class="green-select">finite list</span> of <span class="green-select">well-defined</span>
+      instructions for accomplishing some task that,
+      given an <span class="green-select">initial state</span>, will <span class="green-select">proceed</span> through a welldefined series of successive states, possibly
+      eventually <span class="green-select">terminating</span> in an end-state
+    </q>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithms: Examples</h2>
+  <ul>
+    <li>Finding Common Divisor</li>
+    <li>Finding 2 largest element in a set</li>
+    <li>Finding shortest path in a graph</li>
+    <li>Searching in a sorted array</li>
+    <li>Sorting a set</li>
+    <li>Combining 2 sorted set in a sorted set</li>
+    <li>Solving an equation</li>
+    <li>Compression algorithms</li>
+    <li>Cryptography algorithms</li>
+    <li>...</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithms: Description</h2>
+  <ul>
+    <li>Algorithms are the problem solving steps in our mind!!!</li>
+    <li>How can we document it (don’t forget it)?</li>
+    <li>How can we explain/teach it to others peoples?</li>
+    <li>How can we explain it to computers?</li>
+    <li>We need some methods to describe algorithms!</li>
+    <ul>
+      <li>Flow chart</li>
+      <li>Pseudo-codes</li>
+      <li>Codes/Programs</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
+  <ul>
+    <li>Flowcharts:</li>
+    <img src='img/flowchart.png' alt="flowchart" height="500">
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
+  <ul>
+    <li>Pseudo-codes:</li>
+    <li>A sequence of English and mathematical statements</li>
+    <pre><code>
 Algorithm: calculate 1 ^ 2 + 2 ^ 2 + ... + n ^ 2
 Input: n
 Output: sum
@@ -664,303 +645,266 @@ Repeat the following three steps while i &lt;= n:
   sq = i * i
   sum = sum + sq
   i = i + 1
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
-          <ul>
-            <li>Flowcharts and Pseudo-code are for humans not for computer</li>
-            <ul>
-              <li>Computer <span class="orange-select">cannot</span> run them</li>
-            </ul>
-            <li>What can computer run?</li>
-            <ul>
-              <li>Instructions in main memory</li>
-              <li>The instructions are in <span class=cyan-select>“011100001…”</span> format</li>
-              <li>To use computers <q>We should describe your algorithm in “01” format</q></li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <img src="img/assembly.jpg" alt="assembly" height=700>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Programming Language</h2>
-          <ul>
-            <li>Programming languages are the tools to describe your algorithms for computers</li>
-            <ul>
-              <li>Software is developed by programming languages</li>
-            </ul>
-            <li>New languages which is understandable by computers</li>
-            <li>Human languages are not used. Why?</li>
-            <li>When algorithm is described with a programming language</li>
-            <ul>
-              <li>It cannot be run on computer directly if the languages is not 011001001</li>
-              <li>There are some other programs that translate the programming language to “010…”</li>
-              <li>The output “0101…” can run on computers</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Programming Language: Machine Level</h2>
-          <ul>
-            <li>Computer’s native language</li>
-            <li>What is saved in the main memory</li>
-            <li>The processor architecture specifies the format of 01s, machine depended</li>
-            <li>Example</li>
-            <ul>
-              <li>Add two numbers: 00100111 1010 0101</li>
-            </ul>
-            <li>Completely incomprehensible to (most) people</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Programming Language: Assembly</h2>
-          <ul>
-            <li>Programming based on mnemonics</li>
-            <li>There are <span class="orange-select">one-to-one mapping</span> between machine language and assembly mnemonics</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Programming Language: High Level</h2>
-          <ul>
-            <li>Easy for programming, English-like keywords</li>
-            <li>There isn’t one-to-one relation between high level statements and machine level statements</li>
-            <li>Example: C, C++, Pascal, Java, PHP, Python, Go, ...</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Translation of High Level Languages</h2>
-          <ul>
-            <li>Two types of translators</li>
-            <ul>
-              <li>Interpreter</li>
-              <li>Compiler</li>
-            </ul>
-            <li>Interpreter</li>
-            <ul>
-              <li>Checks and runs program lines one-by-one</li>
-              <li>Easy, slow, and we need the interpreter</li>
-            </ul>
-            <li>Compiler</li>
-            <ul>
-              <li>Check all lines, creates executable output file</li>
-              <li>Fast and Stand alone program</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Compiler</h2>
-          <ul>
-            <li>A <span class="orange-select">set</span> of computer programs do the <span class="green-select">Compilation</span></li>
-            <li><span class="orange-select">Preprocessor</span>: Prepare file for compiler</li>
-            <li><span class="orange-select">Compiler</span>: Create assembly code</li>
-            <li><span class="green-select">Assembler</span>: Convert assembly code to binary code</li>
-            <li><span class="green-select">Linker</span>: Collect all required binary files (from libraries) into a single loadable file</li>
-            <li>Each language has its own compiler</li>
-          </ul>
-          <p>Usually compiler do all above steps, you just compile the file and get a executable file</p>
-        </section>
-        <section>
-          <img src="img/build-flow.png" alt="build-flow">
-        </section>
-        <section data-background-image="img/code.jpg">
-        </section>
-        <section>
-          <div class="toc" data-selected="3"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Solving Problems</h2>
-          <ul>
-            <li>How to solve problems using computers</li>
-            <ul>
-              <li>Develop a <span class="orange-select">program</span> for it</li>
-            </ul>
-            <li>Steps</li>
-            <ol>
-              <li>Analysis: Input, output</li>
-              <li>Algorithm Design</li>
-              <li>Coding</li>
-              <li>Compile (Program)</li>
-              <li>Execution (Test)</li>
-              <li>Documentation</li>
-            </ol>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Solving Problems: Analysis</h2>
-          <ul>
-            <li>Problem solving process consists of: Input Algorithm Output</li>
-            <li>Determine what information is available as the input to your algorithm</li>
-            <li>Determine what information is desired as the output from your algorithm</li>
-            <li>What needs to be done on the input to produce the output? <span class="orange-select">Algorithm</span></li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Solving Problems: Algorithm</h2>
-          <ul>
-            <li>Determine a series of steps that transforms the input data into the output results</li>
-            <li>Find all the <span class="orange-select">special cases</span> that the must be handled</li>
-            <li>If necessary modify or redesign your series of steps so that all special cases are handled</li>
-            <li>Verify your algorithm</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Solving Problems: Coding</h2>
-          <ul>
-            <li>Describe your algorithm by a programming language</li>
-            <li>You must code exactly in the programming language <span class="orange-select">syntax</span></li>
-            <li>Compiler itself is a program it isn’t a human</li>
-            <ul>
-              <li>It is not intelligent</li>
-              <li>It just does the steps of the compiling algorithm</li>
-              <li>It does not understand what do you mean!!!</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Solving Program: Execution</h2>
-          <ul>
-            <li>Compiler generated the executable file</li>
-            <li>Run the executable code</li>
-            <ul>
-              <li>First try to use simple</li>
-              <li>Then try larger and complex inputs</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <img src="img/code-progress.png" alt="code-progress" height="700">
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Errors in Solving Problems</h2>
-          <ul>
-            <li>Compile / Syntax error: Compiler does not recognize your code</li>
-            <li>Link error: Linker cannot find the required libraries</li>
-            <li>Runtime error: Program does not run correctly</li>
-            <ul>
-              <li>Example: Division by zero</li>
-            </ul>
-            <li>Logical Error: Program does not produce the expected result</li>
-            <ul>
-              <li>It is called <span class="orange-select">bug</span></li>
-              <li>No one (compiler, assembler) except debugger can help you</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Errors in Solving Problems</h2>
-          <ul>
-            <li>Why error?</li>
-            <ul>
-              <li>You do not understand and analysis the problem correctly</li>
-              <li>You do not develop a right algorithm for the problem</li>
-              <li>You have mistakes in your coding</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Debugging</h2>
-          <dl>
-            <dt>The process of resolving the errors</dt>
-            <dd>Example: A program to divide two numbers</dd>
-            <dt>Compile/Syntax error</dt>
-            <dd>Compiler tells where it is, check syntax</dd>
-            <dt>Link error</dt>
-            <dd>Compiler tells what it is, check syntax &amp; libraries</dd>
-            <dt>Run time error</dt>
-            <dd><ul>
-              <li>Try to find it, use debugger to run step-by-step, print debug messages</li>
-              <li>Check syntax &amp; semantic of the line</li>
-            </ul></dd>
-          </dl>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Debugging</h2>
-          <dl>
-            <dt>Logical error</dt>
-            <dd><ul>
-              <li>Try to find it, use debugger to run step-by-step, print debug messages</li>
-              <li>Check syntax &amp; semantic of program</li>
-              <li>Revise the algorithm</li>
-            </ul></dd>
-          </dl>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Desired Features of Programs</h2>
-          <dl>
-            <dt>Integrity</dt>
-            <dd>Correctly solve the problem</dd>
-            <dt>Clarity</dt>
-            <dd>Easy to read</dd>
-            <dt>Simplicity</dt>
-            <dd>Easy to understand</dd>
-            <dt>Efficiency</dt>
-            <dd>Speed and memory</dd>
-            <dt>Modularity</dt>
-            <dd>Break down of a large task</dd>
-            <dt>Generality</dt>
-            <dd>Tunable by input as much as possible</dd>
-          </dl>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Summary</h2>
-          <ul>
-            <li>Computer organization</li>
-            <ul class="fragment" data-fragment-offset="1">
-              <li>Hardware and Software</li>
-            </ul>
-            <li>Algorithm &amp; Program</li>
-            <ul class="fragment" data-fragment-offset="2">
-              <li>What is the difference between them</li>
-            </ul>
-            <li>How to solve a problem using computer</li>
-            <ul class="fragment" data-fragment-offset="3">
-              <li>Steps</li>
-            </ul>
-            <li>Errors in problem solving</li>
-            <li>What is the next: Design algorithm</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-          <img src="img/torvalds.png" alt="torvalds">
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-              'What is this course?',
-              'Computer organization',
-              'Algorithms & Programming',
-              'Solving problems'
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Algorithms: Description (cont’d)</h2>
+  <ul>
+    <li>Flowcharts and Pseudo-code are for humans not for computer</li>
+    <ul>
+      <li>Computer <span class="orange-select">cannot</span> run them</li>
+    </ul>
+    <li>What can computer run?</li>
+    <ul>
+      <li>Instructions in main memory</li>
+      <li>The instructions are in <span class=cyan-select>“011100001…”</span> format</li>
+      <li>To use computers <q>We should describe your algorithm in “01” format</q></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <img src="img/assembly.jpg" alt="assembly" height=700>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Programming Language</h2>
+  <ul>
+    <li>Programming languages are the tools to describe your algorithms for computers</li>
+    <ul>
+      <li>Software is developed by programming languages</li>
+    </ul>
+    <li>New languages which is understandable by computers</li>
+    <li>Human languages are not used. Why?</li>
+    <li>When algorithm is described with a programming language</li>
+    <ul>
+      <li>It cannot be run on computer directly if the languages is not 011001001</li>
+      <li>There are some other programs that translate the programming language to “010…”</li>
+      <li>The output “0101…” can run on computers</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Programming Language: Machine Level</h2>
+  <ul>
+    <li>Computer’s native language</li>
+    <li>What is saved in the main memory</li>
+    <li>The processor architecture specifies the format of 01s, machine depended</li>
+    <li>Example</li>
+    <ul>
+      <li>Add two numbers: 00100111 1010 0101</li>
+    </ul>
+    <li>Completely incomprehensible to (most) people</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Programming Language: Assembly</h2>
+  <ul>
+    <li>Programming based on mnemonics</li>
+    <li>There are <span class="orange-select">one-to-one mapping</span> between machine language and assembly mnemonics</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Programming Language: High Level</h2>
+  <ul>
+    <li>Easy for programming, English-like keywords</li>
+    <li>There isn’t one-to-one relation between high level statements and machine level statements</li>
+    <li>Example: C, C++, Pascal, Java, PHP, Python, Go, ...</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Translation of High Level Languages</h2>
+  <ul>
+    <li>Two types of translators</li>
+    <ul>
+      <li>Interpreter</li>
+      <li>Compiler</li>
+    </ul>
+    <li>Interpreter</li>
+    <ul>
+      <li>Checks and runs program lines one-by-one</li>
+      <li>Easy, slow, and we need the interpreter</li>
+    </ul>
+    <li>Compiler</li>
+    <ul>
+      <li>Check all lines, creates executable output file</li>
+      <li>Fast and Stand alone program</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Compiler</h2>
+  <ul>
+    <li>A <span class="orange-select">set</span> of computer programs do the <span class="green-select">Compilation</span></li>
+    <li><span class="orange-select">Preprocessor</span>: Prepare file for compiler</li>
+    <li><span class="orange-select">Compiler</span>: Create assembly code</li>
+    <li><span class="green-select">Assembler</span>: Convert assembly code to binary code</li>
+    <li><span class="green-select">Linker</span>: Collect all required binary files (from libraries) into a single loadable file</li>
+    <li>Each language has its own compiler</li>
+  </ul>
+  <p>Usually compiler do all above steps, you just compile the file and get a executable file</p>
+</section>
+<section>
+  <img src="img/build-flow.png" alt="build-flow">
+</section>
+<section data-background-image="img/code.jpg">
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Solving Problems</h2>
+  <ul>
+    <li>How to solve problems using computers</li>
+    <ul>
+      <li>Develop a <span class="orange-select">program</span> for it</li>
+    </ul>
+    <li>Steps</li>
+    <ol>
+      <li>Analysis: Input, output</li>
+      <li>Algorithm Design</li>
+      <li>Coding</li>
+      <li>Compile (Program)</li>
+      <li>Execution (Test)</li>
+      <li>Documentation</li>
+    </ol>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Solving Problems: Analysis</h2>
+  <ul>
+    <li>Problem solving process consists of: Input Algorithm Output</li>
+    <li>Determine what information is available as the input to your algorithm</li>
+    <li>Determine what information is desired as the output from your algorithm</li>
+    <li>What needs to be done on the input to produce the output? <span class="orange-select">Algorithm</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Solving Problems: Algorithm</h2>
+  <ul>
+    <li>Determine a series of steps that transforms the input data into the output results</li>
+    <li>Find all the <span class="orange-select">special cases</span> that the must be handled</li>
+    <li>If necessary modify or redesign your series of steps so that all special cases are handled</li>
+    <li>Verify your algorithm</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Solving Problems: Coding</h2>
+  <ul>
+    <li>Describe your algorithm by a programming language</li>
+    <li>You must code exactly in the programming language <span class="orange-select">syntax</span></li>
+    <li>Compiler itself is a program it isn’t a human</li>
+    <ul>
+      <li>It is not intelligent</li>
+      <li>It just does the steps of the compiling algorithm</li>
+      <li>It does not understand what do you mean!!!</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Solving Program: Execution</h2>
+  <ul>
+    <li>Compiler generated the executable file</li>
+    <li>Run the executable code</li>
+    <ul>
+      <li>First try to use simple</li>
+      <li>Then try larger and complex inputs</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <img src="img/code-progress.png" alt="code-progress" height="700">
+</section>
+<section>
+  <h2 style="color: #ff033e;">Errors in Solving Problems</h2>
+  <ul>
+    <li>Compile / Syntax error: Compiler does not recognize your code</li>
+    <li>Link error: Linker cannot find the required libraries</li>
+    <li>Runtime error: Program does not run correctly</li>
+    <ul>
+      <li>Example: Division by zero</li>
+    </ul>
+    <li>Logical Error: Program does not produce the expected result</li>
+    <ul>
+      <li>It is called <span class="orange-select">bug</span></li>
+      <li>No one (compiler, assembler) except debugger can help you</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Errors in Solving Problems</h2>
+  <ul>
+    <li>Why error?</li>
+    <ul>
+      <li>You do not understand and analysis the problem correctly</li>
+      <li>You do not develop a right algorithm for the problem</li>
+      <li>You have mistakes in your coding</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Debugging</h2>
+  <dl>
+    <dt>The process of resolving the errors</dt>
+    <dd>Example: A program to divide two numbers</dd>
+    <dt>Compile/Syntax error</dt>
+    <dd>Compiler tells where it is, check syntax</dd>
+    <dt>Link error</dt>
+    <dd>Compiler tells what it is, check syntax &amp; libraries</dd>
+    <dt>Run time error</dt>
+    <dd><ul>
+      <li>Try to find it, use debugger to run step-by-step, print debug messages</li>
+      <li>Check syntax &amp; semantic of the line</li>
+    </ul></dd>
+  </dl>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Debugging</h2>
+  <dl>
+    <dt>Logical error</dt>
+    <dd><ul>
+      <li>Try to find it, use debugger to run step-by-step, print debug messages</li>
+      <li>Check syntax &amp; semantic of program</li>
+      <li>Revise the algorithm</li>
+    </ul></dd>
+  </dl>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Desired Features of Programs</h2>
+  <dl>
+    <dt>Integrity</dt>
+    <dd>Correctly solve the problem</dd>
+    <dt>Clarity</dt>
+    <dd>Easy to read</dd>
+    <dt>Simplicity</dt>
+    <dd>Easy to understand</dd>
+    <dt>Efficiency</dt>
+    <dd>Speed and memory</dd>
+    <dt>Modularity</dt>
+    <dd>Break down of a large task</dd>
+    <dt>Generality</dt>
+    <dd>Tunable by input as much as possible</dd>
+  </dl>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Summary</h2>
+  <ul>
+    <li>Computer organization</li>
+    <ul class="fragment" data-fragment-offset="1">
+      <li>Hardware and Software</li>
+    </ul>
+    <li>Algorithm &amp; Program</li>
+    <ul class="fragment" data-fragment-offset="2">
+      <li>What is the difference between them</li>
+    </ul>
+    <li>How to solve a problem using computer</li>
+    <ul class="fragment" data-fragment-offset="3">
+      <li>Steps</li>
+    </ul>
+    <li>Errors in problem solving</li>
+    <li>What is the next: Design algorithm</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+  <img src="img/torvalds.png" alt="torvalds">
+</section>
