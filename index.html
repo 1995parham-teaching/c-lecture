@@ -50,9 +50,9 @@ layout: none
           {% for lecture in lectures %}
           <tr>
             <td class="announcement-text">
-              <a href="{{ file.path | relative_url }}">{{file.title}}</a>
+              <a href="{{ lecture.path | relative_url }}">{{lecture.title}}</a>
             </td>
-            <td class="announcement-date">{{file.modified_time | date_to_string}}</td>
+            <td class="announcement-date">{{lecture.modified_time | date_to_string}}</td>
           {% endfor %}
           <!--
           <tr>
