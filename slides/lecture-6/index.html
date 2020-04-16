@@ -1,202 +1,179 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: lecture
+title: Making Decisions
+stopics:
+- Conditions and Boolean operations
+- if-else statement
+- switch-case statement
+- Conditional expressions
+- Common Bugs
+---
 
-    <title>Making Decisions</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Making Decisions</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <div class="toc"></div>
-        </section>
-        <section>
-          <div class="toc" data-selected="0"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Decision</h2>
-          <ul>
-            <li>Decisions are based on <span class="orange-select">conditions</span></li>
-            <ul>
-              <li><span class="green-select">If</span> it is snowing <span class="orange-select">then</span> We will cancel the game</li>
-              <li><span class="green-select">If</span> the class is not canceled <span class="orange-select">then</span> I will attend <span class="cyan-select">else</span> I will go to gym</li>
-            </ul>
-            <li>In programming</li>
-            <ul>
-              <li>Do statements based on conditions</li>
-              <ul>
-                <li><span class="green-select">True</span>: The statements will be done</li>
-                <li><span class="red-select">False</span>: The statement wont be done</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Conditions</h2>
-          <ul>
-            <li>Conditions by comparisons; e.g.,</li>
-            <ul>
-              <li>Weather vs. snowing</li>
-              <li>Variable x vs. a value</li>
-            </ul>
-            <li>Comparing numbers: Relational Operators</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Conditions</h2>
-            <table>
-              <thead>
-                <th>Relational Operator</th>
-                <th>Meaning</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>&lt;</td>
-                  <td>is less than</td>
-                </tr>
-                <tr>
-                  <td>&lt;=</td>
-                  <td>is less than or equal to</td>
-                </tr>
-                <tr>
-                  <td>&gt;</td>
-                  <td>is greater than</td>
-                </tr>
-                <tr>
-                  <td>&gt;=</td>
-                  <td>is greater than or equal to</td>
-                </tr>
-                <tr>
-                  <td>==</td>
-                  <td>is equal to</td>
-                </tr>
-                <tr>
-                  <td>!=</td>
-                  <td>is not equal to</td>
-                </tr>
-              </tbody>
-            </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Relations</h2>
-          <ul>
-            <li>Relations are not a complete statement</li>
-            <pre><code class="hljs lang-c">
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Decision</h2>
+  <ul>
+    <li>Decisions are based on <span class="orange-select">conditions</span></li>
+    <ul>
+      <li><span class="green-select">If</span> it is snowing <span class="orange-select">then</span> We will cancel the game</li>
+      <li><span class="green-select">If</span> the class is not canceled <span class="orange-select">then</span> I will attend <span class="cyan-select">else</span> I will go to gym</li>
+    </ul>
+    <li>In programming</li>
+    <ul>
+      <li>Do statements based on conditions</li>
+      <ul>
+        <li><span class="green-select">True</span>: The statements will be done</li>
+        <li><span class="red-select">False</span>: The statement wont be done</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Conditions</h2>
+  <ul>
+    <li>Conditions by comparisons; e.g.,</li>
+    <ul>
+      <li>Weather vs. snowing</li>
+      <li>Variable x vs. a value</li>
+    </ul>
+    <li>Comparing numbers: Relational Operators</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Conditions</h2>
+  <table>
+    <thead>
+      <th>Relational Operator</th>
+      <th>Meaning</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>&lt;</td>
+        <td>is less than</td>
+      </tr>
+      <tr>
+        <td>&lt;=</td>
+        <td>is less than or equal to</td>
+      </tr>
+      <tr>
+        <td>&gt;</td>
+        <td>is greater than</td>
+      </tr>
+      <tr>
+        <td>&gt;=</td>
+        <td>is greater than or equal to</td>
+      </tr>
+      <tr>
+        <td>==</td>
+        <td>is equal to</td>
+      </tr>
+      <tr>
+        <td>!=</td>
+        <td>is not equal to</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Relations</h2>
+  <ul>
+    <li>Relations are not a complete statement</li>
+    <pre><code class="hljs lang-c">
 int a, b;
 a == b; //ERROR
 a &lt;= b; //ERROR
-            </code></pre>
-            <li>Relations produce a boolean value</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Relations produce a boolean value</li>
+    <pre><code class="hljs lang-c">
 int a, b;
 bool bl; // #include &lt;stdbool.h&gt;
 bl = a == b;
 bl = a &lt;= b;
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Boolean operations</h2>
-          <ul>
-            <li>Multiple conditions in decision making</li>
-            <li>Logical relation between conditions</li>
-            <ul>
-              <li><span class="green-select">if</span> you are student <span class="cyan-select">and</span> you have the programming course <span class="orange-select">then</span> You should read the book</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Boolean operations</h2>
-          <ul>
-            <li>and &nbsp; &amp;&amp;</li>
-            <li>or &nbsp; ||</li>
-            <li>not &nbsp; !</li>
-          </ul>
-          <table>
-            <thead>
-              <th>p</th>
-              <th>q</th>
-              <th>p &amp;&amp; q</th>
-              <th>p || q</th>
-              <th>!p</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>True</td>
-              </tr>
-              <tr>
-                <td>False</td>
-                <td>True</td>
-                <td>False</td>
-                <td>True</td>
-                <td>True</td>
-              </tr>
-              <tr>
-                <td>True</td>
-                <td>False</td>
-                <td>False</td>
-                <td>True</td>
-                <td>False</td>
-              </tr>
-              <tr>
-                <td>True</td>
-                <td>True</td>
-                <td>True</td>
-                <td>True</td>
-                <td>False</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Boolean operations (cont’d)</h2>
-          <ul>
-            <li>Examples</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Boolean operations</h2>
+  <ul>
+    <li>Multiple conditions in decision making</li>
+    <li>Logical relation between conditions</li>
+    <ul>
+      <li><span class="green-select">if</span> you are student <span class="cyan-select">and</span> you have the programming course <span class="orange-select">then</span> You should read the book</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Boolean operations</h2>
+  <ul>
+    <li>and &nbsp; &amp;&amp;</li>
+    <li>or &nbsp; ||</li>
+    <li>not &nbsp; !</li>
+  </ul>
+  <table>
+    <thead>
+      <th>p</th>
+      <th>q</th>
+      <th>p &amp;&amp; q</th>
+      <th>p || q</th>
+      <th>!p</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>True</td>
+      </tr>
+      <tr>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+        <td>True</td>
+        <td>True</td>
+      </tr>
+      <tr>
+        <td>True</td>
+        <td>False</td>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+      </tr>
+      <tr>
+        <td>True</td>
+        <td>True</td>
+        <td>True</td>
+        <td>True</td>
+        <td>False</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Boolean operations (cont’d)</h2>
+  <ul>
+    <li>Examples</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 bool a = true, b = false, c;
 c = !a; // c = false
 c = a &amp;&amp; b; // c = false
 c = a || b; // c = true
 c = !a || b; // c = false
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Precedence</h2>
-          <img src="img/c-precedence.png" alt="c-precedence">
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Relations, No type effect</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Precedence</h2>
+  <img src="img/c-precedence.png" alt="c-precedence">
+</section>
+<section>
+  <h2 style="color: #ff033e;">Relations, No type effect</h2>
+  <pre><code class="hljs lang-c">
 int a = 10, b = 20;
 float f = 54.677f;
 double d = 547.775;
@@ -209,153 +186,153 @@ b1 = d &lt; c1 * 10; // true
 b1 = c1 == c2; // false
 b1 = '1' &lt; '2'; // true
 b1 = c1 + f &lt; d + a; // true
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Casting</h2>
-          <ul>
-            <li>In logical operations</li>
-            <ul>
-              <li>0: False</li>
-              <li>non-zero: True</li>
-            </ul>
-            <li>In mathematical &amp; comparison operations</li>
-            <ul>
-              <li>False: 0</li>
-              <li>True: 1</li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Casting</h2>
+  <ul>
+    <li>In logical operations</li>
+    <ul>
+      <li>0: False</li>
+      <li>non-zero: True</li>
+    </ul>
+    <li>In mathematical &amp; comparison operations</li>
+    <ul>
+      <li>False: 0</li>
+      <li>True: 1</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 bool b1, b2;
 int i = 0, j = 20;
 b1 = i &amp;&amp; j; // b1 = false
 b2 = j || j; // b2 = true
 i = b1 + b2; // i = 1
 j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
-          </code></pre>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Examples</h2>
-            <ul>
-              <li>x in [10, 20]</li>
-              <li><span class="red-select">Wrong Version</span></li>
-              <ul>
-                <li>10 &lt;= x &lt;= 20</li>
-                <li>Let x = 30</li>
-                <ol>
-                  <li>10 &lt;= 30 &lt;= 20</li>
-                  <li>(10 &lt;= 30) &lt;= 20</li>
-                  <li>true &lt;= 20</li>
-                  <li>1 &lt; 20</li>
-                  <li>True</li>
-                </ol>
-              </ul>
-            </ul>
-          </section>
-          <section>
-            <h2 style="color: #ff033e;">Examples</h2>
-            <ul>
-              <li>x in [10, 20]</li>
-              <li><span class="green-select">Correct Version</span></li>
-              <ul>
-                <li>(10 &lt;= x) &amp;&amp; (x &lt;= 20)</li>
-                <li>Let x = 30</li>
-                <ol>
-                  <li>(10 &lt;= 30) &amp;&amp; (30 &lt;= 20)</li>
-                  <li>true &amp;&amp; false</li>
-                  <li>false</li>
-                </ol>
-              </ul>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Examples</h2>
-            <ul>
-              <li>a, b &gt; 0</li>
-              <li><span class="red-select">Wrong Version</span></li>
-              <ul>
-                <li>a &amp;&amp; b &gt; 0</li>
-                <li>Let a = -10, b = 20</li>
-                <ol>
-                  <li>-10 &amp;&amp; 20 &gt; 0</li>
-                  <li>-10 &amp;&amp; (20 &gt; 0)</li>
-                  <li>-10 &amp;&amp; true</li>
-                  <li>true &amp;&amp; true</li>
-                  <li>true</li>
-                </ol>
-              </ul>
-            </ul>
-          </section>
-          <section>
-            <h2 style="color: #ff033e;">Examples</h2>
-            <ul>
-              <li>a, b &gt; 0</li>
-              <li><span class="green-select">Correct Version</span></li>
-              <ul>
-                <li>(a &gt; 0) &amp;&amp; (b &gt; 0)</li>
-                <li>Let a = -10, b = 20</li>
-                <ol>
-                  <li>(-10 &gt; 0) &amp;&amp; (20 &gt; 0)</li>
-                  <li>false &amp;&amp; true</li>
-                  <li>false</li>
-                </ol>
-              </ul>
-            </ul>
-          </section>
-        </section>
-        <section>
-          <div class="toc" data-selected="1"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Type of statements</h2>
-          <ul>
-            <li>Expression statement</li>
-            <ul>
-              <li>Single statements</li>
-            </ul>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Examples</h2>
+    <ul>
+      <li>x in [10, 20]</li>
+      <li><span class="red-select">Wrong Version</span></li>
+      <ul>
+        <li>10 &lt;= x &lt;= 20</li>
+        <li>Let x = 30</li>
+        <ol>
+          <li>10 &lt;= 30 &lt;= 20</li>
+          <li>(10 &lt;= 30) &lt;= 20</li>
+          <li>true &lt;= 20</li>
+          <li>1 &lt; 20</li>
+          <li>True</li>
+        </ol>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <h2 style="color: #ff033e;">Examples</h2>
+    <ul>
+      <li>x in [10, 20]</li>
+      <li><span class="green-select">Correct Version</span></li>
+      <ul>
+        <li>(10 &lt;= x) &amp;&amp; (x &lt;= 20)</li>
+        <li>Let x = 30</li>
+        <ol>
+          <li>(10 &lt;= 30) &amp;&amp; (30 &lt;= 20)</li>
+          <li>true &amp;&amp; false</li>
+          <li>false</li>
+        </ol>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Examples</h2>
+    <ul>
+      <li>a, b &gt; 0</li>
+      <li><span class="red-select">Wrong Version</span></li>
+      <ul>
+        <li>a &amp;&amp; b &gt; 0</li>
+        <li>Let a = -10, b = 20</li>
+        <ol>
+          <li>-10 &amp;&amp; 20 &gt; 0</li>
+          <li>-10 &amp;&amp; (20 &gt; 0)</li>
+          <li>-10 &amp;&amp; true</li>
+          <li>true &amp;&amp; true</li>
+          <li>true</li>
+        </ol>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <h2 style="color: #ff033e;">Examples</h2>
+    <ul>
+      <li>a, b &gt; 0</li>
+      <li><span class="green-select">Correct Version</span></li>
+      <ul>
+        <li>(a &gt; 0) &amp;&amp; (b &gt; 0)</li>
+        <li>Let a = -10, b = 20</li>
+        <ol>
+          <li>(-10 &gt; 0) &amp;&amp; (20 &gt; 0)</li>
+          <li>false &amp;&amp; true</li>
+          <li>false</li>
+        </ol>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Type of statements</h2>
+  <ul>
+    <li>Expression statement</li>
+    <ul>
+      <li>Single statements</li>
+    </ul>
+    <pre><code class="hljs lang-c">
 x = y + 10;
 scanf("%d", &amp;i);
-            </code></pre>
-            <li>Control statement</li>
-            <ul>
-              <li>Control the flow of program</li>
-              <li>Decisions and loops</li>
-            </ul>
-            <li>Compound statement</li>
-            <ul>
-              <li>Starts with { and ends with }</li>
-              <li>All statements can be between { and }</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">if statement</h2>
-          <ul>
-            <li>Decision making in C</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Control statement</li>
+    <ul>
+      <li>Control the flow of program</li>
+      <li>Decisions and loops</li>
+    </ul>
+    <li>Compound statement</li>
+    <ul>
+      <li>Starts with { and ends with }</li>
+      <li>All statements can be between { and }</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">if statement</h2>
+  <ul>
+    <li>Decision making in C</li>
+    <pre><code class="hljs lang-c">
 if( &lt;expression&gt; )
   &lt;statements1&gt;
 else
   &lt;statements2&gt;
-            </code></pre>
-            <li>Expression</li>
-            <ul>
-              <li>A boolean statement: <span class="green-select">a &lt;= b</span></li>
-              <li>A mathematical statement: <span class="green-select">a + b</span> or a variable: <span class="green-select">a</span></li>
-              <ul>
-                <li>zero &rarr; false</li>
-                <li>non-zero &rarr; true</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Even-Odd</h2>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Expression</li>
+    <ul>
+      <li>A boolean statement: <span class="green-select">a &lt;= b</span></li>
+      <li>A mathematical statement: <span class="green-select">a + b</span> or a variable: <span class="green-select">a</span></li>
+      <ul>
+        <li>zero &rarr; false</li>
+        <li>non-zero &rarr; true</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Even-Odd</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
   int number_to_test, remainder;
@@ -368,31 +345,31 @@ int main(void){
     printf ("The number is odd.\n");
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Statements in if-else</h2>
-          <ul>
-            <li>Empty statement</li>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Statements in if-else</h2>
+  <ul>
+    <li>Empty statement</li>
+    <pre><code class="hljs lang-c">
 if(a &gt; b)
   printf("A is larger \n");
 else
   ;
-            </code></pre>
-            <li>Block statements</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Block statements</li>
+    <pre><code class="hljs lang-c">
 if(a &lt;= b){
   printf("A is less than b or ");
   printf("A is equal b\n");
 }
 else
   printf("A is greater than b\n");
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
   int i;
@@ -414,22 +391,22 @@ int main(void){
 
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">More than two choices</h2>
-          <ul>
-            <li>If statement: 2 choices</li>
-            <ul>
-              <li>If conditions are true &rarr; if statements</li>
-              <li>If conditions are false &rarr; else statements</li>
-            </ul>
-            <li>How to make decisions when there are multiple choices?</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">More than two choices</h2>
+  <ul>
+    <li>If statement: 2 choices</li>
+    <ul>
+      <li>If conditions are true &rarr; if statements</li>
+      <li>If conditions are false &rarr; else statements</li>
+    </ul>
+    <li>How to make decisions when there are multiple choices?</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
+  <pre><code class="hljs lang-c">
 int numg;
 char alphag;
 if(numg &lt; 25)
@@ -440,24 +417,24 @@ if((numg &gt;= 50) &amp;&amp; (numg &lt; 75))
   alphag = 'B';
 if(numg &gt;= 75)
   alphag = 'A';
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">More than two choices</h2>
-          <ul>
-            <li>To avoid repeating conditions in if statements</li>
-            <li>To avoid running unnecessary statements</li>
-            <li><span class="red-select">Nested</span> if: check multiple conditions</li>
-            <ul>
-              <li>&lt;Statements 1&gt; becomes an if-else statement</li>
-              <li>&lt;Statements 2&gt; becomes an if-else statement</li>
-              <li>Repeat it as many as needed</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Nested if-else</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">More than two choices</h2>
+  <ul>
+    <li>To avoid repeating conditions in if statements</li>
+    <li>To avoid running unnecessary statements</li>
+    <li><span class="red-select">Nested</span> if: check multiple conditions</li>
+    <ul>
+      <li>&lt;Statements 1&gt; becomes an if-else statement</li>
+      <li>&lt;Statements 2&gt; becomes an if-else statement</li>
+      <li>Repeat it as many as needed</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Nested if-else</h2>
+  <pre><code class="hljs lang-c">
 if(c1 &amp;&amp; c2)
   s1
 if(c1 &amp;&amp; !(c2))
@@ -466,8 +443,8 @@ if(!(c1) &amp;&amp; c3)
   s3
 if(!(c1) &amp;&amp; !(c3))
   s4
-          </code></pre>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <pre><code class="hljs lang-c">
 if(c1)
   if(c2)
     s1
@@ -478,11 +455,11 @@ else
     s3
   else
     s4
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
+  <pre><code class="hljs lang-c">
 int numg;
 char alphag;
 
@@ -498,11 +475,11 @@ else {
       alphag = ‘A’;
   }
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Nested if-else</h2>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Nested if-else</h2>
+  <pre><code class="hljs lang-c">
 if (&lt;condition 1&gt;)
   &lt;statement 1&gt;
 else {
@@ -511,19 +488,19 @@ else {
   else
     &lt;statement 3&gt;
 }
-            </code></pre>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+  <pre><code class="hljs lang-c">
 if (&lt;condition 1&gt;)
   &lt;statement 1&gt;
 else if (&lt;condition 2&gt;)
   &lt;statement 2&gt;
 else
   &lt;statement 3&gt;
-            </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Map numeric grade to alphabetic</h2>
+  <pre><code class="hljs lang-c">
 int numg;
 char alphag;
 
@@ -535,60 +512,60 @@ else if(numg &lt; 75)
   alphag = 'B';
 else
   alphag = 'A';
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Nested if: Incomplete branch</h2>
-          <ol>
-            <li><span class="orange-select">else</span> part is optional</li>
-            <li><span class="orange-select">else</span> always associates with the <span class="green-select">nearest</span> <span class="orange-select">if</span></li>
-            <li>1 + 2 can be dangerous specially in incomplete branchs</li>
-          </ol>
-          <p>Example: Tell user to move or game over</p>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Nested if: Incomplete branch</h2>
+  <ol>
+    <li><span class="orange-select">else</span> part is optional</li>
+    <li><span class="orange-select">else</span> always associates with the <span class="green-select">nearest</span> <span class="orange-select">if</span></li>
+    <li>1 + 2 can be dangerous specially in incomplete branchs</li>
+  </ol>
+  <p>Example: Tell user to move or game over</p>
+  <pre><code class="hljs lang-c">
 if(gameIsOver == 0)
   if(playerToMove == YOU)
     printf ("Your Move\n");
 else
   printf ("The game is over\n");
-          </code></pre>
-          <ul>
-            <li>To avoid error you should</li>
-            <li>Close off you code or Use Empty statements</li>
-          </ul>
-        </section>
-        <section>
-          <div class="toc" data-selected="2"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">switch-case: Multiple choices</h2>
-          <ul>
-            <li>Multiple conditions</li>
-            <ul>
-              <li>if-else if-else if-….</li>
-            </ul>
-            <li>Select from alternative <span class="orange-select">values</span> of a <span class="green-select">variable</span></li>
-            <ul>
-              <li>switch-case</li>
-              <li>Values should be <span class="orange-select">constant</span> not expression: i, i+j,</li>
-              <li>Values &amp; Variables should be <span class="orange-select">int</span> or <span class="orange-select">char</span></li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <ul>
+    <li>To avoid error you should</li>
+    <li>Close off you code or Use Empty statements</li>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">switch-case: Multiple choices</h2>
+  <ul>
+    <li>Multiple conditions</li>
+    <ul>
+      <li>if-else if-else if-….</li>
+    </ul>
+    <li>Select from alternative <span class="orange-select">values</span> of a <span class="green-select">variable</span></li>
+    <ul>
+      <li>switch-case</li>
+      <li>Values should be <span class="orange-select">constant</span> not expression: i, i+j,</li>
+      <li>Values &amp; Variables should be <span class="orange-select">int</span> or <span class="orange-select">char</span></li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 switch (variable) {
   case value1:
     &lt;statements 1&gt;
   case value2:
     &lt;statements 2&gt;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">How does switch-case work?</h2>
-          <ul>
-            <li>Each switch-case can be rewritten by if-else</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">How does switch-case work?</h2>
+  <ul>
+    <li>Each switch-case can be rewritten by if-else</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 if(variable == value1)}
   &lt;statements 1&gt;
   &lt;statements 2&gt;
@@ -596,11 +573,11 @@ if(variable == value1)}
 else if(variable == value2){
   &lt;statements 2&gt;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">switch-case: complete version</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">switch-case: complete version</h2>
+  <pre><code class="hljs lang-c">
 switch(variable) {
   case value1:
     &lt;statements 1&gt;
@@ -611,8 +588,8 @@ switch(variable) {
   default:
     &lt;statements 3&gt;
 }
-          </code></pre>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <pre><code class="hljs lang-c">
 if(variable == value1) {
   &lt;statements 1&gt;
 }
@@ -622,39 +599,39 @@ else if(variable == value2) {
 else {
   &lt;statements 3&gt;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">switch-case (cont’d)</h2>
-          <ul>
-            <li>All values used in case should be different</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">switch-case (cont’d)</h2>
+  <ul>
+    <li>All values used in case should be different</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 switch(i){ //Error
 case 1:
 …
 case 2:
 …
 case 1:
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">switch-case (cont’d)</h2>
-          <ul>
-            <li>All values must be value, not expression of variables</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">switch-case (cont’d)</h2>
+  <ul>
+    <li>All values must be value, not expression of variables</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 switch(i){ //Error
 case j:
 …
 case 2:
 …
 case k+10:
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">switch-case: multiple matches</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">switch-case: multiple matches</h2>
+  <pre><code class="hljs lang-c">
 switch(variable) {
   case value1:
   case value2:
@@ -663,8 +640,8 @@ switch(variable) {
   case value3:
     &lt;statements 2&gt;
 }
-          </code></pre>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <pre><code class="hljs lang-c">
 if(
   (variable == value1) ||
   (variable == value2)
@@ -673,26 +650,26 @@ if(
 } else if (variable == value3) {
     &lt;statements 2&gt;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">switch-case vs. if-else</h2>
-          <ul>
-            <li><span class="orange-select">if-else</span> is more powerful than <span class="orange-select">switch-case</span></li>
-            <li><span class="orange-select">switch-case</span> is only for checking the <span class="green-select">values of a variable</span> and the values must be <span class="green-select">constant</span></li>
-            <li>if-else is more suitable in some cases , e.g.,</li>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">switch-case vs. if-else</h2>
+  <ul>
+    <li><span class="orange-select">if-else</span> is more powerful than <span class="orange-select">switch-case</span></li>
+    <li><span class="orange-select">switch-case</span> is only for checking the <span class="green-select">values of a variable</span> and the values must be <span class="green-select">constant</span></li>
+    <li>if-else is more suitable in some cases , e.g.,</li>
+    <pre><code class="hljs lang-c">
 double var1, var2;
 if(var1 &lt;= 1.1)
   &lt;statements 1&gt;
 if(var1 == var2)
   &lt;statements 2&gt;
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Nested switch-case</h2>
-          <pre><code class="hljs lang-c">
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Nested switch-case</h2>
+  <pre><code class="hljs lang-c">
 bool b; //b = x &amp;&amp; y
 switch (x){
   case 0:
@@ -709,49 +686,49 @@ switch (x){
     }
     break;
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="3"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Conditional Expression</h2>
-          <ul>
-            <li>Assign value according to conditions</li>
-            <li>A ternary operator</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Conditional Expression</h2>
+  <ul>
+    <li>Assign value according to conditions</li>
+    <li>A ternary operator</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i, j, k;
 bool b;
 
 i = b ? j : k;
-          </code></pre>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+  <pre><code class="hljs lang-c">
 if (b)
   i = j;
 else
   i = k;
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Conditional Expression: Examples</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Conditional Expression: Examples</h2>
+  <pre><code class="hljs lang-c">
 y = (x &gt; 0) ? x : -x
 
 sign = (x &lt; 0) ? -1 : ((x &gt; 0) ? 1 : 0)
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="4"></div>
-        </section>
-        <section>
-          <section>
-            <h2 style="color: #ff033e;">Common Bugs</h2>
-            <ul>
-              <li>Equality of floating point numbers</li>
-              <li>Two float numbers may or may <span class="red-select">NOT</span> be equal</li>
-            </ul>
-            <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="4"></div>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Common Bugs</h2>
+    <ul>
+      <li>Equality of floating point numbers</li>
+      <li>Two float numbers may or may <span class="red-select">NOT</span> be equal</li>
+    </ul>
+    <pre><code class="hljs lang-c">
 double d1, d2;
 d1 = 1e20 + 1;
 d2 = 1e20 - 1;
@@ -759,14 +736,14 @@ if(d1 == d2)
   printf("They are equal :-o \n");
 else
   printf("They are not equal :D \n");
-            </code></pre>
-            <p><span class="red-select">They are equal :-o</span></p>
-          </section>
-          <section>
-            <p>
-              Instead of checking for equality, check their difference to be in a small-enough period.
-            </p>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <p><span class="red-select">They are equal :-o</span></p>
+  </section>
+  <section>
+    <p>
+      Instead of checking for equality, check their difference to be in a small-enough period.
+    </p>
+    <pre><code class="hljs lang-c">
 double d1, d2;
 d1 = 1e20 + 1;
 d2 = 1e20 - 1;
@@ -774,84 +751,46 @@ if(fabs(d1 - d2) &lt;= 0.0000001)
   printf("They are equal :-o \n");
 else
   printf("They are not equal :D \n");
-            </code></pre>
-          </section>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Common Bugs</h2>
-          <ul>
-            <li>Danger of empty statement</li>
-            <li>Danger of assignment (=) and equality (==)</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+  </section>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Common Bugs</h2>
+  <ul>
+    <li>Danger of empty statement</li>
+    <li>Danger of assignment (=) and equality (==)</li>
+    <pre><code class="hljs lang-c">
 int a = 10;
 int b = 20;
 if (a = b) // logical but not compile error!!!
-            </code></pre>
-            <li>Danger of similarity between C and mathematic</li>
-            <pre><code class="hljs lang-c">
+    </code></pre>
+    <li>Danger of similarity between C and mathematic</li>
+    <pre><code class="hljs lang-c">
 if (a &lt; b &lt; c) // Logical Error
 if (a &amp;&amp; b &gt; 0) // Logical Error
-            </code></pre>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Avoiding Bugs</h2>
-          <ul>
-            <li>Precedence of operators</li>
-            <li>Use parenthesis in conditions</li>
-            <li>Close-off code as much as you can</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Debugging by assert</h2>
-          <ul>
-            <li>The assert macro is defined in <span class="orange-select">assert.h</span></li>
-            <li>assert(an expression)</li>
-            <ul>
-              <li>If the expression is true &rarr; nothing</li>
-              <li>If the expression is false &rarr; error message + halt</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-          <img src="img/coronavirus.jpg" alt="coronavirus">
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-              "Conditions and Boolean operations",
-              "if-else statement",
-              "switch-case statement",
-              "Conditional expressions",
-              "Common Bugs"
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Avoiding Bugs</h2>
+  <ul>
+    <li>Precedence of operators</li>
+    <li>Use parenthesis in conditions</li>
+    <li>Close-off code as much as you can</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Debugging by assert</h2>
+  <ul>
+    <li>The assert macro is defined in <span class="orange-select">assert.h</span></li>
+    <li>assert(an expression)</li>
+    <ul>
+      <li>If the expression is true &rarr; nothing</li>
+      <li>If the expression is false &rarr; error message + halt</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+  <img src="img/coronavirus.jpg" alt="coronavirus">
+</section>

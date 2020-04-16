@@ -1,68 +1,42 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: lecture
+title: Interaction
+stopics:
+- Produce output
+- Get input values
+---
 
-    <title>Interaction</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Interaction</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <div class="toc"></div>
-        </section>
-        <section>
-          <div class="toc" data-selected="0"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Printing</h2>
-          <ul>
-            <li>Printing messages</li>
-            <ul>
-              <li><span class="orange-select">printf("This is message \n");</span></li>
-            </ul>
-            <li>Printing variables</li>
-            <ul>
-              <li><span class="green-select">printf("format", parameters);</span></li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Printing</h2>
+  <ul>
+    <li>Printing messages</li>
+    <ul>
+      <li><span class="orange-select">printf("This is message \n");</span></li>
+    </ul>
+    <li>Printing variables</li>
+    <ul>
+      <li><span class="green-select">printf("format", parameters);</span></li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i = 20;
 char c = 'a';
 printf("%d, %c", i, c);
 printf("i is %d and char is %c", i, '6');
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Printing Integers</h2>
-          <ul>
-            <li><span class="orange-select">%d, %i, %ld</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Printing Integers</h2>
+  <ul>
+    <li><span class="orange-select">%d, %i, %ld</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 printf("%d", 100);
 100
 printf("%d, %d", +1000, -100);
@@ -71,27 +45,27 @@ printf("%i", 100);
 100
 printf("%ld, %i", +1000, -100);
 1000, -100
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Printing Unsigned Integers</h2>
-          <ul>
-            <li><span class="orange-select">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Printing Unsigned Integers</h2>
+  <ul>
+    <li><span class="orange-select">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 unsigned int i = 26;
 printf("%u\n", i); //26
 printf("%o\n", i); //32
 printf("%x\n", i); //1a
 printf("%X\n", i); //1A
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Printing Floats</h2>
-          <ul>
-            <li><span class="orange-select">%f, %e, %E, %lf</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Printing Floats</h2>
+  <ul>
+    <li><span class="orange-select">%f, %e, %E, %lf</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 printf("%f", 100.5f);
 100.500000
 
@@ -101,14 +75,14 @@ printf("%f, %f", f, d);
 -2.000000, 100.000000
 printf("%f, %e", 1e3, 1e3);
 1000.000000, 1.000000e+003
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Printing Chars</h2>
-          <ul>
-            <li><span class="orange-select">%c</span></li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Printing Chars</h2>
+  <ul>
+    <li><span class="orange-select">%c</span></li>
+  </ul>
+  <pre><code class="hljs lang-c">
 printf("%c", 'a');
 a
 
@@ -118,49 +92,49 @@ a, b
 char c1 = 'a';
 printf("%c, %c, %c", c1, 'b', 65);
 a, b, A
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Special Character</h2>
-          <table>
-            <thead>
-              <th>Characters in <span class="orange-select">printf</span></th>
-              <th>result</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>\n</td>
-                <td>newline</td>
-              </tr>
-              <tr>
-                <td>\r</td>
-                <td>carriage return</td>
-              </tr>
-              <tr>
-                <td>\b</td>
-                <td>backspace</td>
-              </tr>
-              <tr>
-                <td>\"</td>
-                <td>"</td>
-              </tr>
-              <tr>
-                <td>%%</td>
-                <td>%</td>
-              </tr>
-              <tr>
-                <td>\%</td>
-                <td>%</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Printing Strings</h2>
-          <ul>
-            <li>%s</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Special Character</h2>
+  <table>
+    <thead>
+      <th>Characters in <span class="orange-select">printf</span></th>
+      <th>result</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>\n</td>
+        <td>newline</td>
+      </tr>
+      <tr>
+        <td>\r</td>
+        <td>carriage return</td>
+      </tr>
+      <tr>
+        <td>\b</td>
+        <td>backspace</td>
+      </tr>
+      <tr>
+        <td>\"</td>
+        <td>"</td>
+      </tr>
+      <tr>
+        <td>%%</td>
+        <td>%</td>
+      </tr>
+      <tr>
+        <td>\%</td>
+        <td>%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Printing Strings</h2>
+  <ul>
+    <li>%s</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 printf("This is message");
 This is message
 
@@ -170,29 +144,29 @@ This is message
 char str1[20] = "This is message";
 printf("%s", str1);
 This is message
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Field length</h2>
-          <ul>
-            <li>Field length is a <span class="orange-select">number</span></li>
-            <li>Comes after % (and before the type char)</li>
-            <li>It is the <span class="cyan-select">minimum</span> space reserved for print</li>
-            <ul>
-              <li>If value is smaller than the space</li>
-              <ul>
-                <li>Empty space</li>
-              </ul>
-              <li>If value is larger than the space</li>
-              <ul>
-                <li>No effect</li>
-              </ul>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Field length</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Field length</h2>
+  <ul>
+    <li>Field length is a <span class="orange-select">number</span></li>
+    <li>Comes after % (and before the type char)</li>
+    <li>It is the <span class="cyan-select">minimum</span> space reserved for print</li>
+    <ul>
+      <li>If value is smaller than the space</li>
+      <ul>
+        <li>Empty space</li>
+      </ul>
+      <li>If value is larger than the space</li>
+      <ul>
+        <li>No effect</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Field length</h2>
+  <pre><code class="hljs lang-c">
 printf("|%4d|\n", 1);       // |    1|
 printf("|%4d|\n", 12345);   // |12345|
 printf("|%4d|\n", -12345);  // |-12345|
@@ -201,31 +175,31 @@ printf("|%15f|\n", 1234.0); // |    1234.000000|
 printf("|%4c|\n", 'A');     // |   A|
 printf("|%4s|\n", "ABC");   // | ABC|
 printf("|%4s|\n", "ABCDE"); // |ABCDE|
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Precision</h2>
-          <ul>
-            <li>Precision is a <span class="green-select">.number</span> and comes after %</li>
-            <li>For Integer</li>
-            <ul>
-              <li>The <span class="orange-select">minimum</span> number of digits</li>
-              <li>If (# of digits &lt; precision) then empty space = 0</li>
-            </ul>
-            <li>For floats</li>
-            <ul>
-              <li>With %f, %e</li>
-              <li>The number of digits <span class="cyan-select">after .</span></li>
-            </ul>
-            <li>For strings</li>
-            <ul>
-              <li>The <span class="orange-select">maximum</span> number of characters</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Precision</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Precision</h2>
+  <ul>
+    <li>Precision is a <span class="green-select">.number</span> and comes after %</li>
+    <li>For Integer</li>
+    <ul>
+      <li>The <span class="orange-select">minimum</span> number of digits</li>
+      <li>If (# of digits &lt; precision) then empty space = 0</li>
+    </ul>
+    <li>For floats</li>
+    <ul>
+      <li>With %f, %e</li>
+      <li>The number of digits <span class="cyan-select">after .</span></li>
+    </ul>
+    <li>For strings</li>
+    <ul>
+      <li>The <span class="orange-select">maximum</span> number of characters</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Precision</h2>
+  <pre><code class="hljs lang-c">
 printf("|%.4d|\n", 1); // |0001|
 printf("|%.4d|\n", 12345); // |12345|
 printf("|%.4d|\n", -12345); // |-12345|
@@ -233,19 +207,19 @@ printf("|%.4f|\n", 1234.0); // |1234.0000|
 printf("|%.10f|\n", 1234.0);// |1234.0000000000|
 printf("|%.4s|\n", "ABC"); // |ABC|
 printf("|%.4s|\n", "ABCDEF"); // |ABCD|
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Field length and Precision</h2>
-          <ul>
-            <li>This is a number with format <span class="orange-select">a.b</span></li>
-            <li>First <span class="green-select">b</span> determines the precision</li>
-            <li>Then <span class="cyan-select">a</span> specifies the field length</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Field length and Precision</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Field length and Precision</h2>
+  <ul>
+    <li>This is a number with format <span class="orange-select">a.b</span></li>
+    <li>First <span class="green-select">b</span> determines the precision</li>
+    <li>Then <span class="cyan-select">a</span> specifies the field length</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Field length and Precision</h2>
+  <pre><code class="hljs lang-c">
 printf("|%10.5d|\n", 12);
 | 00012|
 
@@ -263,25 +237,25 @@ printf("|%15.10s|\n", "Hello, world");
 
 printf("|%5.10s|\n", "Hello, world");
 |Hello, wor|
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Variable Field Length & Precision : *</h2>
-          <ul>
-            <li>* can be used to specify field length and precision which is replaced by a variable</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Variable Field Length & Precision : *</h2>
+  <ul>
+    <li>* can be used to specify field length and precision which is replaced by a variable</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i = 30;
 int j = 2;
 float f = 1.23456789;
 printf("%0*.*f\n", i, j, f);
 
 000000000000000000000000001.23
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Cast in printing (do NOT use)</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Cast in printing (do NOT use)</h2>
+  <pre><code class="hljs lang-c">
 int i = -60;
 unsigned int j = 4147482648;
 float f = -700.05;
@@ -297,36 +271,36 @@ j = -147484648
 
 printf("f = %d\n", f);
 f = 1610612736
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="1"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading</h2>
-          <ul>
-            <li>Read from keyboard (console)</li>
-            <li>What should be determined in reading</li>
-            <ul>
-              <li>Keyboard enters “characters”, so, how to read int, char, …?</li>
-              <li>Which type the chars should be converted?</li>
-              <li>Where should be saved?</li>
-            </ul>
-            <li>scanf(“format”, parameters)</li>
-            <ul>
-              <li>Format: The type that input should be converted to</li>
-              <li>Parameters: Where should be saved</li>
-            </ul>
-            <li>scanf blocks until ‘Enter’ at the end of input (why?!)</li>
-            <li>Reads from beginning until to white spaces (except reading chars)</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading Integers (base 10)</h2>
-          <ul>
-            <li>%d, %u, %ld, %lu</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading</h2>
+  <ul>
+    <li>Read from keyboard (console)</li>
+    <li>What should be determined in reading</li>
+    <ul>
+      <li>Keyboard enters “characters”, so, how to read int, char, …?</li>
+      <li>Which type the chars should be converted?</li>
+      <li>Where should be saved?</li>
+    </ul>
+    <li>scanf(“format”, parameters)</li>
+    <ul>
+      <li>Format: The type that input should be converted to</li>
+      <li>Parameters: Where should be saved</li>
+    </ul>
+    <li>scanf blocks until ‘Enter’ at the end of input (why?!)</li>
+    <li>Reads from beginning until to white spaces (except reading chars)</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading Integers (base 10)</h2>
+  <ul>
+    <li>%d, %u, %ld, %lu</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i;
 unsigned int j;
 long int l;
@@ -339,14 +313,14 @@ scanf("%ld",&amp;l);
 → 60 is saved in memory location l
 
 Spaces at the beginning are ignored
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading Integers (cont’d)</h2>
-          <ul>
-            <li>%o, %x, %X, %i</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading Integers (cont’d)</h2>
+  <ul>
+    <li>%o, %x, %X, %i</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 scanf("%o", &amp;i);
 Input: 12 → i = 10
 
@@ -357,14 +331,14 @@ scanf("%i", &amp;i);
 Input: 12 → i = 12
 Input: 012 → i = 10 (It reads in base 8)
 Input: 0x12 → i = 18 (It reads in base 16)
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading floats and doubles</h2>
-          <ul>
-            <li>%f, %lf, %e</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading floats and doubles</h2>
+  <ul>
+    <li>%f, %lf, %e</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 float f;
 double d;
 scanf("%f", &amp;f);
@@ -373,11 +347,11 @@ scanf("%lf", &amp;d);
 90.9 → 90.9 is saved in memory f
 88.123456789 → 88.123456789 saved in memory d
 Spaces at the beginning are ignored
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading floats and doubles</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading floats and doubles</h2>
+  <pre><code class="hljs lang-c">
 float f1, f2;
 scanf("%f", &amp;f1);
 scanf("%e", &amp;f2);
@@ -389,14 +363,14 @@ Input:
 Input:
 1.23e+1 → f1 = 12.3
 4.56e-1 → f2 = 0.456
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading chars</h2>
-          <ul>
-            <li>%c</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading chars</h2>
+  <ul>
+    <li>%c</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 char c1, c2, c3;
 scanf("%c", &amp;c1); /* spaces */
 scanf("%c", &amp;c2);
@@ -407,60 +381,60 @@ c1 = 'a'
 c2 = 'z'
 c3 = 'b'
 Spaces at the beginning are NOT ignored
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
-          <ul>
-            <li>White spaces (space, tab, enter) are not ignored when reading char</li>
-            <li>To ignore white spaces, use “ “ before %c</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
+  <ul>
+    <li>White spaces (space, tab, enter) are not ignored when reading char</li>
+    <li>To ignore white spaces, use “ “ before %c</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 scanf("%d%c%d", &amp;i, &amnp;c, &amp;j);
 Input: 123 45 → I = 123 c = ‘ ‘ j = 45
 
 scanf("%d %c%d", &amp;i, &amp;c, &amp;j);
 Input: 123 4 56 → I = 123 c = ‘4’ j = 56
 Input: 123 456 → I = 123 c = ‘4’ j = 56
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
-          <ul>
-            <li>getchar()</li>
-            <ul>
-              <li>Read char <span class="orange-select">after Enter</span></li>
-            </ul>
-            <li>getch()</li>
-            <ul>
-              <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">does NOT show</span> the char</li>
-            </ul>
-            <li>getche()</li>
-            <ul>
-              <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">shows</span> the char</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Reading Strings</h2>
-          <ul>
-            <li>How to read a line</li>
-            <li>Contains spaces (read until end of line)</li>
-            <li>gets(s)</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
+  <ul>
+    <li>getchar()</li>
+    <ul>
+      <li>Read char <span class="orange-select">after Enter</span></li>
+    </ul>
+    <li>getch()</li>
+    <ul>
+      <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">does NOT show</span> the char</li>
+    </ul>
+    <li>getche()</li>
+    <ul>
+      <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">shows</span> the char</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Reading Strings</h2>
+  <ul>
+    <li>How to read a line</li>
+    <li>Contains spaces (read until end of line)</li>
+    <li>gets(s)</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 char str[20];
 gets(str);
 
 Input: ABC DEF → str = "ABC DEF"
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Field length in scanf</h2>
-          <ul>
-            <li>Field length specifies the <span class="orange-select">maximum</span> number of input characters (in the buffer) used for scanning</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Field length in scanf</h2>
+  <ul>
+    <li>Field length specifies the <span class="orange-select">maximum</span> number of input characters (in the buffer) used for scanning</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i, j;
 
 scanf("%5d", &amp;i);
@@ -471,27 +445,27 @@ scanf("%5d%d", &amp;i, &amp;j);
 Input: 1 2 → i = 1, j = 2
 Input: 1234567 → i = 12345, j = 67
 Input: 123456 7 → i = 12345, j = 6
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Special input format</h2>
-          <ul>
-            <li>If input data has special format with extra characters</li>
-            <li>scanf can ignore them</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Special input format</h2>
+  <ul>
+    <li>If input data has special format with extra characters</li>
+    <li>scanf can ignore them</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int y, m, d;
 scanf("%d/%d/%d", &amp;y, &amp;m, &amp;d);
 
 Input: 1389/12/1 → y = 1389, m = 12, d = 1
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Format of actual input data</h2>
-          <ul>
-            <li>The format of actual input data <span class="orange-select">MUST</span> match with the format of scanf</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Format of actual input data</h2>
+  <ul>
+    <li>The format of actual input data <span class="orange-select">MUST</span> match with the format of scanf</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int a, b;
 float f;
 scanf("%d--%d%f", &amp;a, &amp;b, &amp;f);
@@ -499,63 +473,28 @@ scanf("%d--%d%f", &amp;a, &amp;b, &amp;f);
 Input: 1--2 3.0 → a = 1, b = 2, f = 3.0
 Input: 1-2 3.0 → a = 1, b = 57, f = 0.0
 Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Common Bugs</h2>
-          <ul>
-            <li>Casting in printf or scanf</li>
-            <ul>
-              <li>printf("%d", 120.23);</li>
-              <li>double d; scanf("%f", &amp;d);</li>
-            </ul>
-            <li>Mismatch between format and the number of expressions</li>
-            <ul>
-              <li>printf("%d %d", 10);</li>
-              <li>printf("%d", 10, 20);</li>
-            </ul>
-            <li>Using name of variable instead of <span class="orange-select">address</span></li>
-            <ul>
-              <li>scanf("%d", i);</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-          <img src="img/ghodsi.jpg" alt="ghodsi">
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-              "Produce output",
-              "Get input values"
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Common Bugs</h2>
+  <ul>
+    <li>Casting in printf or scanf</li>
+    <ul>
+      <li>printf("%d", 120.23);</li>
+      <li>double d; scanf("%f", &amp;d);</li>
+    </ul>
+    <li>Mismatch between format and the number of expressions</li>
+    <ul>
+      <li>printf("%d %d", 10);</li>
+      <li>printf("%d", 10, 20);</li>
+    </ul>
+    <li>Using name of variable instead of <span class="orange-select">address</span></li>
+    <ul>
+      <li>scanf("%d", i);</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+  <img src="img/ghodsi.jpg" alt="ghodsi">
+</section>
