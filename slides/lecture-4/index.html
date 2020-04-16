@@ -1,90 +1,68 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+---
+layout: lecture
+title: Calculation
+stopics:
+- Basic mathematic operations in C
+- Effect of type and type conversion
+- Precedence
+- Advanced mathematical operations
+- Mathematic library
+- Random Numbers
+---
 
-    <title>Calculations</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Calculations</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <div class="toc"></div>
-        </section>
-        <section>
-          <div class="toc" data-selected="0"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Basic operations</h2>
-          <table>
-            <thead style="color: #ff9966;">
-              <th>Name</th>
-              <th>in C</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Addition</td>
-                <td>+</td>
-              </tr>
-              <tr>
-                <td>Subtraction</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>Division</td>
-                <td>/</td>
-              </tr>
-              <tr>
-                <td>Multiplication</td>
-                <td>*</td>
-              </tr>
-              <tr>
-                <td>Modulus</td>
-                <td>%</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Modulo</h2>
-          <ul>
-            <li>Only can be used by <span class="orange-select">int</span> operands</li>
-            <ul>
-              <li>5 % 4 = 1</li>
-              <li>7 % 88 = 7</li>
-              <li>-20 % 7 = -6</li>
-              <li>20 % -7 = 6</li>
-              <li>-20 % -7 = -6</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Mean of 3 Numbers</h2>
-          <pre><code class="hljs lang-c">
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Basic operations</h2>
+  <table>
+    <thead style="color: #ff9966;">
+      <th>Name</th>
+      <th>in C</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Addition</td>
+        <td>+</td>
+      </tr>
+      <tr>
+        <td>Subtraction</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Division</td>
+        <td>/</td>
+      </tr>
+      <tr>
+        <td>Multiplication</td>
+        <td>*</td>
+      </tr>
+      <tr>
+        <td>Modulus</td>
+        <td>%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Modulo</h2>
+  <ul>
+    <li>Only can be used by <span class="orange-select">int</span> operands</li>
+    <ul>
+      <li>5 % 4 = 1</li>
+      <li>7 % 88 = 7</li>
+      <li>-20 % 7 = -6</li>
+      <li>20 % -7 = 6</li>
+      <li>-20 % -7 = -6</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Mean of 3 Numbers</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
   float num1, num2, num3, sum, average;
@@ -98,101 +76,101 @@ int main(void){
   printf("%f\n", average);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="1"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">General rules of type conversion</h2>
-          <ul>
-            <li>If either operand is <span class="orange-select">long double</span>, convert the other to <span class="orange-select">long double</span>.</li>
-            <li>Otherwise, if either operand is <span class="green-select">double</span>, convert the other to <span class="green-select">double</span>.</li>
-            <li>Otherwise, if either operand is <span class="cyan-select">float</span>, convert the other to <span class="cyan-select">float</span>.</li>
-            <li>Otherwise, convert <span class="orange-select">char</span> and <span class="orange-select">short</span> to <span class="orange-select">int</span>.</li>
-            <li>Then, if either operand is <span class="green-select">long</span>, convert the other to <span class="green-select">long</span>.</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Effect of types</h2>
-          <ul>
-            <li>Type of operands determines the type of the result</li>
-            <ul>
-              <li>The type of output is the type of operands (after conversion)</li>
-            </ul>
-            <li>int &lt;op&gt; int &rarr; int</li>
-            <li>int &lt;op&gt; long &rarr; long</li>
-            <li>float &lt;op&gt; float &rarr; float</li>
-            <li>float &lt;op&gt; int &rarr; float</li>
-            <li>double &lt;op&gt; float &rarr; double</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Effect of types</h2>
-          <ul>
-            <li>If both operand of division (/) is <span class="orange-select">int</span></li>
-            <li>&rarr; data lost</li>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Effect of types &amp; Explicit casts</h2>
-          <table>
-            <thead>
-              <th>Expression</th>
-              <th>Result</th>
-              <th>Type of result</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>(double) 1 + 2.0f</td>
-                <td>3.0</td>
-                <td>double</td>
-              </tr>
-              <tr>
-                <td>(int) 2.69 + 4</td>
-                <td>6</td>
-                <td>int</td>
-              </tr>
-              <tr>
-                <td>(double) 1 / 2</td>
-                <td>0.5</td>
-                <td>double</td>
-              </tr>
-              <tr>
-                <td>1 / (int) 2.0</td>
-                <td>0</td>
-                <td>int</td>
-              </tr>
-              <tr>
-                <td>(double) (1 / 2)</td>
-                <td>0.0</td>
-                <td>double</td>
-              </tr>
-              <tr>
-                <td>(int)((double) 1 / 2)</td>
-                <td>0</td>
-                <td>int</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <div class="toc" data-selected="2"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Precedence</h2>
-          <ol>
-            <li>Parenthesis</li>
-            <li>Unary + - (for sign): +4, -8</li>
-            <li>Explicit casting</li>
-            <li>/ * %</li>
-            <li>Binary + -: 4 + 8</li>
-            <li>If multiple + - or / * %: from left to right</li>
-          </ol>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;"></h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">General rules of type conversion</h2>
+  <ul>
+    <li>If either operand is <span class="orange-select">long double</span>, convert the other to <span class="orange-select">long double</span>.</li>
+    <li>Otherwise, if either operand is <span class="green-select">double</span>, convert the other to <span class="green-select">double</span>.</li>
+    <li>Otherwise, if either operand is <span class="cyan-select">float</span>, convert the other to <span class="cyan-select">float</span>.</li>
+    <li>Otherwise, convert <span class="orange-select">char</span> and <span class="orange-select">short</span> to <span class="orange-select">int</span>.</li>
+    <li>Then, if either operand is <span class="green-select">long</span>, convert the other to <span class="green-select">long</span>.</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Effect of types</h2>
+  <ul>
+    <li>Type of operands determines the type of the result</li>
+    <ul>
+      <li>The type of output is the type of operands (after conversion)</li>
+    </ul>
+    <li>int &lt;op&gt; int &rarr; int</li>
+    <li>int &lt;op&gt; long &rarr; long</li>
+    <li>float &lt;op&gt; float &rarr; float</li>
+    <li>float &lt;op&gt; int &rarr; float</li>
+    <li>double &lt;op&gt; float &rarr; double</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Effect of types</h2>
+  <ul>
+    <li>If both operand of division (/) is <span class="orange-select">int</span></li>
+    <li>&rarr; data lost</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Effect of types &amp; Explicit casts</h2>
+  <table>
+    <thead>
+      <th>Expression</th>
+      <th>Result</th>
+      <th>Type of result</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(double) 1 + 2.0f</td>
+        <td>3.0</td>
+        <td>double</td>
+      </tr>
+      <tr>
+        <td>(int) 2.69 + 4</td>
+        <td>6</td>
+        <td>int</td>
+      </tr>
+      <tr>
+        <td>(double) 1 / 2</td>
+        <td>0.5</td>
+        <td>double</td>
+      </tr>
+      <tr>
+        <td>1 / (int) 2.0</td>
+        <td>0</td>
+        <td>int</td>
+      </tr>
+      <tr>
+        <td>(double) (1 / 2)</td>
+        <td>0.0</td>
+        <td>double</td>
+      </tr>
+      <tr>
+        <td>(int)((double) 1 / 2)</td>
+        <td>0</td>
+        <td>int</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Precedence</h2>
+  <ol>
+    <li>Parenthesis</li>
+    <li>Unary + - (for sign): +4, -8</li>
+    <li>Explicit casting</li>
+    <li>/ * %</li>
+    <li>Binary + -: 4 + 8</li>
+    <li>If multiple + - or / * %: from left to right</li>
+  </ol>
+</section>
+<section>
+  <h2 style="color: #ff033e;"></h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 int main(void){
@@ -205,10 +183,10 @@ int main(void){
   printf("%d\n", sum);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
 int main(void){
@@ -222,19 +200,19 @@ int main(void){
   printf("%f\n", sum);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="3"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Increment &amp; Decrement of Variables</h2>
-          <ul>
-            <li>Unary operators only for variables</li>
-            <li>++ : increase by one</li>
-            <li>-- : decrease by one</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Increment &amp; Decrement of Variables</h2>
+  <ul>
+    <li>Unary operators only for variables</li>
+    <li>++ : increase by one</li>
+    <li>-- : decrease by one</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i = 10;
 i = i + 1; // i = 11
 i++; // i = 12
@@ -242,15 +220,15 @@ i++; // i = 12
 i--; // i = 12
 --i; // i = 11
 i = i - 1; // i = 10
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Increment &amp; Decrement (cont’d)</h2>
-          <ul>
-            <li><span class="cyan-select">Postfix:</span> Use the value then apply the operator</li>
-            <li><span class="cyan-select">Prefix:</span> Apply the operator then use the value</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Increment &amp; Decrement (cont’d)</h2>
+  <ul>
+    <li><span class="cyan-select">Postfix:</span> Use the value then apply the operator</li>
+    <li><span class="cyan-select">Prefix:</span> Apply the operator then use the value</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i = 10, k = 6, j;
 j = i + 1; // i = 10, j = 11
 j = i++; // i = 11, j = 10
@@ -258,34 +236,34 @@ j = ++i; // i = 12, j = 12
 j = i--; // i = 11, j = 12
 j = --i; // i = 10, j = 10
 j = i - 1; // i = 10, j = 9
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Assignment Combined with Operation</h2>
-          <ul>
-            <li>These are equal</li>
-            <ul>
-              <li>&lt;variable&gt; &lt;op&gt; = &lt;expression&gt;</li>
-              <li>&lt;variable&gt; = &lt;variable&gt; &lt;op&gt; (&lt;expression&gt;)</li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Assignment Combined with Operation</h2>
+  <ul>
+    <li>These are equal</li>
+    <ul>
+      <li>&lt;variable&gt; &lt;op&gt; = &lt;expression&gt;</li>
+      <li>&lt;variable&gt; = &lt;variable&gt; &lt;op&gt; (&lt;expression&gt;)</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i = 9, j = 20;
 i += 1; // i = i + 1; i = 10
 j /= i; // j = j / i; j = 2
 i *= i + j - 6 + i / j;
 /*i = i * (i + j - 6 + (i / j)); i = 110*/
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Multiple assignment</h2>
-          <ul>
-            <li>More than one assignment in a statement</li>
-            <ul>
-              <li>From right to left</li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Multiple assignment</h2>
+  <ul>
+    <li>More than one assignment in a statement</li>
+    <ul>
+      <li>From right to left</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i, j, k, l;
 i = j = k = l = 1;
 i += j *= --k -= 3 / l;
@@ -302,46 +280,46 @@ i += -3 // [i = -2]
 // result
 // i = -2, j = -3, k = -3, l = 1
 */
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Precedence</h2>
-          <table>
-            <thead>
-              <th>Operator</th>
-              <th>Direction</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>( )</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>++ -- (type)</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>* / %</td>
-                <td>Left to Right</td>
-              </tr>
-              <tr>
-                <td>+ -</td>
-                <td>Left to Right</td>
-              </tr>
-              <tr>
-                <td>+= -= *= /= %=</td>
-                <td>Right to Left</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Arithmetic on characters</h2>
-          <ul>
-            <li><span class="orange-select">char</span> can be used as 8-bit integer</li>
-            <li>All arithmetic operation can be used with characters</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Precedence</h2>
+  <table>
+    <thead>
+      <th>Operator</th>
+      <th>Direction</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>( )</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>++ -- (type)</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>* / %</td>
+        <td>Left to Right</td>
+      </tr>
+      <tr>
+        <td>+ -</td>
+        <td>Left to Right</td>
+      </tr>
+      <tr>
+        <td>+= -= *= /= %=</td>
+        <td>Right to Left</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Arithmetic on characters</h2>
+  <ul>
+    <li><span class="orange-select">char</span> can be used as 8-bit integer</li>
+    <li>All arithmetic operation can be used with characters</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 /* A: 65, B: 66, C: 67, … */
 char c = 'A', ch;
 int i;
@@ -349,67 +327,67 @@ c++; // c = 66, c = 'B'
 ch = c;
 ch += 3; // ch = 69, ch = 'E'
 i = c - ch + 'X' - 'Z'; // i = -5
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">sizeof operator</h2>
-          <ul>
-            <li><span class="green-select">sizeof</span> is a unary operator</li>
-            <ul>
-              <li>Return the size of operand</li>
-              <li>Operand can be <span class="cyan-select">Variable, value or type</span></li>
-              <li>The operand inside the sizeof() operator is not evaluated</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">sizeof operator</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">sizeof operator</h2>
+  <ul>
+    <li><span class="green-select">sizeof</span> is a unary operator</li>
+    <ul>
+      <li>Return the size of operand</li>
+      <li>Operand can be <span class="cyan-select">Variable, value or type</span></li>
+      <li>The operand inside the sizeof() operator is not evaluated</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">sizeof operator</h2>
+  <pre><code class="hljs lang-c">
 int size, i = 10;
 size = sizeof i;
 size = sizeof(i);
 size = sizeof(2000);
 size = sizeof(char)
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Precedence</h2>
-          <table>
-            <thead>
-              <th>Operator</th>
-              <th>Direction</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>( )</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>++ -- (type) sizeof()</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>* / %</td>
-                <td>Left to Right</td>
-              </tr>
-              <tr>
-                <td>+ -</td>
-                <td>Left to Right</td>
-              </tr>
-              <tr>
-                <td>+= -= *= /= %=</td>
-                <td>Right to Left</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Undefined Statements</h2>
-          <ul>
-            <li>When standard does <span class="orange-select">not</span> tell what will happen</li>
-            <li>Examples</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Precedence</h2>
+  <table>
+    <thead>
+      <th>Operator</th>
+      <th>Direction</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>( )</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>++ -- (type) sizeof()</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>* / %</td>
+        <td>Left to Right</td>
+      </tr>
+      <tr>
+        <td>+ -</td>
+        <td>Left to Right</td>
+      </tr>
+      <tr>
+        <td>+= -= *= /= %=</td>
+        <td>Right to Left</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Undefined Statements</h2>
+  <ul>
+    <li>When standard does <span class="orange-select">not</span> tell what will happen</li>
+    <li>Examples</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 int i, j, k;
 
 k = i = 10;
@@ -417,31 +395,31 @@ j = i++ + k + --i; // j = 29 or 30?
 
 i = j = 10;
 i = j + i++; // i = 11 or ???
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Overflow and Underflow</h2>
-          <ul>
-            <li>Computer’s precision is limited</li>
-            <ul>
-              <li><span class="orange-select">The number of bits</span> in each type is limited</li>
-              <li>double [-1e308, 1e308]</li>
-            </ul>
-            <li>Overflow</li>
-            <ul>
-              <li>When result is larger than specified ranges</li>
-              <li>1e300 * 1e200</li>
-            </ul>
-            <li>Underflow</li>
-            <ul>
-              <li>When the result is too smaller than precision</li>
-              <li>1e-300 * 1e-200</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Quadratic Equation</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Overflow and Underflow</h2>
+  <ul>
+    <li>Computer’s precision is limited</li>
+    <ul>
+      <li><span class="orange-select">The number of bits</span> in each type is limited</li>
+      <li>double [-1e308, 1e308]</li>
+    </ul>
+    <li>Overflow</li>
+    <ul>
+      <li>When result is larger than specified ranges</li>
+      <li>1e300 * 1e200</li>
+    </ul>
+    <li>Underflow</li>
+    <ul>
+      <li>When the result is too smaller than precision</li>
+      <li>1e-300 * 1e-200</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Quadratic Equation</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
   double a, b, c, x, result;
@@ -454,17 +432,17 @@ int main(void){
   printf("%lf\n", result);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="4"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Math library</h2>
-          <ul>
-            <li>#include &lt;math.h&gt;</li>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="4"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Math library</h2>
+  <ul>
+    <li>#include &lt;math.h&gt;</li>
+  </ul>
+  <pre><code class="hljs lang-c">
 double f = 36;
 fabs(-f) 36.000000
 sqrt(f) 6.00000
@@ -479,11 +457,11 @@ rint(10.2) 10.0
 rint(-10.2) -10.0
 rint(20.6) 21
 rint(-20.6) -21
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Math library</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Math library</h2>
+  <pre><code class="hljs lang-c">
 const double PI = 3.141592653589793;
 const double E = 2.7182818284590451;
 
@@ -495,11 +473,11 @@ acos(1) 0.000000
 log(E) 1.000000
 log(10) 2.30258
 exp(1) 2.718282
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Perimeter and Area of Circle</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Perimeter and Area of Circle</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 
@@ -513,54 +491,54 @@ int main(void){
   printf("Perimeter = %f\n", perimeter);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <div class="toc" data-selected="5"></div>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Random Numbers</h2>
-          <ul>
-            <li>#include &lt;stdlib.h&gt;</li>
-            <li>rand()</li>
-            <ul>
-              <li>A random number in [0, RAND_MAX]</li>
-            </ul>
-            <li>How does it work</li>
-            <ul>
-              <li>Start from a <span class="orange-select">seed</span> number</li>
-              <li>X_0 = F(seed_number)</li>
-              <li>X_{n + 1} = F(X_n)</li>
-            </ul>
-            <li>Same seed</li>
-            <ul>
-              <li>Same random number sequence</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Random Numbers</h2>
-          <ul>
-            <li>We usually want different random number</li>
-            <ul>
-              <li>Run 1: 10, 20, 17, 1000, 23, 345, 30</li>
-              <li>Run 2: 23, 904, 23, 346, 85, 234, 63</li>
-            </ul>
-            <li>We should use different seed in each run</li>
-            <ul>
-              <li>How?</li>
-              <li>Initialize seed by system time</li>
-            </ul>
-          </ul>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="5"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <ul>
+    <li>#include &lt;stdlib.h&gt;</li>
+    <li>rand()</li>
+    <ul>
+      <li>A random number in [0, RAND_MAX]</li>
+    </ul>
+    <li>How does it work</li>
+    <ul>
+      <li>Start from a <span class="orange-select">seed</span> number</li>
+      <li>X_0 = F(seed_number)</li>
+      <li>X_{n + 1} = F(X_n)</li>
+    </ul>
+    <li>Same seed</li>
+    <ul>
+      <li>Same random number sequence</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <ul>
+    <li>We usually want different random number</li>
+    <ul>
+      <li>Run 1: 10, 20, 17, 1000, 23, 345, 30</li>
+      <li>Run 2: 23, 904, 23, 346, 85, 234, 63</li>
+    </ul>
+    <li>We should use different seed in each run</li>
+    <ul>
+      <li>How?</li>
+      <li>Initialize seed by system time</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
 #include &lt;time.h&gt;
 time_t t = time(NULL);
 srand(t);
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Random Numbers</h2>
-          <pre><code class="hljs lang-c">
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;time.h&gt;
@@ -576,68 +554,29 @@ int main(void){
   printf("r2 = %d\n", r2);
   return 0;
 }
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Random Numbers</h2>
-          <ul>
-            <li>First Run</li>
-            <ul>
-              <li>r1 = 38</li>
-              <li>r2 = 1873</li>
-            </ul>
-            <li>Second Run</li>
-            <ul>
-              <li>r1 = 38</li>
-              <li>r2 = 1866</li>
-            </ul>
-            <li>Third Run</li>
-            <ul>
-              <li>r1 = 38</li>
-              <li>r2 = 1860</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-          <img src="img/ken.jpg" alt="ken">
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-              "Basic mathematic operations in C",
-              "Effect of type and type conversion",
-              "Precedence",
-              "Advanced mathematical operations",
-              "Mathematic library",
-              "Random Numbers"
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <ul>
+    <li>First Run</li>
+    <ul>
+      <li>r1 = 38</li>
+      <li>r2 = 1873</li>
+    </ul>
+    <li>Second Run</li>
+    <ul>
+      <li>r1 = 38</li>
+      <li>r2 = 1866</li>
+    </ul>
+    <li>Third Run</li>
+    <ul>
+      <li>r1 = 38</li>
+      <li>r2 = 1860</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+  <img src="img/ken.jpg" alt="ken">
+</section>
