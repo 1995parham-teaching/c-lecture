@@ -675,6 +675,115 @@ scanf("%s", str);
           <div class="toc" data-selected="4"></div>
         </section>
         <section>
+          <h2 style="color: #ff033e;">String Library</h2>
+          <ul>
+            <li>Access to string library by</li>
+            <pre><code class="hljs lang-c">
+#include &lt;string.h&gt;
+            </code></pre>
+            <li>Many functions to work with strings</li>
+            <ul>
+              <li>Find the length of string</li>
+              <li>Compare strings</li>
+              <li>Copy strings</li>
+              <li>Search in strings</li>
+              <li>...</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Length of String</h2>
+          <ul>
+            <li><span class="orange-select">strlen(str)</span>: Length of string</li>
+            <li>From start to first occurrence of the <span class="green-select">null char</span></li>
+          </ul>
+          <pre><code class="hljs lang-c">
+char str[] = "This is test";
+char str1[10] = {'a', 'b', '\0', 'c', '\0'};
+strlen(str)  // returns 12
+strlen(str1) // returns 2 😱
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Compare Strings</h2>
+          <ul>
+            <li>str1 and str2 are compared as follows</li>
+            <ul>
+              <li>Compare <span class="green-select">char by char</span> from <span class="cyan-select">left to right</span> until str1 and str2 has same chars.</li>
+              <li>In the first different char</li>
+              <ul>
+                <li>If(char of str1 &lt; char of str2) &rarr; str1 &lt; str2</li>
+              </ul>
+              <li>If (both string finish) &rarr; str1 = str2</li>
+            </ul>
+            <li><span class="orange-select">strcmp(str1, str2)</span>:compare str1 and str2</li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Compare Strings: Examples</h2>
+          <pre><code class="hljs lang-c">
+char s1[] = "abc";
+char s2[] = "abc";
+i = strcmp(s1, s2); // i = 0, s1 is equal to s2
+
+char s3[] = "abc";
+char s4[] = "abx";
+i = strcmp(s3, s4); // i = -1, s3 is lower than s4
+
+char s5[] = "axc";
+char s6[] = "abc";
+i = strcmp(s5, s6); // i = 1, s5 is greater than s6
+
+char s7[] = "ab";
+char s8[] = "abc";
+i = strcmp(s7, s8); // i = -1, s7 is lower than s8
+
+char s9[] = "abc";
+char s10[] = "aBc";
+i = strcmp(s9, s10); // i = 1, s9 is greater than s10
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Compare Strings</h2>
+          <ul>
+            <li><span class="orange-select">strcmpi(str1, str2)</span></li>
+            <li>Compares str1 and str2 similar to strcmp</li>
+            <li>But ignores uppercase/lowercase difference</li>
+          </ul>
+          <pre><code class="hljs lang-c">
+char str1[] = "ABC";
+cahr str2[] = "abC";
+strcmpi(str1, str2) &rarr; 0
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Copy Strings</h2>
+          <ul>
+            <li>Strings should be copied char by char</li>
+            <li><span class="orange-select">strcpy(dst_str, src_str)</span>: copy the <span class="green-select">src_str</span> to the <span class="cyan-select">dst_str</span></li>
+            <li><span class="green-select">src_str</span> is a <span class="material-select">constant</span> string</li>
+            <li><span class="cyan-select">dst_str</span> should have <span class="material-select">sufficient size</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Copy Strings: Example</h2>
+          <pre><code class="hljs lang-c">
+char str1[] = "Test String";
+char str2[20];
+
+strcpy(str2, str1);
+
+printf("%s\n", str2); // Test String
+printf("%s\n", str1); // Test String
+          </code></pre>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Concatenate Strings</h2>
+          <ul>
+            <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the src string to the end of dst</li>
+          </ul>
+        </section>
+        <section>
           <h2 style="color: #ff033e;">Legends</h2>
         </section>
       </div>
