@@ -639,7 +639,40 @@ char *str3 = "program"; //we will see later
           <h2 style="color: #ff033e;">Reading &amp; Writing Strings </h2>
           <ul>
             <li><span class="orange-select">printf</span> can be used to print strings</li>
+            <pre><code class="hljs lang-c">
+printf("program");
+printf("%s", "program");
+            </code></pre>
           </ul>
+          <ul>
+            <li><span class="green-select">scanf</span> can be used to read strings</li>
+            <pre><code class="hljs lang-c">
+char str[200];
+scanf("%s", str);
+            </code></pre>
+            <li>Initial white spaces are ignored</li>
+            <li>Read until <span class="cyan-select">space</span> or <span class="cyan-select">'\n'</span> (which is replaced by \0)</li>
+            <li>We must allocate <span class="material-select">sufficient size</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2 style="color: #ff033e;">Reading &amp; Writing Strings (cont’d)</h2>
+          <ul>
+            <li><span class="orange-select">puts(str)</span> is very simple version of <span class="green-select">printf</span></li>
+            <ul>
+              <li>Can only be used to print strings</li>
+              <li>Adds <span class="green-select">‘\n’</span> to end of string</li>
+            </ul>
+            <li><span class="orange-select">gets(char str[])</span> can be used to read strings</li>
+            <li><span class="orange-select">gets</span> does <span class="red-select">not</span> ignore the white spaces</li>
+            <ul>
+              <li>Read until \n</li>
+            </ul>
+            <li>String should be large enough</li>
+          </ul>
+        </section>
+        <section>
+          <div class="toc" data-selected="4"></div>
         </section>
         <section>
           <h2 style="color: #ff033e;">Legends</h2>
