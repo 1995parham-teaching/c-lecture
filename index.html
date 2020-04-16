@@ -46,13 +46,13 @@ layout: none
           </tr>
         </thead>
         <tbody>
-          {% assign lectures = site.html_pages | where: "lecture", true %}
+          {% assign lectures = site.html_pages | where: "lecture", true | sort: "dir" %}
           {% for lecture in lectures %}
           <tr>
             <td class="announcement-text">
-              <a href="{{ lecture.path | relative_url }}">{{lecture.title}}</a>
+              <a href="{{ lecture.path | relative_url }}">{{forloop.index}}. {{lecture.title}}</a>
             </td>
-            <td class="announcement-date">{{lecture.modified_time | date_to_string}}</td>
+            <td class="announcement-date">{{lecture.date | date_to_string}}</td>
           {% endfor %}
           <!--
           <tr>
