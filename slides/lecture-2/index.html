@@ -1,61 +1,31 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>Algorithm Design</title>
-
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/league.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Parham theme! -->
-    <link rel="stylesheet" href="../css/theme.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <section>
-          <h1 style="color: #ffea00;">Algorithm Design</h1>
-          <h5>Fundamentals of Computer and Programming</h5>
-          <span class="cyan-select">Spring 2020</span>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">What We Will Learn</h2>
-          <ul>
-            <li>Sample algorithms to practice problem solving steps</li>
-            <li>Input &amp; Output analysis</li>
-            <li>Algorithm design</li>
-            <ul>
-              <li>Pseudo-code</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Average</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+---
+layout: lecture
+title: Algorithm Design
+---
+<section>
+  <h2 style="color: #ff033e;">What We Will Learn</h2>
+  <ul>
+    <li>Sample algorithms to practice problem solving steps</li>
+    <li>Input &amp; Output analysis</li>
+    <li>Algorithm design</li>
+    <ul>
+      <li>Pseudo-code</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Average</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print "Please enter three integers"
 read x1, x2, x3
 sum =  x1 + x2 + x3
 average =  sum / 3
 print "Average = " average
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Odd-Even-1</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Odd-Even-1</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter an integer”
 read n
 r = n mod 2
@@ -63,11 +33,11 @@ if (r == 0)
   print “Number is even”
 else
   print “Number is odd”
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Odd-Even-2</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Odd-Even-2</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter an integer”
 read n
 if(n &lt; 0)
@@ -78,11 +48,11 @@ if (n == 0)
   print “even”
 else
   print “odd”
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Odd-Even-3</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Odd-Even-3</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter an integer”
 read n
 while (n &gt;= 2) or (n &lt;= -1)
@@ -91,17 +61,17 @@ while (n &gt;= 2) or (n &lt;= -1)
     print “odd”
   else
     print “even”
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Count Odd-Even</h2>
-          <p>
-            The algorithm read array of numbers that are ending with 0 then count even and odd numbers.
-          </p>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Count Odd-Even</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Count Odd-Even</h2>
+  <p>
+    The algorithm read array of numbers that are ending with 0 then count even and odd numbers.
+  </p>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Count Odd-Even</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 odd_cnt = 0
 even_cnt = 0
 print “Please enter an integer”
@@ -115,11 +85,11 @@ while (n != 0)
   print “Please enter an integer”
   read n
 print “Odd = “ odd_cnt “Even = “ even_cnt
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Digit-Sum</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Digit-Sum</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter a positive integer”
 read n
 sum = 0
@@ -130,11 +100,11 @@ while (n != 0)
   n = n - d
   n = n / 10
 print “sum of digits of” m “ = “ sum
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Base-8</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Base-8</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter a positive integer”
 read n
 i = 0
@@ -145,11 +115,11 @@ while (n != 0)
 while (i &gt;= 0)
   print x[i]
   i = i - 1
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Factorial-1</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Factorial-1</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter a positive integer”
 read n
 i = 1
@@ -158,11 +128,11 @@ while (i &lt;= n)
   result = i * result
   i = i + 1
 return result
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Factorial-2</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Factorial-2</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 print “Please enter a positive integer”
 read n
 result = 1
@@ -170,29 +140,29 @@ while (n &gt; 0)
   result = result * n
   n = n - 1
 return result
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Factorial-Recursive (n)</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Factorial-Recursive (n)</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 if (n == 1)
   return 1
 else
   return n * Factorial-Recursive (n - 1)
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">sort (x, start, end)</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">sort (x, start, end)</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 while (start != end)
   j = find index of minimum element from start to end
   swap x[j] and x[start]
   start = start + 1
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">find_min(x, start, end)</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">find_min(x, start, end)</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 i = start
 arg_min = i
 while (i &lt;= end)
@@ -200,79 +170,46 @@ while (i &lt;= end)
     arg_min = i
   i = i + 1
 return arg_min
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">swap(x, j, i)</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">swap(x, j, i)</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 temp = x[j]
 x[j] = x[i]
 x[i] = temp
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">reverse(A, start, end)</h2>
-          <pre><code class="hljs plaintext" data-line-numbers>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">reverse(A, start, end)</h2>
+  <pre><code class="hljs plaintext" data-line-numbers>
 if (start &gt;= end)
   return
 else
   swap(A, start, end)
   reverse(A, start + 1, end - 1)
-          </code></pre>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Summary</h2>
-          <ul>
-            <li>There are more than one algorithm for a problem</li>
-            <ul>
-              <li>Efficiency, Complexity, Clarity, …</li>
-            </ul>
-            <li>Algorithm (Programming Language) building blocks</li>
-            <ul>
-              <li>Input / Output (Lecture 5)</li>
-              <li>Calculations (Lecture 4)</li>
-              <li>Decision Making (Lecture 6)</li>
-              <li>Repeating (Lecture 7)</li>
-              <li>Modular Programming (Lecture 8)</li>
-              <li>Arrays + Memory Management (Lectures 9 + 10)</li>
-              <li>Others (Files, …) (Lecture 11 + 12)</li>
-            </ul>
-          </ul>
-        </section>
-        <section>
-          <h2 style="color: #ff033e;">Legends</h2>
-          <img src="img/dennis.jpg" alt="dennis" width="300">
-        </section>
-      </div>
-    </div>
-
-    <script src="../lib/js/head.min.js"></script>
-    <script src="../js/reveal.js"></script>
-
-    <script>
-      // More info https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        history: true,
-        slideNumber: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-          { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {
-            src: '../plugin/toc.js',
-            async: true,
-            condition: function() {
-              if (typeof toc !== undefined) {
-                return true;
-              } else {
-                return false;
-              }
-            },
-            callback: function() { toc.initToCOnLoad([
-            ]); }
-          }
-        ]
-      });
-    </script>
-  </body>
-</html>
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Summary</h2>
+  <ul>
+    <li>There are more than one algorithm for a problem</li>
+    <ul>
+      <li>Efficiency, Complexity, Clarity, …</li>
+    </ul>
+    <li>Algorithm (Programming Language) building blocks</li>
+    <ul>
+      <li>Input / Output (Lecture 5)</li>
+      <li>Calculations (Lecture 4)</li>
+      <li>Decision Making (Lecture 6)</li>
+      <li>Repeating (Lecture 7)</li>
+      <li>Modular Programming (Lecture 8)</li>
+      <li>Arrays + Memory Management (Lectures 9 + 10)</li>
+      <li>Others (Files, …) (Lecture 11 + 12)</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Legends</h2>
+  <img src="img/dennis.jpg" alt="dennis" width="300">
+</section>
