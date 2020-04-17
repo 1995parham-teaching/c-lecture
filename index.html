@@ -37,7 +37,7 @@ layout: none
         <h6>Spring 2020</h6>
         <h6>Last Upadte: {{site.time | date_to_string}}</h6>
       </div>
-      <h2>Lectures</h2>
+      <h2>Lectures 📚</h2>
       <table class="u-full-width">
         <thead>
           <tr>
@@ -54,33 +54,20 @@ layout: none
             </td>
             <td class="announcement-date">
               <div class ="button-container">
-                <a class="button" href="{{ lecture.path | relative_url }}">Slides</a>
+                <a target="_blank" class="button" href="{{ lecture.path | relative_url }}">Slides</a>
               </div>
             </td>
+          </tr>
           {% endfor %}
-          <!--
-          <tr>
-            <td class="announcement-text">
-              Comming Sonn...
-            </td>
-            <td class="announcement-date">98/09/10</td>
-          </tr>
-          <tr>
-            <td class="announcement-text" data-tag="correction">
-              Comming Sonn...
-            </td>
-            <td class="announcement-date">98/09/10</td>
-          </tr>
-          -->
         </tbody>
       </table>
       <div class ="button-container">
       </div>
       <div style ="float:left;" class ="button-container">
-        <a class="button" href="https://docs.google.com/spreadsheets/d/1z8rISY4tvSkawavmCMZeUdMMJouRZQYfA4DnC62vbqA/edit?usp=sharing">More Information (AUT)</a>
+        <a target="_blank" class="button" href="https://docs.google.com/spreadsheets/d/1z8rISY4tvSkawavmCMZeUdMMJouRZQYfA4DnC62vbqA/edit?usp=sharing">More Information (AUT)</a>
       </div>
       <div style ="float:right;" class ="button-container">
-        <a class="button" href="https://docs.google.com/spreadsheets/d/1TS7ewKcGN_Whs-B99jCMOpj6lLSAWkNp3_8zRbBW4Oo/edit?usp=sharing">More Information (SBU)</a>
+        <a target="_blank" class="button" href="https://docs.google.com/spreadsheets/d/1TS7ewKcGN_Whs-B99jCMOpj6lLSAWkNp3_8zRbBW4Oo/edit?usp=sharing">More Information (SBU)</a>
       </div>
     </div>
   <!-- End Document
