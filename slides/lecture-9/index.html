@@ -7,7 +7,7 @@ topics:
 - Multidimensional arrays
 - String
 - String functions
-- Array of strings
+- Bugs and avoiding them
 ---
 
 <section>
@@ -758,8 +758,210 @@ printf("%s\n", str1); // Test String
 <section>
   <h2 style="color: #ff033e;">Concatenate Strings</h2>
   <ul>
-    <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the src string to the end of dst</li>
+    <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the <span class="green-select">src</span> string to the end of <span class="cyan-select">dst</span></li>
+    <li><span class="green-select">src</span> is a <span class="material-select">constant</span> string</li>
+    <li><span class="cyan-select">dst</span> should have <span class="material-select">sufficient space</span></li>
   </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Concatenate Strings: Example</h2>
+  <pre><code class="hljs lang-c">
+char str1[]  = "String";
+char str2[20]= "Test ";
+
+strcat(str2, str1);
+
+printf("%s\n", str2); Test String
+  </code></pre>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Sized Version of the Functions</h2>
+  <ul>
+    <li><span class="orange-select">strncpy(dst, src, n):</span></li>
+    <ul>
+      <li>copys <span class="green-select">n</span> chars from <span class="cyan-select">src</span> to <span class="material-select">dst</span></li>
+      <li>if(strlen(src) &gt; n)</li>
+      <ul>
+        <li>Copies n chars to <span class="material-select">dst</span></li>
+        <li>Does not add ‘\0’ to end of <span class="material-select">dst</span></li>
+      </ul>
+      <li>if(strlen(src) &lt; n)</li>
+      <ul>
+        <li>Copy <span class="cyan-select">src</span> to <span class="material-select">dst</span></li>
+        <li>Add n – strlen(src) – 1 ‘\0’ to end of dst</li>
+        <ul>
+          <li>dst must be large enough</li>
+          <li>n &lt; size of dst</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Sized Version of the Functions</h2>
+  <ul>
+    <li><span class="orange-select">strncmp(str1, str2, n):</span></li>
+    <ul>
+      <li>compares the first <span class="green-select">x</span> chars</li>
+      <li><span class="green-select">x</span> = min{ n, strlen(str1)+1, strlen(str2)+1 }</li>
+    </ul>
+    <li><span class="orange-select">strncat(dst, src, n):</span></li>
+    <ul>
+      <li>Appends the x chars from src to dst</li>
+      <li>x = min{n, strlen(src)}</li>
+      <li>Adds ‘\0’ to end of dst</li>
+      <li>dst must be large enough</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Numbers and Strings: number &rarr; string</h2>
+  <ul>
+    <li>To convert a number to string</li>
+    <pre><code class="hljs lang-c">
+char str1[100];
+
+int i = 100;
+sprintf(str1, "%d", i); // str1 = “100”
+
+float f = 10.11;
+sprintf(str1, "%0.2f", f); // str1 = “10.11”
+
+    </code></pre>
+    <li>String <span class="orange-select">str1</span> should have <span class="material-select">sufficient size</span></li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Numbers and Strings: string &rarr; number</h2>
+  <ul>
+    <li>To convert from strings to numbers</li>
+    <pre><code class="hljs lang-c">
+#include &lt;stdlib.h&gt;
+
+char str1[] = "10";
+int i;
+i = atoi(str1); // i = 10 sscanf(str1, "%d", &amp;i); // i = 10
+
+char str2[] = "20.44";
+double f;
+f = atof(str2); // f = 20.44
+sscanf(str2, "%lf", &amp;f); // f = 20.44
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">String as Array</h2>
+  <ul>
+    <li>Strings are array of chars</li>
+    <li>We work on arrays element by element</li>
+    <li>We can work on strings char by char</li>
+    <pre><code class="hljs lang-c">
+char str1[] = "100000";
+str1[2] = '2';
+    </code></pre>
+    <li>We can pass strings to functions</li>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Array of Strings</h2>
+  <ul>
+    <li>2 dimensional array, each row is a string</li>
+    <pre><code class="hljs lang-c">
+char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
+    </code></pre>
+    <table class="cell">
+      <tr>
+        <td>'z'</td><td>'e'</td><td>'r'</td><td>'o'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+      </tr>
+      <tr>
+        <td>'u'</td><td>'n'</td><td>'o'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+      </tr>
+      <tr>
+        <td>'d'</td><td>'u'</td><td>'e'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+      </tr>
+      <tr>
+        <td>'t'</td><td>'r'</td><td>'e'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+      </tr>
+      <tr>
+        <td>'q'</td><td>'u'</td><td>'a'</td><td>'t'</td><td>'t'</td><td>'r'</td><td>'o'</td><td>\0</td>
+      </tr>
+    </table>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">ctype.h</h2>
+  <ul>
+    <li>Many function to work on chars</li>
+    <ul>
+      <li>Check digit</li>
+      <li>Check alphabetic</li>
+      <li>Check lower or upper case</li>
+      <li>Convert from/to upper/lower case</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">ctype.h</h2>
+  <ul>
+    <li>int isdigit(ch)</li>
+    <ul>
+      <li class="fragment" data-fragment-index="1">Check ch is digital char or not</li>
+    </ul>
+    <li>int isalpha(ch)</li>
+    <ul>
+      <li class="fragment" data-fragment-index="2">Check ch is alphabetic or not</li>
+    </ul>
+    <li>int islower(ch)</li>
+    <ul>
+      <li class="fragment" data-fragment-index="3">Check ch is lowercase alphabetic or not</li>
+    </ul>
+    <li>int isupper(ch)</li>
+    <ul>
+      <li class="fragment" data-fragment-index="4">Check ch is uppercase alphabetic or not</li>
+    </ul>
+    <li>char tolower(ch)</li>
+    <ul>
+      <li class="fragment" data-fragment-index="5">Convert ch to lowercase and return it</li>
+    </ul>
+    <li>char toupper(ch)</li>
+    <ul>
+      <li class="fragment" data-fragment-index="6">Convert ch to upper case and return it</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="5"></div>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Common Bugs &amp; Avoiding them</h2>
+    <ul>
+      <li>Strings which are used as destination</li>
+      <ul>
+        <li>scanf, sprintf, strcpy, ....</li>
+        <li>Must be large enough</li>
+      </ul>
+      <li>Take care about the ‘\0’</li>
+      <ul>
+        <li>You should never destroy it, some library functions do!</li>
+      </ul>
+      <li>Out of range array index!!!! (read/write, wrong size in function, multidimensional array memory)</li>
+    </ul>
+  </section>
+  <section>
+    <h2 style="color: #ff033e;">Common Bugs &amp; Avoiding them</h2>
+    <ul>
+      <li>You cannot assign a value to array</li>
+      <pre><code class="hljs lang-c">
+int a[4], b[4];
+a = b; // Error
+      </code></pre>
+      <li>To debug</li>
+      <ul>
+        <li>Print the array index and corresponding value</li>
+      </ul>
+    </ul>
+  </section>
 </section>
 <section>
   <h2 style="color: #ff033e;">Legends</h2>
