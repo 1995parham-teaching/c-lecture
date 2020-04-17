@@ -591,29 +591,3 @@ while(a = b){ //it means while(true)
 <section>
   <h2 style="color: #ff033e;">Legends</h2>
 </section>
-</div>
-</div>
-
-<script src="../lib/js/head.min.js"></script>
-<script src="../js/reveal.js"></script>
-
-<script>
-  // More info https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-    history: true,
-    slideNumber: true,
-
-    // More info https://github.com/hakimel/reveal.js#dependencies
-    dependencies: [
-      { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-      {
-        src: '../plugin/toc.js',
-        async: true,
-        condition: function() {
-          if (typeof toc !== undefined) {
-            return true;
-          } else {
-            return false;
-          }
-        },
-        callback: function() { toc.initToCOnLoad([
