@@ -48,7 +48,7 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-          { src: '{{ "/slides/plugin/highlight/highlight.js" | relaive_url }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{ "/slides/plugin/highlight/highlight.js" | relative_url }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           {
             src: '{{ "/slides/plugin/toc.js" | relative_url }}',
             async: true,
