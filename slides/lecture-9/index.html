@@ -459,7 +459,7 @@ t[1][1]; //t[1,1] &rarr; compile error
     <h2 style="color: #ff033e;">Initializing Multidimensional Arrays</h2>
     <ul>
       <pre><code class="hljs lang-c">
-int num[2][3] = {1, 2, 0, 3, 4 , 7};
+int num[2][3] = {1, 2, 0, 3, 4, 7};
 int num[2][3] = { {1, 2, 0}, {3, 4, 7} };
       </code></pre>
       <li>num[0][2] is 0, num[1][0] is 3</li>
@@ -472,7 +472,7 @@ int num[5][3] = { {1, 2, 0}, {3, 4, 7} };
   <section>
     <ul>
       <pre><code class="hljs lang-c">
-int num[2][3][2] = { { {1,2},{3,4},{5,6} }, { {1},{2},{3} } };
+int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
       </code></pre>
       <li>num[0][2][1] is 6, num[1][0][1] is 0</li>
       <pre><code class="hljs lang-c">
