@@ -564,8 +564,23 @@ Original matrix:
   </section>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Array In Memory</h2>
-  <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
+  <section>
+    <h2 style="color: #ff033e;">Array In Memory</h2>
+    <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+
+int main() {
+  int arr[][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+
+  printf("%lu\n", sizeof(arr)); // 36 = 9 * 4 = 9 * sizeof(int)
+}
+    </code></pre>
+    <p>There is no way to findout dimensions of an array</p>
+  </section>
 </section>
 <section>
   <div class="toc" data-selected="3"></div>
