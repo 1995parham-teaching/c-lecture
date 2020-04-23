@@ -1,5 +1,5 @@
 ---
-layout: lecture
+index: 10
 title: Pointers & Dynamic Memory
 topics:
 - Introduction
@@ -12,6 +12,66 @@ topics:
 
 <section>
   <div class="toc"></div>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Pointer: Reference to Memory</h2>
+  <ul>
+    <li>Pointer is a variable that</li>
+    <ul>
+      <li>Contains the <span class="orange-select">address</span> of another variable</li>
+    </ul>
+    <li>Pointer <span class="green-select">refers</span> to an address</li>
+    <li>Examples</li>
+    <pre><code class="hljs lang-c">
+int i;
+int *pi;
+i = 20;
+pi = &i;
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2 style="color: #ff033e;">Pointer: Declaration and Initialization</h2>
+  <ul>
+    <li><span class="orange-select">&lt;type&gt;</span>* <span class="green-select">&lt;identifier&gt;</span>;</li>
+    <li>Example</li>
+    <pre><code class="hljs lang-c">
+int i, *pi;
+pi = &i;
+float f;
+float *pf = &f;
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2 style="color: #ff033e;">Value of referred memory by a pointer</h2>
+    <pre><code class="hljs lang-c">
+int *pi, *pj, i, j;
+    </code></pre>
+    <ul>
+      <li><span class="orange-select">pi</span> variable contains the memory address</li>
+      <ul>
+        <li>If you assign a value to it: <span class="green-select">pi = &amp;i;</span></li>
+        <ul>
+          <li>The address is saved in <span class="cyan-select">pi</span></li>
+        </ul>
+        <li>If you read it: <span class="green-select">pj = pi;</span></li>
+        <ul>
+          <li>The address is copied from <span class="cyan-select">pi</span> from <span class="cyan-select">pj</span></li>
+        </ul>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li><span class="orange-select">*pi</span> is the value of referred memory</li>
+      <ul>
+        <li>If you read it: <span class="green-select">j = *pi;</span></li>
+        <li>If you assign a value to it: <span class="green-select">*pj = i;</span></li>
+      </ul>
+    </ul>
+  </section>
 </section>
 <section>
   <h2 style="color: #ff033e;">Legends</h2>
