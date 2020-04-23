@@ -6,3 +6,4 @@ defaults:
       path: "slides"
     values:
       lecture: true
+      layout: lecture
