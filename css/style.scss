@@ -1,3 +1,28 @@
+---
+---
+
+body {
+        min-height: 100vh;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("{{ '/img/bg.jpg' | relative_url }}");
+
+        padding-top: 30px;
+}
+
+.container {
+        max-width: 100%;
+        width: 900px;
+
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 45px 30px;
+
+
+        border-radius: 18px;
+}
+
 .header {
         text-align: center;
 }
@@ -7,12 +32,14 @@
         margin: 0 auto;
 }
 
-.announcement-text {
-        width: 90%;
-}
+.announcement {
+        &-text {
+                width: 90%;
+        }
 
-.announcement-date {
-        width: 10%;
+        &-date {
+                width: 10%;
+        }
 }
 
 .news-status {
