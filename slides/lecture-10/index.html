@@ -346,6 +346,66 @@ pa = &amp;a[0];// pa refers to element 0
   </ul>
 </section>
 <section>
+  <h2>Array &amp; Pointers</h2>
+  <pre><code class="hljs lang-c">
+int a[50];
+int *pa;
+pa = a;
+  </code></pre>
+  <ul>
+    <li>If address a = 100</li>
+    <ul>
+      <li>pa = 100</li>
+    </ul>
+    <li>pa+1 points to a[1]</li>
+    <ul>
+      <li>pa + 1 = 104</li>
+    </ul>
+    <li>pa + 2 points to a[2]</li>
+    <ul>
+      <li>pa + 2 = 108</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Arrays & Pointers: Similarity</h2>
+  <pre><code class="hljs lang-c">
+int arr[20], *pi, j;
+
+pi = &amp;arr[0]; // pi refers to array
+
+pi = pi + 2; // pi refers to element 2
+
+pi--; // pi refers to element 1
+
+j = *(pi + 2); // value of element 3
+
+/* arr is used as a pointer */
+pi = arr + 2; // pi refers to element 2
+
+/* pi is used as array */
+j = pi[8]; // value of element 10
+  </code></pre>
+</section>
+<section>
+  <h2>Arrays & Pointers: Difference</h2>
+  <ul>
+    <li>We can change pointers</li>
+    <ul>
+      <li>Assign new value, arithmetic and ...</li>
+    </ul>
+    <li>We cannot change the array variable</li>
+  </ul>
+  <pre><code class="hljs lang-c">
+int arr[20], arr2[20], *pi;
+pi = arr;
+pi++;
+arr2 = pi; // Compile error
+arr2 = arr; // Compile error
+arr++; // Compile error
+  </code></pre>
+</section>
+<section>
   <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;"></h6>
 </section>
