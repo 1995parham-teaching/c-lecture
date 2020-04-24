@@ -14,7 +14,10 @@ topics:
   <div class="toc"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Pointer: Reference to Memory</h2>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2>Pointer: Reference to Memory</h2>
   <ul>
     <li>Pointer is a variable that</li>
     <ul>
@@ -31,7 +34,7 @@ pi = &i;
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Pointer: Declaration and Initialization</h2>
+  <h2>Pointer: Declaration and Initialization</h2>
   <ul>
     <li><span class="orange-select">&lt;type&gt;</span>* <span class="green-select">&lt;identifier&gt;</span>;</li>
     <li>Example</li>
@@ -45,7 +48,7 @@ float *pf = &f;
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Value of referred memory by a pointer</h2>
+    <h2>Value of referred memory by a pointer</h2>
     <pre><code class="hljs lang-c">
 int *pi, *pj, i, j;
     </code></pre>
@@ -80,6 +83,209 @@ int *pi, *pj, i, j;
   </section>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Legends</h2>
+  <h2>Using Pointers: Example</h2>
+  <pre><code class="hljs lang-c">
+int i = 10, j;
+/* address of i is 100, value of i is 10 */
+/* address of j is 200, value of j is ?? */
+int *pi;
+/* address of pi is 300, value of pi is ?? */
+pi = &amp;i;
+/* address of pi is 300, value of pi is 100 */
+j = *pi;
+/* address of j is 200, value of j is 10 */
+*pi = 20;
+/* address of pi is 300, value of pi is 100 */
+/* address of i is 100, value of i is 20 */
+  </code></pre>
+</section>
+<section>
+  <h2>Using Pointers: Example</h2>
+  <pre><code class="hljs lang-c">
+double d1, d2, *pda, *pdb; d1 = 10;
+d2 = 20;
+pda = &amp;d1;
+pdb = &amp;d1;
+*pda = 15;
+d2 = d2 + *pdb;
+printf("d2 = %f\n", d2); // d2 = 35.0
+  </code></pre>
+</section>
+<section>
+  <h2>Pointer: Reference to Memory</h2>
+  <ul>
+    <li>Pointer variable contains an address</li>
+    <li>There is a special address</li>
+    <ul>
+      <li class="orange-select">NULL</li>
+    </ul>
+    <li>We can <span class="green-select">NOT</span></li>
+    <ul>
+      <li>Read any value from NULL</li>
+      <li>Write any value to NULL</li>
+    </ul>
+    <li>If you try to read/write &rarr; Run time error</li>
+    <li>NULL is usually used</li>
+    <ul>
+      <li>For pointer initialization</li>
+      <li>Check some conditions</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2>Call by value</h2>
+  <pre><code class="hljs lang-c">
+void func(int y){
+  y = 0;
+}
+
+void main(void){
+  int x = 100;
+  func(x);
+  printf("%d", x); // 100 not 0
+}
+  </code></pre>
+  <ul>
+    <li>Call by value</li>
+    <ul>
+      <li>The <span class="orange-select">value</span> of the x is copied to y</li>
+      <li>By changing y, x is <span class="green-select">not</span> changed</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Call by reference</h2>
+  <ul>
+    <li>Call by reference</li>
+    <ul>
+      <li>The value of variable is <span class="red-select">not</span> copied to function</li>
+      <li>If function changes the input parameter &rarr; the variable passed to the input is changed</li>
+      <li>Is implemented by pointers in C</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
+void func(int *y){
+  *y = 0;
+}
+void main(void){
+  int x = 100;
+  func(&amp;x);
+  printf("%d", x); // 0 ☺️
+}
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2>Pointers in Functions</h2>
+    <pre><code class="hljs lang-c">
+void add(double a, double b, double *res) {
+  *res = a + b;
+  return;
+}
+
+int main(void) {
+  double d1 = 10.1, d2 = 20.2;
+  double result = 0;
+  add(d1, d2, &amp;result);
+  printf("%f\n", result); // 30.3
+  return 0;
+}
+    </code></pre>
+  </section>
+  <section>
+    <h2>What happen?</h2>
+    <ul>
+      <pre><code class="hljs lang-c">double result = 0;</code></pre>
+      <li>The address of result is 100, value of result is 0</li>
+      <pre><code class="hljs lang-c">add(d1, d2, &amp;result);</code></pre>
+      <li><span class="orange-select">Value</span> of d1, <span class="orange-select">Value</span> of d2 and the <span class="green-select">address</span> of result is <span class="green-select">copied</span> to add</li>
+      <pre><code class="hljs lang-c">add(double a, double b, double *res)</code></pre>
+      <li>Value of a is the value of d1, value of b is the value of d2 and value of <span class="orange-select">res is 100</span> and the <span class="green-select">value of *res is 0</span></li>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <pre><code class="hljs lang-c">*res = a + b;</code></pre>
+      <li>Value of a is added to b and output is saved in <span class="orange-select">the referred address by res (100)</span></li>
+      <li>But the 100is the address of <span class="cyan-select">result</span>. Therefore the value is saved in memory location result</li>
+    </ul>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Swap function ❌</h2>
+    <pre><code class="hljs lang-c">
+void swap(double a, double b) {
+  double temp;
+  temp = a;
+  a = b;
+  b = temp;
+  return;
+}
+
+int main(void){
+  double d1 = 10.1, d2 = 20.2;
+  printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 10.1, d2 = 20.2
+  swap(d1, d2);
+  printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 10.1, d2 = 20.2
+  return 0;
+}
+    </code></pre>
+  </section>
+  <section>
+    <h2>Swap function ✅</h2>
+    <pre><code class="hljs lang-c">
+void swap(double *a, double *b) {
+  double temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
+  return;
+}
+
+void main(void) {
+  double d1 = 10.1, d2 = 20.2;
+  printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 10.1, d2 = 20.1
+  swap(&amp;d1, &amp;d2);
+  printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 20.2, d2 = 10.1
+}
+    </code></pre>
+  </section>
+</section>
+<section>
+  <h2>Pointer as the function output</h2>
+  <ul>
+    <li>Functions can return a pointer as output</li>
+    <li>But, the address pointed by the pointer must be valid after the function finishes</li>
+    <ul>
+      <li>The pointed variable must be exist</li>
+      <li>It must <span class="red-select">not</span> be <span class="orange-select">automatic local variable</span> of the function</li>
+      <li>It can be static local variable, global variable, or the input parameter</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Pointer as the function output</h2>
+  <pre><code class="hljs lang-c">
+int gi;
+
+int *func_a(void) {
+  return &gi;
+}
+
+float *func_b(void) {
+  static float x;
+  return &x;
+}
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;"></h6>
 </section>
