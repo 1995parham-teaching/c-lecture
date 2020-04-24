@@ -19,6 +19,10 @@ $selects: (
         color: #f48024;
 }
 
+section > h2:first-child {
+        color: #ff033e !important;
+}
+
 table.cell td {
         border: 5px solid #ccff00 !important;
 }
