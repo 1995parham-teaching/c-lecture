@@ -286,6 +286,66 @@ float *func_b(void) {
   <div class="toc" data-selected="2"></div>
 </section>
 <section>
+  <h2>Operations on Pointers</h2>
+  <ul>
+    <li>Arithmetic</li>
+    <p>
+      <span class="orange-select">&lt;pointer&gt;</span> - or + <span class="green-select">&lt;integer&gt;</span>
+      (or <span class="orange-select">&lt;pointer&gt;</span> -= or += <span class="green-select">&lt;integer&gt;</span>)<br>
+      <span class="orange-select">&lt;pointer&gt;</span> - <span class="orange-select">&lt;pointer&gt;</span> (they must be the same type)<br>
+      <span class="orange-select">&lt;pointer&gt;</span>++ or <span class="orange-select">&lt;pointer&gt;</span>--
+    </p>
+    <li>Comparison between pointers</li>
+    <pre><code class="hljs lang-c">
+int arr[20];
+int *pi, *pj, i;
+pi = &amp;arr[10];
+pj = &amp;arr[15];
+i = pj - pi; // i = 5
+i = pi - pj; // i=-5
+if(pi &lt; pj) // if is True
+if(pi == pj) // if is False
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>Operations on Pointers Examples</h2>
+  <pre><code class="hljs lang-c">
+int *pi, *pj, *pk, i, j, k;
+char *pa, *pb, *pc, a, b, c;
+pi = &amp;i;
+pj = pi + 2;
+pk = pj + 2;
+pa = &amp;a;
+pb = pa + 2;
+
+i = pj - pi; // i = 2
+j = pb - pa; // j = 2
+k = pk - pi; // k = 4
+
+pi = pj + pk; // compile error: No + for 2 pointers
+pc = pi; // compile error: Different types
+i = pa – pi; // compile error: Different ptr types
+  </code></pre>
+</section>
+<section>
+  <h2>Array &amp; Pointers</h2>
+  <ul>
+    <li>Pointer can refer to each element in an array</li>
+    <pre><code class="hljs lang-c">
+int a[20];
+int *pa;
+pa = &amp;a[10]; //pa refers to element 10
+a[11] = *pa; //value of pa is saved in element 11
+    </code></pre>
+    <li>The name of array is the pointer to the first element</li>
+    <pre><code class="hljs lang-c">
+pa = a; // pa refers to element 0
+pa = &amp;a[0];// pa refers to element 0
+    </code></pre>
+  </ul>
+</section>
+<section>
   <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;"></h6>
 </section>
