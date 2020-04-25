@@ -13,7 +13,7 @@ stopics:
   <div class="toc" data-selected="0"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Printing</h2>
+  <h2>Printing</h2>
   <ul>
     <li>Printing messages</li>
     <ul>
@@ -32,7 +32,7 @@ printf("i is %d and char is %c", i, '6');
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Printing Integers</h2>
+  <h2>Printing Integers</h2>
   <ul>
     <li><span class="orange-select">%d, %i, %ld</span></li>
   </ul>
@@ -48,7 +48,7 @@ printf("%ld, %i", +1000, -100);
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Printing Unsigned Integers</h2>
+  <h2>Printing Unsigned Integers</h2>
   <ul>
     <li><span class="orange-select">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
   </ul>
@@ -61,7 +61,7 @@ printf("%X\n", i); //1A
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Printing Floats</h2>
+  <h2>Printing Floats</h2>
   <ul>
     <li><span class="orange-select">%f, %e, %E, %lf</span></li>
   </ul>
@@ -78,7 +78,7 @@ printf("%f, %e", 1e3, 1e3);
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Printing Chars</h2>
+  <h2>Printing Chars</h2>
   <ul>
     <li><span class="orange-select">%c</span></li>
   </ul>
@@ -95,7 +95,7 @@ a, b, A
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Special Character</h2>
+  <h2>Special Character</h2>
   <table>
     <thead>
       <th>Characters in <span class="orange-select">printf</span></th>
@@ -130,7 +130,7 @@ a, b, A
   </table>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Printing Strings</h2>
+  <h2>Printing Strings</h2>
   <ul>
     <li>%s</li>
   </ul>
@@ -147,7 +147,7 @@ This is message
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Field length</h2>
+  <h2>Field length</h2>
   <ul>
     <li>Field length is a <span class="orange-select">number</span></li>
     <li>Comes after % (and before the type char)</li>
@@ -165,7 +165,7 @@ This is message
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Field length</h2>
+  <h2>Field length</h2>
   <pre><code class="hljs lang-c">
 printf("|%4d|\n", 1);       // |    1|
 printf("|%4d|\n", 12345);   // |12345|
@@ -178,7 +178,7 @@ printf("|%4s|\n", "ABCDE"); // |ABCDE|
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Precision</h2>
+  <h2>Precision</h2>
   <ul>
     <li>Precision is a <span class="green-select">.number</span> and comes after %</li>
     <li>For Integer</li>
@@ -198,7 +198,7 @@ printf("|%4s|\n", "ABCDE"); // |ABCDE|
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Precision</h2>
+  <h2>Precision</h2>
   <pre><code class="hljs lang-c">
 printf("|%.4d|\n", 1); // |0001|
 printf("|%.4d|\n", 12345); // |12345|
@@ -210,7 +210,7 @@ printf("|%.4s|\n", "ABCDEF"); // |ABCD|
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Field length and Precision</h2>
+  <h2>Field length and Precision</h2>
   <ul>
     <li>This is a number with format <span class="orange-select">a.b</span></li>
     <li>First <span class="green-select">b</span> determines the precision</li>
@@ -218,7 +218,7 @@ printf("|%.4s|\n", "ABCDEF"); // |ABCD|
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Field length and Precision</h2>
+  <h2>Field length and Precision</h2>
   <pre><code class="hljs lang-c">
 printf("|%10.5d|\n", 12);
 | 00012|
@@ -240,7 +240,7 @@ printf("|%5.10s|\n", "Hello, world");
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Variable Field Length & Precision : *</h2>
+  <h2>Variable Field Length & Precision : *</h2>
   <ul>
     <li>* can be used to specify field length and precision which is replaced by a variable</li>
   </ul>
@@ -254,7 +254,7 @@ printf("%0*.*f\n", i, j, f);
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Cast in printing (do NOT use)</h2>
+  <h2>Cast in printing (do NOT use)</h2>
   <pre><code class="hljs lang-c">
 int i = -60;
 unsigned int j = 4147482648;
@@ -277,7 +277,7 @@ f = 1610612736
   <div class="toc" data-selected="1"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading</h2>
+  <h2>Reading</h2>
   <ul>
     <li>Read from keyboard (console)</li>
     <li>What should be determined in reading</li>
@@ -296,7 +296,7 @@ f = 1610612736
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading Integers (base 10)</h2>
+  <h2>Reading Integers (base 10)</h2>
   <ul>
     <li>%d, %u, %ld, %lu</li>
   </ul>
@@ -316,7 +316,7 @@ Spaces at the beginning are ignored
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading Integers (cont’d)</h2>
+  <h2>Reading Integers (cont’d)</h2>
   <ul>
     <li>%o, %x, %X, %i</li>
   </ul>
@@ -334,7 +334,7 @@ Input: 0x12 → i = 18 (It reads in base 16)
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading floats and doubles</h2>
+  <h2>Reading floats and doubles</h2>
   <ul>
     <li>%f, %lf, %e</li>
   </ul>
@@ -350,7 +350,7 @@ Spaces at the beginning are ignored
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading floats and doubles</h2>
+  <h2>Reading floats and doubles</h2>
   <pre><code class="hljs lang-c">
 float f1, f2;
 scanf("%f", &amp;f1);
@@ -366,7 +366,7 @@ Input:
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading chars</h2>
+  <h2>Reading chars</h2>
   <ul>
     <li>%c</li>
   </ul>
@@ -384,7 +384,7 @@ Spaces at the beginning are NOT ignored
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
+  <h2>Reading chars (cont’d)</h2>
   <ul>
     <li>White spaces (space, tab, enter) are not ignored when reading char</li>
     <li>To ignore white spaces, use “ “ before %c</li>
@@ -399,7 +399,7 @@ Input: 123 456 → I = 123 c = ‘4’ j = 56
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading chars (cont’d)</h2>
+  <h2>Reading chars (cont’d)</h2>
   <ul>
     <li>getchar()</li>
     <ul>
@@ -416,7 +416,7 @@ Input: 123 456 → I = 123 c = ‘4’ j = 56
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading Strings</h2>
+  <h2>Reading Strings</h2>
   <ul>
     <li>How to read a line</li>
     <li>Contains spaces (read until end of line)</li>
@@ -430,7 +430,7 @@ Input: ABC DEF → str = "ABC DEF"
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Field length in scanf</h2>
+  <h2>Field length in scanf</h2>
   <ul>
     <li>Field length specifies the <span class="orange-select">maximum</span> number of input characters (in the buffer) used for scanning</li>
   </ul>
@@ -448,7 +448,7 @@ Input: 123456 7 → i = 12345, j = 6
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Special input format</h2>
+  <h2>Special input format</h2>
   <ul>
     <li>If input data has special format with extra characters</li>
     <li>scanf can ignore them</li>
@@ -461,7 +461,7 @@ Input: 1389/12/1 → y = 1389, m = 12, d = 1
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Format of actual input data</h2>
+  <h2>Format of actual input data</h2>
   <ul>
     <li>The format of actual input data <span class="orange-select">MUST</span> match with the format of scanf</li>
   </ul>
@@ -476,7 +476,7 @@ Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Common Bugs</h2>
+  <h2>Common Bugs</h2>
   <ul>
     <li>Casting in printf or scanf</li>
     <ul>
@@ -495,7 +495,7 @@ Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Legends</h2>
+  <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Mohammad Ghodsi</h6>
   <img src="img/ghodsi.jpg" alt="ghodsi">
 </section>
