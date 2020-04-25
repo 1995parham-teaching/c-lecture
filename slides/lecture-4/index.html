@@ -17,7 +17,7 @@ stopics:
   <div class="toc" data-selected="0"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Basic operations</h2>
+  <h2>Basic operations</h2>
   <table>
     <thead style="color: #ff9966;">
       <th>Name</th>
@@ -48,7 +48,7 @@ stopics:
   </table>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Modulo</h2>
+  <h2>Modulo</h2>
   <ul>
     <li>Only can be used by <span class="orange-select">int</span> operands</li>
     <ul>
@@ -61,7 +61,7 @@ stopics:
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Mean of 3 Numbers</h2>
+  <h2>Mean of 3 Numbers</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
@@ -82,7 +82,7 @@ int main(void){
   <div class="toc" data-selected="1"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">General rules of type conversion</h2>
+  <h2>General rules of type conversion</h2>
   <ul>
     <li>If either operand is <span class="orange-select">long double</span>, convert the other to <span class="orange-select">long double</span>.</li>
     <li>Otherwise, if either operand is <span class="green-select">double</span>, convert the other to <span class="green-select">double</span>.</li>
@@ -92,7 +92,7 @@ int main(void){
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Effect of types</h2>
+  <h2>Effect of types</h2>
   <ul>
     <li>Type of operands determines the type of the result</li>
     <ul>
@@ -106,14 +106,14 @@ int main(void){
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Effect of types</h2>
+  <h2>Effect of types</h2>
   <ul>
     <li>If both operand of division (/) is <span class="orange-select">int</span></li>
     <li>&rarr; data lost</li>
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Effect of types &amp; Explicit casts</h2>
+  <h2>Effect of types &amp; Explicit casts</h2>
   <table>
     <thead>
       <th>Expression</th>
@@ -158,7 +158,7 @@ int main(void){
   <div class="toc" data-selected="2"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Precedence</h2>
+  <h2>Precedence</h2>
   <ol>
     <li>Parenthesis</li>
     <li>Unary + - (for sign): +4, -8</li>
@@ -169,7 +169,7 @@ int main(void){
   </ol>
 </section>
 <section>
-  <h2 style="color: #ff033e;"></h2>
+  <h2></h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
@@ -206,7 +206,7 @@ int main(void){
   <div class="toc" data-selected="3"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Increment &amp; Decrement of Variables</h2>
+  <h2>Increment &amp; Decrement of Variables</h2>
   <ul>
     <li>Unary operators only for variables</li>
     <li>++ : increase by one</li>
@@ -223,7 +223,7 @@ i = i - 1; // i = 10
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Increment &amp; Decrement (cont’d)</h2>
+  <h2>Increment &amp; Decrement (cont’d)</h2>
   <ul>
     <li><span class="cyan-select">Postfix:</span> Use the value then apply the operator</li>
     <li><span class="cyan-select">Prefix:</span> Apply the operator then use the value</li>
@@ -239,7 +239,7 @@ j = i - 1; // i = 10, j = 9
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Assignment Combined with Operation</h2>
+  <h2>Assignment Combined with Operation</h2>
   <ul>
     <li>These are equal</li>
     <ul>
@@ -256,7 +256,7 @@ i *= i + j - 6 + i / j;
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Multiple assignment</h2>
+  <h2>Multiple assignment</h2>
   <ul>
     <li>More than one assignment in a statement</li>
     <ul>
@@ -283,7 +283,7 @@ i += -3 // [i = -2]
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Precedence</h2>
+  <h2>Precedence</h2>
   <table>
     <thead>
       <th>Operator</th>
@@ -314,7 +314,7 @@ i += -3 // [i = -2]
   </table>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Arithmetic on characters</h2>
+  <h2>Arithmetic on characters</h2>
   <ul>
     <li><span class="orange-select">char</span> can be used as 8-bit integer</li>
     <li>All arithmetic operation can be used with characters</li>
@@ -330,7 +330,7 @@ i = c - ch + 'X' - 'Z'; // i = -5
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">sizeof operator</h2>
+  <h2>sizeof operator</h2>
   <ul>
     <li><span class="green-select">sizeof</span> is a unary operator</li>
     <ul>
@@ -341,7 +341,7 @@ i = c - ch + 'X' - 'Z'; // i = -5
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">sizeof operator</h2>
+  <h2>sizeof operator</h2>
   <pre><code class="hljs lang-c">
 int size, i = 10;
 size = sizeof i;
@@ -351,7 +351,7 @@ size = sizeof(char)
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Precedence</h2>
+  <h2>Precedence</h2>
   <table>
     <thead>
       <th>Operator</th>
@@ -382,7 +382,7 @@ size = sizeof(char)
   </table>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Undefined Statements</h2>
+  <h2>Undefined Statements</h2>
   <ul>
     <li>When standard does <span class="orange-select">not</span> tell what will happen</li>
     <li>Examples</li>
@@ -398,7 +398,7 @@ i = j + i++; // i = 11 or ???
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Overflow and Underflow</h2>
+  <h2>Overflow and Underflow</h2>
   <ul>
     <li>Computer’s precision is limited</li>
     <ul>
@@ -418,7 +418,7 @@ i = j + i++; // i = 11 or ???
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Quadratic Equation</h2>
+  <h2>Quadratic Equation</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 int main(void){
@@ -438,7 +438,7 @@ int main(void){
   <div class="toc" data-selected="4"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Math library</h2>
+  <h2>Math library</h2>
   <ul>
     <li>#include &lt;math.h&gt;</li>
   </ul>
@@ -460,7 +460,7 @@ rint(-20.6) -21
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Math library</h2>
+  <h2>Math library</h2>
   <pre><code class="hljs lang-c">
 const double PI = 3.141592653589793;
 const double E = 2.7182818284590451;
@@ -476,7 +476,7 @@ exp(1) 2.718282
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Perimeter and Area of Circle</h2>
+  <h2>Perimeter and Area of Circle</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
@@ -497,7 +497,7 @@ int main(void){
   <div class="toc" data-selected="5"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <h2>Random Numbers</h2>
   <ul>
     <li>#include &lt;stdlib.h&gt;</li>
     <li>rand()</li>
@@ -517,7 +517,7 @@ int main(void){
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <h2>Random Numbers</h2>
   <ul>
     <li>We usually want different random number</li>
     <ul>
@@ -537,7 +537,7 @@ srand(t);
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <h2>Random Numbers</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -557,7 +557,7 @@ int main(void){
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Random Numbers</h2>
+  <h2>Random Numbers</h2>
   <ul>
     <li>First Run</li>
     <ul>
@@ -577,7 +577,7 @@ int main(void){
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Legends</h2>
+  <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Ken Thompson</h6>
   <img src="img/ken.jpg" alt="ken">
 </section>
