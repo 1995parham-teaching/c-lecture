@@ -17,7 +17,7 @@ topics:
   <div class="toc" data-selected="0"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Introduction</h2>
+  <h2>Introduction</h2>
   <ul>
     <li>Algorithms usually work on large data sets</li>
     <ul>
@@ -38,7 +38,7 @@ topics:
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Array</h2>
+  <h2>Array</h2>
   <ul>
     <li>A collection of <span class="orange-select">same type</span> variables</li>
     <li>A nx1 vector of</li>
@@ -91,7 +91,7 @@ topics:
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Arrays in C</h2>
+  <h2>Arrays in C</h2>
   <ul>
     <li>Array declaration in C</li>
     <p>
@@ -129,7 +129,7 @@ topics:
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Example</h2>
+  <h2>Example</h2>
   <p>
     <span class="red-select">int num[20];</span>
   </p>
@@ -152,7 +152,7 @@ topics:
   <div class="toc" data-selected="1"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Arrays in Functions</h2>
+  <h2>Arrays in Functions</h2>
   <p>
     int number[20];
   </p>
@@ -170,7 +170,7 @@ void h(void) {
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Arrays in Functions (cont’d)</h2>
+  <h2>Arrays in Functions (cont’d)</h2>
   <ul>
     <li>Array can <span class="red-select">not</span> be used as output type of function</li>
     <p>
@@ -186,7 +186,7 @@ void h(void) {
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Arrays in Functions (version 1)</h2>
+  <h2>Arrays in Functions (version 1)</h2>
   <ul>
     <li>Function <span class="orange-select">arr_func</span> takes an array of integers</li>
     <pre><code class="hljs lang-c">
@@ -225,7 +225,7 @@ void main(void){
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Array Size in Functions</h2>
+    <h2>Array Size in Functions</h2>
     <ul>
       <li>If array is an <span class="orange-select">input parameter</span> of a function</li>
       <ul>
@@ -254,7 +254,7 @@ void main(void){
   </section>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Array Size in Functions (cont’d)</h2>
+  <h2>Array Size in Functions (cont’d)</h2>
   <ul>
     <li>If array is declared in a function</li>
     <ul>
@@ -274,7 +274,7 @@ void func(void){
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Out-of-range access</h2>
+  <h2>Out-of-range access</h2>
   <ul>
     <li>C compiler does not check the range you access</li>
     <ul>
@@ -297,7 +297,7 @@ x[20] = 30;
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Out-of-range Example</h2>
+  <h2>Out-of-range Example</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
@@ -328,7 +328,7 @@ void main(void){
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Max Index Example</h2>
+  <h2>Max Index Example</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
@@ -348,7 +348,7 @@ void main(void){
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Array Swap Example</h2>
+  <h2>Array Swap Example</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
@@ -370,7 +370,7 @@ void main(void){
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Sort</h2>
+  <h2>Sort</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
@@ -415,7 +415,7 @@ int main(void){
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Binary Search</h2>
+    <h2>Binary Search</h2>
     <ul>
       <li>Given a <span class="orange-select">sorted array</span> arr[] of n elements, write a function to <span class="green-select">search a given element</span> x in arr[].</li>
     </ul>
@@ -441,7 +441,7 @@ int bsearch(int start, int end, int a[], int value){
   <div class="toc" data-selected="2"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Multidimensional Arrays</h2>
+  <h2>Multidimensional Arrays</h2>
   <ul>
     <li>If element of an array is array itself, it will be Multidimensional array</li>
     <pre><code class="hljs lang-c">
@@ -456,7 +456,7 @@ t[1][1]; //t[1,1] &rarr; compile error
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Initializing Multidimensional Arrays</h2>
+    <h2>Initializing Multidimensional Arrays</h2>
     <ul>
       <pre><code class="hljs lang-c">
 int num[2][3] = {1, 2, 0, 3, 4, 7};
@@ -483,7 +483,7 @@ int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
   </section>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Multidimensional Arrays in Functions</h2>
+  <h2>Multidimensional Arrays in Functions</h2>
   <ul>
     <li>
       Can be used as input of functions.
@@ -507,7 +507,7 @@ void func(int size1, int size2, int a[size1][size2]);
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Matrix Transpose</h2>
+  <h2>Matrix Transpose</h2>
   <pre><code class="hljs lang-c">
 #define SIZE 5
 
@@ -528,7 +528,7 @@ void transpose(int a[][SIZE]){
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Matrix Print</h2>
+    <h2>Matrix Print</h2>
     <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 
@@ -565,7 +565,7 @@ Original matrix:
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Array In Memory</h2>
+    <h2>Array In Memory</h2>
     <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
   </section>
   <section>
@@ -586,7 +586,7 @@ int main() {
   <div class="toc" data-selected="3"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Introduction</h2>
+  <h2>Introduction</h2>
   <ul>
     <li>Until now</li>
     <ul>
@@ -605,7 +605,7 @@ printf("This is %s\n", "a string\n");
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Strings in C</h2>
+  <h2>Strings in C</h2>
   <ul>
     <li>Since strings are array</li>
   </ul>
@@ -629,7 +629,7 @@ char *str4 = "program"; //we will see later
   </table>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading &amp; Writing Strings </h2>
+  <h2>Reading &amp; Writing Strings </h2>
   <ul>
     <li><span class="orange-select">printf</span> can be used to print strings</li>
     <pre><code class="hljs lang-c">
@@ -649,7 +649,7 @@ scanf("%s", str);
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Reading &amp; Writing Strings (cont’d)</h2>
+  <h2>Reading &amp; Writing Strings (cont’d)</h2>
   <ul>
     <li><span class="orange-select">puts(str)</span> is very simple version of <span class="green-select">printf</span></li>
     <ul>
@@ -668,7 +668,7 @@ scanf("%s", str);
   <div class="toc" data-selected="4"></div>
 </section>
 <section>
-  <h2 style="color: #ff033e;">String Library</h2>
+  <h2>String Library</h2>
   <ul>
     <li>Access to string library by</li>
     <pre><code class="hljs lang-c">
@@ -685,7 +685,7 @@ scanf("%s", str);
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Length of String</h2>
+  <h2>Length of String</h2>
   <ul>
     <li><span class="orange-select">strlen(str)</span>: Length of string</li>
     <li>From start to first occurrence of the <span class="green-select">null char</span></li>
@@ -698,22 +698,22 @@ strlen(str1) // returns 2 😱
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Compare Strings</h2>
+  <h2>Compare Strings</h2>
   <ul>
     <li>str1 and str2 are compared as follows</li>
     <ul>
       <li>Compare <span class="green-select">char by char</span> from <span class="cyan-select">left to right</span> until str1 and str2 has same chars.</li>
       <li>In the first different char</li>
       <ul>
-        <li>If(char of str1 &lt; char of str2) &rarr; str1 &lt; str2</li>
+        <li>if (char of str1 &lt; char of str2) &rarr; str1 &lt; str2</li>
       </ul>
-      <li>If (both string finish) &rarr; str1 = str2</li>
+      <li>if (both string finish) &rarr; str1 = str2</li>
     </ul>
     <li><span class="orange-select">strcmp(str1, str2)</span>:compare str1 and str2</li>
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Compare Strings: Examples</h2>
+  <h2>Compare Strings: Examples</h2>
   <pre><code class="hljs lang-c">
 char s1[] = "abc";
 char s2[] = "abc";
@@ -737,7 +737,7 @@ i = strcmp(s9, s10); // i = 1, s9 is greater than s10
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Compare Strings</h2>
+  <h2>Compare Strings</h2>
   <ul>
     <li><span class="orange-select">strcmpi(str1, str2)</span></li>
     <li>Compares str1 and str2 similar to strcmp</li>
@@ -745,21 +745,21 @@ i = strcmp(s9, s10); // i = 1, s9 is greater than s10
   </ul>
   <pre><code class="hljs lang-c">
 char str1[] = "ABC";
-cahr str2[] = "abC";
+char str2[] = "abC";
 strcmpi(str1, str2) &rarr; 0
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Copy Strings</h2>
+  <h2>Copy Strings</h2>
   <ul>
     <li>Strings should be copied char by char</li>
-    <li><span class="orange-select">strcpy(dst_str, src_str)</span>: copy the <span class="green-select">src_str</span> to the <span class="cyan-select">dst_str</span></li>
+    <li><span class="orange-select">strcpy(dst_str, src_str)</span>: copy the <span class="green-select">src_str</span> to the <span class="cyan-select">dst_str</span> including NULL</li>
     <li><span class="green-select">src_str</span> is a <span class="material-select">constant</span> string</li>
     <li><span class="cyan-select">dst_str</span> should have <span class="material-select">sufficient size</span></li>
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Copy Strings: Example</h2>
+  <h2>Copy Strings: Example</h2>
   <pre><code class="hljs lang-c">
 char str1[] = "Test String";
 char str2[20];
@@ -771,26 +771,26 @@ printf("%s\n", str1); // Test String
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Concatenate Strings</h2>
+  <h2>Concatenate Strings</h2>
   <ul>
-    <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the <span class="green-select">src</span> string to the end of <span class="cyan-select">dst</span></li>
+    <li><span class="orange-select">strcat(dst_str, src_str)</span>: Append the <span class="green-select">src</span> string to the end of <span class="cyan-select">dst</span> including NULL</li>
     <li><span class="green-select">src</span> is a <span class="material-select">constant</span> string</li>
     <li><span class="cyan-select">dst</span> should have <span class="material-select">sufficient space</span></li>
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Concatenate Strings: Example</h2>
+  <h2>Concatenate Strings: Example</h2>
   <pre><code class="hljs lang-c">
 char str1[]  = "String";
 char str2[20]= "Test ";
 
 strcat(str2, str1);
 
-printf("%s\n", str2); Test String
+printf("%s\n", str2); // Test String
   </code></pre>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Sized Version of the Functions</h2>
+  <h2>Sized Version of the Functions</h2>
   <ul>
     <li><span class="orange-select">strncpy(dst, src, n):</span></li>
     <ul>
@@ -813,24 +813,24 @@ printf("%s\n", str2); Test String
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Sized Version of the Functions</h2>
+  <h2>Sized Version of the Functions</h2>
   <ul>
     <li><span class="orange-select">strncmp(str1, str2, n):</span></li>
     <ul>
       <li>compares the first <span class="green-select">x</span> chars</li>
-      <li><span class="green-select">x</span> = min{ n, strlen(str1)+1, strlen(str2)+1 }</li>
+      <li><span class="green-select">x</span> = min{ n, strlen(str1) + 1, strlen(str2) + 1 }</li>
     </ul>
     <li><span class="orange-select">strncat(dst, src, n):</span></li>
     <ul>
-      <li>Appends the x chars from src to dst</li>
-      <li>x = min{n, strlen(src)}</li>
-      <li>Adds ‘\0’ to end of dst</li>
+      <li>Appends the <span class="green-select">x</span> chars from src to dst</li>
+      <li><span class="green-select">x</span> = min{ n, strlen(src) }</li>
+      <li>Adds ‘\0’ to end of dst <span class="red-select">unlike</span> <span class="cyan-select">strncpy</span></li>
       <li>dst must be large enough</li>
     </ul>
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Numbers and Strings: number &rarr; string</h2>
+  <h2>Numbers and Strings: number &rarr; string</h2>
   <ul>
     <li>To convert a number to string</li>
     <pre><code class="hljs lang-c">
@@ -847,7 +847,7 @@ sprintf(str1, "%0.2f", f); // str1 = “10.11”
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Numbers and Strings: string &rarr; number</h2>
+  <h2>Numbers and Strings: string &rarr; number</h2>
   <ul>
     <li>To convert from strings to numbers</li>
     <pre><code class="hljs lang-c">
@@ -855,7 +855,8 @@ sprintf(str1, "%0.2f", f); // str1 = “10.11”
 
 char str1[] = "10";
 int i;
-i = atoi(str1); // i = 10 sscanf(str1, "%d", &amp;i); // i = 10
+i = atoi(str1); // i = 10
+sscanf(str1, "%d", &amp;i); // i = 10
 
 char str2[] = "20.44";
 double f;
@@ -865,7 +866,7 @@ sscanf(str2, "%lf", &amp;f); // f = 20.44
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">String as Array</h2>
+  <h2>String as Array</h2>
   <ul>
     <li>Strings are array of chars</li>
     <li>We work on arrays element by element</li>
@@ -878,33 +879,34 @@ str1[2] = '2';
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Array of Strings</h2>
+  <h2>Array of Strings</h2>
   <ul>
     <li>2 dimensional array, each row is a string</li>
     <pre><code class="hljs lang-c">
 char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
+char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
     </code></pre>
     <table class="cell">
       <tr>
-        <td>'z'</td><td>'e'</td><td>'r'</td><td>'o'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+        <td>'z'</td><td>'e'</td><td>'r'</td><td>'o'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
       </tr>
       <tr>
-        <td>'u'</td><td>'n'</td><td>'o'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+        <td>'u'</td><td>'n'</td><td>'o'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
       </tr>
       <tr>
-        <td>'d'</td><td>'u'</td><td>'e'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+        <td>'d'</td><td>'u'</td><td>'e'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
       </tr>
       <tr>
-        <td>'t'</td><td>'r'</td><td>'e'</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td><td>\0</td>
+        <td>'t'</td><td>'r'</td><td>'e'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
       </tr>
       <tr>
-        <td>'q'</td><td>'u'</td><td>'a'</td><td>'t'</td><td>'t'</td><td>'r'</td><td>'o'</td><td>\0</td>
+        <td>'q'</td><td>'u'</td><td>'a'</td><td>'t'</td><td>'t'</td><td>'r'</td><td>'o'</td><td>'\0'</td>
       </tr>
     </table>
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">ctype.h</h2>
+  <h2>ctype.h</h2>
   <ul>
     <li>Many function to work on chars</li>
     <ul>
@@ -916,7 +918,7 @@ char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
   </ul>
 </section>
 <section>
-  <h2 style="color: #ff033e;">ctype.h</h2>
+  <h2>ctype.h</h2>
   <ul>
     <li>int isdigit(ch)</li>
     <ul>
@@ -949,7 +951,7 @@ char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
 </section>
 <section>
   <section>
-    <h2 style="color: #ff033e;">Common Bugs &amp; Avoiding them</h2>
+    <h2>Common Bugs &amp; Avoiding them</h2>
     <ul>
       <li>Strings which are used as destination</li>
       <ul>
@@ -964,7 +966,7 @@ char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
     </ul>
   </section>
   <section>
-    <h2 style="color: #ff033e;">Common Bugs &amp; Avoiding them</h2>
+    <h2>Common Bugs &amp; Avoiding them</h2>
     <ul>
       <li>You cannot assign a value to array</li>
       <pre><code class="hljs lang-c">
@@ -979,7 +981,7 @@ a = b; // Error
   </section>
 </section>
 <section>
-  <h2 style="color: #ff033e;">Legends</h2>
+  <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Robert Cecil Martin</h6>
   <img src="img/uncle-bob.png" alt="uncle-bob" height="300px">
 </section>
