@@ -406,6 +406,285 @@ arr++; // Compile error
   </code></pre>
 </section>
 <section>
+  <h2>Arrays in Functions</h2>
+  <pre><code class="hljs lang-c">
+int func1(int num[90]) {  }
+int func2(int num[], int size){  }
+int func3(int *num, int size) { }
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2>A Function which Copies an Array into another</h2>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void array_copy_wrong1(int a[], int b[]) {
+  a = b;
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4};
+  int b[4];
+
+  array_copy_wrong1(b, a);
+
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d] = %d\n", i, b[i]);
+  }
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
+[0] = 0
+[1] = 0
+[2] = 0
+[3] = 0
+    </code></pre>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void array_copy_wrong2(int *a, int *b){
+   a = b;
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4};
+  int b[4];
+
+  array_copy_wrong2(b, a);
+
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d] = %d\n", i, b[i]);
+  }
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
+[0] = 0
+[1] = 0
+[2] = 0
+[3] = 0
+    </code></pre>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void array_copy1(int dst[], int src[], int size){
+  for(int i = 0; i &lt; size; i++)
+       dst[i] = src[i];
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4};
+  int b[4];
+
+  array_copy1(b, a);
+
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d] = %d\n", i, b[i]);
+  }
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 4
+    </code></pre>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void array_copy2(int *dst, int *src, int size){
+   for(int i = 0; i &lt; size; i++)
+       dst[i] = src[i];
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4};
+  int b[4];
+
+  array_copy2(b, a);
+
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d] = %d\n", i, b[i]);
+  }
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 4
+    </code></pre>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void array_copy3(int *dst, int *src, int size){
+   for(int i = 0; i &lt; size; i++)
+       *(dst + i) = *(src + i);
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4};
+  int b[4];
+
+  array_copy3(b, a);
+
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d] = %d\n", i, b[i]);
+  }
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 4
+    </code></pre>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void array_copy4(int *dst, int *src, int size){
+       for(int i = 0; i &lt; size; i++, src++, dst++)
+           *dst = *src;
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4};
+  int b[4];
+
+  array_copy4(b, a);
+
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d] = %d\n", i, b[i]);
+  }
+}
+    </code></pre>
+  </section>
+  <section>
+    <pre><code>
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 4
+    </code></pre>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>A Function which Copies an Array into another</h2>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+int t1[10] = { 0 };
+int t2[10] = { 0 };
+int t3[10] = { 0 };
+int t4[10] = { 0 };
+int x[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    </code></pre>
+  </section>
+  <section>
+    <ul>
+      <li>array_copy1(t1, x, 10);</li>
+      <pre><code class="hljs lang-c">
+t1 = { 1 2 3 4 5 6 7 8 9 10 }
+      </code></pre>
+      <li>array_copy2(t2, x + 2, 8);</li>
+      <pre><code class="hljs lang-c">
+t2 = { 3 4 5 6 7 8 9 10 0 0 }
+      </code></pre>
+      <li>array_copy3(&amp;(t3[5]), x, 5);</li>
+      <pre><code class="hljs lang-c">
+t3 = { 0 0 0 0 0 1 2 3 4 5 }
+      </code></pre>
+      <li>array_copy4(t4 + 6, &amp;x[8], 2);</li>
+      <pre><code class="hljs lang-c">
+t4 = { 0 0 0 0 0 0 9 10 0 0 }
+      </code></pre>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2>Difference between two sets</h2>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int search(int *arr, int size, int num){
+  int i;
+  for(i = 0; i &lt; size; i++)
+    if(arr[i] == num)
+      return 1;
+  return 0;
+}
+
+int sub_set(int *arr1, int size_arr1, int *arr2, int size_arr2, int *res){
+  int i;
+  int result_index = 0;
+  for(i = 0; i &lt; size_arr1; i++) {
+    if(search(arr2, size_arr2, arr1[i]) == 0) {
+      res[result_index] = arr1[i];
+      result_index++;
+    }
+  }
+  return result_index;
+}
+
+void print_arr(int *arr, int size) {
+  for(int i = 0; i &lt; size; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
+}
+
+int main(void) {
+  int a1[] = {1, 2, 3, 4, 5, 6};
+  int a2[] = {4, 8, 6, 11};
+  int res[100];
+  int result_size;
+
+  result_size = sub_set(a1, sizeof(a1) / sizeof(int), a2, sizeof(a2) / sizeof(int), res);
+
+  if (result_size &gt; 0)
+    print_arr(res, result_size);
+  else
+    printf("a1 - a2 = {}\n");
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Array of pointers</h2>
+  <ul>
+    <li>Pointer is a type in C</li>
+    <ul>
+      <li>We can define pointer variable</li>
+      <li>We can define array of pointer</li>
+    </ul>
+  </ul>
+  <pre><code class="hljs lang-c">
+int i = 10, j = 20, k = 30;
+int *arr_of_pointers[10];
+
+arr_of_pointers[0] = &amp;i;
+arr_of_pointers[1] = &amp;j;
+arr_of_pointers[2] = &amp;k;
+
+*arr_of_pointers[1] = *arr_of_pointers[2];
+
+&rarr; i = 10, j = 30, k = 30
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
   <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;"></h6>
 </section>
