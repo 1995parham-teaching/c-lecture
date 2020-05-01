@@ -854,6 +854,47 @@ int main(void) {
   </section>
 </section>
 <section>
+  <section>
+    <h2>String Tokenizer</h2>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int tokenizer(char *s, char *token, char result[][100]){
+  int res_index = 0;
+  char *index;
+  while((index = strstr(s, token)) != NULL){
+    int len = index - s;
+    if(len &gt; 0){
+      strncpy(result[res_index], s, len);
+      result[res_index][len] = '\0';
+      res_index++;
+    }
+    s = index + strlen(token);
+  }
+  if(strlen(s) &gt; 0){
+    strcpy(result[res_index], s); res_index++;
+  }
+  return res_index;
+}
+
+
+int main(void){
+  char *s = "a123bb123ccc123dddd123eeeee123fffffffffff123";
+  char *token = "123";
+  char res[10][100];
+  int num = tokenizer(s, token, res); int i;
+
+  for(i = 0; i &lt; num; i++)
+     printf("Token %d = %s\n", i, res[i]);
+  return 0;
+}
+    </code></pre>
+  </section>
+</section>
+<section>
   <div class="toc" data-selected="4"></div>
 </section>
 <section>
