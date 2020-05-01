@@ -685,6 +685,324 @@ arr_of_pointers[2] = &amp;k;
   <div class="toc" data-selected="3"></div>
 </section>
 <section>
+  <h2>Strings &amp; Pointers</h2>
+  <ul>
+    <li>Since strings are array</li>
+    <pre><code class="hljs lang-c">
+char str1[8] = "program";
+char str2[] = "program";
+char str3[] = {'p', 'r', 'o', 'g', 'r', 'a', 'm', '\0'};
+    </code></pre>
+    <li>Because arrays are similar to pointers</li>
+    <pre><code class="hljs lang-c">
+char *str4 = "program";
+    </code></pre>
+    <table class="cell">
+      <tr>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+      </tr>
+      <tr>
+        <td>'p'</td>
+        <td>'r'</td>
+        <td>'o'</td>
+        <td>'g'</td>
+        <td>'r'</td>
+        <td>'a'</td>
+        <td>'m'</td>
+        <td>'\0'</td>
+      </tr>
+    </table>
+  </ul>
+</section>
+<section>
+  <h2>Strings in C (cont’d)</h2>
+  <ul>
+    <li>str1,str2 and str3 are array</li>
+    <li>str4 is a pointer</li>
+    <li>We can <span class="orange-select">not</span> assign a new value to str1, str2, str3</li>
+    <ul>
+      <li>Array is a fix location in memory</li>
+      <li>We can change the elements of array</li>
+    </ul>
+    <li>We can assign a new value for str4</li>
+    <ul>
+      <li>Pointer is <span class="cyan-select">not</span> fix location, pointer contains address of memory</li>
+      <li>Content of str4 is <span class="green-select">constant</span>, you can not change elements</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>char Array vs. char *: Example</h2>
+  <pre><code class="hljs lang-c">
+char str1[8] = "program";
+//this is array initialization
+char *str4 = "program";
+//this is a constant string
+  </code></pre>
+  <pre><code class="hljs lang-c">
+str1[6] = 'z';
+str4 = "new string";
+  </code></pre>
+  <pre><code class="hljs lang-c">
+str1 = "new array"; // Compile Error
+str4[1] = 'z'; // Runtime Error
+*(str4 + 3) = 'a'; // Runtime Error
+  </code></pre>
+</section>
+<section>
+  <h2>Empty vs. Null</h2>
+  <ul>
+    <li>Empty string ""</li>
+    <ul>
+      <li>Is <span class="orange-select">not</span> null pointer</li>
+      <li>Is <span class="green-select">not</span> uninitialized pointer</li>
+    </ul>
+    <img src="img/null-empty-string.png" alt="null-empty-string" height="300px">
+  </ul>
+</section>
+<section>
+  <section>
+    <h2>More String Functions</h2>
+  </section>
+  <section>
+    <ul>
+      <li>char * strchr(const char *s, char c)</li>
+      <ul>
+        <li>Return the pointer to the first occurrence of c in s or NULL</li>
+        <pre><code class="hljs lang-c">
+char *s="ABZDEZFZ";
+char *pc = strchr(s, 'Z');
+printf("First index of Z = %d", (pc - s));
+
+First index of Z = 2
+        </code></pre>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>char * strstr(const char *s1, cost char *s2)</li>
+      <ul>
+        <li>Return pointer to the first occurrence of s2 in s1 or NULL</li>
+        <pre><code class="hljs lang-c">
+char *s="ABCDxyEFxyGH";
+char *pc = strstr(s, "xy");
+printf("First index of xy = %d", (pc - s));
+
+First index of xy = 4
+        </code></pre>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <div class="toc" data-selected="4"></div>
+</section>
+<section>
+  <h2>Pointer to Pointer</h2>
+  <ul>
+    <li>Pointer is a variable</li>
+    <ul>
+      <li>Has a value: address of other value</li>
+      <li>Has an address</li>
+    </ul>
+    <li>Pointer to pointer</li>
+    <ul>
+      <li>Saving the address of a pointer in another pointer</li>
+    </ul>
+    <pre><code class="hljs lang-c">
+int i, j, *pi, *pj;
+int **ppi;
+pi = &amp;i;
+ppi = &amp;pi;
+j = **ppi;
+pj = *ppi;
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>Pointer to Pointer: Example</h2>
+  <pre><code class="hljs lang-c">
+int i = 10, j = 20, k = 30;
+int *pi, *pj, **ppi;
+
+pi = &amp;i;
+pj = &amp;j;
+ppi = &amp;pi;
+
+printf("%d\n", *pi); // 10
+printf("%d\n", **ppi); // 10
+ppi = &amp;pj;
+**ppi = 100;
+printf("%d\n", j); // 100
+*ppi = &k;
+printf("%d\n", *pj); // 30
+  </code></pre>
+</section>
+<section>
+  <h2>Pointer to functions</h2>
+  <ul>
+    <li>Functions are stored in memory</li>
+    <ul>
+      <li>Each function has its own address</li>
+    </ul>
+    <li>We can have pointer to function</li>
+    <ul>
+      <li>A pointer that store the address of a function</li>
+    </ul>
+    <p>
+      <span class="orange-select">&lt;type&gt;</span> (
+      <span class="green-select">*&lt;identifier&gt;</span>)(
+      <span class="cyan-select">&lt;type1&gt;</span>,
+      <span class="cyan-select">&lt;type2&gt;</span>, ...)
+    </p>
+    <p>
+      <span class="orange-select">int</span> (<span class="green-select">*pf</span>)(
+      <span class="cyan-select">char</span>, <span class="cyan-select">float</span>)
+    </p>
+    <p>
+      <span class="green-select">pf</span> is a pointer to a function that the function
+      return <span class="orange-select">int</span> and its inputs are <span class="cyan-select">char</span> and
+      <span class="cyan-select">float</span>
+    </p>
+  </ul>
+</section>
+<section>
+  <h2>Example</h2>
+  <pre><code class="hljs lang-c">
+int f1(int x, char c){
+  printf("This is f1: x = %d, c = %c\n", x, c);
+  return 0;
+}
+
+int f2(int n, char m){
+  printf("This is f2: n = %d, m = %c\n", n, m);
+  return 0;
+}
+
+int main(void){
+  int (*f)(int, char);
+  f = f1; // or f = &amp;f1;
+  (*f)(10, 'a'); // This is f1: x = 10, c = a
+  f = f2; // or f = &amp;f2
+  (*f)(100, 'z'); // This is f2: n = 100, m = z
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Pointer to function: Example 1</h2>
+  <ul>
+    <li>Why?</li>
+    <ul>
+      <li>To develop general functions</li>
+      <ul>
+        <li>To change function operation in run-time</li>
+      </ul>
+    </ul>
+    <li>Example: atexit</li>
+    <pre><code class="hljs lang-c">
+#include &lt;stdlib.h&gt;
+
+int atexit(void (*function)(void));
+    </code></pre>
+    <ul>
+      <li>To do a function, when the program is terminated</li>
+      <ul>
+        <li>Normal termination</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void good_bye(void) {
+  printf("Goooodddd Byeee :-)\n");
+}
+
+int main(void){
+  int i;
+  atexit(good_bye);
+  printf("Enter an int: ");
+  scanf("%d", &amp;i);
+
+  if (i &lt; 0){
+    printf("No negative\n");
+    return 0;
+  }
+  if (i &gt; 7){
+    printf("No more than 7\n");
+    return 0;
+  }
+  if (i % 2 == 0)
+    printf("Go to glass \n"); else
+  printf("Do the homework \n");
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Pointer to function: Example 2</h2>
+  <ul>
+    <li>Why?</li>
+    <ul>
+      <li>To develop general functions</li>
+      <ul>
+        <li>To change function operation in run-time</li>
+      </ul>
+      <li>Example: qsort function in &lt;stdlib.h&gt;</li>
+      <pre><code class="hljs lang-c">
+void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
+      </code></pre>
+      <li>To sort array <span class="orange-select">arr</span> with <span class="green-select">num</span> elements of size <span class="cyan-select">element_size</span>. The order between elements is
+        specified by the <span class="red-select">compare</span> function</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int int_cmp_asc(void *i1, void *i2) {
+  int a = *((int *)i1);
+  int b = *((int *)i2);
+  return (a &gt; b) ? 1 : (a == b) ? 0 : -1;
+}
+
+int int_cmp_dsc(void *i1, void *i2) {
+  int a = *((int *)i1);
+  int b = *((int *)i2);
+  return (a &gt; b) ? -1 : (a == b) ? 0 : 1;
+}
+
+int main(void) {
+  int i;
+  int arr[] = {1, 7, 3, 11, 9};
+
+  qsort(arr, 5, sizeof(int), int_cmp_asc);
+  for(i = 0; i &lt; 5; i++)
+      printf("%d \n", arr[i]);
+
+  qsort(arr, 5, sizeof(int), int_cmp_dsc);
+  for(i = 0; i &lt; 5; i++)
+      printf("%d \n", arr[i]);
+
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
   <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;"></h6>
 </section>
