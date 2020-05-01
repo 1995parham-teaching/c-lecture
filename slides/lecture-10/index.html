@@ -742,19 +742,19 @@ char *str4 = "program";
 <section>
   <h2>char Array vs. char *: Example</h2>
   <pre><code class="hljs lang-c">
+// this is array initialization
 char str1[8] = "program";
-//this is array initialization
-char *str4 = "program";
-//this is a constant string
+// this is a constant string
+char *str2 = "program";
   </code></pre>
   <pre><code class="hljs lang-c">
 str1[6] = 'z';
-str4 = "new string";
+str2 = "new string";
   </code></pre>
   <pre><code class="hljs lang-c">
 str1 = "new array"; // Compile Error
-str4[1] = 'z'; // Runtime Error
-*(str4 + 3) = 'a'; // Runtime Error
+str2[1] = 'z'; // Runtime Error
+*(str2 + 3) = 'a'; // Runtime Error
   </code></pre>
 </section>
 <section>
@@ -801,6 +801,56 @@ First index of xy = 4
         </code></pre>
       </ul>
     </ul>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Compare n Digits after decimal point of Two Double Number</h2>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int check_equal(double d1, double d2, int n) {
+  int dot_index1, dot_index2;
+  int search_size;
+  char s1[50], s2[50];
+
+  sprintf(s1, "%0.*lf", n, d1);
+  sprintf(s2, "%0.*lf", n, d2);
+
+  dot_index1 = strchr(s1, '.') - s1;
+  dot_index2 = strchr(s2, '.') - s2;
+
+  if(dot_index1 != dot_index2)
+    return 0;
+
+  search_size = dot_index1 + n + 1;
+  if(strncmp(s1, s2, search_size) == 0)
+    return 1;
+￼ else
+    return 0;
+}
+
+int main(void) {
+  int n;
+  double d1, d2;
+
+  printf("Enter numbers d1 and d2: ");
+  scanf("%lf %lf", &amp;d1, &amp;d2);
+
+  printf("Enter n: ");
+  scanf("%d", &amp;n);
+
+  if(check_equal(d1, d2, n))
+    printf("Are equal\n");
+  else
+    printf("Are Not equal\n");
+
+  return 0;
+}
+    </code></pre>
   </section>
 </section>
 <section>
