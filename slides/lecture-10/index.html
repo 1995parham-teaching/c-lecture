@@ -102,7 +102,8 @@ j = *pi;
 <section>
   <h2>Using Pointers: Example</h2>
   <pre><code class="hljs lang-c">
-double d1, d2, *pda, *pdb; d1 = 10;
+double d1, d2, *pda, *pdb;
+d1 = 10;
 d2 = 20;
 pda = &amp;d1;
 pdb = &amp;d1;
@@ -190,7 +191,7 @@ int main(void) {
   double d1 = 10.1, d2 = 20.2;
   double result = 0;
   add(d1, d2, &amp;result);
-  printf("%f\n", result); // 30.3
+  printf("%lf\n", result); // 30.3
   return 0;
 }
     </code></pre>
@@ -210,7 +211,7 @@ int main(void) {
     <ul>
       <pre><code class="hljs lang-c">*res = a + b;</code></pre>
       <li>Value of a is added to b and output is saved in <span class="orange-select">the referred address by res (100)</span></li>
-      <li>But the 100is the address of <span class="cyan-select">result</span>. Therefore the value is saved in memory location result</li>
+      <li>But the 100 is the address of <span class="cyan-select">result</span>. Therefore the value is saved in memory location result</li>
     </ul>
   </section>
 </section>
