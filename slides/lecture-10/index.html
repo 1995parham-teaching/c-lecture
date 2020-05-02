@@ -303,7 +303,7 @@ int *pi, *pj, i;
 pi = &amp;arr[10];
 pj = &amp;arr[15];
 i = pj - pi; // i = 5
-i = pi - pj; // i=-5
+i = pi - pj; // i = -5
 if(pi &lt; pj) // if is True
 if(pi == pj) // if is False
     </code></pre>
@@ -336,8 +336,8 @@ i = pa – pi; // compile error: Different ptr types
     <pre><code class="hljs lang-c">
 int a[20];
 int *pa;
-pa = &amp;a[10]; //pa refers to element 10
-a[11] = *pa; //value of pa is saved in element 11
+pa = &amp;a[10]; // pa refers to element 10
+a[11] = *pa; // value of pa is saved in element 11
     </code></pre>
     <li>The name of array is the pointer to the first element</li>
     <pre><code class="hljs lang-c">
@@ -366,6 +366,9 @@ pa = a;
     <ul>
       <li>pa + 2 = 108</li>
     </ul>
+    <p>
+      <span class="orange-select">p[i]</span> <span class="cyan-select">is equal to</span> <span class="green-select">*(p + i)</span>
+    </p>
   </ul>
 </section>
 <section>
@@ -481,7 +484,7 @@ int main() {
   int a[] = {1, 2, 3, 4};
   int b[4];
 
-  array_copy1(b, a);
+  array_copy1(b, a, 4);
 
   for (int i = 0; i &lt; 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
@@ -508,7 +511,7 @@ int main() {
   int a[] = {1, 2, 3, 4};
   int b[4];
 
-  array_copy2(b, a);
+  array_copy2(b, a, 4);
 
   for (int i = 0; i &lt; 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
@@ -535,7 +538,7 @@ int main() {
   int a[] = {1, 2, 3, 4};
   int b[4];
 
-  array_copy3(b, a);
+  array_copy3(b, a, 4);
 
   for (int i = 0; i &lt; 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
@@ -562,7 +565,7 @@ int main() {
   int a[] = {1, 2, 3, 4};
   int b[4];
 
-  array_copy4(b, a);
+  array_copy4(b, a, 4);
 
   for (int i = 0; i &lt; 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
