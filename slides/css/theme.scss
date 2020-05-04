@@ -7,6 +7,8 @@ $selects: (
         "cyan": #00e5ff,
         "red": #ff0000,
         "material": #ff80ab,
+        "violet": #9900ff,
+        "yellow": #ffcc00,
 );
 
 @each $name, $color in $selects {
