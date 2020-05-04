@@ -1098,6 +1098,62 @@ int main(void) {
   </code></pre>
 </section>
 <section>
+  <div class="toc" data-selected="5"></div>
+</section>
+<section>
+  <h2>Dynamic Memory Allocation</h2>
+  <ul>
+    <li>Until now</li>
+    <ul>
+      <li>We define variables: <pre><code class="hljs lang-c">int i; int a[200]; int x[n]</code></pre></li>
+      <li>Memory is allocated for the variables <span class="violet-select">when the scope starts</span></li>
+      <li>Allocated memory is released <span class="yellow-select">when the scope finishes</span></li>
+    </ul>
+    <li>We <span class="cyan-select">cannot change</span> the size of the allocated memories</li>
+    <ul>
+      <li>We cannot change the size of array</li>
+    </ul>
+    <li>These variables are in <span class="orange-select">stack</span></li>
+    <li>We want to see how to allocate memory in <span class="green-select">heap</span></li>
+  </ul>
+</section>
+<section>
+  <h2>Heap</h2>
+  <ul>
+    <li>Memory is compose of a few logical sections</li>
+    <ul>
+      <li>Stack is one of the logical sections that is used for function calls</li>
+      <li>All automatic variables are allocated in stack</li>
+      <ul>
+        <li>Stack is managed by operating system</li>
+        <li>Created by function call and destroyed when function ends</li>
+      </ul>
+    </ul>
+    <li>Another logical section is <span class="yellow-select">Heap</span></li>
+    <ul>
+      <li>Heap is used for dynamic memory allocation</li>
+      <li>Heap is managed by programmer (at least in C)</li>
+      <li>Memory allocation functions &amp; the Free function</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Dynamic Memory Allocation (cont’d)</h2>
+  <ul>
+    <li>Memory allocation by <span class="orange-select">calloc</span></li>
+    <pre><code class="hljs lang-c">
+#include &lt;stdlib.h&gt;
+void * calloc(int num, int size);
+    </code></pre>
+    <li><span class="green-select">void *</span> is generic pointer, it can be converted to every pointer type</li>
+    <li>Initializes allocated memory to zero</li>
+    <li>If memory is not available calloc returns NULL</li>
+  </ul>
+</section>
+<section>
+  <h2>Dynamic Memory Allocation (cont’d)</h2>
+</section>
+<section>
   <h2>Legends</h2>
   <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;"></h6>
 </section>
