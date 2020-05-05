@@ -414,13 +414,14 @@ arr++; // Compile error
   <h2>Arrays in Functions</h2>
   <pre><code class="hljs lang-c">
 int func1(int num[90]) {  }
-int func2(int num[], int size){  }
+int func2(int num[], int size) { }
 int func3(int *num, int size) { }
   </code></pre>
+  <hr>
   <p>
-    <pre><code class"hljs lang-c">int f(int num[], int size);</code></pre>
+    <pre><code class="hljs lang-c">int f(int num[], int size);</code></pre>
     and
-    <pre><code class"hljs lang-c">int f(int *num, int size)</code></pre>
+    <pre><code class="hljs lang-c">int f(int *num, int size);</code></pre>
     are the same.
   </p>
 </section>
