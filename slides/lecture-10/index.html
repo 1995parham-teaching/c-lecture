@@ -417,6 +417,12 @@ int func1(int num[90]) {  }
 int func2(int num[], int size){  }
 int func3(int *num, int size) { }
   </code></pre>
+  <p>
+    <pre><code class"hljs lang-c">int f(int num[], int size);</code></pre>
+    and
+    <pre><code class"hljs lang-c">int f(int *num, int size)</code></pre>
+    are the same.
+  </p>
 </section>
 <section>
   <section>
@@ -1050,7 +1056,7 @@ int main(void){
     return 0;
   }
   if (i % 2 == 0)
-    printf("Go to glass \n"); else
+    printf("Go to class \n"); else
   printf("Do the homework \n");
   return 0;
 }
