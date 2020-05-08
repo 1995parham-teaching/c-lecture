@@ -1,0 +1,295 @@
+---
+index: 11
+title: Structures
+topics:
+- Introduction
+- Struct Definition
+- Using Struct
+- Linked List
+- Enum Definition
+- Union Definition
+---
+
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <section>
+    <h2>Introduction</h2>
+    <ul>
+      <li>Our variables until now</li>
+      <ul>
+        <li>Single variable</li>
+        <pre><code class="hljs lang-c">
+int i, char c, float f
+        </code></pre>
+        <li>Set of <span class="orange-select">same type</span> elements: Array</li>
+        <pre><code class="hljs lang-c">
+int a[10], char c[20]
+        </code></pre>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>If data are not same type, but related? Example: Information about students:</li>
+      <ul>
+        <li>Student Name</li>
+        <li>Student Family Name</li>
+        <li>Student Number</li>
+        <li>Student Grade</li>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2>Introduction</h2>
+  <ul>
+    <li>How to save the student information?</li>
+    <li>1- Use separated variables</li>
+    <pre><code class="hljs lang-c">
+char st_name[20];
+char st_fam_name[20];
+int id;
+int grade;
+    </code></pre>
+    <li>2- Put them altogether, they are related</li>
+    <ul>
+      <li>Use <span class="cyan-select">struct</span></li>
+      <li>This concept is extended in OOP as the <span class="green-select">object</span></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2>struct: version 1</h2>
+  <ul>
+    <li>Set of related variables</li>
+    <ul>
+      <li>Each variable in <span class="cyan-select">struct</span> has its <span class="orange-select">own type</span></li>
+      <li><span class="cyan-select">struct</span> in C (version 1)</li>
+      <p>
+        <span class="cyan-select">struct</span> {<br>
+        &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
+        } <span class="green-select">&lt;identifier list&gt;</span>;<br>
+      </p>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>struct (version 1): Example</h2>
+  <pre><code class="hljs lang-c">
+struct{
+  char st_name[20];
+  char st_fam_name[20];
+  int id;
+  int grade;
+} st1;
+  </code></pre>
+  <ul>
+    <li>We declare a variable <span class="orange-select">st1</span></li>
+    <li>Type of <span class="orange-select">st1</span> is struct</li>
+    <li><span class="violet-select">id</span> is a <span class="green-select">member</span> of the struct</li>
+    <li><span class="violet-select">grade</span> is a <span class="green-select">member</span> of the struct</li>
+  </ul>
+</section>
+<section>
+  <h2>struct (version 1): Example</h2>
+  <pre><code class="hljs lang-c">
+struct{
+  char st_name[20];
+  char st_fam_name[20];
+  int id;
+  int grade;
+} st1, st2, st3;
+  </code></pre>
+  <ul>
+    <li>We declare three variables: <span class="orange-select">st1</span>, <span class="orange-select">st2</span>, <span class="orange-select">st3</span></li>
+    <li>Type of <span class="orange-select">st1</span>, <span class="orange-select">st2</span>, <span class="orange-select">st3</span> is the struct</li>
+    <li>In this model, we cannot reuse the struct definition in other location (e.g., input of function)</li>
+  </ul>
+</section>
+<section>
+  <h2>struct: Version 2</h2>
+  <ul>
+    <li><span class="cyan-select">struct</span> in C (version 2)</li>
+    <p>
+      <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span> {<br>
+      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
+      };<br>
+      <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span> <span class="green-select">&lt;identifier list&gt;</span>;<br>
+    </p>
+  </ul>
+</section>
+<section>
+  <h2>struct (version 2): Example</h2>
+  <pre><code class="hljs lang-c">
+struct std_info {
+  char st_name[20];
+  char st_fam_name[20]; int id;
+  int grade;
+};
+struct std_info st1, st2, st3;
+  </code></pre>
+  <ul>
+    <li>We define a struct with tag <span class="orange-select">std_info</span></li>
+    <ul>
+      <li>We don’t allocate memory, it is just definition</li>
+    </ul>
+    <li>We declare variables <span class="green-select">st1</span>, <span class="green-select">st2</span>, <span class="green-select">st3</span> from <span class="orange-select">std_info</span></li>
+  </ul>
+</section>
+<section>
+  <h2>typedef</h2>
+  <ul>
+    <li>We can assign a new name for each type</li>
+    <ul>
+      <li>Assign name <span class="green-select">“integer”</span> to <span class="orange-select">“int”</span></li>
+      <li>Assign name <span class="green-select">“int_array”</span> to <span class="orange-select">“int[100]”</span></li>
+      <li>Assign name <span class="green-select">“int_pointer”</span> to <span class="orange-select">“int *”</span></li>
+    </ul>
+    <li>New names are assigned by <span class="violet-select">typedef</span></li>
+    <li>After we assigned the new name, we can use it in identifier declaration</li>
+  </ul>
+</section>
+<section>
+  <h2>typedef: Examples</h2>
+  <pre><code class="hljs lang-c">
+/* Assign new name integer to type int */
+typedef int integer;
+
+/* Use the new name */
+integer i, j, k;
+
+/* Assign new name alephba to type char */
+typedef char alephba;
+
+/* Use the new name */
+alephba c1, c2;
+  </code></pre>
+</section>
+<section>
+  <h2>typedef: Examples</h2>
+  <pre><code class="hljs lang-c">
+/* Assign new name intptr to type int * */
+typedef int * intptr;
+
+/* Use the new name */
+intptr pi, pj, pk;
+
+typedef int int_arr1[10], int_arr2[20];
+
+int_arr1 array1;
+int_arr2 array2;
+  </code></pre>
+</section>
+<section>
+  <h2>struct: Version 3.1</h2>
+  <ul>
+    <li><span class="cyan-select">struct</span> in C (version 3.1)</li>
+    <li>Using the <span class="orange-select">typedef</span></li>
+    <p>
+      <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span> {<br>
+      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
+      };<br>
+      <span class="orange-select">typedef</span> <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span>
+      <span class="red-select">&lt;new_name&gt;</span>;<br>
+      <span class="red-select">&lt;new_name&gt;</span> <span class="green-select">&lt;identifier list&gt;</span>;<br>
+    </p>
+  </ul>
+</section>
+<section>
+  <h2>struct (Version 3.1): Examples</h2>
+  <pre><code class="hljs lang-c">
+struct std_info{
+  char st_name[20];
+  char st_fam_name[20];
+  int id;
+  int grade;
+};
+
+typedef struct std_info information;
+
+information st1, st2;
+  </code></pre>
+</section>
+<section>
+  <h2>struct: Version 3.2</h2>
+  <ul>
+    <li><span class="cyan-select">struct</span> in C (version 3.2)</li>
+    <li>Using the <span class="orange-select">typedef</span></li>
+    <p>
+      <span class="orange-select">typedef</span> <span class="cyan-select">struct</span> {<br>
+      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
+      } <span class="red-select">&lt;new_name&gt;</span>;<br>
+      <span class="red-select">&lt;new_name&gt;</span> <span class="green-select">&lt;identifier list&gt;</span>;<br>
+    </p>
+  </ul>
+</section>
+<section>
+  <h2>struct (Version 3.2): Examples</h2>
+  <pre><code class="hljs lang-c">
+typedef struct {
+  char st_name[20];
+  char st_fam_name[20];
+  int id;
+  int grade;
+} information;
+information st1, st2;
+  </code></pre>
+</section>
+<section>
+  <h2>Structures as New Data Type</h2>
+  <ul>
+    <li>When we define a new struct, in fact we are defining a new data type</li>
+    <ul>
+      <li>Then we use the new data type and define variables</li>
+    </ul>
+    <li>So, we need to learn how to work it</li>
+    <ul>
+      <li>Access to members</li>
+      <li>Operators for struct</li>
+      <li>Array of struct</li>
+      <li>struct in functions</li>
+      <li>Pointer to struct</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Size of struct</h2>
+  <ul>
+    <li>The size of struct is NOT the sum of size of members</li>
+    <ul>
+      <li><pre><code class="hljs lang-c">struct test_size{char c, int i}</code></pre></li>
+      <li><pre><code class="hljs lang-c">sizeof(struct test_size) = 8</code></pre></li>
+    </ul>
+    <li>This is because of <span class="orange-select">Structure Padding</span></li>
+    <ul>
+      <li>Computer HW cannot (should not) read any arbitrary address</li>
+      <li>The address should be aligned in word</li>
+      <ul>
+        <li>4 bytes in 32-bit machine</li>
+      </ul>
+      <li>The padding is to align the address</li>
+      <li>More details &amp; examples: <a href="https://fresh2refresh.com/c-programming/c-structure-padding">Here</a></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2>Legends</h2>
+    <img height="300px" src="img/rob.jpg">
+  </section>
+  <section>
+    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Rob Pike</h6>
+    <ul class="fragment" data-fragment-index="2">
+      <li>Canadian programmer and author</li>
+      <li>He is best known for his work on the Go programming language and at Bell Labs</li>
+    </ul>
+  </section>
+</section>
