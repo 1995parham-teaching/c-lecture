@@ -7,4 +7,5 @@ services:
     ports:
       - '4000:4000'
     volumes:
+      - ./vendor/bundle:/usr/local/bundle
       - .:/srv/jekyll
