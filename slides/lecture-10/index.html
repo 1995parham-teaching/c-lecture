@@ -894,7 +894,8 @@ int tokenizer(char *s, char *token, char result[][100]){
     s = index + strlen(token);
   }
   if(strlen(s) &gt; 0){
-    strcpy(result[res_index], s); res_index++;
+    strcpy(result[res_index], s);
+    res_index++;
   }
   return res_index;
 }
