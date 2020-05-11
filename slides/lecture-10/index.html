@@ -1311,7 +1311,7 @@ int main(void){
     <pre><code class="hljs lang-c">
 void * realloc(void *p, int newsize);
     </code></pre>
-    <li>Allocate <span class="orange-select">newsize</span> bytes for pointer p</li>
+    <li>Allocate <span class="orange-select">newsize</span> bytes for pointer <span class="green-select">p</span></li>
     <li>Previous data of <span class="green-select">p</span> does not change</li>
     <li><span class="cyan-select">UPDATE</span> <span class="green-select">p</span> with its returned address</li>
   </ul>
@@ -1369,8 +1369,8 @@ i = pi;
     <ul>
       <li>We cannot change constant string</li>
       <pre><code class="hljs lang-c">
-  char *s = "abc";
-  *(s + 1) = 'z'; // Runtime Error
+char *s = "abc";
+*(s + 1) = 'z'; // Runtime Error
       </code></pre>
     </ul>
   </section>
