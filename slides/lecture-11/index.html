@@ -131,7 +131,8 @@ struct{
   <pre><code class="hljs lang-c">
 struct std_info {
   char st_name[20];
-  char st_fam_name[20]; int id;
+  char st_fam_name[20];
+  int id;
   int grade;
 };
 struct std_info st1, st2, st3;
@@ -186,6 +187,19 @@ typedef int int_arr1[10], int_arr2[20];
 
 int_arr1 array1;
 int_arr2 array2;
+  </code></pre>
+</section>
+<section>
+  <h2>typedef: Cons</h2>
+  <pre><code class="hljs lang-c">
+typedef int arr[100];
+
+int main() {
+  arr a1;
+  arr a2;
+
+  a1 = a2; // error: array type 'arr' (aka 'int [100]') is not assignable
+}
   </code></pre>
 </section>
 <section>
@@ -263,7 +277,7 @@ information st1, st2;
 <section>
   <h2>Size of struct</h2>
   <ul>
-    <li>The size of struct is NOT the sum of size of members</li>
+    <li>The size of struct is <span class="red-select">NOT</span> the sum of size of members</li>
     <ul>
       <li><pre><code class="hljs lang-c">struct test_size{char c, int i}</code></pre></li>
       <li><pre><code class="hljs lang-c">sizeof(struct test_size) = 8</code></pre></li>
