@@ -313,6 +313,428 @@ information st1, st2;
   </ul>
 </section>
 <section>
+  <ul>
+    <li>Similar to array initialization</li>
+    <pre><code class="hljs lang-c">
+struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
+    </code></pre>
+    <li><span class="orange-select">“Parham”</span> is assigned to <span class="green-select">st_name</span></li>
+    <li><span class="orange-select">“Karimi”</span> is assigned to <span class="green-select">st_fam_name</span></li>
+    <li><span class="orange-select">9231058</span> is assigned to <span class="green-select">id</span></li>
+    <li><span class="orange-select">10</span> is assigned to <span class="green-select">grade</span></li>
+    <li class="cyan-select">Order of values should be exactly the order of the members</li>
+    <li class="violet-select">The number of values should be &lt;= the number of members</li>
+    <li class="red-select">Initial values cannot be assigned in struct definition</li>
+  </ul>
+</section>
+<section>
+  <h2>Example</h2>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+typedef struct {
+  char name[20];
+  char fam_name[20];
+  int id;
+  int grade;
+} information;
+
+void main(void){
+  information st2, st1 = {"Parham", "Alvani", 9231058, 20};
+
+  printf("After init: \n");
+  printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n", st1.name, st1.fam_name, st1.id, st1.grade);
+
+  scanf("%s", st2.name);
+  scanf("%s", st2.fam_name);
+  scanf("%d", &amp;st2.id);
+  scanf("%d", &amp;st2.grade);
+
+  printf("Your Input is: \n");
+  printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n", st2.name, st2.fam_name, st2.id, st2.grade);
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Nested struct</h2>
+  <pre><code class="hljs lang-c">
+struct date_type{
+  int day, month, year;
+};
+
+typedef struct{
+  char name[20];
+  char fam_name[20];
+  int id;
+  int grade;
+  struct date_type date;
+} information;
+  </code></pre>
+</section>
+<section>
+  <h2>Nested struct</h2>
+  <pre><code class="hljs lang-c">
+information st1 = {"A", "B", 1, 10, {2, 3, 1368}};
+  </code></pre>
+  <pre><code class="hljs lang-c">
+information st2;
+st2.name = "C";
+st2.fam_name = "D";
+st2.id = 2;
+st2.grade = 15;
+  </code></pre>
+  <pre><code class="hljs lang-c">
+st2.date.day = 10;
+st2.date.month = 5;
+st2.date.year = 1390;
+  </code></pre>
+</section>
+<section>
+  <h2>struct: Copy and Assignment</h2>
+  <pre><code class="hljs lang-c">
+struct date_type{
+  int day, month, year;
+};
+
+struct date_type d1, d2 = {2, 1, 1360};
+d1 = d2;
+
+/*
+  d1.day = d2.day;
+  d1.month = d2.month;
+  d1.year = d2.year;
+*/
+  </code></pre>
+</section>
+<section>
+  <h2>struct: Copy and Assignment</h2>
+  <pre><code class="hljs lang-c">
+struct test_type{
+  char name[10];
+  int id[10];
+};
+
+struct test_type d1, d2 = {"ABC", {1, 2, 3}};
+d1 = d2;
+/*
+ d1.name = "ABC";
+ d1.id = {1, 2, 3};
+*/
+
+  </code></pre>
+</section>
+<section>
+  <h2>struct: Comparing</h2>
+  <ul>
+    <li>We <span class="orange-select">cannot</span> compare <span class="cyan-select">struct</span> variables</li>
+    <ul>
+      <li>==, &lt;=, &lt;, &gt;, &gt;= cannot be used for struct</li>
+    </ul>
+    <pre><code class="hljs lang-c">
+information st1, st2;
+
+if(st1 &lt;= st2){
+  // Compile Error ...
+}
+
+    </code></pre>
+    <li>Why?</li>
+    <ul>
+      <li>What does this mean? st1 &lt;= st2</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>struct: Comparing</h2>
+  <ul>
+    <li>We can compare members of structs</li>
+    <pre><code class="hljs lang-c">
+if(
+  (st1.id == st2.id) &amp;&amp;
+  (strcmp(st1.name,st2.name) == 0) &amp;&amp;
+  (strcmp(st2.fam_name,st2.fam_name) == 0)
+) {
+  /* st1 == st2 */
+}
+    </code></pre>
+    <li>We can define &lt;, &lt;=, &gt;, &gt;= for struct</li>
+    <pre><code class="hljs lang-c">
+if (
+  (st1.id &gt; st2.id) &amp;&amp;
+  (strcmp(st1.name,st2.name) == 0) &amp;&amp;
+  (strcmp(st2.fam_name, st2.fam_name) == 0)
+) {
+  /* st1 &gt; st2 */
+}
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>struct: Arithmetic operations</h2>
+  <ul>
+    <li>No arithmetic operation (+, -, /, ...) is defined for structures</li>
+    <li>We can define ours operations</li>
+    <li>We have an example in the following slides</li>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2>Array of struct: Definition</h2>
+  <ul>
+    <li><span class="cyan-select">struct</span> is a type &rarr; We can define array of struct</li>
+    <pre><code class="hljs lang-c">
+struct std1{
+  int id;
+  int grad;
+};
+struct std1 std_arr[20];
+
+typedef struct{
+  int id;
+  int grad;
+} std2;
+std2 std_arr[20];
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>Upper Average Students 🤓</h2>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  struct std {
+    int id;
+    int grade;
+  };
+
+  const int num = 25;
+
+  double sum, average;
+  int i;
+  struct std std_arr[num];
+  for (i = 0; i &lt; num; i++){
+    printf("Enter ID and grade\n");
+    scanf("%d", &amp;(std_arr[i].id));
+    scanf("%d", &amp;(std_arr[i].grade));
+  }
+
+  sum = 0;
+  for(i = 0; i &lt; num; i++)
+    sum += std_arr[i].grade;
+
+  average = sum / num;
+
+  for (i = 0; i &lt; num; i++)
+    if (std_arr[i].grade &gt;= average)
+      printf("Student %d passed\n", std_arr[i].id);
+
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Find Student</h2>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void) {
+  struct std{
+    char name[20];
+    int id;
+    int grade;
+  };
+
+  const int num = 25;
+  struct std std_arr[num];
+
+  int sid, i;
+  for (i = 0; i &lt; num; i++){
+    printf("Enter Name, ID and grade\n");
+    scanf("%s", std_arr[i].name);
+    scanf("%d", &amp;(std_arr[i].id));
+    scanf("%d", &amp;(std_arr[i].grade));
+  }
+￼￼￼￼
+  printf("Enter Search ID: ");
+  scanf("%d", &amp;sid);
+
+  for (i = 0; i &lt; num; i++) {
+    if (std_arr[i].id == sid) {
+      printf("Found:\n");
+      printf("Name = %s\n", std_arr[i].name);
+      printf("ID = %d\n", std_arr[i].id);
+      printf("Grade = %s\n", std_arr[i].grade);
+    }
+  }
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2>Pointer to struct: Definition</h2>
+  <ul>
+    <li>A variable of struct type is a <span class="orange-select">variable</span></li>
+    <li>It has <span class="green-select">address</span>, we can have <span class="cyan-select">pointer</span> to it</li>
+    <pre><code class="hljs lang-c">
+struct std{
+  int id;
+  int grade;
+};
+struct std st1;
+struct std *ps;
+ps = &st1;
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>Pointer to struct: Usage (Version 1)</h2>
+  <ul>
+    <li>We can use *pointer method</li>
+    <li><span class="orange-select">*ps</span> means the content of the address that <span class="orange-select">ps</span> refers to there &rarr; it is struct</li>
+    <li><span class="cyan-select">(*ps).id</span> is the member of struct that <span class="orange-select">ps</span> refers to it</li>
+    <li><span class="cyan-select">(*ps).grade</span> is the member of struct that <span class="orange-select">ps</span> refers to it</li>
+  </ul>
+</section>
+<section>
+  <h2>Pointer to struct: Usage (Version 2)</h2>
+  <ul>
+    <li>We can use <span class="orange-select">“-&gt;"</span> method</li>
+    <pre><code class="hljs lang-c">
+struct std {
+  int id;
+  int grade;
+};
+struct std st1, *ps;
+ps = &amp;st1
+// (*ps).id
+int y = ps-&gt;id;
+// (*ps).grade
+int z = ps-&gt;grade;
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2>struct &amp; Functions</h2>
+  <ul>
+    <li>struct is a type &rarr; It can be used</li>
+    <ul>
+      <li>In <span class="orange-select">input</span> parameter list of functions</li>
+      <ul>
+        <li>Call by <span class="green-select">value</span></li>
+        <li>Call by <span class="green-select">reference</span></li>
+      </ul>
+      <li>In <span class="orange-select">return type</span> of functions</li>
+    </ul>
+    <pre><code class="hljs lang-c">
+void f(struct std s1); // call by value
+void g(struct std *s2); // call by reference
+struct std h(void); // return type
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>struct & Functions: Example</h2>
+  <ul>
+    <li>struct as call by value input parameter</li>
+  </ul>
+  <pre><code class="hljs lang-c">
+void print_st_info(information st){
+  printf("Name = %s\n", st.name);
+  printf("Fam = %s\n", st.fam_name);
+  printf("id = %d\n", st.id);
+  printf("grade = %d\n", st.grade);
+}
+// ----- Calling the function ----
+information st1;
+print_st_info(st1);
+  </code></pre>
+</section>
+<section>
+  <h2>struct & Functions: Example</h2>
+  <ul>
+    <li>struct as call by reference input parameter</li>
+  </ul>
+  <pre><code class="hljs lang-c">
+void read_st_info(information *pst) {
+  scanf("%s", pst-&gt;name);
+  scanf("%s", pst-&gt;fam_name);
+  scanf("%d", &amp;(pst-&gt;id));
+  scanf("%d", &amp;(pst-&gt;grade));
+}
+// ----- Calling the function ----
+information st1;
+read_st_info(&amp;st1);
+  </code></pre>
+</section>
+<section>
+  <h2>struct & Functions: Example</h2>
+  <ul>
+    <li>struct as output of function</li>
+  </ul>
+  <pre><code class="hljs lang-c">
+information create_st_info(void) {
+  information tmp;
+  scanf("%s", tmp.name);
+  scanf("%s", tmp.fam_name);
+  scanf("%d", &amp;tmp.id);
+  scanf("%d", &amp;tmp.grade);
+  return tmp;
+}
+// ----- Calling the function ----
+information st1;
+st1 = create_st_info();
+  </code></pre>
+</section>
+<section>
+  <h2>Scope of struct definition</h2>
+  <ul>
+    <li>A struct can be used only</li>
+    <ul>
+      <li>In the defined scope</li>
+      <li>After definition</li>
+    </ul>
+    <li>if sruct is defined in a function</li>
+    <ul>
+      <li>It can be used only in the function</li>
+      <li>No other function knows about it</li>
+    </ul>
+    <li>If struct is defined as a global</li>
+    <ul>
+      <li>It can be used in all function after the definition</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Scope of struct variables</h2>
+  <ul>
+    <li>The scope of struct <span class="orange-select">variables</span> are the same other variables</li>
+    <li>If struct variable is global</li>
+    <ul>
+      <li>Initialized to zero and visible to the functions after its declaration</li>
+    </ul>
+    <li>If struct variable is automatic local</li>
+    <ul>
+      <li>There is not any initial value, destroyed when the block finishes</li>
+    </ul>
+    <li>If struct variable is static</li>
+    <ul>
+      <li>Kept in memory until program finishs</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
   <section>
     <h2>Legends</h2>
     <img height="300px" src="img/rob.jpg">
