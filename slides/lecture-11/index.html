@@ -736,6 +736,130 @@ st1 = create_st_info();
 </section>
 <section>
   <section>
+    <h2>More Dynamic Data Structures</h2>
+    <ul>
+      <li>In Arrays</li>
+      <ul>
+        <li>We know the size of array when you <span class="green-select">develop code (coding time)</span></li>
+        <li>We know the size of array when <span class="cyan-select">program runs</span></li>
+      </ul>
+      <li>What can we do, if we <span class="orange-select">don’t know data size</span> even in run time?</li>
+      <ul>
+        <li>We use dynamic memory allocation &amp; resize</li>
+        <ul>
+          <li>Resizing array has cost &amp; overhead</li>
+        </ul>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>What can we do, if we want to <span class="orange-select">add/remove</span> an element to/from middle of the array?</li>
+      <ul>
+        <li>We use dynamic memory allocation &amp; resize</li>
+        <ul>
+          <li>Resizing array has cost &amp; overhead</li>
+        </ul>
+        <li>Is there any other better approach?</li>
+      </ul>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2>Dynamic Data Structures: Linked List</h2>
+  <ul>
+    <li><span class="orange-select">linked list</span> data structure can be used to implement the dynamic structures</li>
+    <li>linked list: Nodes that linked together</li>
+    <ul>
+      <li><span class="green-select">info(s)</span>: Save the information</li>
+      <li><span class="cyan-select">next</span>: Pointer to the next node</li>
+      <li><span class="violet-select">previous</span>: Pointer to the previous node</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>linked list in C</h2>
+  <ul>
+    <li>linked list is implemented by <span class="orange-select">struct</span> and <span class="green-select">pointer to struct</span></li>
+    <li>Struct has a member to save the info</li>
+    <li>Struct has a pointer to point the next node</li>
+    <pre><code class="hljs lang-c">
+struct node{
+  int info;
+  struct node *next;
+};
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>Create nodes</h2>
+  <ul>
+    <li>We need a function to create each node in list. The function does:</li>
+    <ol>
+      <li><span class="orange-select">Allocate</span> the memory</li>
+      <li>Set the <span class="green-select">info</span> member</li>
+      <li>Set the <span class="cyan-select">next</span> member</li>
+      <li><span class="violet-select">Return</span> the pointer to new node</li>
+    </ol>
+  </ul>
+</section>
+<section>
+  <h2>Create Node</h2>
+  <pre><code class="hljs lang-c">
+struct node{
+  int info;
+  struct node *next;
+};
+
+
+// Returning pointer!!!
+// Is it safe?
+// Why?
+struct node * create_node(int i) {
+  struct node * nn;
+  nn = (struct node *) malloc(sizeof(struct node));
+  if (nn == NULL)
+   return NULL;
+  nn-&gt;info = i;
+  nn-&gt;next = NULL;
+  return nn;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Example: 3 Nodes List</h2>
+  <pre><code class="hljs lang-c">
+struct node * list = NULL;
+list = create_node(10);
+list-&gt;next = create_node(20);
+list-&gt;next-&gt;next = create_node(30);
+  </code></pre>
+</section>
+<section>
+  <h2>Operation on linked list</h2>
+  <ul>
+    <li>Print the list: <span class="orange-select">print_list</span></li>
+    <li>Add new node to end of list: <span class="green-select">add_end</span></li>
+    <li>Add new node to front of list: <span class="yellow-select">add_front</span></li>
+    <li>Insert new node after some node: <span class="cyan-select">insert_next</span></li>
+    <li>Delete the first node in list: <span class="violet-select">delete_first</span></li>
+    <li>Delete the end node in list: <span class="material-select">delete_end</span></li>
+    <li>Delete a node from the middle of list: <span class="red-select">delete_next</span></li>
+  </ul>
+</section>
+<section>
+  <h2>add_end: Add new node to end of list</h2>
+  <pre><code class="hljs lang-c">
+void add_end(struct node *list, struct node * new_node){
+  struct node *current;
+  for(current = list; current-&gt; next != NULL; current = current-&gt; next);
+  current-&gt;next = new_node;
+  new_node-&gt;next = NULL;
+}
+  </code></pre>
+</section>
+<section>
+  <section>
     <h2>Legends</h2>
     <img height="300px" src="img/rob.jpg">
   </section>
