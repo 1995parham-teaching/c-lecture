@@ -372,22 +372,50 @@ typedef struct{
   </code></pre>
 </section>
 <section>
-  <h2>Nested struct</h2>
-  <pre><code class="hljs lang-c">
+  <section>
+    <h2>Nested struct</h2>
+    <pre><code class="hljs lang-c">
 information st1 = {"A", "B", 1, 10, {2, 3, 1368}};
-  </code></pre>
-  <pre><code class="hljs lang-c">
+    </code></pre>
+    <pre><code class="hljs lang-c">
 information st2;
 // st2.name = "C"; char[20] is not assignable
 // st2.fam_name = "D"; char[20] is not assignable
 st2.id = 2;
 st2.grade = 15;
-  </code></pre>
-  <pre><code class="hljs lang-c">
+    </code></pre>
+    <pre><code class="hljs lang-c">
 st2.date.day = 10;
 st2.date.month = 5;
 st2.date.year = 1390;
-  </code></pre>
+    </code></pre>
+  </section>
+  <section>
+    <h2>More on "char[20] is not assignable"</h2>
+    <pre><code class="hljs lang-c">
+struct person {
+  char name[200];
+  char family[200];
+};
+    </code></pre>
+    <pre><code class="hljs lang-c">
+char hello[200] = "Hello world";
+printf("%s\n", hello);
+
+hello[0] = 'h';
+printf("%s\n", hello);
+
+// hello = "123";
+
+struct person p1 = {"Parham", "Alvani"};
+printf("%s\n", p1.name);
+
+p1.name[0] = 'p';
+printf("%s\n", p1.name);
+
+// p1.name = "123";
+    </code></pre>
+  </section>
 </section>
 <section>
   <h2>struct: Copy and Assignment</h2>
