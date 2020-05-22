@@ -887,6 +887,253 @@ void add_end(struct node *list, struct node * new_node){
   </code></pre>
 </section>
 <section>
+  <h2>delete_end (if more than 2 nodes)</h2>
+  <pre><code class="hljs lang-c">
+void delete_end(struct node * list) {
+  struct node *current = list;
+  while(current-&gt;next-&gt;next != NULL)
+    current = current-&gt;next;
+  free(current-&gt;next);
+  current-&gt;next = NULL;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>add_front: Add new node in start of list 🤔</h2>
+  <pre><code class="hljs lang-c">
+void add_front_wrong(struct node *list, struct node *new_node) {
+  new_node-&gt;next = list;
+  list = new_node;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>add_front: Add new node in start of list 😱</h2>
+  <pre><code class="hljs lang-c">
+void add_front(struct node **plist, struct node *new_node) {
+  new_node-&gt;next = *plist;
+  *plist = new_node;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Common Bugs</h2>
+  <ul>
+    <li>The last <span class="orange-select">NULL</span> in Liked-list is very important</li>
+    <ul>
+      <li>Always keep it</li>
+    </ul>
+    <li>Operation of linked-list has many exceptions</li>
+    <ul>
+      <li>When list is empty</li>
+      <li>When we want to add to the first of list</li>
+      <li>...</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="4"></div>
+</section>
+<section>
+  <h2>Introduction</h2>
+  <ul>
+    <li>Some data are naturally ordered</li>
+    <ul>
+      <li>Days of week</li>
+      <li>Months of year</li>
+    </ul>
+    <li>We want to use the order, e.g.</li>
+    <ul>
+      <li>The number of visitors per day</li>
+      <li>The salary per month</li>
+    </ul>
+    <li>We need an array</li>
+    <ul>
+      <li>visitors[<span class="green-select">0</span>] &rarr; The number of visitors in <span class="orange-select">Saturday</span></li>
+      <li>visitors[<span class="green-select">1</span>] &rarr; The number of visitors in <span class="orange-select">Sunday</span></li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Introduction</h2>
+  <ul>
+    <li><span class="orange-select">Enumeration</span> is a mechanism to assign a name for each number</li>
+    <li>We can use numbers instead of numbers</li>
+    <ul>
+      <li>More readable core</li>
+    </ul>
+    <li>E.g.</li>
+    <pre><code class="hljs lang-c">
+visitors[saturday], visitors[friday]
+salary[april], salary[june]
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>enum</h2>
+  <ul>
+    <li><span class="orange-select">enum</span> is used to define a set of names and their corresponding numbers</li>
+    <pre><code class="hljs lang-c">
+enum tag {name_1, name_2, …, name_N}
+    </code></pre>
+    <li><span class="green-select">tag</span> is the enumeration type</li>
+    <ul>
+      <li>We use it to define variables</li>
+    </ul>
+    <li><span class="cyan-select">name_1</span> is <span class="red-select">0</span></li>
+    <li><span class="cyan-select">name_2</span> is <span class="red-select">1</span></li>
+    <li><span class="cyan-select">name_{i}</span> is <span class="red-select">name_{i-1} + 1</span></li>
+  </ul>
+</section>
+<section>
+  <h2>enum</h2>
+  <pre><code class="hljs lang-c">
+enum week {sat, sun, mon, tue, wed, thu, fri};
+  </code></pre>
+  <p>
+    sat = 0, sun = 1, mon = 2, …, fri = 6
+  </p>
+  <pre><code class="hljs lang-c">
+enum year {feb, jan, mar, apr, may, jun, jul, aug, sep, oct, nov, des};
+  </code></pre>
+  <p>
+    feb = 0, jan = 1, …, nov = 10, des = 11
+  </p>
+</section>
+<section>
+  <h2>enum</h2>
+  <p>We can assign the numbers</p>
+  <pre><code class="hljs lang-c">
+enum week {sat = 1, sun, mon, tue, wed, thu, fri};
+  </code></pre>
+  <p>
+    sat = 1, sun = 2, mon = 3, …, fri = 7
+  </p>
+  <pre><code class="hljs lang-c">
+enum condition {False = 0, True, No = 0, Yes, Ghalat = 0, Dorost};
+  </code></pre>
+  <p>
+    False = No = Ghalat = 0<br>
+    True = Yes = Dorost = 1
+  </p>
+</section>
+<section>
+  <h2>enum</h2>
+  <ul>
+    <li>After definition of an enumeration</li>
+    <li>We can use the tag to declare variables</li>
+    <li>We can use the names to assign values to the variables</li>
+  </ul>
+  <pre><code class="hljs lang-c">
+enum week { sat, sun, mon, tue, wed, thu, fri };
+enum week day = sat;
+for(day = sat; day &gt;= fri; day++)
+  </code></pre>
+</section>
+<section>
+  <h2>Example: Read the number of visitors</h2>
+  <pre><code class="hljs lang-c">
+enum week {sat, sun, mon, tue, wed, thu, fri};
+int visitors[7];
+enum week day;
+for(day = sat; day &lt;= fri; day++)
+  scanf("%d", &amp;visitors[day]);
+  </code></pre>
+</section>
+<section>
+  <h2>Caution</h2>
+  <ul>
+    <li>C compiler <span class="orange-select">does not</span> check the value is assigned to the enum variables</li>
+    <pre><code class="hljs lang-c">
+enum test1 {t1, t2, t3};
+enum test2 {t4, t5, t6};
+enum test1 t1v = t1;
+enum test2 t2v = t4;
+if(t1v == t2v) &rarr; true
+t1v = t5;
+t2v = 100;
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="5"></div>
+</section>
+<section>
+  <h2>Introduction</h2>
+  <ul>
+    <li>Like Structures, <span class="orange-select">union is a user defined data type</span>.</li>
+    <li>In union, all members share the same memory location.</li>
+  </ul>
+</section>
+<section>
+  <h2>Introduction</h2>
+  <img src="img/union.png">
+</section>
+<section>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+// Declaration of union is same as structures
+union test {
+    int x, y;
+};
+
+int main()
+{
+    // A union variable t
+    union test t;
+
+    t.x = 2; // t.y also gets value 2
+    printf("After making x = 2:\n x = %d, y = %d\n\n",
+           t.x, t.y);
+
+    t.y = 10; // t.x is also updated to 10
+    printf("After making y = 10:\n x = %d, y = %d\n\n",
+           t.x, t.y);
+    return 0;
+}
+  </code></pre>
+  <pre><code class="hljs no-highlight">
+After making x = 2:
+ x = 2, y = 2
+
+After making y = 10:
+ x = 10, y = 10
+  </code></pre>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+union test1 {
+    int x;
+    int y;
+} Test1;
+
+union test2 {
+    int x;
+    char y;
+} Test2;
+
+union test3 {
+    int arr[10];
+    char y;
+} Test3;
+
+int main()
+{
+    printf("sizeof(test1) = %lu, sizeof(test2) = %lu, "
+           "sizeof(test3) = %lu",
+           sizeof(Test1),
+           sizeof(Test2), sizeof(Test3));
+    return 0;
+}
+  </code></pre>
+  <pre><code class="hljs no-highlight">
+sizeof(test1) = 4, sizeof(test2) = 4, sizeof(test3) = 40
+  </code></pre>
+</section>
+<section>
   <section>
     <h2>Legends</h2>
     <img height="300px" src="img/rob.jpg">
