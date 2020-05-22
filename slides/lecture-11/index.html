@@ -876,6 +876,17 @@ list-&gt;next-&gt;next = create_node(30);
   </ul>
 </section>
 <section>
+  <h2>print_list</h2>
+  <pre><code class="hljs lang-c">
+void print_list(struct node *list){
+  struct node *current;
+  for(current = list; current != NULL; current = current-&gt; next) {
+    printf("%d\n", current-&gt;info)
+  }
+}
+  </code></pre>
+</section>
+<section>
   <h2>add_end: Add new node to end of list</h2>
   <pre><code class="hljs lang-c">
 void add_end(struct node *list, struct node * new_node){
@@ -887,8 +898,22 @@ void add_end(struct node *list, struct node * new_node){
   </code></pre>
 </section>
 <section>
-  <h2>delete_end (if more than 2 nodes)</h2>
-  <pre><code class="hljs lang-c">
+  <section>
+    <h2>delete_end (if more than 2 nodes)</h2>
+    <p>
+      X &rarr; Y &rarr; NULL
+    </p>
+    <ul>
+      <li>Y = X-&gt;next</li>
+    </ul>
+    <ol>
+      <li>X-&gt;next = NULL</li>
+      <li>free(Y)</li>
+    </ol>
+  </section>
+  <section>
+    <h2>delete_end (if more than 2 nodes)</h2>
+    <pre><code class="hljs lang-c">
 void delete_end(struct node * list) {
   struct node *current = list;
   while(current-&gt;next-&gt;next != NULL)
@@ -896,7 +921,8 @@ void delete_end(struct node * list) {
   free(current-&gt;next);
   current-&gt;next = NULL;
 }
-  </code></pre>
+    </code></pre>
+  </section>
 </section>
 <section>
   <h2>add_front: Add new node in start of list 🤔</h2>
@@ -915,6 +941,23 @@ void add_front(struct node **plist, struct node *new_node) {
   *plist = new_node;
 }
   </code></pre>
+</section>
+<section>
+  <section>
+    <h2>delete_next</h2>
+    <p>
+      X &rarr; Y &rarr; Z
+    </p>
+    <ul>
+      <li>Y = X-&gt;next</li>
+      <li>Z = Y-&gt;next</li>
+      <li>Z = X-&gt;next-&gt;next</li>
+    </ul>
+    <ol>
+      <li>X-&gt;next = Z</li>
+      <li>free(Y)</li>
+    </ol>
+  </section>
 </section>
 <section>
   <h2>Common Bugs</h2>
