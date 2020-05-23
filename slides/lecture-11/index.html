@@ -903,12 +903,14 @@ void add_end(struct node *list, struct node * new_node){
     <p>
       X &rarr; Y &rarr; NULL
     </p>
+    <hr>
     <ul>
       <li>Y = X-&gt;next</li>
     </ul>
+    <hr>
     <ol>
-      <li>X-&gt;next = NULL</li>
       <li>free(Y)</li>
+      <li>X-&gt;next = NULL</li>
     </ol>
   </section>
   <section>
@@ -948,11 +950,13 @@ void add_front(struct node **plist, struct node *new_node) {
     <p>
       X &rarr; Y &rarr; Z
     </p>
+    <hr>
     <ul>
       <li>Y = X-&gt;next</li>
       <li>Z = Y-&gt;next</li>
       <li>Z = X-&gt;next-&gt;next</li>
     </ul>
+    <hr>
     <ol>
       <li>X-&gt;next = Z</li>
       <li>free(Y)</li>
