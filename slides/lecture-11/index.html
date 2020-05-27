@@ -704,6 +704,75 @@ read_st_info(&amp;st1);
   </code></pre>
 </section>
 <section>
+  <section>
+    <h2>struct & Functions in Action</h2>
+  </section>
+  <section>
+    <pre><code class="hljs lang-c">
+struct student {
+  char first_name[200];
+  char last_name[200];
+  int id[200];
+};
+    </code></pre>
+  </section>
+  <section>
+    <p>
+      Sets ID field of student with given identification.
+      As you may guess this function must recieve <span class="orange-select">a pointer</span> of student structure.
+    </p>
+    <pre><code class="hljs lang-c">
+void student_set_id(struct student *std, int id) {
+  std-&gt;id = id;
+}
+    </code></pre>
+  </section>
+  <section>
+    <p>
+      Sets first name field of student with given Name
+      As you may guess this function must recieve <span class="orange-select">a pointer</span> of student structure.
+      But why?
+    </p>
+    <pre><code class="hljs lang-c">
+void student_set_id(struct student *std, const char *name) {
+  strcpy(sed-&gt;first_name, name)
+}
+    </code></pre>
+  </section>
+  <section>
+    <p>
+      First name field of stduent is an array and as you may remember arrays name contains the address of array's
+      first cell. So is the following code is correct? 🤔
+    </p>
+    <pre><code class="hljs lang-c">
+void student_set_id_wrong(struct student *std, const char *name) {
+  strcpy(sed.first_name, name)
+}
+    </code></pre>
+    <p>
+      <span class="red-select">No.</span> It doesn't change first name of given student structure.
+    </p>
+    <p>
+      Because C copies all of the structures' members, <span class="green-select">even if they are arrays</span>,
+      so <span class="orange-select">Calling by Value</span> makes a copy from each field of the structure
+      that changing them doesn't change anything in the source.
+    </p>
+  </section>
+  <section>
+    <p>
+      As a rule of thumb <span class="violet-select">always</span> use pointer of structures in your functions even you don't want to change them.
+      In case of read-only functions use <span class="cyan-select">const</span> pointers to tell the users you don't
+      want to change the given structure.
+    </p>
+    <pre><code class="hljs lang-c">
+void student_print(const struct student *std) {
+  printf("Name: %s %s\n", std-&gt;first_name, std-&gt;last_name);
+  printf("ID: %d\n", std-&gt;id);
+}
+    </code></pre>
+  </section>
+</section>
+<section>
   <h2>struct & Functions: Example</h2>
   <ul>
     <li>struct as output of function</li>
