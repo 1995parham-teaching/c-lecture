@@ -821,6 +821,31 @@ First index of xy = 4
       </ul>
     </ul>
   </section>
+  <section>
+    <ul>
+      <li>char * strdup(
+        <span class="orange-select">const char *s1</span>
+        )
+      </li>
+      <ul>
+        <li>Returns <span class="cyan-select">a pointer</span> to a null-terminated byte string, which is a duplicate of the string pointed to by <span class="orange-select">s1</span>.</li>
+        <li>The returned pointer must be passed to free to avoid a memory leak.</li>
+        <li>More on free/malloc later</li>
+        <pre><code class="hljs lang-c">
+char *src = "Hello World";
+char *dst = NULL;
+
+dst = strdup(src);
+
+printf("Destination: %s\n", dst);
+dst[0] = 'h'; // there is no compile error 🕺
+printf("Destination: %s\n", dst);
+
+free(dst);
+        </code></pre>
+      </ul>
+    </ul>
+  </section>
 </section>
 <section>
   <section>
