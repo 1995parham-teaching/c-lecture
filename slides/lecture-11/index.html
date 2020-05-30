@@ -1031,6 +1031,24 @@ void add_front(struct node **plist, struct node *new_node) {
       <li>free(Y)</li>
     </ol>
   </section>
+  <section>
+    <pre><code class="hljs lang-c">
+void delete_next(struct node *list, int v) {
+  // find a node before the node that contains v
+  struct node *current = list;
+  for (current = list; current-&gt;next != NULL &amp;&amp; current-&gt;next-&gt;info == v; current = current-&gt;next);
+
+  // there is no node that conaints v
+  if (current-&gt;next == NULL) {
+    return;
+  }
+
+  struct node *to_delete = current-&gt;next;
+  current-&gt;next = to_delete-&gt;next;
+  free(to_delete);
+}
+    </code></pre>
+  </section>
 </section>
 <section>
   <h2>Common Bugs</h2>
