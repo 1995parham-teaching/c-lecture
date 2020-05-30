@@ -56,8 +56,8 @@ body {
 }
 
 .button-container {
-        display: inline-block;
-        vertical-align: top;
+        display: flex;
+        justify-content: space-around;
 }
 
 .email-container {
@@ -70,5 +70,4 @@ body {
 }
 
 .button-container .button {
-        width: 100%;
 }
