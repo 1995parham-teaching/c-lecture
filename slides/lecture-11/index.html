@@ -993,8 +993,9 @@ void list_push_back(struct node* list, struct node* nn){
     <pre><code class="hljs lang-c">
 void list_pop_back(struct node* list) {
   struct node* current = list;
-  while(current-&gt;next-&gt;next != NULL)
+  while(current-&gt;next-&gt;next != NULL) {
     current = current-&gt;next;
+  }
 
   free(current-&gt;next);
   current-&gt;next = NULL;
@@ -1044,20 +1045,20 @@ void list_push_front(struct node** plist, struct node* nn) {
     <pre><code class="hljs lang-c">
 void list_pop_by_info(struct node* list, int v) {
   // find a node before the node that contains v
-  struct node *current = list;
-  for (current = list; current-&gt;next != NULL &amp;&amp; current-&gt;next-&gt;info == v; current = current-&gt;next);
+  struct node* current = list;
+  for (current = list; current-&gt;next != NULL &amp;&amp; current-&gt;next-&gt;info != v; current = current-&gt;next);
 
   // there is no node that conaints v
   if (current-&gt;next == NULL) {
     return;
   }
 
-  list_pop_next(list, current);
+  list_pop_next(current);
 }
     </code></pre>
     <pre><code class="hljs lang-c">
-void list_pop_next(struct node* list, struct node* adjacent_to_delete_node) {
-  struct node *to_delete = adjacent_to_delete_node-&gt;next;
+void list_pop_next(struct node* adjacent_to_delete_node) {
+  struct node* to_delete = adjacent_to_delete_node-&gt;next;
   adjacent_to_delete_node-&gt;next = to_delete-&gt;next;
   free(to_delete);
 }
