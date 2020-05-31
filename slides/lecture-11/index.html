@@ -875,6 +875,10 @@ st1 = create_st_info();
   </ul>
 </section>
 <section>
+  <img alt="ll-1" src="img/ll-1.png">
+  <img alt="ll-2" src="img/ll-2.png">
+</section>
+<section>
   <h2>linked list in C</h2>
   <ul>
     <li>linked list is implemented by <span class="orange-select">struct</span> and <span class="green-select">pointer to struct</span></li>
@@ -887,6 +891,20 @@ struct node{
 };
     </code></pre>
   </ul>
+</section>
+<section>
+  <p>
+    Please note that we <span class="red-select">cannot</span> have structures that <span class="green-select">contain themselves</span>:
+  </p>
+  <pre><code class="hljs lang-c">
+struct node{
+  int info;
+  struct node next;
+}; // compile error
+  </code></pre>
+  <p>
+    <span class="orange-select">struct node</span> conatins a pointer to its type.
+  </p>
 </section>
 <section>
   <h2>Create nodes</h2>
@@ -909,7 +927,7 @@ struct node{
 };
 
 
-// Returning pointer!!!
+// Returning pointer!?!
 // Is it safe?
 // Why?
 struct node* node_construct(int i) {
@@ -928,12 +946,18 @@ struct node* node_construct(int i) {
   </code></pre>
 </section>
 <section>
+  <p>
+    We <span class="orange-select">can return</span> the address of <span class="green-select">heap-allocated</span> variables <span class="violet-select">from functions</span>.
+    Heap variables are under our control, so they are <span class="cyan-select">continue existing</span> after the function completes.
+  </p>
+</section>
+<section>
   <h2>Example: 3 Nodes List</h2>
   <pre><code class="hljs lang-c">
 struct node* list = NULL;
-list = create_node(10);
-list-&gt;next = create_node(20);
-list-&gt;next-&gt;next = create_node(30);
+list = node_construct(10);
+list-&gt;next = node_construct(20);
+list-&gt;next-&gt;next = node_construct(30);
   </code></pre>
 </section>
 <section>
