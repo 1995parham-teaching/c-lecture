@@ -1,0 +1,283 @@
+---
+index: 12
+title: Files
+topics:
+- Introduction
+- Text File Operations
+- Binary File Operations
+- Bugs and avoiding them
+---
+
+<section>
+  <div class="toc"></div>
+</section>
+<section>
+  <div class="toc" data-selected="0"></div>
+</section>
+<section>
+  <h2>Introduction</h2>
+  <ul>
+    <li>Data storages of computers:</li>
+    <ol>
+      <li>Main memory (RAM)</li>
+      <ul>
+        <li>It is <span class="orange-select">volatile</span></li>
+        <li>Read / Write data using <span class="green-select">variables</span></li>
+      </ul>
+      <li>Secondary storage (Hard Disk)</li>
+      <ul>
+        <li>It is <span class="red-select">not</span> <span class="orange-select">volatile</span></li>
+        <li>Read / Write data using <span class="green-select">files</span></li>
+      </ul>
+    </ol>
+  </ul>
+</section>
+<section>
+  <h2>Text &amp; Binary Files</h2>
+  <ul>
+    <li>How does computer store data?</li>
+    <ul>
+      <li>They are coded</li>
+    </ul>
+    <li>When data are stored in main memory</li>
+    <ul>
+      <li>It is variable</li>
+      <li>Coding is specified by the type: int, char, ...</li>
+    </ul>
+    <li>When data are stored in secondary memory</li>
+    <ul>
+      <li>It is file</li>
+      <li>Coding is specified by the file type: Text &amp; Binary</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Text Files</h2>
+  <ul>
+    <li>ASCII encoding</li>
+    <li>Each line is a string</li>
+    <li>Each line is terminated by \n</li>
+    <li>Human-readable files</li>
+    <ul>
+      <li>Editable by text editor (e.g. Notepad)</li>
+    </ul>
+    <li>Examples</li>
+    <ul>
+      <li>C source files</li>
+      <li>Every .txt files</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Binary Files</h2>
+  <ul>
+    <li>Binary encoding</li>
+    <ul>
+      <li>int, double, float, struct, ... are directly (as 0,1) stored in the file</li>
+    </ul>
+    <li>Human unreadable files</li>
+    <ul>
+      <li>Is not editable by text editor</li>
+      <li>Needs special editor which understands the file</li>
+    </ul>
+    <li>Examples</li>
+    <ul>
+      <li>.exe files</li>
+      <li>Media files such as .mp3</li>
+      <li>Picture files such as .bmp, .jpg</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Working with Files</h2>
+  <ul>
+    <li>Until now</li>
+    <ul>
+      <li>We read/write data from/to terminal (console)</li>
+    </ul>
+    <li>In C</li>
+    <ul>
+      <li>We can read data from file</li>
+      <li>We can write data to file</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Working with Files</h2>
+  <p>Main steps in working with files:</p>
+  <ol>
+    <li>Open file</li>
+    <ul>
+      <li>Get a file handler from Operating System</li>
+    </ul>
+    <li>Read/Write</li>
+    <ul>
+      <li>Use the handler</li>
+    </ul>
+    <li>Close file</li>
+    <ul>
+      <li>Free the handler</li>
+    </ul>
+    <li>Other operations</li>
+    <ul>
+      <li>Check end of file, skip in file, ...</li>
+    </ul>
+  </ol>
+</section>
+<section>
+  <h2>Opening Files</h2>
+  <ul>
+    <li>Function fopen opens files</li>
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+FILE* fopen(char* name, char* mode);
+    </code></pre>
+    <li><span class="orange-select">FILE*</span> is a struct</li>
+    <ul>
+      <li>Saves information about file.</li>
+      <li>We <span class="green-select">don’t need</span> to know about it.</li>
+    </ul>
+    <li>If cannot open file, fopen returns <span class="red-select">NULL</span>.</li>
+    <li>name is the name of file:</li>
+    <ul>
+      <li><span class="cyan-select">Absolute</span> name: C:\prog\test.txt</li>
+      <li><span class="cyan-select">Relative</span> name: Mytest.txt</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Opening Files: Modes</h2>
+  <ul>
+    <li>r: open for read. We cannot write to the file.</li>
+    <li>w: open for write. Create new file. We cannot read form the file. If file exist, its content will be destroyed.</li>
+    <li>a: open for write. We cannot read form the file. If file exist, its content wont be destroyed. We write at end of file.</li>
+    <li>r+, w+, a+: same tor, w, a but we can read and write.</li>
+  </ul>
+</section>
+<section>
+  <h2>Opening Files: Modes</h2>
+  <ul>
+    <li>Files are</li>
+    <ul>
+      <li>Text: Some strings</li>
+      <li>Binary: Image file, Video file, ...</li>
+    </ul>
+    <li>To open binary file, we should add b to the mode.</li>
+    <ul>
+      <li>rb : open binary file for read</li>
+      <li>w+b: create new binary file for read and write</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Opening Files: Example</h2>
+  <pre><code class="hljs lang-c">
+FILE *fp;
+fp = fopen("c:\\test.txt", "r"); if(fp == NULL){
+ printf("Cannot open file\n");
+return -1; }
+  </code></pre>
+  <p>
+    Open file c:\test.txt for read
+  </p>
+</section>
+<section>
+  <h2>File-Position Pointer (FPP)</h2>
+  <ul>
+    <li>File-Position Pointer</li>
+    <ul>
+      <li>A pointer in file</li>
+      <li>Points to current location of read and write</li>
+    </ul>
+    <li>When file is open</li>
+    <ul>
+      <li>File-Position Pointer is set to start of file</li>
+    </ul>
+    <li>When you read/write from/to file</li>
+    <ul>
+      <li>The File-Position Pointer advance according to the size of data</li>
+      <ul>
+        <li>If you read 2 bytes, it moves 2 bytes</li>
+        <li>If you write 50 bytes, it advances 50 bytes</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Closing Files</h2>
+  <ul>
+    <li>Each opened file should be closed.</li>
+    <li>If we write to a file and don’t close it, some of data may be LOST</li>
+    <li>To close the file</li>
+    <pre><code class="hljs lang-c">
+fclose(FILE *fp);
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="1"></div>
+</section>
+<section>
+  <h2>Reading/Writing Text File</h2>
+  <ul>
+    <li>fscanf reads from file. fscanf is same to scanf. Returns EOF if reached.</li>
+    <li>fprintf writes to file. fprintf is same to printf.</li>
+  </ul>
+  <pre><code class="hljs lang-c">
+int fscanf(FILE *fp,"format", parameters);
+int fprintf(FILE *fp,"format", parameters);
+  </code></pre>
+</section>
+<section>
+  <h2>Reading/Writing Characters (Text Files)</h2>
+  <ul>
+    <li>To write a character to file</li>
+    <pre><code class="hljs lang-c">
+fputc(char c, FILE *fp)
+    </code></pre>
+    <li>To read a char from file</li>
+    <pre><code class="hljs lang-c">
+char fgetc(FILE *fp);
+    </code></pre>
+  </ul>
+  <p>
+    Returns EOF if reaches to End of File
+  </p>
+</section>
+<section>
+  <section>
+    <h2>Checking End of File</h2>
+    <ul>
+      <li>Each file has two indicators</li>
+      <ul>
+        <li>End of fie indicator</li>
+        <li>Error indicator</li>
+      </ul>
+      <li>These indicators are set when we want to read but there is not enough data or there is an error</li>
+      <li>How to use</li>
+      <ul>
+        <li>Try to read</li>
+        <li>If the number of read object is less than expected</li>
+        <ul>
+          <li>Check end of file &rarr; feof</li>
+          <li>Check error of file &rarr; ferror</li>
+        </ul>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <p>
+      feof tells that an attempt has been made to read past the end of the file, which is not the same as that we just read the last data item from a file. We have to read one past the last data item for feof to return nonzero.
+    </p>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>Legends</h2>
+  </section>
+  <section>
+    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">?</h6>
+    <ul class="fragment" data-fragment-index="2">
+    </ul>
+  </section>
+</section>
