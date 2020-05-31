@@ -912,13 +912,17 @@ struct node{
 // Returning pointer!!!
 // Is it safe?
 // Why?
-struct node * create_node(int i) {
-  struct node * nn;
-  nn = (struct node *) malloc(sizeof(struct node));
-  if (nn == NULL)
+struct node* node_construct(int i) {
+  struct node* nn = NULL;
+
+  nn = malloc(sizeof(struct node));
+  if (nn == NULL) {
    return NULL;
+  }
+
   nn-&gt;info = i;
   nn-&gt;next = NULL;
+
   return nn;
 }
   </code></pre>
@@ -926,7 +930,7 @@ struct node * create_node(int i) {
 <section>
   <h2>Example: 3 Nodes List</h2>
   <pre><code class="hljs lang-c">
-struct node * list = NULL;
+struct node* list = NULL;
 list = create_node(10);
 list-&gt;next = create_node(20);
 list-&gt;next-&gt;next = create_node(30);
@@ -935,20 +939,21 @@ list-&gt;next-&gt;next = create_node(30);
 <section>
   <h2>Operation on linked list</h2>
   <ul>
-    <li>Print the list: <span class="orange-select">print_list</span></li>
-    <li>Add new node to end of list: <span class="green-select">add_end</span></li>
-    <li>Add new node to front of list: <span class="yellow-select">add_front</span></li>
-    <li>Insert new node after some node: <span class="cyan-select">insert_next</span></li>
-    <li>Delete the first node in list: <span class="violet-select">delete_first</span></li>
-    <li>Delete the end node in list: <span class="material-select">delete_end</span></li>
-    <li>Delete a node from the middle of list: <span class="red-select">delete_next</span></li>
+    <li>Print the list: <span class="orange-select">list_print</span></li>
+    <li>Add new node to end of list: <span class="green-select">list_push_back</span></li>
+    <li>Add new node to front of list: <span class="yellow-select">list_push_front</span></li>
+    <li>Insert new node after some node: <span class="cyan-select">list_push_next</span></li>
+    <li>Delete the first node in list: <span class="violet-select">list_pop_front</span></li>
+    <li>Delete the end node in list: <span class="material-select">list_pop_back</span></li>
+    <li>Delete a node from the middle of list: <span class="red-select">list_pop_next</span></li>
   </ul>
 </section>
 <section>
   <h2>print_list</h2>
   <pre><code class="hljs lang-c">
-void print_list(struct node *list){
-  struct node *current;
+void list_print(struct node *list){
+  struct node* current;
+
   for(current = list; current != NULL; current = current-&gt; next) {
     printf("%d\n", current-&gt;info)
   }
@@ -956,19 +961,21 @@ void print_list(struct node *list){
   </code></pre>
 </section>
 <section>
-  <h2>add_end: Add new node to end of list</h2>
+  <h2>list_push_back</h2>
   <pre><code class="hljs lang-c">
-void add_end(struct node *list, struct node * new_node){
-  struct node *current;
+void list_push_back(struct node* list, struct node* nn){
+  struct node* current;
+
   for(current = list; current-&gt; next != NULL; current = current-&gt; next);
-  current-&gt;next = new_node;
-  new_node-&gt;next = NULL;
+
+  current-&gt;next = nn;
+  nn-&gt;next = NULL;
 }
   </code></pre>
 </section>
 <section>
   <section>
-    <h2>delete_end (if more than 2 nodes)</h2>
+    <h2>list_pop_back (if more than 2 nodes)</h2>
     <p>
       X &rarr; Y &rarr; NULL
     </p>
@@ -983,12 +990,12 @@ void add_end(struct node *list, struct node * new_node){
     </ol>
   </section>
   <section>
-    <h2>delete_end (if more than 2 nodes)</h2>
     <pre><code class="hljs lang-c">
-void delete_end(struct node * list) {
-  struct node *current = list;
+void list_pop_back(struct node* list) {
+  struct node* current = list;
   while(current-&gt;next-&gt;next != NULL)
     current = current-&gt;next;
+
   free(current-&gt;next);
   current-&gt;next = NULL;
 }
@@ -996,26 +1003,28 @@ void delete_end(struct node * list) {
   </section>
 </section>
 <section>
-  <h2>add_front: Add new node in start of list 🤔</h2>
-  <pre><code class="hljs lang-c">
-void add_front_wrong(struct node *list, struct node *new_node) {
-  new_node-&gt;next = list;
-  list = new_node;
+  <section>
+    <h2>list_push_front 🤔</h2>
+    <pre><code class="hljs lang-c">
+void list_push_front(struct node* list, struct node* nn) {
+  nn-&gt;next = list;
+  list = nn;
 }
-  </code></pre>
-</section>
-<section>
-  <h2>add_front: Add new node in start of list 😱</h2>
-  <pre><code class="hljs lang-c">
-void add_front(struct node **plist, struct node *new_node) {
-  new_node-&gt;next = *plist;
-  *plist = new_node;
+    </code></pre>
+  </section>
+  <section>
+    <h2>list_push_front 😱</h2>
+    <pre><code class="hljs lang-c">
+void list_push_front(struct node** plist, struct node* nn) {
+  nn-&gt;next = *plist;
+  *plist = nn;
 }
-  </code></pre>
+    </code></pre>
+  </section>
 </section>
 <section>
   <section>
-    <h2>delete_next</h2>
+    <h2>list_pop_next</h2>
     <p>
       X &rarr; Y &rarr; Z
     </p>
@@ -1033,7 +1042,7 @@ void add_front(struct node **plist, struct node *new_node) {
   </section>
   <section>
     <pre><code class="hljs lang-c">
-void delete_next(struct node *list, int v) {
+void list_pop_by_info(struct node* list, int v) {
   // find a node before the node that contains v
   struct node *current = list;
   for (current = list; current-&gt;next != NULL &amp;&amp; current-&gt;next-&gt;info == v; current = current-&gt;next);
@@ -1043,8 +1052,13 @@ void delete_next(struct node *list, int v) {
     return;
   }
 
-  struct node *to_delete = current-&gt;next;
-  current-&gt;next = to_delete-&gt;next;
+  list_pop_next(list, current);
+}
+    </code></pre>
+    <pre><code class="hljs lang-c">
+void list_pop_next(struct node* list, struct node* adjacent_to_delete_node) {
+  struct node *to_delete = adjacent_to_delete_node-&gt;next;
+  adjacent_to_delete_node-&gt;next = to_delete-&gt;next;
   free(to_delete);
 }
     </code></pre>
