@@ -1147,7 +1147,7 @@ salary[april], salary[june]
   <ul>
     <li><span class="orange-select">enum</span> is used to define a set of names and their corresponding numbers</li>
     <pre><code class="hljs lang-c">
-enum tag {name_1, name_2, …, name_N}
+enum tag {name_1, name_2, …, name_N};
     </code></pre>
     <li><span class="green-select">tag</span> is the enumeration type</li>
     <ul>
@@ -1200,7 +1200,7 @@ enum condition {False = 0, True, No = 0, Yes, Ghalat = 0, Dorost};
   <pre><code class="hljs lang-c">
 enum week { sat, sun, mon, tue, wed, thu, fri };
 enum week day = sat;
-for(day = sat; day &gt;= fri; day++)
+for(day = sat; day &lt;= fri; day++)
   </code></pre>
 </section>
 <section>
