@@ -71,3 +71,17 @@ body {
 
 .button-container .button {
 }
+
+.reference {
+        display: flex;
+        flex-direction: row;
+        margin-top: 50px;
+
+        .text {
+                margin-left: 50px;
+        }
+
+        .image {
+                max-height: 300px;
+        }
+}
