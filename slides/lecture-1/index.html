@@ -114,20 +114,29 @@ topics:
   </ul>
 </section>
 <section>
-  <h2>This Course (cont'd)</h2>
-  <p>Course Materials</p>
-  <ul>
-    <li>Lecture notes (slides) are in (simple) English</li>
-    <li>Available in the course homepage:</li>
-    <p class="orange-select">
-      https://aut-ce.github.io/C-lecture/
-    </p>
-    <li>Textbook:</li>
-    <p class="green-select">
-      The C Programming Language
-      Book by Brian Kernighan and Dennis Ritchie
-    </p>
-  </ul>
+  <section>
+    <h2>This Course (cont'd)</h2>
+    <p>Course Materials</p>
+    <ul>
+      <li>Lecture notes (slides) are in (simple) English</li>
+      <li>Available in the course homepage:</li>
+      <p class="orange-select">
+        https://aut-ce.github.io/C-lecture/
+      </p>
+    </ul>
+  </section>
+  {% for reference in site.data.references %}
+  <section>
+    <img height="300px" src="{{reference.image}}">
+    <h5><span class="orange-select">{{ reference.title }}</span></h5>
+    <h5><span class="green-select">Authors:</span></h5>
+    <ul>
+      {% for author in reference.authors %}
+      <li>{{ author }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
 </section>
 <section>
   <section>
