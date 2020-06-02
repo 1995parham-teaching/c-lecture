@@ -38,7 +38,7 @@ layout: none
         <h6>Spring 2020</h6>
         <h6>Last Upadte: {{site.time | date_to_string}}</h6>
       </div>
-      <h2>Lectures 📚</h2>
+      <h2>Lectures 📜</h2>
       <table class="u-full-width">
         <thead>
           <tr>
@@ -62,10 +62,29 @@ layout: none
           {% endfor %}
         </tbody>
       </table>
+      <hr>
       <div class ="button-container">
         <a target="_blank" class="button" href="https://docs.google.com/spreadsheets/d/1z8rISY4tvSkawavmCMZeUdMMJouRZQYfA4DnC62vbqA/edit?usp=sharing">More Information (AUT)</a>
         <a target="_blank" class="button" href="https://github.com/1995parham/TanhaDarKhaneh">Let's Code</a>
         <a target="_blank" class="button" href="https://docs.google.com/spreadsheets/d/1TS7ewKcGN_Whs-B99jCMOpj6lLSAWkNp3_8zRbBW4Oo/edit?usp=sharing">More Information (SBU)</a>
+      </div>
+      <hr>
+      <h2>References 📚</h2>
+      <div>
+        {% for reference in site.data.references %}
+        <div class="reference">
+          <img class="image" src="{{reference.image}}">
+          <div class="text">
+            <h5>{{ reference.title }}</h5>
+            <h5>Authors:</h5>
+            <ul>
+              {% for author in reference.authors %}
+              <li>{{ author }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
   <!-- End Document
