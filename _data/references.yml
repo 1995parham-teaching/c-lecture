@@ -1,0 +1,19 @@
+---
+- title: C How To Program (8th Edition)
+  authors:
+    - Paul J. Deitel
+    - Harvey Deitel
+  image: https://images-na.ssl-images-amazon.com/images/I/619HjMrwsxL._SX381_BO1,204,203,200_.jpg
+- title: Modern C
+  authors:
+    - Jens Gustedt
+  image: https://modernc.gforge.inria.fr/fig/Gustedt-ModernC-HI.jpg
+- title: Extreme C
+  authors:
+    - Kamran Amini
+  image: https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTABraxodexcyC-mLs27MrKOZHEwoV89WNjxwaZGenl38ESQYEe
+- title: The C Programming Language
+  authors:
+    - Brian Kernighan
+    - Dennis Ritchie
+  image: https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSxN9CxyKoxQdHXeY7uPQicBa4ibDzmEWMSV07DPv4LFEkLi5T-
