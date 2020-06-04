@@ -484,6 +484,116 @@ while(1){
   </code></pre>
 </section>
 <section>
+  <h2>Read/Write a Line</h2>
+  <ul>
+    <li>We can read a line of file</li>
+    <ul>
+      <li><span class="green-select">fscanf</span> reads until the first free space</li>
+    </ul>
+    <pre><code class="hljs lang-c">
+char* fgets(char* buff, int maxnumber, FILE* fp);
+    </code></pre>
+    <li>Read at most <span class="orange-select">maxnumber-1</span> chars</li>
+    <li>Reading stops after <span class="cyan-select">EOF</span> or <span class="cyan-select">\n</span></li>
+    <li>If a <span class="cyan-select">\n</span> is read it is stored in buffer</li>
+    <li>Add <span class="violet-select">\0</span> to the end of string</li>
+    <li>If reach to end of file without reading any character, return <span class="red-select">NULL</span></li>
+  </ul>
+</section>
+<section>
+  <h2>Read/Write a Line</h2>
+  <ul>
+    <li>We can write a line to file</li>
+    <pre><code class="hljs lang-c">
+int fputs(char* buff, FILE* fp);
+    </code></pre>
+    <li>Write the string <span class="orange-select">buff</span> to file</li>
+    <li>Does <span class="red-select">NOT</span> add \n at the end</li>
+  </ul>
+</section>
+<section>
+  <h2>Read/Write a Line</h2>
+  <ul>
+    <li>Read a line without knowing its maximum length</li>
+    <li>The caller may provide a pointer to a malloced buffer for the line in <span class="orange-select">*linep</span>
+      , and the capacity of the buffer in <span class="green-select">*linecapp</span>.</li>
+    <pre><code class="hljs lang-c">
+int getline(char** linep, int* linecapp, FILE* stream);
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>Example: Count the number of lines</h2>
+  <pre><code class="hljs lang-c">
+char buf[500]; // 500 &gt; every line length
+
+fpin = fopen(inname, "r");
+if (fpin == NULL) {
+  printf("Cannot open %s\n", inname);
+  return -1;
+}
+
+int count = 0;
+
+while(fgets(buf, 500, fpin) != NULL)
+  count++;
+
+printf("Number of Lines = %d\n", count);
+  </code></pre>
+</section>
+<section>
+  <div class="toc" data-selected="2"></div>
+</section>
+<section>
+  <h2>Binary Files: A Different File Format</h2>
+  <ul>
+    <li>Data in binary files are</li>
+    <ul>
+      <li>Not encoded in ASCII format</li>
+      <li>Encoded in binary format</li>
+    </ul>
+    <li>We must use different functions to read/write from/to binary files</li>
+    <ul>
+      <li>Why?</li>
+      <li>Because, data should not be converted to/from ASCII encoding in writing/reading the files</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>No Conversion to ASCII</h2>
+  <ul>
+    <li>In text files, everything is saved as ASCII codes</li>
+    <li>In binary files, there is not any binary to text conversion, everything is read/write in binary format</li>
+  </ul>
+</section>
+<section>
+  <h2>Writing to Binary Files</h2>
+  <pre><code class="hljs lang-c">
+int fwrite(void *buf, int size, int num, FILE *fp)
+  </code></pre>
+  <ul>
+    <li>Writes num objects from buf to fp. Size of each object is size. Returns the number of written objects.</li>
+    <li>If (return val &lt; num)</li>
+    <ul>
+      <li>There is an error</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Reading from Binary Files</h2>
+  <pre><code class="hljs lang-c">
+int fread(void *buf, int size, int num, FILE *fp)
+  </code></pre>
+  <ul>
+    <li>Reads num objects from file fp to buf. Size of each object is size. Returns the number of read objects.</li>
+    <li>If (return val &lt; num)</li>
+    <ul>
+      <li>There is an error</li>
+      <li>Or EOF &rarr; Check with feof</li>
+    </ul>
+  </ul>
+</section>
+<section>
   <section>
     <h2>Legends</h2>
   </section>
