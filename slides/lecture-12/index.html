@@ -594,6 +594,184 @@ int fread(void *buf, int size, int num, FILE *fp)
   </ul>
 </section>
 <section>
+  <h2>fread: Examples</h2>
+  <ul>
+    <li>Reading 1 int from binary file fp</li>
+    <pre><code class="hljs lang-c">
+int i;
+fread(&amp;i, sizeof(int), 1, fp);
+    </code></pre>
+    <li>This means</li>
+    <ul>
+      <li>Read 1 object from file fp. Save result in &amp;i. The size of the object is sizeof(int)</li>
+    </ul>
+    <li>It reads 4 bytes from file and saves in &amp;i</li>
+    <ul>
+      <li>We read an integer from file and save it in i</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>fread: Examples</h2>
+  <ul>
+    <li>Read five floats</li>
+    <pre><code class="hljs lang-c">
+float farr[5];
+fread(farr, sizeof(float), 5, fp);
+    </code></pre>
+    <li>This means</li>
+    <ul>
+      <li>Read 5 objects from file fp. Save result in farr. The size of each object is sizeof(float)</li>
+    </ul>
+    <li>It reads 20 bytes from file and saves in farr</li>
+    <ul>
+      <li>We read 5 floats from file and save them in farr</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>fwrite: Examples</h2>
+  <ul>
+    <li>Writing 1 char to binary file fp</li>
+    <pre><code class="hljs lang-c">
+char c = 'A';
+fwrite(&amp;c, sizeof(char), 1, fp);
+    </code></pre>
+    <li>This means</li>
+    <ul>
+      <li>Write 1 object from &amp;c into file fp. Size of the object is sizeof(char)</li>
+    </ul>
+    <li>It writes 1 byte from address &amp;c and saves result in file</li>
+    <ul>
+      <li>We write char c to the file</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>fwrite: Examples</h2>
+  <ul>
+    <li>Writing 4 doubles to binary file fp</li>
+    <pre><code class="hljs lang-c">
+double darr[4];
+fwrite(darr, sizeof(double),4,fp);
+    </code></pre>
+    <li>This means</li>
+    <ul>
+      <li>Write 4 object from darr into file fp. Size of the object is sizeof(double)</li>
+    </ul>
+    <li>It writes 32 bytes from address darr and saves result in file</li>
+    <ul>
+      <li>We write the array of double to the file</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Sequential and Random Accesses</h2>
+  <ul>
+    <li>The access to file is sequential if</li>
+    <ul>
+      <li>If we don’t move the FPP manually</li>
+      <li>FPP advances through read and write</li>
+    </ul>
+    <li>The access to file is Random</li>
+    <ul>
+      <li>FPP advances through read and write</li>
+      <li>We can also move the FPP manually</li>
+    </ul>
+    <li>File processing can uses Random access</li>
+  </ul>
+</section>
+<section>
+  <h2>Moving FPP, Why?</h2>
+  <ul>
+    <li>To access randomly</li>
+    <li>Consider very large file (information about all students in the university)</li>
+    <li>Change the name of 5000th student</li>
+    <ul>
+      <li>If it is saved in text file</li>
+      <ul>
+        <li>Read 4999 lines, skip them and change the 5000th</li>
+      </ul>
+      <li>If it is saved in binary file and each object has the same size</li>
+      <ul>
+        <li>Jump to the 5000th object by fseek</li>
+        <li>Why we cannot do the same for text files? More on this later</li>
+      </ul>
+    </ul>
+  </ul>
+</section>
+<section>
+  <h2>Moving FPP</h2>
+  <pre><code class="hljs lang-c">
+int fseek(FILE *fp, long offset, int org)
+  </code></pre>
+  <ul>
+    <li>Set FPP in the offset respect to org</li>
+    <li>org:</li>
+    <ul>
+      <li>SEEK_SET: start of file</li>
+      <li>SEEK_CUR: current FPP</li>
+      <li>SEEK_END: End of file</li>
+    </ul>
+    <li>Returns nonzero if it is unsuccessful</li>
+  </ul>
+</section>
+<section>
+  <h2>Other FPP related functions</h2>
+  <ul>
+    <li>Find out where is the FPP</li>
+    <pre><code class="hljs lang-c">
+int ftell(FILE *fp)
+    </code></pre>
+    <li>ftell returns the current FPP</li>
+    <ul>
+      <li>With respect to SEEK_SET</li>
+    </ul>
+    <li>Reset the FPP to the start of file</li>
+    <pre><code class="hljs lang-c">
+void rewind(FILE *fp)
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <h2>fseek in Text files</h2>
+  <ul>
+    <li>Not very useful</li>
+    <li>Offset counts the number of characters including ‘\n’</li>
+    <li>Typical useful versions</li>
+    <ul>
+      <li>Go to the start of file</li>
+      <pre><code class="hljs lang-c">
+fseek(fp, 0, SEEK_SET)
+      </code></pre>
+      <li>Go to the end of file</li>
+      <pre><code class="hljs lang-c">
+fseek(fp, 0, SEEK_END)
+      </code></pre>
+    </ul>
+  </ul>
+</section>
+<section>
+  <div class="toc" data-selected="3"></div>
+</section>
+<section>
+  <h2>Common Bugs and Avoiding Them</h2>
+  <ul>
+    <li>Take care about mode in fopen</li>
+    <ul>
+      <li>w &amp; w+: all data in file will be lost</li>
+      <li>r: you cannot write. fprintf does not do any thing</li>
+    </ul>
+    <li>Take care about text or binary</li>
+    <ul>
+      <li>fscanf/fprintf don’t do meaningful job in binary files</li>
+    </ul>
+    <li>Check the successful open: fp != NULL</li>
+    <li>Check EOF as much as possible.</li>
+    <li>Close the open files.</li>
+  </ul>
+</section>
+<section>
   <section>
     <h2>Legends</h2>
   </section>
