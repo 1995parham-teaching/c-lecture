@@ -264,8 +264,12 @@ fclose(FILE *fp);
 <section>
   <h2>Reading/Writing Text File</h2>
   <ul>
-    <li>fscanf reads from file. fscanf is same to scanf. Returns EOF if reached.</li>
-    <li>fprintf writes to file. fprintf is same to printf.</li>
+    <li><span class="orange-select">fscanf</span> reads from file.</li>
+    <li><span class="orange-select">fscanf</span> is same to <span class="green-select">scanf</span>.</li>
+    <li>Returns EOF if reached to the end of file.</li>
+    <hr>
+    <li><span class="cyan-select">fprintf</span> writes to file.</li>
+    <li><span class="cyan-select">fprintf</span> is same to <span class="violet-select">printf</span>.</li>
   </ul>
   <pre><code class="hljs lang-c">
 int fscanf(FILE *fp,"format", parameters);
@@ -542,6 +546,29 @@ printf("Number of Lines = %d\n", count);
   </code></pre>
 </section>
 <section>
+  <h2>Example: Count the number of lines</h2>
+  <pre><code class="hljs lang-c">
+char *line = NULL;
+
+fpin = fopen(inname, "r");
+if (fpin == NULL) {
+  printf("Cannot open %s\n", inname);
+  return -1;
+}
+
+int count = 0;
+int length = 0;
+
+while(getline(&amp;buf, &amp;length, fpin) != -1) {
+  count++;
+  free(buf);
+  buf = NULL;
+}
+
+printf("Number of Lines = %d\n", count);
+  </code></pre>
+</section>
+<section>
   <div class="toc" data-selected="2"></div>
 </section>
 <section>
@@ -560,11 +587,45 @@ printf("Number of Lines = %d\n", count);
   </ul>
 </section>
 <section>
-  <h2>No Conversion to ASCII</h2>
-  <ul>
-    <li>In text files, everything is saved as ASCII codes</li>
-    <li>In binary files, there is not any binary to text conversion, everything is read/write in binary format</li>
-  </ul>
+  <section>
+    <h2>No Conversion to ASCII</h2>
+    <ul>
+      <li>In text files, everything is saved as ASCII codes</li>
+      <ul>
+        <pre><code class="hljs lang-c">
+fprintf(fp, “%d”, 10)
+        </code></pre>
+        <li>Saves 2 bytes in the file: ASCII ‘1’ ASCII ‘0’</li>
+        <pre><code class="hljs">
+00110001 00110000
+        </code></pre>
+        <pre><code class="hljs lang-c">
+fscanf(fp, “%d”, &amp;i)
+        </code></pre>
+        <li>Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2 which mean integer number 10</li>
+      </ul>
+    </ul>
+  </section>
+  <section>
+    <h2>No Conversion to ASCII</h2>
+    <ul>
+      <li>In binary files, there is not any binary to text conversion, everything is read/write in binary format</li>
+      <ul>
+        <pre><code class="hljs lang-c">
+int i = 10;
+fwrite(&amp;i, sizeof(int), 1, fp)
+        </code></pre>
+        <li>Saves 4 bytes in the file: The code of 10 in base 2</li>
+        <pre><code class="hljs">
+00000000 00000000 00000000 00001010
+        </code></pre>
+        <pre><code class="hljs lang-c">
+fread(&amp;i, sizeof(int), 1, fp)
+        </code></pre>
+        <li>Reads 4 bytes from file into i (without any conversion)</li>
+      </ul>
+    </ul>
+  </section>
 </section>
 <section>
   <h2>Writing to Binary Files</h2>
@@ -666,6 +727,66 @@ fwrite(darr, sizeof(double),4,fp);
   </ul>
 </section>
 <section>
+  <h2></h2>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+struct point{
+  int x, y;
+};
+
+int main() {
+  FILE* fp;
+  struct point p;
+  int i;
+
+  fp = fopen("points.bin", "wb");
+  if (fp == NULL) {
+    printf("Cannot create file\n");
+    return -1;
+  }
+
+  for(i = 0; i &lt; 5; i++) {
+    printf("Enter X and Y: ");
+    scanf("%d %d", &amp;p.x, &amp;p.y);
+    fwrite(&amp;p, sizeof(p), 1, fp);
+  }
+
+  fclose(fp);
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <h2></h2>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+struct point{
+  int x, y;
+};
+
+int main() {
+  FILE* fp;
+  struct point p;
+  int i;
+  fp = fopen("points.bin", "rb");
+  if(fp == NULL){
+    printf("Cannot read from file\n");
+    return -1;
+  }
+
+  while(1){
+    if(fread(&amp;p, sizeof(p), 1, fp) &lt; 1)
+      break;
+    printf("X = %d, and Y = %d\n", p.x, p.y);
+  }
+
+  fclose(fp);
+  return 0;
+}
+  </code></pre>
+</section>
+<section>
   <h2>Sequential and Random Accesses</h2>
   <ul>
     <li>The access to file is sequential if</li>
@@ -717,6 +838,29 @@ int fseek(FILE *fp, long offset, int org)
   </ul>
 </section>
 <section>
+  <pre><code class="hljs">
+(1,1)(2,2)(3,3)(4,4)(5,5)
+  </code></pre>
+  <pre><code class="hljs lang-c">
+fp = fopen("points.bin", "rb");
+
+fread(&amp;p, sizeof(p), 1, fp);
+printf("%d %d\n", p.x, p.y); // 1 1
+
+fseek(fp, 2 * sizeof(p), SEEK_SET);
+fread(&amp;p, sizeof(p), 1, fp);
+printf("%d %d\n", p.x, p.y); // 3 3
+
+fseek(fp, -3 * sizeof(p), SEEK_END);
+fread(&amp;p, sizeof(p), 1,fp);
+printf("%d %d\n", p.x, p.y); // 3 3
+
+fseek(fp, 1 * sizeof(p), SEEK_CUR);
+fread(&amp;p, sizeof(p), 1, fp); // 5 5
+printf("%d %d\n", p.x, p.y);
+  </code></pre>
+</section>
+<section>
   <h2>Other FPP related functions</h2>
   <ul>
     <li>Find out where is the FPP</li>
@@ -732,6 +876,41 @@ int ftell(FILE *fp)
 void rewind(FILE *fp)
     </code></pre>
   </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+struct point{
+  int x, y;
+};
+
+int main(void){
+   FILE* fp;
+
+  struct point p;
+  int num;
+
+  fp = fopen("points.bin", "rb+");
+  if (fp == NULL){
+    printf("Cannot read from file\n");
+    return -1;
+  }
+
+  printf("Enter the number of points: ");
+  scanf("%d", &amp;num);
+
+  printf("Enter new X and Y: ");
+  scanf("%d %d", &amp;(p.x), &amp;(p.y));
+
+  fseek(fp, (num – 1) * sizeof(p), SEEK_SET);
+  fwrite(&amp;p, sizeof(p), 1, fp);
+
+  fclose(fp);
+
+  return 0;
+}
+  </code></pre>
 </section>
 <section>
   <h2>fseek in Text files</h2>
