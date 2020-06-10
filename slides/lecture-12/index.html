@@ -654,8 +654,10 @@ fread(&amp;i, sizeof(int), 1, fp)
 int fwrite(void *buf, int size, int num, FILE *fp)
   </code></pre>
   <ul>
-    <li>Writes num objects from buf to fp. Size of each object is size. Returns the number of written objects.</li>
-    <li>If (return val &lt; num)</li>
+    <li>Writes <span class="orange-select">num</span> objects from <span class="green-select">buf</span> to <span class="violet-select">fp</span>.</li>
+    <li>Size of each object is <span class="yellow-select">size</span>.</li>
+    <li>Returns the number of written objects.</li>
+    <li>If (return_val &lt; <span class="orange-select">num</span>)</li>
     <ul>
       <li>There is an error</li>
     </ul>
@@ -667,8 +669,10 @@ int fwrite(void *buf, int size, int num, FILE *fp)
 int fread(void *buf, int size, int num, FILE *fp)
   </code></pre>
   <ul>
-    <li>Reads num objects from file fp to buf. Size of each object is size. Returns the number of read objects.</li>
-    <li>If (return val &lt; num)</li>
+    <li>Reads <span class="orange-select">num</span> objects from file <span class="violet-select">fp</span> to <span class="green-select">buf</span>.</li>
+    <li>Size of each object is <span class="yellow-select">size</span>.</li>
+    <li>Returns the number of read objects.</li>
+    <li>If (return val &lt; <span class="orange-select">num</span>)</li>
     <ul>
       <li>There is an error</li>
       <li>Or EOF &rarr; Check with feof</li>
@@ -685,7 +689,9 @@ fread(&amp;i, sizeof(int), 1, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Read 1 object from file fp. Save result in &amp;i. The size of the object is sizeof(int)</li>
+      <li>Read <span class="orange-select">1</span> object from file <span class="violet-select">fp</span>.</li>
+      <li>Save result in <span class="green-select">&amp;i</span>.</li>
+      <li>The size of the object is <span class="yellow-select">sizeof(int)</span></li>
     </ul>
     <li>It reads 4 bytes from file and saves in &amp;i</li>
     <ul>
@@ -703,7 +709,9 @@ fread(farr, sizeof(float), 5, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Read 5 objects from file fp. Save result in farr. The size of each object is sizeof(float)</li>
+      <li>Read <span class="orange-select">5</span> objects from file <span class="violet-select">fp</span>.</li>
+      <li>Save result in <span class="green-select">farr</span>.</li>
+      <li>The size of each object is <span class="yellow-select">sizeof(float)</span></li>
     </ul>
     <li>It reads 20 bytes from file and saves in farr</li>
     <ul>
@@ -721,7 +729,8 @@ fwrite(&amp;c, sizeof(char), 1, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Write 1 object from &amp;c into file fp. Size of the object is sizeof(char)</li>
+      <li>Write <span class="orange-select">1</span> object from <span class="green-select">&amp;c</span> into file <span class="violet-select">fp</span>.</li>
+      <li>Size of the object is <span class="yellow-select">sizeof(char)</span></li>
     </ul>
     <li>It writes 1 byte from address &amp;c and saves result in file</li>
     <ul>
@@ -735,11 +744,12 @@ fwrite(&amp;c, sizeof(char), 1, fp);
     <li>Writing 4 doubles to binary file fp</li>
     <pre><code class="hljs lang-c">
 double darr[4];
-fwrite(darr, sizeof(double),4,fp);
+fwrite(darr, sizeof(double), 4, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Write 4 object from darr into file fp. Size of the object is sizeof(double)</li>
+      <li>Write <span class="orange-select">4</span> object from <span class="green-select">darr</span> into file <span class="violet-select">fp</span>.</li>
+      <li>Size of the object is <span class="yellow-select">sizeof(double)</span></li>
     </ul>
     <li>It writes 32 bytes from address darr and saves result in file</li>
     <ul>
