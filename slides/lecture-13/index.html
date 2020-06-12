@@ -1,0 +1,121 @@
+---
+index: 13
+title: Miscellaneous
+topics: []
+---
+
+<section>
+  <h2>File postfix</h2>
+  <ul>
+    <li>Most compilers consider the source code file postfix</li>
+    <ul>
+      <li>.c &rarr; C code</li>
+      <li>.cc .cpp &rarr; C++ code</li>
+    </ul>
+  </ul>
+</section>
+<section>
+  <section>
+    <h2>A program in multiple file</h2>
+    <ul>
+      <li>We can create our <span class="yellow-select">.h</span> files</li>
+      <li>These files contains <span class="orange-select">structs</span>, <span class="green-select">functions declaration</span>, etc.</li>
+      <li>func.c</li>
+      <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void f(int x) {
+  printf("%d", x);
+}
+      </code></pre>
+      <li>func.h</li>
+      <pre><code class="hljs lang-c">
+#ifndef FUNC_H
+#define FUNC_H
+void f(int);
+#endif
+      </code></pre>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>Then includes header to use</li>
+      <li>main.c</li>
+      <pre><code class="hljs lang-c">
+#include "func.h"
+
+int main(void) {
+  f(20);
+}
+      </code></pre>
+    </ul>
+  </section>
+</section>
+<section>
+  <h2>Preprocessor Command</h2>
+  <ul>
+    <li>We can use preprocessor commands to control how our code is compiled and etc.</li>
+    <ul>
+      <li>Conditional compilation</li>
+    </ul>
+    <li>Main preprocessor commands</li>
+    <pre><code class="hljs lang-c">
+#define XYZ // define XYZ as a preprocessor definition (value is not important)
+#ifdef XYZ  // is true if XYZ is defined
+#ifndef XYZ // is true if XYZ is not defined
+#if XYZ     //  is true if XYZ != 0
+#endif      // End of a if block
+    </code></pre>
+  </ul>
+</section>
+<section>
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+#define ABC
+#define XYZ 1
+int main(){
+  #ifdef ABC
+  printf("ABC is defined \n");
+  #endif
+  printf ("I am here\n");
+  #if XYZ
+  printf("XYZ is defined and is not 0\n");
+  #endif
+}
+  </code></pre>
+</section>
+<section>
+  <section>
+    <h2>Preprocessor Command</h2>
+    <ul>
+      <li>Generate code before compilation</li>
+      <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#define A 10
+#define P(x) int x = 10;
+      </code></pre>
+      <pre><code class="hljs lang-c">
+int main() {
+  int a = A;
+  P(b);
+  printf("%d\n", a);
+  printf("%d\n", b);
+}
+      </code></pre>
+    </ul>
+  </section>
+  <section>
+    <ul>
+      <li>Here we have the generated code</li>
+      <pre><code class="hljs lang-c">
+int main() {
+  int a = 10;
+  int b = 10;;
+  printf("%d\n", a);
+  printf("%d\n", b);
+}
+      </code></pre>
+    </ul>
+  </section>
+</section>
