@@ -313,19 +313,26 @@ information st1, st2;
   </ul>
 </section>
 <section>
-  <ul>
-    <li>Similar to array initialization</li>
+  <section>
+    <ul>
+      <li>Similar to array initialization</li>
+      <pre><code class="hljs lang-c">
+  struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
+      </code></pre>
+      <li><span class="orange-select">“Parham”</span> is assigned to <span class="green-select">st_name</span></li>
+      <li><span class="orange-select">“Alvani”</span> is assigned to <span class="green-select">st_fam_name</span></li>
+      <li><span class="orange-select">9231058</span> is assigned to <span class="green-select">id</span></li>
+      <li><span class="orange-select">18</span> is assigned to <span class="green-select">grade</span></li>
+      <li class="cyan-select">Order of values should be exactly the order of the members</li>
+      <li class="violet-select">The number of values should be &lt;= the number of members</li>
+      <li class="red-select">Initial values cannot be assigned in struct definition</li>
+    </ul>
+  </section>
+  <section>
     <pre><code class="hljs lang-c">
-struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
+  struct std_info st1 = { .st_name = "Parham", .st_fam_name = "Alvani", .id = 9231058, .score = 18};
     </code></pre>
-    <li><span class="orange-select">“Parham”</span> is assigned to <span class="green-select">st_name</span></li>
-    <li><span class="orange-select">“Alvani”</span> is assigned to <span class="green-select">st_fam_name</span></li>
-    <li><span class="orange-select">9231058</span> is assigned to <span class="green-select">id</span></li>
-    <li><span class="orange-select">18</span> is assigned to <span class="green-select">grade</span></li>
-    <li class="cyan-select">Order of values should be exactly the order of the members</li>
-    <li class="violet-select">The number of values should be &lt;= the number of members</li>
-    <li class="red-select">Initial values cannot be assigned in struct definition</li>
-  </ul>
+  </section>
 </section>
 <section>
   <h2>Example</h2>
