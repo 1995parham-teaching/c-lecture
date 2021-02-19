@@ -2,12 +2,12 @@
 index: 11
 title: Structures
 topics:
-- Introduction
-- Struct Definition
-- Using Struct
-- Linked List
-- Enum Definition
-- Union Definition
+  - Introduction
+  - Struct Definition
+  - Using Struct
+  - Linked List
+  - Enum Definition
+  - Union Definition
 ---
 
 <section>
@@ -26,7 +26,9 @@ topics:
         <pre><code class="hljs lang-c">
 int i, char c, float f
         </code></pre>
-        <li>Set of <span class="orange-select">same type</span> elements: Array</li>
+        <li>
+          Set of <span class="orange-select">same type</span> elements: Array
+        </li>
         <pre><code class="hljs lang-c">
 int a[10], char c[20]
         </code></pre>
@@ -35,7 +37,10 @@ int a[10], char c[20]
   </section>
   <section>
     <ul>
-      <li>If data are not same type, but related? Example: Information about students:</li>
+      <li>
+        If data are not same type, but related? Example: Information about
+        students:
+      </li>
       <ul>
         <li>Student Name</li>
         <li>Student Family Name</li>
@@ -59,7 +64,10 @@ int grade;
     <li>2- Put them altogether, they are related</li>
     <ul>
       <li>Use <span class="cyan-select">struct</span></li>
-      <li>This concept is extended in OOP as the <span class="green-select">object</span></li>
+      <li>
+        This concept is extended in OOP as the
+        <span class="green-select">object</span>
+      </li>
     </ul>
   </ul>
 </section>
@@ -71,12 +79,16 @@ int grade;
   <ul>
     <li>Set of related variables</li>
     <ul>
-      <li>Each variable in <span class="cyan-select">struct</span> has its <span class="orange-select">own type</span></li>
+      <li>
+        Each variable in <span class="cyan-select">struct</span> has its
+        <span class="orange-select">own type</span>
+      </li>
       <li><span class="cyan-select">struct</span> in C (version 1)</li>
       <p>
-        <span class="cyan-select">struct</span> {<br>
-        &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
-        } <span class="green-select">&lt;identifier list&gt;</span>;<br>
+        <span class="cyan-select">struct</span> {<br />
+        &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span
+        ><br />
+        } <span class="green-select">&lt;identifier list&gt;</span>;<br />
       </p>
     </ul>
   </ul>
@@ -94,8 +106,14 @@ struct{
   <ul>
     <li>We declare a variable <span class="orange-select">st1</span></li>
     <li>Type of <span class="orange-select">st1</span> is struct</li>
-    <li><span class="violet-select">id</span> is a <span class="green-select">member</span> of the struct</li>
-    <li><span class="violet-select">grade</span> is a <span class="green-select">member</span> of the struct</li>
+    <li>
+      <span class="violet-select">id</span> is a
+      <span class="green-select">member</span> of the struct
+    </li>
+    <li>
+      <span class="violet-select">grade</span> is a
+      <span class="green-select">member</span> of the struct
+    </li>
   </ul>
 </section>
 <section>
@@ -109,9 +127,20 @@ struct{
 } st1, st2, st3;
   </code></pre>
   <ul>
-    <li>We declare three variables: <span class="orange-select">st1</span>, <span class="orange-select">st2</span>, <span class="orange-select">st3</span></li>
-    <li>Type of <span class="orange-select">st1</span>, <span class="orange-select">st2</span>, <span class="orange-select">st3</span> is the struct</li>
-    <li>In this model, we cannot reuse the struct definition in other location (e.g., input of function)</li>
+    <li>
+      We declare three variables: <span class="orange-select">st1</span>,
+      <span class="orange-select">st2</span>,
+      <span class="orange-select">st3</span>
+    </li>
+    <li>
+      Type of <span class="orange-select">st1</span>,
+      <span class="orange-select">st2</span>,
+      <span class="orange-select">st3</span> is the struct
+    </li>
+    <li>
+      In this model, we cannot reuse the struct definition in other location
+      (e.g., input of function)
+    </li>
   </ul>
 </section>
 <section>
@@ -119,10 +148,14 @@ struct{
   <ul>
     <li><span class="cyan-select">struct</span> in C (version 2)</li>
     <p>
-      <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span> {<br>
-      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
-      };<br>
-      <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span> <span class="green-select">&lt;identifier list&gt;</span>;<br>
+      <span class="cyan-select">struct</span>
+      <span class="yellow-select">&lt;tag&gt;</span> {<br />
+      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span
+      ><br />
+      };<br />
+      <span class="cyan-select">struct</span>
+      <span class="yellow-select">&lt;tag&gt;</span>
+      <span class="green-select">&lt;identifier list&gt;</span>;<br />
     </p>
   </ul>
 </section>
@@ -138,11 +171,18 @@ struct std_info {
 struct std_info st1, st2, st3;
   </code></pre>
   <ul>
-    <li>We define a struct with tag <span class="orange-select">std_info</span></li>
+    <li>
+      We define a struct with tag <span class="orange-select">std_info</span>
+    </li>
     <ul>
       <li>We don’t allocate memory, it is just definition</li>
     </ul>
-    <li>We declare variables <span class="green-select">st1</span>, <span class="green-select">st2</span>, <span class="green-select">st3</span> from <span class="orange-select">std_info</span></li>
+    <li>
+      We declare variables <span class="green-select">st1</span>,
+      <span class="green-select">st2</span>,
+      <span class="green-select">st3</span> from
+      <span class="orange-select">std_info</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -150,12 +190,25 @@ struct std_info st1, st2, st3;
   <ul>
     <li>We can assign a new name for each type</li>
     <ul>
-      <li>Assign name <span class="green-select">“integer”</span> to <span class="orange-select">“int”</span></li>
-      <li>Assign name <span class="green-select">“int_array”</span> to <span class="orange-select">“int[100]”</span></li>
-      <li>Assign name <span class="green-select">“int_pointer”</span> to <span class="orange-select">“int *”</span></li>
+      <li>
+        Assign name <span class="green-select">“integer”</span> to
+        <span class="orange-select">“int”</span>
+      </li>
+      <li>
+        Assign name <span class="green-select">“int_array”</span> to
+        <span class="orange-select">“int[100]”</span>
+      </li>
+      <li>
+        Assign name <span class="green-select">“int_pointer”</span> to
+        <span class="orange-select">“int *”</span>
+      </li>
     </ul>
-    <li>New names are assigned by <span class="violet-select">typedef</span></li>
-    <li>After we assigned the new name, we can use it in identifier declaration</li>
+    <li>
+      New names are assigned by <span class="violet-select">typedef</span>
+    </li>
+    <li>
+      After we assigned the new name, we can use it in identifier declaration
+    </li>
   </ul>
 </section>
 <section>
@@ -208,12 +261,17 @@ int main() {
     <li><span class="cyan-select">struct</span> in C (version 3.1)</li>
     <li>Using the <span class="orange-select">typedef</span></li>
     <p>
-      <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span> {<br>
-      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
-      };<br>
-      <span class="orange-select">typedef</span> <span class="cyan-select">struct</span> <span class="yellow-select">&lt;tag&gt;</span>
-      <span class="red-select">&lt;new_name&gt;</span>;<br>
-      <span class="red-select">&lt;new_name&gt;</span> <span class="green-select">&lt;identifier list&gt;</span>;<br>
+      <span class="cyan-select">struct</span>
+      <span class="yellow-select">&lt;tag&gt;</span> {<br />
+      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span
+      ><br />
+      };<br />
+      <span class="orange-select">typedef</span>
+      <span class="cyan-select">struct</span>
+      <span class="yellow-select">&lt;tag&gt;</span>
+      <span class="red-select">&lt;new_name&gt;</span>;<br />
+      <span class="red-select">&lt;new_name&gt;</span>
+      <span class="green-select">&lt;identifier list&gt;</span>;<br />
     </p>
   </ul>
 </section>
@@ -238,10 +296,13 @@ information st1, st2;
     <li><span class="cyan-select">struct</span> in C (version 3.2)</li>
     <li>Using the <span class="orange-select">typedef</span></li>
     <p>
-      <span class="orange-select">typedef</span> <span class="cyan-select">struct</span> {<br>
-      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span><br>
-      } <span class="red-select">&lt;new_name&gt;</span>;<br>
-      <span class="red-select">&lt;new_name&gt;</span> <span class="green-select">&lt;identifier list&gt;</span>;<br>
+      <span class="orange-select">typedef</span>
+      <span class="cyan-select">struct</span> {<br />
+      &nbsp;<span class="violet-select">&lt;variable declaration&gt;</span
+      ><br />
+      } <span class="red-select">&lt;new_name&gt;</span>;<br />
+      <span class="red-select">&lt;new_name&gt;</span>
+      <span class="green-select">&lt;identifier list&gt;</span>;<br />
     </p>
   </ul>
 </section>
@@ -260,7 +321,9 @@ information st1, st2;
 <section>
   <h2>Structures as New Data Type</h2>
   <ul>
-    <li>When we define a new struct, in fact we are defining a new data type</li>
+    <li>
+      When we define a new struct, in fact we are defining a new data type
+    </li>
     <ul>
       <li>Then we use the new data type and define variables</li>
     </ul>
@@ -277,12 +340,21 @@ information st1, st2;
 <section>
   <h2>Size of struct</h2>
   <ul>
-    <li>The size of struct is <span class="red-select">NOT</span> the sum of size of members</li>
+    <li>
+      The size of struct is <span class="red-select">NOT</span> the sum of size
+      of members
+    </li>
     <ul>
-      <li><pre><code class="hljs lang-c">struct test_size{char c, int i}</code></pre></li>
-      <li><pre><code class="hljs lang-c">sizeof(struct test_size) = 8</code></pre></li>
+      <li>
+        <pre><code class="hljs lang-c">struct test_size{char c, int i}</code></pre>
+      </li>
+      <li>
+        <pre><code class="hljs lang-c">sizeof(struct test_size) = 8</code></pre>
+      </li>
     </ul>
-    <li>This is because of <span class="orange-select">Structure Padding</span></li>
+    <li>
+      This is because of <span class="orange-select">Structure Padding</span>
+    </li>
     <ul>
       <li>Computer HW cannot (should not) read any arbitrary address</li>
       <li>The address should be aligned in word</li>
@@ -290,7 +362,12 @@ information st1, st2;
         <li>4 bytes in 32-bit machine</li>
       </ul>
       <li>The padding is to align the address</li>
-      <li>More details &amp; examples: <a href="https://fresh2refresh.com/c-programming/c-structure-padding">Here</a></li>
+      <li>
+        More details &amp; examples:
+        <a href="https://fresh2refresh.com/c-programming/c-structure-padding"
+          >Here</a
+        >
+      </li>
     </ul>
   </ul>
 </section>
@@ -306,9 +383,20 @@ information st1, st2;
     </ul>
     <li>How to access to the members of struct</li>
     <ul>
-      <li><span class="orange-select">&lt;struct variable&gt;</span>.<span class="green-select">&lt;element name&gt;</span></li>
-      <li><span class="cyan-select">st1.st_name</span> is a array of char in struct st1</li>
-      <li><span class="cyan-select">st2.grade</span> is a int variable in struct st2</li>
+      <li>
+        <span class="orange-select">&lt;struct variable&gt;</span>.<span
+          class="green-select"
+          >&lt;element name&gt;</span
+        >
+      </li>
+      <li>
+        <span class="cyan-select">st1.st_name</span> is a array of char in
+        struct st1
+      </li>
+      <li>
+        <span class="cyan-select">st2.grade</span> is a int variable in struct
+        st2
+      </li>
     </ul>
   </ul>
 </section>
@@ -319,13 +407,31 @@ information st1, st2;
       <pre><code class="hljs lang-c">
   struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
       </code></pre>
-      <li><span class="orange-select">“Parham”</span> is assigned to <span class="green-select">st_name</span></li>
-      <li><span class="orange-select">“Alvani”</span> is assigned to <span class="green-select">st_fam_name</span></li>
-      <li><span class="orange-select">9231058</span> is assigned to <span class="green-select">id</span></li>
-      <li><span class="orange-select">18</span> is assigned to <span class="green-select">grade</span></li>
-      <li class="cyan-select">Order of values should be exactly the order of the members</li>
-      <li class="violet-select">The number of values should be &lt;= the number of members</li>
-      <li class="red-select">Initial values cannot be assigned in struct definition</li>
+      <li>
+        <span class="orange-select">“Parham”</span> is assigned to
+        <span class="green-select">st_name</span>
+      </li>
+      <li>
+        <span class="orange-select">“Alvani”</span> is assigned to
+        <span class="green-select">st_fam_name</span>
+      </li>
+      <li>
+        <span class="orange-select">9231058</span> is assigned to
+        <span class="green-select">id</span>
+      </li>
+      <li>
+        <span class="orange-select">18</span> is assigned to
+        <span class="green-select">grade</span>
+      </li>
+      <li class="cyan-select">
+        Order of values should be exactly the order of the members
+      </li>
+      <li class="violet-select">
+        The number of values should be &lt;= the number of members
+      </li>
+      <li class="red-select">
+        Initial values cannot be assigned in struct definition
+      </li>
     </ul>
   </section>
   <section>
@@ -461,7 +567,10 @@ d1 = d2;
 <section>
   <h2>struct: Comparing</h2>
   <ul>
-    <li>We <span class="orange-select">cannot</span> compare <span class="cyan-select">struct</span> variables</li>
+    <li>
+      We <span class="orange-select">cannot</span> compare
+      <span class="cyan-select">struct</span> variables
+    </li>
     <ul>
       <li>==, &lt;=, &lt;, &gt;, &gt;= cannot be used for struct</li>
     </ul>
@@ -518,7 +627,10 @@ if (
 <section>
   <h2>Array of struct: Definition</h2>
   <ul>
-    <li><span class="cyan-select">struct</span> is a type &rarr; We can define array of struct</li>
+    <li>
+      <span class="cyan-select">struct</span> is a type &rarr; We can define
+      array of struct
+    </li>
     <pre><code class="hljs lang-c">
 struct std1{
   int id;
@@ -614,8 +726,13 @@ int main(void) {
 <section>
   <h2>Pointer to struct: Definition</h2>
   <ul>
-    <li>A variable of struct type is a <span class="orange-select">variable</span></li>
-    <li>It has <span class="green-select">address</span>, we can have <span class="cyan-select">pointer</span> to it</li>
+    <li>
+      A variable of struct type is a <span class="orange-select">variable</span>
+    </li>
+    <li>
+      It has <span class="green-select">address</span>, we can have
+      <span class="cyan-select">pointer</span> to it
+    </li>
     <pre><code class="hljs lang-c">
 struct std{
   int id;
@@ -631,9 +748,19 @@ ps = &st1;
   <h2>Pointer to struct: Usage (Version 1)</h2>
   <ul>
     <li>We can use *pointer method</li>
-    <li><span class="orange-select">*ps</span> means the content of the address that <span class="orange-select">ps</span> refers to there &rarr; it is struct</li>
-    <li><span class="cyan-select">(*ps).id</span> is the member of struct that <span class="orange-select">ps</span> refers to it</li>
-    <li><span class="cyan-select">(*ps).grade</span> is the member of struct that <span class="orange-select">ps</span> refers to it</li>
+    <li>
+      <span class="orange-select">*ps</span> means the content of the address
+      that <span class="orange-select">ps</span> refers to there &rarr; it is
+      struct
+    </li>
+    <li>
+      <span class="cyan-select">(*ps).id</span> is the member of struct that
+      <span class="orange-select">ps</span> refers to it
+    </li>
+    <li>
+      <span class="cyan-select">(*ps).grade</span> is the member of struct that
+      <span class="orange-select">ps</span> refers to it
+    </li>
   </ul>
 </section>
 <section>
@@ -662,7 +789,9 @@ int z = ps-&gt;grade;
   <ul>
     <li>struct is a type &rarr; It can be used</li>
     <ul>
-      <li>In <span class="orange-select">input</span> parameter list of functions</li>
+      <li>
+        In <span class="orange-select">input</span> parameter list of functions
+      </li>
       <ul>
         <li>Call by <span class="green-select">value</span></li>
         <li>Call by <span class="green-select">reference</span></li>
@@ -677,7 +806,7 @@ struct std h(void); // return type
   </ul>
 </section>
 <section>
-  <h2>struct & Functions: Example</h2>
+  <h2>struct &amp; Functions: Example</h2>
   <ul>
     <li>struct as call by value input parameter</li>
   </ul>
@@ -694,7 +823,7 @@ print_st_info(st1);
   </code></pre>
 </section>
 <section>
-  <h2>struct & Functions: Example</h2>
+  <h2>struct &amp; Functions: Example</h2>
   <ul>
     <li>struct as call by reference input parameter</li>
   </ul>
@@ -712,7 +841,7 @@ read_st_info(&amp;st1);
 </section>
 <section>
   <section>
-    <h2>struct & Functions in Action</h2>
+    <h2>struct &amp; Functions in Action</h2>
   </section>
   <section>
     <pre><code class="hljs lang-c">
@@ -725,8 +854,9 @@ struct student {
   </section>
   <section>
     <p>
-      Sets ID field of student with given identification.
-      As you may guess this function must recieve <span class="orange-select">a pointer</span> of student structure.
+      Sets ID field of student with given identification. As you may guess this
+      function must recieve <span class="orange-select">a pointer</span> of
+      student structure.
     </p>
     <pre><code class="hljs lang-c">
 void student_set_id(struct student *std, int id) {
@@ -736,9 +866,9 @@ void student_set_id(struct student *std, int id) {
   </section>
   <section>
     <p>
-      Sets first name field of student with given Name
-      As you may guess this function must recieve <span class="orange-select">a pointer</span> of student structure.
-      But why?
+      Sets first name field of student with given Name As you may guess this
+      function must recieve <span class="orange-select">a pointer</span> of
+      student structure. But why?
     </p>
     <pre><code class="hljs lang-c">
 void student_set_id(struct student *std, const char *name) {
@@ -748,8 +878,9 @@ void student_set_id(struct student *std, const char *name) {
   </section>
   <section>
     <p>
-      First name field of stduent is an array and as you may remember arrays name contains the address of array's
-      first cell. So is the following code is correct? 🤔
+      First name field of stduent is an array and as you may remember arrays
+      name contains the address of array's first cell. So is the following code
+      is correct? 🤔
     </p>
     <pre><code class="hljs lang-c">
 void student_set_id_wrong(struct student *std, const char *name) {
@@ -757,19 +888,24 @@ void student_set_id_wrong(struct student *std, const char *name) {
 }
     </code></pre>
     <p>
-      <span class="red-select">No.</span> It doesn't change first name of given student structure.
+      <span class="red-select">No.</span> It doesn't change first name of given
+      student structure.
     </p>
     <p>
-      Because C copies all of the structures' members, <span class="green-select">even if they are arrays</span>,
-      so <span class="orange-select">Calling by Value</span> makes a copy from each field of the structure
-      that changing them doesn't change anything in the source.
+      Because C copies all of the structures' members,
+      <span class="green-select">even if they are arrays</span>, so
+      <span class="orange-select">Calling by Value</span> makes a copy from each
+      field of the structure that changing them doesn't change anything in the
+      source.
     </p>
   </section>
   <section>
     <p>
-      As a rule of thumb <span class="violet-select">always</span> use pointer of structures in your functions even you don't want to change them.
-      In case of read-only functions use <span class="cyan-select">const</span> pointers to tell the users you don't
-      want to change the given structure.
+      As a rule of thumb <span class="violet-select">always</span> use pointer
+      of structures in your functions even you don't want to change them. In
+      case of read-only functions use
+      <span class="cyan-select">const</span> pointers to tell the users you
+      don't want to change the given structure.
     </p>
     <pre><code class="hljs lang-c">
 void student_print(const struct student *std) {
@@ -780,7 +916,7 @@ void student_print(const struct student *std) {
   </section>
 </section>
 <section>
-  <h2>struct & Functions: Example</h2>
+  <h2>struct &amp; Functions: Example</h2>
   <ul>
     <li>struct as output of function</li>
   </ul>
@@ -820,10 +956,15 @@ st1 = create_st_info();
 <section>
   <h2>Scope of struct variables</h2>
   <ul>
-    <li>The scope of struct <span class="orange-select">variables</span> are the same other variables</li>
+    <li>
+      The scope of struct <span class="orange-select">variables</span> are the
+      same other variables
+    </li>
     <li>If struct variable is global</li>
     <ul>
-      <li>Initialized to zero and visible to the functions after its declaration</li>
+      <li>
+        Initialized to zero and visible to the functions after its declaration
+      </li>
     </ul>
     <li>If struct variable is automatic local</li>
     <ul>
@@ -844,10 +985,20 @@ st1 = create_st_info();
     <ul>
       <li>In Arrays</li>
       <ul>
-        <li>We know the size of array when you <span class="green-select">develop code (coding time)</span></li>
-        <li>We know the size of array when <span class="cyan-select">program runs</span></li>
+        <li>
+          We know the size of array when you
+          <span class="green-select">develop code (coding time)</span>
+        </li>
+        <li>
+          We know the size of array when
+          <span class="cyan-select">program runs</span>
+        </li>
       </ul>
-      <li>What can we do, if we <span class="orange-select">don’t know data size</span> even in run time?</li>
+      <li>
+        What can we do, if we
+        <span class="orange-select">don’t know data size</span> even in run
+        time?
+      </li>
       <ul>
         <li>We use dynamic memory allocation &amp; resize</li>
         <ul>
@@ -858,7 +1009,11 @@ st1 = create_st_info();
   </section>
   <section>
     <ul>
-      <li>What can we do, if we want to <span class="orange-select">add/remove</span> an element to/from middle of the array?</li>
+      <li>
+        What can we do, if we want to
+        <span class="orange-select">add/remove</span> an element to/from middle
+        of the array?
+      </li>
       <ul>
         <li>We use dynamic memory allocation &amp; resize</li>
         <ul>
@@ -872,23 +1027,33 @@ st1 = create_st_info();
 <section>
   <h2>Dynamic Data Structures: Linked List</h2>
   <ul>
-    <li><span class="orange-select">linked list</span> data structure can be used to implement the dynamic structures</li>
+    <li>
+      <span class="orange-select">linked list</span> data structure can be used
+      to implement the dynamic structures
+    </li>
     <li>linked list: Nodes that linked together</li>
     <ul>
       <li><span class="green-select">info(s)</span>: Save the information</li>
       <li><span class="cyan-select">next</span>: Pointer to the next node</li>
-      <li><span class="violet-select">previous</span>: Pointer to the previous node</li>
+      <li>
+        <span class="violet-select">previous</span>: Pointer to the previous
+        node
+      </li>
     </ul>
   </ul>
 </section>
 <section>
-  <img alt="ll-1" src="img/ll-1.png">
-  <img alt="ll-2" src="img/ll-2.png">
+  <img alt="ll-1" src="img/ll-1.png" />
+  <img alt="ll-2" src="img/ll-2.png" />
 </section>
 <section>
   <h2>linked list in C</h2>
   <ul>
-    <li>linked list is implemented by <span class="orange-select">struct</span> and <span class="green-select">pointer to struct</span></li>
+    <li>
+      linked list is implemented by
+      <span class="orange-select">struct</span> and
+      <span class="green-select">pointer to struct</span>
+    </li>
     <li>Struct has a member to save the info</li>
     <li>Struct has a pointer to point the next node</li>
     <pre><code class="hljs lang-c">
@@ -901,7 +1066,8 @@ struct node{
 </section>
 <section>
   <p>
-    Please note that we <span class="red-select">cannot</span> have structures that <span class="green-select">contain themselves</span>:
+    Please note that we <span class="red-select">cannot</span> have structures
+    that <span class="green-select">contain themselves</span>:
   </p>
   <pre><code class="hljs lang-c">
 struct node{
@@ -910,7 +1076,8 @@ struct node{
 }; // compile error
   </code></pre>
   <p>
-    <span class="orange-select">struct node</span> conatins a pointer to its type.
+    <span class="orange-select">struct node</span> conatins a pointer to its
+    type.
   </p>
 </section>
 <section>
@@ -954,8 +1121,12 @@ struct node* node_construct(int i) {
 </section>
 <section>
   <p>
-    We <span class="orange-select">can return</span> the address of <span class="green-select">heap-allocated</span> variables <span class="violet-select">from functions</span>.
-    Heap variables are under our control, so they are <span class="cyan-select">continue existing</span> after the function completes.
+    We <span class="orange-select">can return</span> the address of
+    <span class="green-select">heap-allocated</span> variables
+    <span class="violet-select">from functions</span>. Heap variables are under
+    our control, so they are
+    <span class="cyan-select">continue existing</span> after the function
+    completes.
   </p>
 </section>
 <section>
@@ -971,12 +1142,30 @@ list-&gt;next-&gt;next = node_construct(30);
   <h2>Operation on linked list</h2>
   <ul>
     <li>Print the list: <span class="orange-select">list_print</span></li>
-    <li>Add new node to end of list: <span class="green-select">list_push_back</span></li>
-    <li>Add new node to front of list: <span class="yellow-select">list_push_front</span></li>
-    <li>Insert new node after some node: <span class="cyan-select">list_push_next</span></li>
-    <li>Delete the first node in list: <span class="violet-select">list_pop_front</span></li>
-    <li>Delete the end node in list: <span class="material-select">list_pop_back</span></li>
-    <li>Delete a node from the middle of list: <span class="red-select">list_pop_next</span></li>
+    <li>
+      Add new node to end of list:
+      <span class="green-select">list_push_back</span>
+    </li>
+    <li>
+      Add new node to front of list:
+      <span class="yellow-select">list_push_front</span>
+    </li>
+    <li>
+      Insert new node after some node:
+      <span class="cyan-select">list_push_next</span>
+    </li>
+    <li>
+      Delete the first node in list:
+      <span class="violet-select">list_pop_front</span>
+    </li>
+    <li>
+      Delete the end node in list:
+      <span class="material-select">list_pop_back</span>
+    </li>
+    <li>
+      Delete a node from the middle of list:
+      <span class="red-select">list_pop_next</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -1007,14 +1196,12 @@ void list_push_back(struct node* list, struct node* nn){
 <section>
   <section>
     <h2>list_pop_back (if more than 2 nodes)</h2>
-    <p>
-      X &rarr; Y &rarr; NULL
-    </p>
-    <hr>
+    <p>X &rarr; Y &rarr; NULL</p>
+    <hr />
     <ul>
       <li>Y = X-&gt;next</li>
     </ul>
-    <hr>
+    <hr />
     <ol>
       <li>free(Y)</li>
       <li>X-&gt;next = NULL</li>
@@ -1057,16 +1244,14 @@ void list_push_front(struct node** plist, struct node* nn) {
 <section>
   <section>
     <h2>list_pop_next</h2>
-    <p>
-      X &rarr; Y &rarr; Z
-    </p>
-    <hr>
+    <p>X &rarr; Y &rarr; Z</p>
+    <hr />
     <ul>
       <li>Y = X-&gt;next</li>
       <li>Z = Y-&gt;next</li>
       <li>Z = X-&gt;next-&gt;next</li>
     </ul>
-    <hr>
+    <hr />
     <ol>
       <li>X-&gt;next = Z</li>
       <li>free(Y)</li>
@@ -1099,7 +1284,10 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
 <section>
   <h2>Common Bugs</h2>
   <ul>
-    <li>The last <span class="orange-select">NULL</span> in Liked-list is very important</li>
+    <li>
+      The last <span class="orange-select">NULL</span> in Liked-list is very
+      important
+    </li>
     <ul>
       <li>Always keep it</li>
     </ul>
@@ -1129,15 +1317,24 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
     </ul>
     <li>We need an array</li>
     <ul>
-      <li>visitors[<span class="green-select">0</span>] &rarr; The number of visitors in <span class="orange-select">Saturday</span></li>
-      <li>visitors[<span class="green-select">1</span>] &rarr; The number of visitors in <span class="orange-select">Sunday</span></li>
+      <li>
+        visitors[<span class="green-select">0</span>] &rarr; The number of
+        visitors in <span class="orange-select">Saturday</span>
+      </li>
+      <li>
+        visitors[<span class="green-select">1</span>] &rarr; The number of
+        visitors in <span class="orange-select">Sunday</span>
+      </li>
     </ul>
   </ul>
 </section>
 <section>
   <h2>Introduction</h2>
   <ul>
-    <li><span class="orange-select">Enumeration</span> is a mechanism to assign a name for each number</li>
+    <li>
+      <span class="orange-select">Enumeration</span> is a mechanism to assign a
+      name for each number
+    </li>
     <li>We can use numbers instead of numbers</li>
     <ul>
       <li>More readable core</li>
@@ -1152,7 +1349,10 @@ salary[april], salary[june]
 <section>
   <h2>enum</h2>
   <ul>
-    <li><span class="orange-select">enum</span> is used to define a set of names and their corresponding numbers</li>
+    <li>
+      <span class="orange-select">enum</span> is used to define a set of names
+      and their corresponding numbers
+    </li>
     <pre><code class="hljs lang-c">
 enum tag {name_1, name_2, …, name_N};
     </code></pre>
@@ -1160,9 +1360,18 @@ enum tag {name_1, name_2, …, name_N};
     <ul>
       <li>We use it to define variables</li>
     </ul>
-    <li><span class="cyan-select">name_1</span> is <span class="red-select">0</span></li>
-    <li><span class="cyan-select">name_2</span> is <span class="red-select">1</span></li>
-    <li><span class="cyan-select">name_{i}</span> is <span class="red-select">name_{i-1} + 1</span></li>
+    <li>
+      <span class="cyan-select">name_1</span> is
+      <span class="red-select">0</span>
+    </li>
+    <li>
+      <span class="cyan-select">name_2</span> is
+      <span class="red-select">1</span>
+    </li>
+    <li>
+      <span class="cyan-select">name_{i}</span> is
+      <span class="red-select">name_{i-1} + 1</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -1170,15 +1379,11 @@ enum tag {name_1, name_2, …, name_N};
   <pre><code class="hljs lang-c">
 enum week {sat, sun, mon, tue, wed, thu, fri};
   </code></pre>
-  <p>
-    sat = 0, sun = 1, mon = 2, …, fri = 6
-  </p>
+  <p>sat = 0, sun = 1, mon = 2, …, fri = 6</p>
   <pre><code class="hljs lang-c">
 enum year {feb, jan, mar, apr, may, jun, jul, aug, sep, oct, nov, des};
   </code></pre>
-  <p>
-    feb = 0, jan = 1, …, nov = 10, des = 11
-  </p>
+  <p>feb = 0, jan = 1, …, nov = 10, des = 11</p>
 </section>
 <section>
   <h2>enum</h2>
@@ -1186,14 +1391,12 @@ enum year {feb, jan, mar, apr, may, jun, jul, aug, sep, oct, nov, des};
   <pre><code class="hljs lang-c">
 enum week {sat = 1, sun, mon, tue, wed, thu, fri};
   </code></pre>
-  <p>
-    sat = 1, sun = 2, mon = 3, …, fri = 7
-  </p>
+  <p>sat = 1, sun = 2, mon = 3, …, fri = 7</p>
   <pre><code class="hljs lang-c">
 enum condition {False = 0, True, No = 0, Yes, Ghalat = 0, Dorost};
   </code></pre>
   <p>
-    False = No = Ghalat = 0<br>
+    False = No = Ghalat = 0<br />
     True = Yes = Dorost = 1
   </p>
 </section>
@@ -1223,7 +1426,10 @@ for(day = sat; day &lt;= fri; day++)
 <section>
   <h2>Caution</h2>
   <ul>
-    <li>C compiler <span class="orange-select">does not</span> check the value is assigned to the enum variables</li>
+    <li>
+      C compiler <span class="orange-select">does not</span> check the value is
+      assigned to the enum variables
+    </li>
     <pre><code class="hljs lang-c">
 enum test1 {t1, t2, t3};
 enum test2 {t4, t5, t6};
@@ -1241,13 +1447,16 @@ t2v = 100;
 <section>
   <h2>Introduction</h2>
   <ul>
-    <li>Like Structures, <span class="orange-select">union is a user defined data type</span>.</li>
+    <li>
+      Like Structures,
+      <span class="orange-select">union is a user defined data type</span>.
+    </li>
     <li>In union, all members share the same memory location.</li>
   </ul>
 </section>
 <section>
   <h2>Introduction</h2>
-  <img src="img/union.png">
+  <img src="img/union.png" />
 </section>
 <section>
   <pre><code class="hljs lang-c">
@@ -1316,13 +1525,18 @@ sizeof(test1) = 4, sizeof(test2) = 4, sizeof(test3) = 40
 <section>
   <section>
     <h2>Legends</h2>
-    <img height="300px" src="img/rob.jpg">
+    <img height="300px" src="img/rob.jpg" />
   </section>
   <section>
-    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Rob Pike</h6>
+    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+      Rob Pike
+    </h6>
     <ul class="fragment" data-fragment-index="2">
       <li>Canadian programmer and author</li>
-      <li>He is best known for his work on the Go programming language and at Bell Labs</li>
+      <li>
+        He is best known for his work on the Go programming language and at Bell
+        Labs
+      </li>
     </ul>
   </section>
 </section>
