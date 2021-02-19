@@ -2,11 +2,11 @@
 index: 3
 title: C Programming Basics
 topics:
-- What is the C
-- Variables
-- Values
-- Casting
-- Constants & Definition
+  - What is the C
+  - Variables
+  - Values
+  - Casting
+  - Constants & Definition
 ---
 
 <section>
@@ -18,12 +18,23 @@ topics:
 <section>
   <h2>The C Language</h2>
   <ul>
-    <li><span class="orange-select">C</span> is a <span class="orange-select">general-purpose</span> programming language</li>
-    <li><span class="green-select">C</span> is developed by <span class="green-select">Dennis Ritchie</span> at <span class="green-select">Bell Laboratories</span></li>
-    <li><span class="orange-select">C</span> is one of the widely used languages</li>
+    <li>
+      <span class="orange-select">C</span> is a
+      <span class="orange-select">general-purpose</span> programming language
+    </li>
+    <li>
+      <span class="green-select">C</span> is developed by
+      <span class="green-select">Dennis Ritchie</span> at
+      <span class="green-select">Bell Laboratories</span>
+    </li>
+    <li>
+      <span class="orange-select">C</span> is one of the widely used languages
+    </li>
     <ul>
       <li>Application development</li>
-      <li>System programs, most operating systems are developed in C: Unix, Linux</li>
+      <li>
+        System programs, most operating systems are developed in C: Unix, Linux
+      </li>
       <li>Many other languages are based on it</li>
     </ul>
   </ul>
@@ -68,9 +79,15 @@ int main(void){
 <section>
   <h2>General Rules</h2>
   <ul>
-    <li>C is case sensitive: <span class="orange-select">main</span> is not <span class="green-select">MaIn</span></li>
+    <li>
+      C is case sensitive: <span class="orange-select">main</span> is not
+      <span class="green-select">MaIn</span>
+    </li>
     <li>A “;” is required after each statement</li>
-    <li>Each program should have a <span class="orange-select">main</span> function</li>
+    <li>
+      Each program should have a
+      <span class="orange-select">main</span> function
+    </li>
     <pre><code class="hljs lang-c">
 int main(void){…
 void main(void){…
@@ -143,11 +160,16 @@ int main(void){
     <li>Data is stored in the main memory</li>
     <li>Variables</li>
     <ul>
-      <li>Are the <span class="orange-select">name</span> of locations in the main memory</li>
+      <li>
+        Are the <span class="orange-select">name</span> of locations in the main
+        memory
+      </li>
       <ul>
         <li>We use names instead of physical addresses</li>
       </ul>
-      <li>Specify the <span class="green-select">coding</span> of the location</li>
+      <li>
+        Specify the <span class="green-select">coding</span> of the location
+      </li>
       <ul>
         <li>What do the “01”s means?</li>
         <li>What is the <span class="cyan-select">type</span> of data?</li>
@@ -160,11 +182,7 @@ int main(void){
   <ul>
     <li>Variables in the C</li>
     <ul>
-      <li>
-        &lt;Qualifier&gt;
-        &lt;Type&gt;
-        &lt;Identifier&gt;
-      </li>
+      <li>&lt;Qualifier&gt; &lt;Type&gt; &lt;Identifier&gt;</li>
     </ul>
     <li><span class="orange-select">&lt;Qualifier&gt;</span></li>
     <ul>
@@ -262,11 +280,17 @@ int main(void){
     </ul>
     <li>Overflow</li>
     <ul>
-      <li>Assign a very big number to a variable that is larger than the limit of the variable</li>
+      <li>
+        Assign a very big number to a variable that is larger than the limit of
+        the variable
+      </li>
     </ul>
     <li>Underflow</li>
     <ul>
-      <li> Assign a very small number to a variable that is smaller than the limit of the variable</li>
+      <li>
+        Assign a very small number to a variable that is smaller than the limit
+        of the variable
+      </li>
     </ul>
   </ul>
 </section>
@@ -284,8 +308,12 @@ int main(void){
 <section>
   <h2>Variables: Identifier</h2>
   <ul>
-    <li>The name of variables: <span class="orange-select">identifier</span></li>
-    <li>Identifier is string <span class="green-select">(single word)</span> of</li>
+    <li>
+      The name of variables: <span class="orange-select">identifier</span>
+    </li>
+    <li>
+      Identifier is string <span class="green-select">(single word)</span> of
+    </li>
     <ul>
       <li>Alphabet</li>
       <li>Numbers</li>
@@ -294,9 +322,15 @@ int main(void){
     <li>But</li>
     <ul>
       <li>Can<span class="cyan-select">not</span> start with digits</li>
-      <li>Can<span class="cyan-select">not</span> be the key-words (reserved words)</li>
+      <li>
+        Can<span class="cyan-select">not</span> be the key-words (reserved
+        words)
+      </li>
       <li>Can<span class="cyan-select">not</span> be duplicated</li>
-      <li>Should <span class="cyan-select">not</span> be library function names: printf</li>
+      <li>
+        Should <span class="cyan-select">not</span> be library function names:
+        printf
+      </li>
     </ul>
   </ul>
 </section>
@@ -318,23 +352,24 @@ int main(void){
   <h2>Variables: Identifier</h2>
   <ul>
     <li>Valid identifiers</li>
-    <p>
-      student -- grade -- sum -- all_students -- average_grade_1
-    </p>
+    <p>student -- grade -- sum -- all_students -- average_grade_1</p>
     <li>Invalid identifiers</li>
-    <p>
-      if -- 32_test -- wrong* -- $sds$
-    </p>
+    <p>if -- 32_test -- wrong* -- $sds$</p>
   </ul>
 </section>
 <section>
   <h2>Variables: Declaration</h2>
   <ul>
-    <li>Reserve memory for variable: <span class="orange-select">declaration</span></li>
+    <li>
+      Reserve memory for variable:
+      <span class="orange-select">declaration</span>
+    </li>
     <ul>
       <li>&lt;type&gt; &lt;identifier&gt;;</li>
     </ul>
-    <li>A variable must be declared <span class="green-select">before</span> use</li>
+    <li>
+      A variable must be declared <span class="green-select">before</span> use
+    </li>
     <pre><code class="hljs lang-c">
 char test_char;
 int sample_int;
@@ -347,16 +382,28 @@ int id, counter, value;
 <section>
   <h2>Variable Type Effect (in complied Lang.)</h2>
   <ul>
-    <li><span class="orange-select">Important note:</span> the type of variable is NOT stored in the main memory</li>
-    <li>After compiling the program, NO type is associated to memory locations!!!</li>
+    <li>
+      <span class="orange-select">Important note:</span> the type of variable is
+      NOT stored in the main memory
+    </li>
+    <li>
+      After compiling the program, NO type is associated to memory locations!!!
+    </li>
   </ul>
   <ul>
     <li>So, what does do the type?!</li>
-    <li>It determines the <span class="green-select">operations</span> that work with the memory location</li>
+    <li>
+      It determines the <span class="green-select">operations</span> that work
+      with the memory location
+    </li>
   </ul>
   <ul>
-    <li>int x, y, z; z = x + y performed by <span class="cyan-select">ALU</span></li>
-    <li>float a, b, c; c = a + b performed by <span class="cyan-select">FPU</span></li>
+    <li>
+      int x, y, z; z = x + y performed by <span class="cyan-select">ALU</span>
+    </li>
+    <li>
+      float a, b, c; c = a + b performed by <span class="cyan-select">FPU</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -368,9 +415,7 @@ int id, counter, value;
       <li>In C: it is not 0.</li>
     </ul>
   </ul>
-  <p>
-    We need to assign a value to each variable before use it.
-  </p>
+  <p>We need to assign a value to each variable before use it.</p>
 </section>
 <section>
   <div class="toc" data-selected="2"></div>
@@ -394,10 +439,16 @@ int id, counter, value;
   <ul>
     <li>Variables</li>
     <li>Declaration specifies the type and name (identifier) of variable</li>
-    <li>Assigning value to the variable: <span class="orange-select">assignment</span></li>
+    <li>
+      Assigning value to the variable:
+      <span class="orange-select">assignment</span>
+    </li>
     <ul>
       <li>&lt;identifier&gt; = &lt;value&gt;;</li>
-      <li>Compute the &lt;value&gt; and save result in memory location specified by &lt;identifier&gt;</li>
+      <li>
+        Compute the &lt;value&gt; and save result in memory location specified
+        by &lt;identifier&gt;
+      </li>
     </ul>
   </ul>
 </section>
@@ -440,7 +491,7 @@ d = 19.9;
   </ul>
 </section>
 <section>
-  <h2>Values: Float & Double</h2>
+  <h2>Values: Float &amp; Double</h2>
   <ul>
     <li>Valid numbers:</li>
     <p>0.2; .5; -.67; 20.0; 60e10; 7e-2</p>
@@ -492,7 +543,10 @@ d = 19.9;
   <ul>
     <li>What is the casting?</li>
     <ul>
-      <li>When the type of variable and value <span class="cyan-select">are not the same</span></li>
+      <li>
+        When the type of variable and value
+        <span class="cyan-select">are not the same</span>
+      </li>
       <li>Example: Assigning double value to integer variable</li>
     </ul>
     <li>It is not a syntax error in C (only warning)</li>
@@ -636,6 +690,8 @@ int main(void) {
 </section>
 <section>
   <h2>Legends</h2>
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Van Jacobson</h6>
-  <img src="img/van.jpg" alt="van" height="500px">
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    Van Jacobson
+  </h6>
+  <img src="img/van.jpg" alt="van" height="500px" />
 </section>
