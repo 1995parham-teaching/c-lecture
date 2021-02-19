@@ -13,7 +13,12 @@ topics:
     <h2></h2>
     <h2>Parham Alvani</h2>
     <p><a href="https://1995parham.github.io/">1995parham.github.io</a></p>
-    <img src="img/1995parham-logo.png" alt="1995parham-logo" width="500" style="background-color: white;">
+    <img
+      src="img/1995parham-logo.png"
+      alt="1995parham-logo"
+      width="500"
+      style="background-color: white"
+    />
   </section>
   <section>
     <h2></h2>
@@ -30,7 +35,7 @@ topics:
   <section>
     <h3>No instant messaging</h3>
     <h2><span class="orange-select">Email</span> is awesome</h2>
-    <img height="150px" src="img/bernard.gif">
+    <img height="150px" src="img/bernard.gif" />
   </section>
 </section>
 <section>
@@ -58,7 +63,9 @@ topics:
       <li>Problem solving steps</li>
       <ul>
         <li>Algorithm design</li>
-        <li>A programming language: the <span class="orange-select">C</span></li>
+        <li>
+          A programming language: the <span class="orange-select">C</span>
+        </li>
       </ul>
     </ul>
   </ul>
@@ -70,22 +77,22 @@ topics:
     <ul>
       <li>In depth computer hardware/software details</li>
       <ul class="fragment" data-fragment-index="0">
-        <li style="color: #66ffcc;">Computer Architecture</li>
-        <li style="color: #66ffcc;">Operating System</li>
+        <li style="color: #66ffcc">Computer Architecture</li>
+        <li style="color: #66ffcc">Operating System</li>
       </ul>
       <li>Most advanced algorithms</li>
       <ul class="fragment" data-fragment-index="1">
-        <li style="color: #66ffcc;">Data Structure</li>
-        <li style="color: #66ffcc;">Algorithms</li>
+        <li style="color: #66ffcc">Data Structure</li>
+        <li style="color: #66ffcc">Algorithms</li>
       </ul>
       <li>System programming using C</li>
       <ul class="fragment" data-fragment-index="2">
-        <li style="color: #66ffcc;">Operating System</li>
+        <li style="color: #66ffcc">Operating System</li>
       </ul>
       <li>Other programming languages: Java, PHP, etc.</li>
       <ul class="fragment" data-fragment-index="3">
-        <li style="color: #66ffcc;">Advanced Programming</li>
-        <li style="color: #66ffcc;">Web Programming</li>
+        <li style="color: #66ffcc">Advanced Programming</li>
+        <li style="color: #66ffcc">Web Programming</li>
       </ul>
     </ul>
   </ul>
@@ -120,15 +127,15 @@ topics:
     <ul>
       <li>Lecture notes (slides) are in (simple) English</li>
       <li>Available in the course homepage:</li>
-      <p class="orange-select">
-        https://aut-ce.github.io/C-lecture/
-      </p>
+      <p class="orange-select">https://aut-ce.github.io/C-lecture/</p>
     </ul>
   </section>
   {% for reference in site.data.references %}
   <section>
-    <img height="300px" src="{{reference.image}}">
-    <h5><span class="orange-select">{{ reference.title }}</span></h5>
+    <img height="300px" src="{{ reference.image }}" />
+    <h5>
+      <span class="orange-select">{{ reference.title }}</span>
+    </h5>
     <h5><span class="green-select">Authors:</span></h5>
     <ul>
       {% for author in reference.authors %}
@@ -190,6 +197,7 @@ topics:
       </tr>
     </table>
   </section>
+  <!--
   <section>
     <h2>Grading (SBU)</h2>
     <p>Major Parts + 5% Extra</p>
@@ -212,6 +220,7 @@ topics:
       </tr>
     </table>
   </section>
+  -->
 </section>
 <section>
   <section>
@@ -223,6 +232,7 @@ topics:
       <li>Homework are not accepted after solutions</li>
     </ul>
   </section>
+  <!--
   <section>
     <h2>Extra Classes (SBU)</h2>
     <p>TA Classes</p>
@@ -231,6 +241,7 @@ topics:
       <li>Homework are not accepted after solutions</li>
     </ul>
   </section>
+  -->
 </section>
 <section>
   <div class="toc" data-selected="1"></div>
@@ -240,7 +251,7 @@ topics:
   <p>Computer Classififcation</p>
   <dl>
     <dt>Supercomputers</dt>
-    <dd>Weather forecast, Large scale simulation, … </dd>
+    <dd>Weather forecast, Large scale simulation, …</dd>
     <dt>Mainframe computers</dt>
     <dd>The servers in large companies: Google, …</dd>
     <dt>Midsize computers</dt>
@@ -254,14 +265,22 @@ topics:
 <section>
   <h2>Computers</h2>
   <ul>
-    <li>Computers are anywhere, anytime. <span class="green-select">Why</span>?</li>
-    <li>They can solve many different problems. <span class="green-select">How</span>?</li>
+    <li>
+      Computers are anywhere, anytime. <span class="green-select">Why</span>?
+    </li>
+    <li>
+      They can solve many different problems.
+      <span class="green-select">How</span>?
+    </li>
   </ul>
 </section>
 <section>
   <h2>Computers</h2>
   <ul>
-    <li>Computers are programmable machines capable of performing calculations (computation)</li>
+    <li>
+      Computers are programmable machines capable of performing calculations
+      (computation)
+    </li>
     <li>Changing program leads to different operation</li>
     <li>Special-purpose machines</li>
     <ul>
@@ -277,7 +296,9 @@ topics:
   <h2>Data Units</h2>
   <ul>
     <li>Computers are digital machines</li>
-    <li>Data processed or stored in computer is represented as two-state values</li>
+    <li>
+      Data processed or stored in computer is represented as two-state values
+    </li>
     <ul>
       <li>either 1 or 0 - BInary digiTs (BIT)</li>
       <li>1 Byte = 8 bits</li>
@@ -291,8 +312,11 @@ topics:
   <h2>Data Representation/Coding</h2>
   <ul>
     <li>How to represent our data by 0-1?</li>
-    <li>In other word, there are some 0 and 1 in the computer, what is the meaning?</li>
-    <li style="color: #cccc00;">Coding (Representation Standards)</li>
+    <li>
+      In other word, there are some 0 and 1 in the computer, what is the
+      meaning?
+    </li>
+    <li style="color: #cccc00">Coding (Representation Standards)</li>
     <li>Major (common) representations (coding)</li>
     <ul>
       <li>Integer numbers: 1, 1000, -123, 0, ...</li>
@@ -313,16 +337,24 @@ topics:
     </ul>
     <table>
       <tr>
-        <td>4</td><td>0000</td><td>0100</td>
+        <td>4</td>
+        <td>0000</td>
+        <td>0100</td>
       </tr>
       <tr>
-        <td>-4</td><td>1000</td><td>0100</td>
+        <td>-4</td>
+        <td>1000</td>
+        <td>0100</td>
       </tr>
       <tr>
-        <td>0</td><td>0000</td><td>0000</td>
+        <td>0</td>
+        <td>0000</td>
+        <td>0000</td>
       </tr>
       <tr>
-        <td>-0</td><td>1000</td><td>0000</td>
+        <td>-0</td>
+        <td>1000</td>
+        <td>0000</td>
       </tr>
     </table>
   </ul>
@@ -335,7 +367,7 @@ topics:
   <h2>Floating Point Number Coding (IEEE 754)</h2>
   <ul>
     <li>Usually, this coding pattern:</li>
-    <img src="img/ieee-754.png" alt="ieee">
+    <img src="img/ieee-754.png" alt="ieee" />
     <li>Two precisions:</li>
     <ul>
       <li>Single precision: exponent: 8 bit, fraction: 23 bit</li>
@@ -378,7 +410,7 @@ topics:
 </section>
 <section>
   <h2>Computer Organization</h2>
-  <img src="img/basic.gif" alt="basic">
+  <img src="img/basic.gif" alt="basic" />
 </section>
 <section>
   <h2>Computer Organization: CPU</h2>
@@ -471,7 +503,7 @@ topics:
   </ul>
 </section>
 <section>
-  <h2>Computer HW & SW Organization</h2>
+  <h2>Computer HW &amp; SW Organization</h2>
 </section>
 <section>
   <h2>Computer Organization: OS</h2>
@@ -479,7 +511,10 @@ topics:
     <li>OS</li>
     <ul>
       <li>Manages the hardware, HW is a shared resource</li>
-      <li>Application programmers can easily use HW, Without knowing the HW details</li>
+      <li>
+        Application programmers can easily use HW, Without knowing the HW
+        details
+      </li>
     </ul>
     <li>Common operating systems</li>
     <ul>
@@ -529,20 +564,27 @@ topics:
     <li>Program is loaded from secondary storage to main memory by OS</li>
     <li>OS gives the control to the program</li>
     <li>Instructions run</li>
-    <li>Required inputs are got from input device &amp; saved in main memory &amp; used by CPU</li>
+    <li>
+      Required inputs are got from input device &amp; saved in main memory &amp;
+      used by CPU
+    </li>
     <li>Result is saved in main/secondary memory or sent to output devices</li>
   </ol>
 </section>
 <section>
   <h2>Programming Execution Phases</h2>
-  <img src="img/cycle.png" alt="cycle">
+  <img src="img/cycle.png" alt="cycle" />
 </section>
 <section>
   <ul>
     <li>Basic steps in running instructions</li>
-    <li>Read instruction from main memory: <span class="green-select">fetch</span></li>
+    <li>
+      Read instruction from main memory: <span class="green-select">fetch</span>
+    </li>
     <li><span class="green-select">Decode</span> the instruction</li>
-    <li>Get required <span class="green-select">operands</span> from main memory</li>
+    <li>
+      Get required <span class="green-select">operands</span> from main memory
+    </li>
     <li><span class="green-select">Run</span> the instruction</li>
     <li>Save the <span class="green-select">result</span></li>
   </ul>
@@ -551,7 +593,10 @@ topics:
   <h2>Von Neumann architecture</h2>
   <ul>
     <li>also known as the von Neumann model or Princeton architecture</li>
-    <li>Keeping both program instructions and data in read-write, random-access memory (RAM).</li>
+    <li>
+      Keeping both program instructions and data in read-write, random-access
+      memory (RAM).
+    </li>
   </ul>
 </section>
 <section>
@@ -560,7 +605,10 @@ topics:
     <li>Hardware is simple &amp; general purpose</li>
     <li>Complex tasks (e.g. average, sort, …) are programmed by software</li>
     <li>Software is translated to the basic instructions</li>
-    <li>This is the way that we <span class="orange-select">program</span> computers</li>
+    <li>
+      This is the way that we
+      <span class="orange-select">program</span> computers
+    </li>
   </ul>
 </section>
 <section>
@@ -573,9 +621,16 @@ topics:
     <li>We want to solve a real problem by computers</li>
     <li>We need a solution that</li>
     <ul>
-      <li>Specifies how the real (complex) problem should be solved <span class="orange-select">step-by-step</span> using the basic operations</li>
+      <li>
+        Specifies how the real (complex) problem should be solved
+        <span class="orange-select">step-by-step</span> using the basic
+        operations
+      </li>
     </ul>
-    <li>The solution is the <span class="green-select">“Algorithm”</span> of the problem</li>
+    <li>
+      The solution is the <span class="green-select">“Algorithm”</span> of the
+      problem
+    </li>
   </ul>
 </section>
 <section>
@@ -588,10 +643,13 @@ topics:
     </ol>
     <li>Formal Definition:</li>
     <q>
-      An algorithm is a <span class="green-select">finite list</span> of <span class="green-select">well-defined</span>
-      instructions for accomplishing some task that,
-      given an <span class="green-select">initial state</span>, will <span class="green-select">proceed</span> through a welldefined series of successive states, possibly
-      eventually <span class="green-select">terminating</span> in an end-state
+      An algorithm is a <span class="green-select">finite list</span> of
+      <span class="green-select">well-defined</span> instructions for
+      accomplishing some task that, given an
+      <span class="green-select">initial state</span>, will
+      <span class="green-select">proceed</span> through a welldefined series of
+      successive states, possibly eventually
+      <span class="green-select">terminating</span> in an end-state
     </q>
   </ul>
 </section>
@@ -629,7 +687,7 @@ topics:
   <h2>Algorithms: Description (cont’d)</h2>
   <ul>
     <li>Flowcharts:</li>
-    <img src='img/flowchart.png' alt="flowchart" height="500px">
+    <img src="img/flowchart.png" alt="flowchart" height="500px" />
   </ul>
 </section>
 <section>
@@ -661,18 +719,26 @@ Repeat the following three steps while i &lt;= n:
     <li>What can computer run?</li>
     <ul>
       <li>Instructions in main memory</li>
-      <li>The instructions are in <span class="cyan-select">“011100001…”</span> format</li>
-      <li>To use computers <q>We should describe your algorithm in “01” format</q></li>
+      <li>
+        The instructions are in
+        <span class="cyan-select">“011100001…”</span> format
+      </li>
+      <li>
+        To use computers <q>We should describe your algorithm in “01” format</q>
+      </li>
     </ul>
   </ul>
 </section>
 <section>
-  <img src="img/assembly.jpg" alt="assembly" height="700px">
+  <img src="img/assembly.jpg" alt="assembly" height="700px" />
 </section>
 <section>
   <h2>Programming Language</h2>
   <ul>
-    <li>Programming languages are the tools to describe your algorithms for computers</li>
+    <li>
+      Programming languages are the tools to describe your algorithms for
+      computers
+    </li>
     <ul>
       <li>Software is developed by programming languages</li>
     </ul>
@@ -680,8 +746,13 @@ Repeat the following three steps while i &lt;= n:
     <li>Human languages are not used. Why?</li>
     <li>When algorithm is described with a programming language</li>
     <ul>
-      <li>It cannot be run on computer directly if the languages is not 011001001</li>
-      <li>There are some other programs that translate the programming language to “010…”</li>
+      <li>
+        It cannot be run on computer directly if the languages is not 011001001
+      </li>
+      <li>
+        There are some other programs that translate the programming language to
+        “010…”
+      </li>
       <li>The output “0101…” can run on computers</li>
     </ul>
   </ul>
@@ -691,7 +762,9 @@ Repeat the following three steps while i &lt;= n:
   <ul>
     <li>Computer’s native language</li>
     <li>What is saved in the main memory</li>
-    <li>The processor architecture specifies the format of 01s, machine depended</li>
+    <li>
+      The processor architecture specifies the format of 01s, machine depended
+    </li>
     <li>Example</li>
     <ul>
       <li>Add two numbers: 00100111 1010 0101</li>
@@ -703,14 +776,20 @@ Repeat the following three steps while i &lt;= n:
   <h2>Programming Language: Assembly</h2>
   <ul>
     <li>Programming based on mnemonics</li>
-    <li>There are <span class="orange-select">one-to-one mapping</span> between machine language and assembly mnemonics</li>
+    <li>
+      There are <span class="orange-select">one-to-one mapping</span> between
+      machine language and assembly mnemonics
+    </li>
   </ul>
 </section>
 <section>
   <h2>Programming Language: High Level</h2>
   <ul>
     <li>Easy for programming, English-like keywords</li>
-    <li>There isn’t one-to-one relation between high level statements and machine level statements</li>
+    <li>
+      There isn’t one-to-one relation between high level statements and machine
+      level statements
+    </li>
     <li>Example: C, C++, Pascal, Java, PHP, Python, Go, ...</li>
   </ul>
 </section>
@@ -737,20 +816,36 @@ Repeat the following three steps while i &lt;= n:
 <section>
   <h2>Compiler</h2>
   <ul>
-    <li>A <span class="orange-select">set</span> of computer programs do the <span class="green-select">Compilation</span></li>
-    <li><span class="orange-select">Preprocessor</span>: Prepare file for compiler</li>
+    <li>
+      A <span class="orange-select">set</span> of computer programs do the
+      <span class="green-select">Compilation</span>
+    </li>
+    <li>
+      <span class="orange-select">Preprocessor</span>: Prepare file for compiler
+    </li>
     <li><span class="orange-select">Compiler</span>: Create assembly code</li>
-    <li><span class="green-select">Assembler</span>: Convert assembly code to binary code</li>
-    <li><span class="green-select">Linker</span>: Collect all required binary files (from libraries) into a single loadable file</li>
+    <li>
+      <span class="green-select">Assembler</span>: Convert assembly code to
+      binary code
+    </li>
+    <li>
+      <span class="green-select">Linker</span>: Collect all required binary
+      files (from libraries) into a single loadable file
+    </li>
     <li>Each language has its own compiler</li>
   </ul>
-  <p>Usually compiler do all above steps, you just compile the file and get a executable file</p>
+  <p>
+    Usually compiler do all above steps, you just compile the file and get a
+    executable file
+  </p>
 </section>
 <section>
-  <img src="img/build-flow.png" alt="build-flow">
+  <img src="img/build-flow.png" alt="build-flow" />
 </section>
-<section data-background-image="img/code.jpg" data-background-size="cover">
-</section>
+<section
+  data-background-image="img/code.jpg"
+  data-background-size="cover"
+></section>
 <section>
   <div class="toc" data-selected="3"></div>
 </section>
@@ -776,17 +871,33 @@ Repeat the following three steps while i &lt;= n:
   <h2>Solving Problems: Analysis</h2>
   <ul>
     <li>Problem solving process consists of: Input Algorithm Output</li>
-    <li>Determine what information is available as the input to your algorithm</li>
-    <li>Determine what information is desired as the output from your algorithm</li>
-    <li>What needs to be done on the input to produce the output? <span class="orange-select">Algorithm</span></li>
+    <li>
+      Determine what information is available as the input to your algorithm
+    </li>
+    <li>
+      Determine what information is desired as the output from your algorithm
+    </li>
+    <li>
+      What needs to be done on the input to produce the output?
+      <span class="orange-select">Algorithm</span>
+    </li>
   </ul>
 </section>
 <section>
   <h2>Solving Problems: Algorithm</h2>
   <ul>
-    <li>Determine a series of steps that transforms the input data into the output results</li>
-    <li>Find all the <span class="orange-select">special cases</span> that the must be handled</li>
-    <li>If necessary modify or redesign your series of steps so that all special cases are handled</li>
+    <li>
+      Determine a series of steps that transforms the input data into the output
+      results
+    </li>
+    <li>
+      Find all the <span class="orange-select">special cases</span> that the
+      must be handled
+    </li>
+    <li>
+      If necessary modify or redesign your series of steps so that all special
+      cases are handled
+    </li>
     <li>Verify your algorithm</li>
   </ul>
 </section>
@@ -794,7 +905,10 @@ Repeat the following three steps while i &lt;= n:
   <h2>Solving Problems: Coding</h2>
   <ul>
     <li>Describe your algorithm by a programming language</li>
-    <li>You must code exactly in the programming language <span class="orange-select">syntax</span></li>
+    <li>
+      You must code exactly in the programming language
+      <span class="orange-select">syntax</span>
+    </li>
     <li>Compiler itself is a program it isn’t a human</li>
     <ul>
       <li>It is not intelligent</li>
@@ -815,7 +929,7 @@ Repeat the following three steps while i &lt;= n:
   </ul>
 </section>
 <section>
-  <img src="img/code-progress.png" alt="code-progress" height="700">
+  <img src="img/code-progress.png" alt="code-progress" height="700" />
 </section>
 <section>
   <h2>Errors in Solving Problems</h2>
@@ -854,21 +968,29 @@ Repeat the following three steps while i &lt;= n:
     <dt>Link error</dt>
     <dd>Compiler tells what it is, check syntax &amp; libraries</dd>
     <dt>Run time error</dt>
-    <dd><ul>
-      <li>Try to find it, use debugger to run step-by-step, print debug messages</li>
-      <li>Check syntax &amp; semantic of the line</li>
-    </ul></dd>
+    <dd>
+      <ul>
+        <li>
+          Try to find it, use debugger to run step-by-step, print debug messages
+        </li>
+        <li>Check syntax &amp; semantic of the line</li>
+      </ul>
+    </dd>
   </dl>
 </section>
 <section>
   <h2>Debugging</h2>
   <dl>
     <dt>Logical error</dt>
-    <dd><ul>
-      <li>Try to find it, use debugger to run step-by-step, print debug messages</li>
-      <li>Check syntax &amp; semantic of program</li>
-      <li>Revise the algorithm</li>
-    </ul></dd>
+    <dd>
+      <ul>
+        <li>
+          Try to find it, use debugger to run step-by-step, print debug messages
+        </li>
+        <li>Check syntax &amp; semantic of program</li>
+        <li>Revise the algorithm</li>
+      </ul>
+    </dd>
   </dl>
 </section>
 <section>
@@ -909,6 +1031,8 @@ Repeat the following three steps while i &lt;= n:
 </section>
 <section>
   <h2>Legends</h2>
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Linus Torvalds</h6>
-  <img src="img/torvalds.png" alt="torvalds">
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    Linus Torvalds
+  </h6>
+  <img src="img/torvalds.png" alt="torvalds" />
 </section>
