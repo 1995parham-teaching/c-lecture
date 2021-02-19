@@ -1,0 +1,19 @@
+---
+kind: pipeline
+name: default
+type: docker
+
+steps:
+  - name: jekyll
+    image: ruby:2.7
+    commands:
+      - bundle install
+      - bundle exec jekyll build
+  - name: htmlhint
+    image: node
+    commands:
+      - npx htmlhint ./_site/slides/**/*.html ./_site/index.html
+
+trigger:
+  branch:
+    - main
