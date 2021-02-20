@@ -23,18 +23,18 @@ topics:
   <section>
     <h2></h2>
     <h2>
-      <span class="green-select">Parham</span>
-      <span class="orange-select">[dot]</span>
-      <span class="green-select">Alvani</span>
-      <span class="orange-select">[at]</span>
-      <span class="cyan-select">gmail</span>
-      <span class="orange-select">[dot]</span>
-      <span class="cyan-select">com</span>
+      <span class="hl-green">Parham</span>
+      <span class="hl-orange">[dot]</span>
+      <span class="hl-green">Alvani</span>
+      <span class="hl-orange">[at]</span>
+      <span class="hl-cyan">gmail</span>
+      <span class="hl-orange">[dot]</span>
+      <span class="hl-cyan">com</span>
     </h2>
   </section>
   <section>
     <h3>No instant messaging</h3>
-    <h2><span class="orange-select">Email</span> is awesome</h2>
+    <h2><span class="hl-orange">Email</span> is awesome</h2>
     <img height="150px" src="img/bernard.gif" />
   </section>
 </section>
@@ -63,9 +63,7 @@ topics:
       <li>Problem solving steps</li>
       <ul>
         <li>Algorithm design</li>
-        <li>
-          A programming language: the <span class="orange-select">C</span>
-        </li>
+        <li>A programming language: the <span class="hl-orange">C</span></li>
       </ul>
     </ul>
   </ul>
@@ -77,22 +75,22 @@ topics:
     <ul>
       <li>In depth computer hardware/software details</li>
       <ul class="fragment" data-fragment-index="0">
-        <li style="color: #66ffcc">Computer Architecture</li>
-        <li style="color: #66ffcc">Operating System</li>
+        <li class="hl-cyan">Computer Architecture</li>
+        <li class="hl-cyan">Operating System</li>
       </ul>
       <li>Most advanced algorithms</li>
       <ul class="fragment" data-fragment-index="1">
-        <li style="color: #66ffcc">Data Structure</li>
-        <li style="color: #66ffcc">Algorithms</li>
+        <li class="hl-cyan">Data Structure</li>
+        <li class="hl-cyan">Algorithms</li>
       </ul>
       <li>System programming using C</li>
       <ul class="fragment" data-fragment-index="2">
-        <li style="color: #66ffcc">Operating System</li>
+        <li class="hl-cyan">Operating System</li>
       </ul>
       <li>Other programming languages: Java, PHP, etc.</li>
       <ul class="fragment" data-fragment-index="3">
-        <li style="color: #66ffcc">Advanced Programming</li>
-        <li style="color: #66ffcc">Web Programming</li>
+        <li class="hl-cyan">Advanced Programming</li>
+        <li class="hl-cyan">Web Programming</li>
       </ul>
     </ul>
   </ul>
@@ -127,16 +125,16 @@ topics:
     <ul>
       <li>Lecture notes (slides) are in (simple) English</li>
       <li>Available in the course homepage:</li>
-      <p class="orange-select">https://aut-ce.github.io/C-lecture/</p>
+      <p class="hl-orange">https://aut-ce.github.io/C-lecture/</p>
     </ul>
   </section>
   {% for reference in site.data.references %}
   <section>
     <img height="300px" src="{{ reference.image }}" />
     <h5>
-      <span class="orange-select">{{ reference.title }}</span>
+      <span class="hl-orange">{{ reference.title }}</span>
     </h5>
-    <h5><span class="green-select">Authors:</span></h5>
+    <h5><span class="hl-green">Authors:</span></h5>
     <ul>
       {% for author in reference.authors %}
       <li>{{ author }}</li>
@@ -150,7 +148,7 @@ topics:
     <h2>Agenda</h2>
     <ul>
       <li>Introduction</li>
-      <li>Number Representation (SBU)</li>
+      <!-- <li>Number Representation (SBU)</li> -->
       <li>Algorithm Design (AUT)</li>
       <li>Basic Concepts</li>
       <li>Calculations</li>
@@ -265,12 +263,10 @@ topics:
 <section>
   <h2>Computers</h2>
   <ul>
-    <li>
-      Computers are anywhere, anytime. <span class="green-select">Why</span>?
-    </li>
+    <li>Computers are anywhere, anytime. <span class="hl-green">Why</span>?</li>
     <li>
       They can solve many different problems.
-      <span class="green-select">How</span>?
+      <span class="hl-green">How</span>?
     </li>
   </ul>
 </section>
@@ -316,7 +312,7 @@ topics:
       In other word, there are some 0 and 1 in the computer, what is the
       meaning?
     </li>
-    <li style="color: #cccc00">Coding (Representation Standards)</li>
+    <li class="hl-yellow">Coding (Representation Standards)</li>
     <li>Major (common) representations (coding)</li>
     <ul>
       <li>Integer numbers: 1, 1000, -123, 0, ...</li>
@@ -367,7 +363,7 @@ topics:
   <h2>Floating Point Number Coding (IEEE 754)</h2>
   <ul>
     <li>Usually, this coding pattern:</li>
-    <img src="img/ieee-754.png" alt="ieee" />
+    <img src="img/ieee-754.png" alt="ieee-754" />
     <li>Two precisions:</li>
     <ul>
       <li>Single precision: exponent: 8 bit, fraction: 23 bit</li>
@@ -378,7 +374,7 @@ topics:
 <section>
   <h2>Character Coding</h2>
   <ul>
-    <li>Common character encoding: <span class="green-select">ASCII</span></li>
+    <li>Common character encoding: <span class="hl-green">ASCII</span></li>
     <li>8 bits can represent 256 characters; but,</li>
     <ul>
       <li>There are so many characters (Farsi, Arabic, …)</li>
@@ -504,13 +500,17 @@ topics:
 </section>
 <section>
   <h2>Computer HW &amp; SW Organization</h2>
+  <img src="./img/sw-and-hw.png" alt="sw-and-hw" />
 </section>
 <section>
   <h2>Computer Organization: OS</h2>
   <ul>
     <li>OS</li>
     <ul>
-      <li>Manages the hardware, HW is a shared resource</li>
+      <li>
+        Manages the hardware, HW is a
+        <strong class="hl-orange">shared</strong> resource
+      </li>
       <li>
         Application programmers can easily use HW, Without knowing the HW
         details
@@ -525,7 +525,10 @@ topics:
 <section>
   <h2>Computer Organization: Libraries</h2>
   <ul>
-    <li>The libraries provide the most common functionalities</li>
+    <li>
+      The libraries provide the most
+      <em class="hl-green">common</em> functionalities
+    </li>
     <li>In mathematic programs</li>
     <ul>
       <li>sin(x), cos(x), matrix multiplication/inversion</li>
@@ -546,7 +549,7 @@ topics:
     <li>An application program</li>
     <ul>
       <li>Users use them to do some specific things</li>
-      <li class="orange-select">Without knowing the details of the computer</li>
+      <li class="hl-orange">Without knowing the details of the computer</li>
     </ul>
     <li>Common application programs</li>
     <ul>
@@ -579,14 +582,14 @@ topics:
   <ul>
     <li>Basic steps in running instructions</li>
     <li>
-      Read instruction from main memory: <span class="green-select">fetch</span>
+      Read instruction from main memory: <span class="hl-green">fetch</span>
     </li>
-    <li><span class="green-select">Decode</span> the instruction</li>
+    <li><span class="hl-green">Decode</span> the instruction</li>
     <li>
-      Get required <span class="green-select">operands</span> from main memory
+      Get required <span class="hl-green">operands</span> from main memory
     </li>
-    <li><span class="green-select">Run</span> the instruction</li>
-    <li>Save the <span class="green-select">result</span></li>
+    <li><span class="hl-green">Run</span> the instruction</li>
+    <li>Save the <span class="hl-green">result</span></li>
   </ul>
 </section>
 <section>
@@ -607,7 +610,7 @@ topics:
     <li>Software is translated to the basic instructions</li>
     <li>
       This is the way that we
-      <span class="orange-select">program</span> computers
+      <span class="hl-oranget">program</span> computers
     </li>
   </ul>
 </section>
@@ -623,12 +626,11 @@ topics:
     <ul>
       <li>
         Specifies how the real (complex) problem should be solved
-        <span class="orange-select">step-by-step</span> using the basic
-        operations
+        <span class="hl-orange">step-by-step</span> using the basic operations
       </li>
     </ul>
     <li>
-      The solution is the <span class="green-select">“Algorithm”</span> of the
+      The solution is the <span class="hl-green">“Algorithm”</span> of the
       problem
     </li>
   </ul>
@@ -643,13 +645,12 @@ topics:
     </ol>
     <li>Formal Definition:</li>
     <q>
-      An algorithm is a <span class="green-select">finite list</span> of
-      <span class="green-select">well-defined</span> instructions for
-      accomplishing some task that, given an
-      <span class="green-select">initial state</span>, will
-      <span class="green-select">proceed</span> through a welldefined series of
+      An algorithm is a <span class="hl-green">finite list</span> of
+      <span class="hl-green">well-defined</span> instructions for accomplishing
+      some task that, given an <span class="hl-green">initial state</span>, will
+      <span class="hl-green">proceed</span> through a welldefined series of
       successive states, possibly eventually
-      <span class="green-select">terminating</span> in an end-state
+      <span class="hl-green">terminating</span> in an end-state
     </q>
   </ul>
 </section>
@@ -714,14 +715,14 @@ Repeat the following three steps while i &lt;= n:
   <ul>
     <li>Flowcharts and Pseudo-code are for humans not for computer</li>
     <ul>
-      <li>Computer <span class="orange-select">cannot</span> run them</li>
+      <li>Computer <span class="hl-orange">cannot</span> run them</li>
     </ul>
     <li>What can computer run?</li>
     <ul>
       <li>Instructions in main memory</li>
       <li>
         The instructions are in
-        <span class="cyan-select">“011100001…”</span> format
+        <span class="hl-cyan">“011100001…”</span> format
       </li>
       <li>
         To use computers <q>We should describe your algorithm in “01” format</q>
@@ -777,7 +778,7 @@ Repeat the following three steps while i &lt;= n:
   <ul>
     <li>Programming based on mnemonics</li>
     <li>
-      There are <span class="orange-select">one-to-one mapping</span> between
+      There are <span class="hl-orange">one-to-one mapping</span> between
       machine language and assembly mnemonics
     </li>
   </ul>
@@ -817,20 +818,20 @@ Repeat the following three steps while i &lt;= n:
   <h2>Compiler</h2>
   <ul>
     <li>
-      A <span class="orange-select">set</span> of computer programs do the
-      <span class="green-select">Compilation</span>
+      A <span class="hl-orange">set</span> of computer programs do the
+      <span class="hl-green">Compilation</span>
     </li>
     <li>
-      <span class="orange-select">Preprocessor</span>: Prepare file for compiler
+      <span class="hl-orange">Preprocessor</span>: Prepare file for compiler
     </li>
-    <li><span class="orange-select">Compiler</span>: Create assembly code</li>
+    <li><span class="hl-orange">Compiler</span>: Create assembly code</li>
     <li>
-      <span class="green-select">Assembler</span>: Convert assembly code to
-      binary code
+      <span class="hl-green">Assembler</span>: Convert assembly code to binary
+      code
     </li>
     <li>
-      <span class="green-select">Linker</span>: Collect all required binary
-      files (from libraries) into a single loadable file
+      <span class="hl-green">Linker</span>: Collect all required binary files
+      (from libraries) into a single loadable file
     </li>
     <li>Each language has its own compiler</li>
   </ul>
@@ -854,7 +855,7 @@ Repeat the following three steps while i &lt;= n:
   <ul>
     <li>How to solve problems using computers</li>
     <ul>
-      <li>Develop a <span class="orange-select">program</span> for it</li>
+      <li>Develop a <span class="hl-orange">program</span> for it</li>
     </ul>
     <li>Steps</li>
     <ol>
@@ -879,7 +880,7 @@ Repeat the following three steps while i &lt;= n:
     </li>
     <li>
       What needs to be done on the input to produce the output?
-      <span class="orange-select">Algorithm</span>
+      <span class="hl-orange">Algorithm</span>
     </li>
   </ul>
 </section>
@@ -891,8 +892,8 @@ Repeat the following three steps while i &lt;= n:
       results
     </li>
     <li>
-      Find all the <span class="orange-select">special cases</span> that the
-      must be handled
+      Find all the <span class="hl-orange">special cases</span> that the must be
+      handled
     </li>
     <li>
       If necessary modify or redesign your series of steps so that all special
@@ -907,7 +908,7 @@ Repeat the following three steps while i &lt;= n:
     <li>Describe your algorithm by a programming language</li>
     <li>
       You must code exactly in the programming language
-      <span class="orange-select">syntax</span>
+      <span class="hl-orange">syntax</span>
     </li>
     <li>Compiler itself is a program it isn’t a human</li>
     <ul>
@@ -942,7 +943,7 @@ Repeat the following three steps while i &lt;= n:
     </ul>
     <li>Logical Error: Program does not produce the expected result</li>
     <ul>
-      <li>It is called <span class="orange-select">bug</span></li>
+      <li>It is called <span class="hl-orange">bug</span></li>
       <li>No one (compiler, assembler) except debugger can help you</li>
     </ul>
   </ul>
