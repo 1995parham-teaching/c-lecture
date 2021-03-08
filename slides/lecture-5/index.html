@@ -17,11 +17,11 @@ topics:
   <ul>
     <li>Printing messages</li>
     <ul>
-      <li><span class="orange-select">printf("This is message \n");</span></li>
+      <li><span class="hl-orange">printf("This is message \n");</span></li>
     </ul>
     <li>Printing variables</li>
     <ul>
-      <li><span class="green-select">printf("format", parameters);</span></li>
+      <li><span class="hl-green">printf("format", parameters);</span></li>
     </ul>
   </ul>
   <pre><code class="hljs lang-c">
@@ -34,7 +34,7 @@ printf("i is %d and char is %c", i, '6');
 <section>
   <h2>Printing Integers</h2>
   <ul>
-    <li><span class="orange-select">%d, %i, %ld</span></li>
+    <li><span class="hl-orange">%d, %i, %ld</span></li>
   </ul>
   <pre><code class="hljs lang-c">
 printf("%d", 100);
@@ -50,20 +50,20 @@ printf("%ld, %i", +1000, -100);
 <section>
   <h2>Printing Unsigned Integers</h2>
   <ul>
-    <li><span class="orange-select">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
+    <li><span class="hl-orange">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
   </ul>
   <pre><code class="hljs lang-c">
 unsigned int i = 26;
-printf("%u\n", i); //26
-printf("%o\n", i); //32
-printf("%x\n", i); //1a
-printf("%X\n", i); //1A
+printf("%u\n", i); // 26
+printf("%o\n", i); // 32
+printf("%x\n", i); // 1a
+printf("%X\n", i); // 1A
   </code></pre>
 </section>
 <section>
   <h2>Printing Floats</h2>
   <ul>
-    <li><span class="orange-select">%f, %e, %E, %lf</span></li>
+    <li><span class="hl-orange">%f, %e, %E, %lf</span></li>
   </ul>
   <pre><code class="hljs lang-c">
 printf("%f", 100.5f);
@@ -80,7 +80,7 @@ printf("%f, %e", 1e3, 1e3);
 <section>
   <h2>Printing Chars</h2>
   <ul>
-    <li><span class="orange-select">%c</span></li>
+    <li><span class="hl-orange">%c</span></li>
   </ul>
   <pre><code class="hljs lang-c">
 printf("%c", 'a');
@@ -98,7 +98,7 @@ a, b, A
   <h2>Special Character</h2>
   <table>
     <thead>
-      <th>Characters in <span class="orange-select">printf</span></th>
+      <th>Characters in <span class="hl-orange">printf</span></th>
       <th>result</th>
     </thead>
     <tbody>
@@ -149,9 +149,9 @@ This is message
 <section>
   <h2>Field length</h2>
   <ul>
-    <li>Field length is a <span class="orange-select">number</span></li>
+    <li>Field length is a <span class="hl-orange">number</span></li>
     <li>Comes after % (and before the type char)</li>
-    <li>It is the <span class="cyan-select">minimum</span> space reserved for print</li>
+    <li>It is the <span class="hl-cyan">minimum</span> space reserved for print</li>
     <ul>
       <li>If value is smaller than the space</li>
       <ul>
@@ -180,20 +180,20 @@ printf("|%4s|\n", "ABCDE"); // |ABCDE|
 <section>
   <h2>Precision</h2>
   <ul>
-    <li>Precision is a <span class="green-select">.number</span> and comes after %</li>
+    <li>Precision is a <span class="hl-green">.number</span> and comes after %</li>
     <li>For Integer</li>
     <ul>
-      <li>The <span class="orange-select">minimum</span> number of digits</li>
+      <li>The <span class="hl-orange">minimum</span> number of digits</li>
       <li>If (# of digits &lt; precision) then empty space = 0</li>
     </ul>
     <li>For floats</li>
     <ul>
       <li>With %f, %e</li>
-      <li>The number of digits <span class="cyan-select">after .</span></li>
+      <li>The number of digits <span class="hl-cyan">after .</span></li>
     </ul>
     <li>For strings</li>
     <ul>
-      <li>The <span class="orange-select">maximum</span> number of characters</li>
+      <li>The <span class="hl-orange">maximum</span> number of characters</li>
     </ul>
   </ul>
 </section>
@@ -212,9 +212,9 @@ printf("|%.4s|\n", "ABCDEF"); // |ABCD|
 <section>
   <h2>Field length and Precision</h2>
   <ul>
-    <li>This is a number with format <span class="orange-select">a.b</span></li>
-    <li>First <span class="green-select">b</span> determines the precision</li>
-    <li>Then <span class="cyan-select">a</span> specifies the field length</li>
+    <li>This is a number with format <span class="hl-orange">a.b</span></li>
+    <li>First <span class="hl-green">b</span> determines the precision</li>
+    <li>Then <span class="hl-cyan">a</span> specifies the field length</li>
   </ul>
 </section>
 <section>
@@ -403,15 +403,15 @@ Input: 123 456 → I = 123 c = ‘4’ j = 56
   <ul>
     <li>getchar()</li>
     <ul>
-      <li>Read char <span class="orange-select">after Enter</span></li>
+      <li>Read char <span class="hl-orange">after Enter</span></li>
     </ul>
     <li>getch()</li>
     <ul>
-      <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">does NOT show</span> the char</li>
+      <li>Read char <span class="hl-orange">without Enter</span>, <span class="hl-green">does NOT show</span> the char</li>
     </ul>
     <li>getche()</li>
     <ul>
-      <li>Read char <span class="orange-select">without Enter</span>, <span class="green-select">shows</span> the char</li>
+      <li>Read char <span class="hl-orange">without Enter</span>, <span class="hl-green">shows</span> the char</li>
     </ul>
   </ul>
 </section>
@@ -432,7 +432,7 @@ Input: ABC DEF → str = "ABC DEF"
 <section>
   <h2>Field length in scanf</h2>
   <ul>
-    <li>Field length specifies the <span class="orange-select">maximum</span> number of input characters (in the buffer) used for scanning</li>
+    <li>Field length specifies the <span class="hl-orange">maximum</span> number of input characters (in the buffer) used for scanning</li>
   </ul>
   <pre><code class="hljs lang-c">
 int i, j;
@@ -463,7 +463,7 @@ Input: 1389/12/1 → y = 1389, m = 12, d = 1
 <section>
   <h2>Format of actual input data</h2>
   <ul>
-    <li>The format of actual input data <span class="orange-select">MUST</span> match with the format of scanf</li>
+    <li>The format of actual input data <span class="hl-orange">MUST</span> match with the format of scanf</li>
   </ul>
   <pre><code class="hljs lang-c">
 int a, b;
@@ -488,7 +488,7 @@ Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
       <li>printf("%d %d", 10);</li>
       <li>printf("%d", 10, 20);</li>
     </ul>
-    <li>Using name of variable instead of <span class="orange-select">address</span></li>
+    <li>Using name of variable instead of <span class="hl-orange">address</span></li>
     <ul>
       <li>scanf("%d", i);</li>
     </ul>
