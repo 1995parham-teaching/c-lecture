@@ -184,6 +184,13 @@ c = !a || b; // c = false
 </section>
 <section>
   <h2>Relations, No type effect</h2>
+  <ul>
+    <li>
+      Usual arithmetic conversions are performed on both operands following the
+      rules for arithmetic operators.
+    </li>
+    <li>The values are compared after conversions.</li>
+  </ul>
   <pre><code class="hljs lang-c">
 int a = 10, b = 20;
 float f = 54.677f;
