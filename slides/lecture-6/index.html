@@ -2,11 +2,11 @@
 index: 6
 title: Making Decisions
 topics:
-- Conditions and Boolean operations
-- if-else statement
-- switch-case statement
-- Conditional expressions
-- Common Bugs
+  - Conditions and Boolean operations
+  - if-else statement
+  - switch-case statement
+  - Conditional expressions
+  - Common Bugs
 ---
 
 <section>
@@ -18,17 +18,24 @@ topics:
 <section>
   <h2>Decision</h2>
   <ul>
-    <li>Decisions are based on <span class="orange-select">conditions</span></li>
+    <li>Decisions are based on <span class="hl-orange">conditions</span></li>
     <ul>
-      <li><span class="green-select">If</span> it is snowing <span class="orange-select">then</span> We will cancel the game</li>
-      <li><span class="green-select">If</span> the class is not canceled <span class="orange-select">then</span> I will attend <span class="cyan-select">else</span> I will go to gym</li>
+      <li>
+        <span class="hl-green">If</span> it is snowing
+        <span class="hl-orange">then</span> We will cancel the game
+      </li>
+      <li>
+        <span class="hl-green">If</span> the class is not canceled
+        <span class="hl-orange">then</span> I will attend
+        <span class="hl-cyan">else</span> I will go to gym
+      </li>
     </ul>
     <li>In programming</li>
     <ul>
       <li>Do statements based on conditions</li>
       <ul>
-        <li><span class="green-select">True</span>: The statements will be done</li>
-        <li><span class="red-select">False</span>: The statement wont be done</li>
+        <li><span class="hl-green">True</span>: The statements will be done</li>
+        <li><span class="hl-red">False</span>: The statement wont be done</li>
       </ul>
     </ul>
   </ul>
@@ -103,7 +110,11 @@ bl = a &lt;= b;
     <li>Multiple conditions in decision making</li>
     <li>Logical relation between conditions</li>
     <ul>
-      <li><span class="green-select">if</span> you are student <span class="cyan-select">and</span> you have the programming course <span class="orange-select">then</span> You should read the book</li>
+      <li>
+        <span class="hl-green">if</span> you are student
+        <span class="hl-cyan">and</span> you have the programming course
+        <span class="hl-orange">then</span> You should read the book
+      </li>
     </ul>
   </ul>
 </section>
@@ -169,7 +180,7 @@ c = !a || b; // c = false
 </section>
 <section>
   <h2>Precedence</h2>
-  <img src="img/c-precedence.png" alt="c-precedence">
+  <img src="img/c-precedence.png" alt="c-precedence" />
 </section>
 <section>
   <h2>Relations, No type effect</h2>
@@ -216,7 +227,7 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
     <h2>Examples</h2>
     <ul>
       <li>x in [10, 20]</li>
-      <li><span class="red-select">Wrong Version</span></li>
+      <li><span class="hl-red">Wrong Version</span></li>
       <ul>
         <li>10 &lt;= x &lt;= 20</li>
         <li>Let x = 30</li>
@@ -234,7 +245,7 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
     <h2>Examples</h2>
     <ul>
       <li>x in [10, 20]</li>
-      <li><span class="green-select">Correct Version</span></li>
+      <li><span class="hl-green">Correct Version</span></li>
       <ul>
         <li>(10 &lt;= x) &amp;&amp; (x &lt;= 20)</li>
         <li>Let x = 30</li>
@@ -252,7 +263,7 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
     <h2>Examples</h2>
     <ul>
       <li>a, b &gt; 0</li>
-      <li><span class="red-select">Wrong Version</span></li>
+      <li><span class="hl-red">Wrong Version</span></li>
       <ul>
         <li>a &amp;&amp; b &gt; 0</li>
         <li>Let a = -10, b = 20</li>
@@ -270,7 +281,7 @@ j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
     <h2>Examples</h2>
     <ul>
       <li>a, b &gt; 0</li>
-      <li><span class="green-select">Correct Version</span></li>
+      <li><span class="hl-green">Correct Version</span></li>
       <ul>
         <li>(a &gt; 0) &amp;&amp; (b &gt; 0)</li>
         <li>Let a = -10, b = 20</li>
@@ -321,8 +332,11 @@ else
     </code></pre>
     <li>Expression</li>
     <ul>
-      <li>A boolean statement: <span class="green-select">a &lt;= b</span></li>
-      <li>A mathematical statement: <span class="green-select">a + b</span> or a variable: <span class="green-select">a</span></li>
+      <li>A boolean statement: <span class="hl-green">a &lt;= b</span></li>
+      <li>
+        A mathematical statement: <span class="hl-green">a + b</span> or a
+        variable: <span class="hl-green">a</span>
+      </li>
       <ul>
         <li>zero &rarr; false</li>
         <li>non-zero &rarr; true</li>
@@ -424,7 +438,7 @@ if(numg &gt;= 75)
   <ul>
     <li>To avoid repeating conditions in if statements</li>
     <li>To avoid running unnecessary statements</li>
-    <li><span class="red-select">Nested</span> if: check multiple conditions</li>
+    <li><span class="hl-red">Nested</span> if: check multiple conditions</li>
     <ul>
       <li>&lt;Statements 1&gt; becomes an if-else statement</li>
       <li>&lt;Statements 2&gt; becomes an if-else statement</li>
@@ -517,8 +531,12 @@ else
 <section>
   <h2>Nested if: Incomplete branch</h2>
   <ol>
-    <li><span class="orange-select">else</span> part is optional</li>
-    <li><span class="orange-select">else</span> always associates with the <span class="green-select">nearest</span> <span class="orange-select">if</span></li>
+    <li><span class="hl-orange">else</span> part is optional</li>
+    <li>
+      <span class="hl-orange">else</span> always associates with the
+      <span class="hl-green">nearest</span>
+      <span class="hl-orange">if</span>
+    </li>
     <li>1 + 2 can be dangerous specially in incomplete branchs</li>
   </ol>
   <p>Example: Tell user to move or game over</p>
@@ -544,11 +562,20 @@ else
     <ul>
       <li>if-else if-else if-….</li>
     </ul>
-    <li>Select from alternative <span class="orange-select">values</span> of a <span class="green-select">variable</span></li>
+    <li>
+      Select from alternative <span class="hl-orange">values</span> of a
+      <span class="hl-green">variable</span>
+    </li>
     <ul>
       <li>switch-case</li>
-      <li>Values should be <span class="orange-select">constant</span> not expression: i, i+j,</li>
-      <li>Values &amp; Variables should be <span class="orange-select">int</span> or <span class="orange-select">char</span></li>
+      <li>
+        Values should be <span class="hl-orange">constant</span> not expression:
+        i, i+j,
+      </li>
+      <li>
+        Values &amp; Variables should be <span class="hl-orange">int</span> or
+        <span class="hl-orange">char</span>
+      </li>
     </ul>
   </ul>
   <pre><code class="hljs lang-c">
@@ -655,8 +682,15 @@ if(
 <section>
   <h2>switch-case vs. if-else</h2>
   <ul>
-    <li><span class="orange-select">if-else</span> is more powerful than <span class="orange-select">switch-case</span></li>
-    <li><span class="orange-select">switch-case</span> is only for checking the <span class="green-select">values of a variable</span> and the values must be <span class="green-select">constant</span></li>
+    <li>
+      <span class="hl-orange">if-else</span> is more powerful than
+      <span class="hl-orange">switch-case</span>
+    </li>
+    <li>
+      <span class="hl-orange">switch-case</span> is only for checking the
+      <span class="hl-green">values of a variable</span> and the values must be
+      <span class="hl-green">constant</span>
+    </li>
     <li>if-else is more suitable in some cases , e.g.,</li>
     <pre><code class="hljs lang-c">
 double var1, var2;
@@ -726,7 +760,9 @@ sign = (x &lt; 0) ? -1 : ((x &gt; 0) ? 1 : 0)
     <h2>Common Bugs</h2>
     <ul>
       <li>Equality of floating point numbers</li>
-      <li>Two float numbers may or may <span class="red-select">NOT</span> be equal</li>
+      <li>
+        Two float numbers may or may <span class="hl-red">NOT</span> be equal
+      </li>
     </ul>
     <pre><code class="hljs lang-c">
 double d1, d2;
@@ -737,11 +773,12 @@ if(d1 == d2)
 else
   printf("They are not equal :D \n");
     </code></pre>
-    <p><span class="red-select">They are equal :-o</span></p>
+    <p><span class="hl-red">They are equal :-o</span></p>
   </section>
   <section>
     <p>
-      Instead of checking for equality, check their difference to be in a small-enough period.
+      Instead of checking for equality, check their difference to be in a
+      small-enough period.
     </p>
     <pre><code class="hljs lang-c">
 double d1, d2;
@@ -782,7 +819,9 @@ if (a &amp;&amp; b &gt; 0) // Logical Error
 <section>
   <h2>Debugging by assert</h2>
   <ul>
-    <li>The assert macro is defined in <span class="orange-select">assert.h</span></li>
+    <li>
+      The assert macro is defined in <span class="hl-orange">assert.h</span>
+    </li>
     <li>assert(an expression)</li>
     <ul>
       <li>If the expression is true &rarr; nothing</li>
@@ -792,6 +831,8 @@ if (a &amp;&amp; b &gt; 0) // Logical Error
 </section>
 <section>
   <h2>Legends</h2>
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">COVID-19</h6>
-  <img src="img/coronavirus.jpg" alt="coronavirus">
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    COVID-19
+  </h6>
+  <img src="img/coronavirus.jpg" alt="coronavirus" />
 </section>
