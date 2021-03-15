@@ -2,13 +2,13 @@
 index: 7
 title: Repeating Statements
 topics:
-- Introduction
-- while statement
-- do-while statement
-- for statement
-- Arrays
-- Advanced loops
-- Bugs and avoiding them
+  - Introduction
+  - while statement
+  - do-while statement
+  - for statement
+  - Arrays
+  - Advanced loops
+  - Bugs and avoiding them
 ---
 
 <section>
@@ -54,7 +54,9 @@ while (counter &lt; number of loop repetition)
 <section>
   <h2>Repetition: sentinel controlled</h2>
   <ul>
-    <li>When we do <span class="hl-orange">NOT</span> know the number of iteration</li>
+    <li>
+      When we do <span class="hl-orange">NOT</span> know the number of iteration
+    </li>
     <li>But we know, when loop terminates</li>
     <ul>
       <li>E.g. Average of arbitrary positive numbers ending with &lt;0</li>
@@ -75,7 +77,9 @@ while (n is not sentinel)
   <ul>
     <li>Repetition is performed by loops</li>
     <ul>
-      <li>Put all statements to repeat in a <span class="hl-orange">loop</span></li>
+      <li>
+        Put all statements to repeat in a <span class="hl-orange">loop</span>
+      </li>
     </ul>
     <li>Don’t loop to infinity</li>
     <ul>
@@ -95,10 +99,7 @@ while (n is not sentinel)
 </section>
 <section>
   <h2>while statement</h2>
-  <p>
-    while ( &lt;expression&gt; )
-    &lt;statements&gt;
-  </p>
+  <p>while ( &lt;expression&gt; ) &lt;statements&gt;</p>
 </section>
 <section>
   <h2>Print 0 to n</h2>
@@ -123,8 +124,8 @@ int main(void){
 <section>
   <h2>do-while statement</h2>
   <p>
-    do<br>
-    &lt;statements&gt;<br>
+    do<br />
+    &lt;statements&gt;<br />
     while ( &lt;expression&gt; );
   </p>
 </section>
@@ -153,7 +154,7 @@ int main(void) {
     sum += number / (number + 1.0);
   } while(number &lt; n);
 
-  printf("sum = %f\n", sum);
+  printf("sum = %lf\n", sum);
   return 0;
 }
   </code></pre>
@@ -164,7 +165,7 @@ int main(void) {
 <section>
   <h2>for statement</h2>
   <p>
-    for(&lt;expression1&gtl;; &lt;expression2&gt;; &lt;expression3&gt;)
+    for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
     &lt;statements&gt;
   </p>
 </section>
@@ -185,7 +186,7 @@ int main(void){
     sum += grade;
   }
   average = sum / count;
-  printf("The average of your class is %0.3f\n", average);
+  printf("The average of your class is %0.3lf\n", average);
   return 0;
 }
   </code></pre>
@@ -193,12 +194,18 @@ int main(void){
 <section>
   <h2>Expressions in for statements</h2>
   <ul>
-    <li>Expression1 and Expression3 can be any number of expressions, they execute in the order</li>
+    <li>
+      Expression1 and Expression3 can be any number of expressions, they execute
+      in the order
+    </li>
     <pre><code class="hljs lang-c">
 for(i = 0, j = 0; i &lt; 10; i++, j--)
     </code></pre>
     <li>Expression2 at most should be a single expression</li>
-    <li>If multiple expressions then the value of the last one is evaluated as True/False</li>
+    <li>
+      If multiple expressions then the value of the last one is evaluated as
+      True/False
+    </li>
     <pre><code class="hljs lang-c">
 for(i = 0, j = 0; i &lt; 10, j &gt; -100; i++, j--)
     </code></pre>
@@ -241,8 +248,11 @@ for(;;)
 <section>
   <h2>Array</h2>
   <ul>
-    <li>An <span class="hl-orange">ordered</span> collection of <span class="hl-orange">same type</span> variables</li>
-    <li>A nx1 vector of</li>
+    <li>
+      An <span class="hl-orange">ordered</span> collection of
+      <span class="hl-orange">same type</span> variables
+    </li>
+    <li>A 1 x n vector of</li>
     <ul>
       <li>Integers, chars, floats, ...</li>
     </ul>
@@ -297,12 +307,20 @@ for(;;)
     <li>Array declaration in C</li>
     <p>
       <span class="hl-orange">&lt;Elements’ Type&gt;</span>
-      <span class="hl-green">&lt;identifier&gt;</span>[<span class="hl-red">&lt;size&gt;</span>]
+      <span class="hl-green">&lt;identifier&gt;</span>[<span class="hl-red"
+        >&lt;size&gt;</span
+      >]
     </p>
     <p>
-      <span class="hl-orange">int</span> <span class="hl-green">arr</span>[<span class="hl-red">20</span>]
+      <span class="hl-orange">int</span> <span class="hl-green">arr</span>[<span
+        class="hl-red"
+        >20</span
+      >]
     </p>
-    <li><span class="hl-orange">&lt;Elements’ Type&gt;</span>: int, char, float, ...</li>
+    <li>
+      <span class="hl-orange">&lt;Elements’ Type&gt;</span>: int, char, float,
+      ...
+    </li>
     <li><span class="hl-red">&lt;size&gt;</span></li>
     <ul>
       <li>Old compilers (standard): it should be constant</li>
@@ -317,7 +335,10 @@ for(;;)
 <section>
   <h2>Example</h2>
   <p>
-    <span class="hl-orange">int</span> <span class="hl-green">num</span>[<span class="hl-red">20</span>]
+    <span class="hl-orange">int</span> <span class="hl-green">num</span>[<span
+      class="hl-red"
+      >20</span
+    >]
   </p>
   <ul>
     <li>num is array of 20 <span class="hl-cyan">integers</span></li>
@@ -325,7 +346,8 @@ for(;;)
     <li>num[19] is the last integer</li>
   </ul>
   <p>
-    <span class="hl-orange">float</span> <span class="hl-green">farr</span>[<span class="hl-red">100</span>]
+    <span class="hl-orange">float</span>
+    <span class="hl-green">farr</span>[<span class="hl-red">100</span>]
   </p>
   <ul>
     <li>farr is array of <span class="hl-cyan">100</span> floats</li>
@@ -339,7 +361,7 @@ for(;;)
   <ul>
     <pre><code class="hljs lang-c">int num[3]={10, 20, 60};</code></pre>
     <li>num is the array of 3 integers, num[0] is 10, …</li>
-    <pre><code class="hljs lang-c">nt num[]={40, 50, 60, 70, 70, 80};</code></pre>
+    <pre><code class="hljs lang-c">int num[]={40, 50, 60, 70, 70, 80};</code></pre>
     <li>num is the array of 6 integers</li>
     <pre><code class="hljs lang-c">int num[10]={40, 50, 60};</code></pre>
     <li>num is the array of 10 integers</li>
@@ -383,7 +405,10 @@ int n;
 int num[n];
 scanf("%d", &amp;n);
   </code></pre>
-  <p><span class="hl-orange">num</span> is <span class="hl-red">not</span> usable, why?</p>
+  <p>
+    <span class="hl-orange">num</span> is
+    <span class="hl-red">not</span> usable, why?
+  </p>
 </section>
 <section>
   <div class="toc" data-selected="5"></div>
@@ -425,13 +450,13 @@ for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
     <h2>Nested loops example</h2>
     <ul>
       <li>A program that takes n and m and prints</li>
-      <p>
-        *** ….* (m * in each line)<br>
-        *** ….*<br>
-        …<br>
-        *** ….*<br>
+      <pre><code class="hljs plaintext">
+        *** ….* (m * in each line)
+        *** ….*
+        …
+        *** ….*
         (n lines)
-      </p>
+      </code></pre>
     </ul>
   </section>
   <section>
@@ -459,13 +484,13 @@ int main(void){
     <h2>Nested loops example</h2>
     <ul>
       <li>A program that takes n and prints</li>
-      <p>
-        * (i * in i-th line)<br>
-        ** <br>
-        *** <br>
-        *** ….* <br>
+      <pre><code class="hljs plaintext">
+        * (i * in i-th line)
+        **
+        ***
+        *** ….*
         (n lines)
-      </p>
+      </code></pre>
     </ul>
   </section>
   <section>
@@ -553,7 +578,10 @@ do{
   <ul>
     <li>Loop should terminate</li>
     <ul>
-      <li>E.g., in for loops, after each iteration, we should approach to the stop condition</li>
+      <li>
+        E.g., in for loops, after each iteration, we should approach to the stop
+        condition
+      </li>
     </ul>
     <pre><code class="hljs lang-c">
 for(i = 0; i &lt; 10; i++) //OK
@@ -590,4 +618,8 @@ while(a = b){ //it means while(true)
 </section>
 <section>
   <h2>Legends</h2>
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    Nowruz
+  </h6>
+  <img src="img/nowruz.jpg" alt="nowruz" style="max-height: 50vh" />
 </section>
