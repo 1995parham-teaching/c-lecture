@@ -37,7 +37,7 @@ topics:
       <li>Solve the sub-problems</li>
       <li>Put the solutions altogether to get the final solution</li>
     </ul>
-    <li>Modular <span class="red-select">programming</span></li>
+    <li>Modular <span class="hl-red">programming</span></li>
   </ul>
 </section>
 <section>
@@ -45,14 +45,14 @@ topics:
   <ul>
     <li>Solving a large and complex problem</li>
     <li>Design the overall algorithm</li>
-    <li>Some portions are <span class="orange-select">black-box</span></li>
+    <li>Some portions are <span class="hl-orange">black-box</span></li>
     <ul>
-      <li>We know <span class="green-select">what</span> each box does</li>
-      <li>But we don't worry <span class="cyan-select">how</span></li>
+      <li>We know <span class="hl-green">what</span> each box does</li>
+      <li>But we don't worry <span class="hl-cyan">how</span></li>
       <li>Later, we think about the black-boxes and develop them</li>
     </ul>
     <li>
-      Black-boxes are implemented by <span class="red-select">functions</span>
+      Black-boxes are implemented by <span class="hl-red">functions</span>
     </li>
   </ul>
 </section>
@@ -68,8 +68,8 @@ topics:
         <li>Programming: Printing, Reading</li>
       </ul>
       <li>
-        Develop it <span class="orange-select">one time</span>, use it
-        <span class="green-select">many times</span>
+        Develop it <span class="hl-orange">one time</span>, use it
+        <span class="hl-green">many times</span>
       </li>
     </ul>
     <li>Multiple developers can work on different parts</li>
@@ -85,13 +85,13 @@ topics:
     </ul>
     <li>Functions in C</li>
     <ul>
-      <li><span class="orange-select">Queries</span>: Return a value</li>
+      <li><span class="hl-orange">Queries</span>: Return a value</li>
       <ul>
         <li>sin(), fabs()</li>
       </ul>
       <li>
-        <span class="orange-select">Commands</span>: do some tasks, do not
-        return any value
+        <span class="hl-orange">Commands</span>: do some tasks, do not return
+        any value
       </li>
       <ul>
         <li>printf_my_info(...)</li>
@@ -120,22 +120,22 @@ topics:
 <section>
   <h2>Function prototype</h2>
   <p>
-    <span class="orange-select">&lt;output type&gt;</span>
-    <span class="green-select">&lt;function name&gt;</span>
+    <span class="hl-orange">&lt;output type&gt;</span>
+    <span class="hl-green">&lt;function name&gt;</span>
     (
-    <span class="cyan-select">&lt;input parameter types&gt;</span>
+    <span class="hl-cyan">&lt;input parameter types&gt;</span>
     );
   </p>
   <ul>
-    <li><span class="orange-select">&lt;output type&gt;</span></li>
+    <li><span class="hl-orange">&lt;output type&gt;</span></li>
     <ul>
-      <li><span class="red-select">Queries</span>: int, float, ...</li>
-      <li><span class="red-select">Command</span>: void</li>
+      <li><span class="hl-red">Queries</span>: int, float, ...</li>
+      <li><span class="hl-red">Command</span>: void</li>
     </ul>
     <li>
-      <span class="green-select">&lt;function name&gt;</span> is an identifier
+      <span class="hl-green">&lt;function name&gt;</span> is an identifier
     </li>
-    <li><span class="cyan-select">&lt;input parameter types&gt;</span></li>
+    <li><span class="hl-cyan">&lt;input parameter types&gt;</span></li>
     <ul>
       <li>&lt;type&gt;, &lt;type&gt;, ...</li>
       <ul>
@@ -149,25 +149,25 @@ topics:
   <section>
     <h2>Function definition</h2>
     <p>
-      <span class="orange-select">&lt;output type&gt;</span>
-      <span class="green-select">&lt;function name&gt;</span>
+      <span class="hl-orange">&lt;output type&gt;</span>
+      <span class="hl-green">&lt;function name&gt;</span>
       (
-      <span class="cyan-select">&lt;input parameters&gt;</span>
+      <span class="hl-cyan">&lt;input parameters&gt;</span>
       );<br />
       {<br />
       &lt;statements&gt;<br />
       }
     </p>
     <ul>
-      <li><span class="orange-select">&lt;output type&gt;</span></li>
+      <li><span class="hl-orange">&lt;output type&gt;</span></li>
       <ul>
-        <li><span class="red-select">Queries</span>: int, float, ...</li>
-        <li><span class="red-select">Command</span>: void</li>
+        <li><span class="hl-red">Queries</span>: int, float, ...</li>
+        <li><span class="hl-red">Command</span>: void</li>
       </ul>
       <li>
-        <span class="green-select">&lt;function name&gt;</span> is an identifier
+        <span class="hl-green">&lt;function name&gt;</span> is an identifier
       </li>
-      <li><span class="cyan-select">&lt;input parameter&gt;</span></li>
+      <li><span class="hl-cyan">&lt;input parameter&gt;</span></li>
       <ul>
         <li>
           &lt;type&gt; &lt;identifier&gt;, &lt;type&gt; &lt;identifier&gt;, ...
@@ -192,11 +192,11 @@ topics:
   <h2>Function call</h2>
   <ul>
     <li>Command function</li>
-    <p><span class="green-select">&lt;function name&gt;</span>(inputs)</p>
+    <p><span class="hl-green">&lt;function name&gt;</span>(inputs)</p>
     <li>Query function</li>
     <p>
       &lt;variable&gt; =
-      <span class="green-select">&lt;function name&gt;</span>(inputs)
+      <span class="hl-green">&lt;function name&gt;</span>(inputs)
     </p>
     <li>Inputs should match by function definition</li>
     <li>Functions are called by another function</li>
@@ -247,7 +247,7 @@ int main(void){
   <ul>
     <li>Is function declaration needed?</li>
     <li>Is there any useful application of function declaration?</li>
-    <li><span class="orange-select">Yes!</span></li>
+    <li><span class="hl-orange">Yes!</span></li>
     <li>Libraries are implemented using it</li>
     <ul>
       <li>.h files contains the function declarations</li>
@@ -264,7 +264,7 @@ int main(void){
   <ul>
     <li>Inputs of function</li>
     <ul>
-      <li>No input: <span class="orange-select">void</span></li>
+      <li>No input: <span class="hl-orange">void</span></li>
       <li>One or multiple inputs</li>
     </ul>
     <li>Each input should have a type</li>
@@ -300,11 +300,10 @@ int main(void) {
   <h2>How Does Function Call Work?</h2>
   <ul>
     <li>
-      Function call is implemented by <span class="orange-select">“stack”</span>
+      Function call is implemented by <span class="hl-orange">“stack”</span>
     </li>
     <li>
-      Stack is a <span class="green-select">logical</span> part of the main
-      memory
+      Stack is a <span class="hl-green">logical</span> part of the main memory
     </li>
     <li>Variables of function and its input variables are in stack</li>
     <li>When a function calls</li>
@@ -316,8 +315,8 @@ int main(void) {
       </li>
       <ul>
         <li>
-          They are <span class="cyan-select">copied</span> in to the variables
-          of function
+          They are <span class="hl-cyan">copied</span> in to the variables of
+          function
         </li>
       </ul>
     </ul>
@@ -328,12 +327,8 @@ int main(void) {
   <h2>print_sub: What happen?</h2>
   <p>print_sub(56.0, 6.0);</p>
   <ul>
-    <li>
-      56.0 is copied the memory location <span class="green-select">a</span>
-    </li>
-    <li>
-      6.0 is copied to memory location <span class="orange-select">b</span>
-    </li>
+    <li>56.0 is copied the memory location <span class="hl-green">a</span></li>
+    <li>6.0 is copied to memory location <span class="hl-orange">b</span></li>
   </ul>
   <pre><code class="hljs lang-c">
 double a = 56.0;
@@ -348,11 +343,11 @@ res = a - b;
   <ul>
     <li>
       value of d1 is copied the memory location
-      <span class="green-select">a</span>
+      <span class="hl-green">a</span>
     </li>
     <li>
       value of d2 is copied to memory location
-      <span class="orange-select">b</span>
+      <span class="hl-orange">b</span>
     </li>
   </ul>
   <pre><code class="hljs lang-c">
@@ -361,7 +356,7 @@ double b = 6.0;
 double res;
 res = a - b;
   </code></pre>
-  <p><span class="red-select">Call by Value</span></p>
+  <p><span class="hl-red">Call by Value</span></p>
 </section>
 <section>
   <section>
@@ -370,19 +365,18 @@ res = a - b;
       <li>In call by value mechanism</li>
       <ul>
         <li>
-          The values are <span class="orange-select">copied</span> to the
-          function
+          The values are <span class="hl-orange">copied</span> to the function
         </li>
       </ul>
       <li>If we change values in the function</li>
       <ul>
         <li>The copied version is changed</li>
         <li>
-          The original value does <span class="red-select">not</span> affected
+          The original value does <span class="hl-red">not</span> affected
         </li>
       </ul>
       <li>
-        Call by value inputs <span class="red-select">cannot</span> be used to
+        Call by value inputs <span class="hl-red">cannot</span> be used to
         produce output
       </li>
     </ul>
@@ -395,15 +389,15 @@ res = a - b;
     <ul>
       <li>
         The local parameters are
-        <span class="orange-select">references</span> to the storage locations
-        of the original arguments passed in.
+        <span class="hl-orange">references</span> to the storage locations of
+        the original arguments passed in.
       </li>
       <li>
         Changes to these variables in the function
-        <span class="green-select">will affect</span> the originals
+        <span class="hl-green">will affect</span> the originals
       </li>
       <li>
-        <span class="cyan-select">No copy is made</span>, so overhead of copying
+        <span class="hl-cyan">No copy is made</span>, so overhead of copying
         (time, storage) is saved
       </li>
     </ul>
@@ -444,14 +438,14 @@ int main(void){
     <ul>
       <li>Produce output</li>
       <li>
-        Output <span class="red-select">cannot</span> be produced by the “call
-        by value” parameters
+        Output <span class="hl-red">cannot</span> be produced by the “call by
+        value” parameters
       </li>
     </ul>
     <li>To produce an output</li>
     <ul>
       <li>Declare output type</li>
-      <li>Generate the output by <span class="orange-select">return</span></li>
+      <li>Generate the output by <span class="hl-orange">return</span></li>
     </ul>
   </ul>
 </section>
@@ -461,9 +455,7 @@ int main(void){
     <li>To generate a result by a function</li>
     <p>return &lt;value&gt;;</p>
     <li>Only one value can be returned</li>
-    <li>
-      <span class="green-select">return</span> finishes running the function
-    </li>
+    <li><span class="hl-green">return</span> finishes running the function</li>
     <li>Function can have multiple return</li>
     <ul>
       <li>Only one of them runs each time</li>
@@ -519,7 +511,7 @@ void main(void){
   <ul>
     <li>
       A function can produce
-      <span class="orange-select">at most one</span> output
+      <span class="hl-orange">at most one</span> output
     </li>
     <li>Output of functions can be dropped</li>
   </ul>
@@ -535,15 +527,15 @@ gcd(10, 20); // we drop the output of gcd
     <li>Cast for input</li>
     <ul>
       <li>
-        Prototype: <span class="orange-select">void f(int a, double b);</span>
+        Prototype: <span class="hl-orange">void f(int a, double b);</span>
       </li>
-      <li>Call: <span class="green-select">f(10.1, 20.2);</span></li>
+      <li>Call: <span class="hl-green">f(10.1, 20.2);</span></li>
     </ul>
     <li>Cast for output</li>
     <ul>
-      <li>Prototype: <span class="orange-select">int f(int a);</span></li>
-      <li>Call: <span class="green-select">double d = f(10);</span></li>
-      <li>In return: <span class="cyan-select">return 10.20</span></li>
+      <li>Prototype: <span class="hl-orange">int f(int a);</span></li>
+      <li>Call: <span class="hl-green">double d = f(10);</span></li>
+      <li>In return: <span class="hl-cyan">return 10.20</span></li>
     </ul>
   </ul>
 </section>
@@ -552,7 +544,7 @@ gcd(10, 20); // we drop the output of gcd
   <ul>
     <li>
       If output or input type is not specified &rarr;
-      <span class="orange-select">int</span>
+      <span class="hl-orange">int</span>
     </li>
     <ul>
       <li>Casting may not work</li>
@@ -583,13 +575,13 @@ int main(){
     <ul>
       <li>2 approaches to reduce the overhead</li>
     </ul>
-    <li><span class="orange-select">inline</span> function</li>
+    <li><span class="hl-orange">inline</span> function</li>
     <ul>
       <li>To ask from compiler to compile it as inline, but no guarantee</li>
       <li>
-        <span class="green-select">GCC</span> and
-        <span class="green-select">Clang</span> don't support
-        <span class="orange-select">inline</span> functions
+        <span class="hl-green">GCC</span> and
+        <span class="hl-green">Clang</span> don't support
+        <span class="hl-orange">inline</span> functions
       </li>
       <pre><code class="hljs lang-c">
 inline int f(float x)
@@ -641,12 +633,12 @@ void main(void){
       <li>Are declared in the start of functions</li>
       <li>
         Are used any where in the function
-        <span class="orange-select">after declaration</span>
+        <span class="hl-orange">after declaration</span>
       </li>
       <li>Cannot be used outside of function</li>
       <li>Cannot be used in other functions</li>
     </ul>
-    <li><span class="orange-select">Scope</span> of variable</li>
+    <li><span class="hl-orange">Scope</span> of variable</li>
     <ul>
       <li>A range of code that the variable can be used</li>
     </ul>
@@ -668,13 +660,10 @@ void main(void){
     </ul>
     <li>Variables</li>
     <ul>
-      <li><span class="orange-select">Can be</span> declared in a block</li>
+      <li><span class="hl-orange">Can be</span> declared in a block</li>
+      <li><span class="hl-green">Can be</span> used in the declared block</li>
       <li>
-        <span class="green-select">Can be</span> used in the declared block
-      </li>
-      <li>
-        <span class="cyan-select">Cannot be</span> used outside the declared
-        block
+        <span class="hl-cyan">Cannot be</span> used outside the declared block
       </li>
     </ul>
     <li>The declared block is the scope of the variable</li>
@@ -731,13 +720,13 @@ void main(){ //block 1
       <li>Scope of inner block contains the outer block</li>
     </ul>
     <li>
-      Variables in inner block <span class="red-select">cannot</span> be used in
+      Variables in inner block <span class="hl-red">cannot</span> be used in
       outer block
     </li>
     <ul>
       <li>
         Scope of the outer block
-        <span class="red-select">does not</span> contains the inner block
+        <span class="hl-red">does not</span> contains the inner block
       </li>
     </ul>
   </ul>
@@ -775,27 +764,27 @@ for(int i = 0; i &lt; 10; i++){
     </li>
     <ul>
       <li>
-        The inner variable <span class="orange-select">hides</span> the outer
+        The inner variable <span class="hl-orange">hides</span> the outer
         variable
       </li>
       <li>
         Changing inner variables
-        <span class="green-select">does not</span> change outer variable
+        <span class="hl-green">does not</span> change outer variable
       </li>
     </ul>
   </ul>
-  <p class="red-select" style="font-size: 120px">Do Not Use It</p>
+  <p class="hl-red" style="font-size: 120px">Do Not Use It</p>
 </section>
 <section>
   <h2>Local Variables</h2>
   <ul>
     <li>
       All variables defined in a function are the
-      <span class="orange-select">local variable</span> of the function
+      <span class="hl-orange">local variable</span> of the function
     </li>
     <li>
-      Can <span class="green-select">ONLY</span> be used in the function, not
-      other functions
+      Can <span class="hl-green">ONLY</span> be used in the function, not other
+      functions
     </li>
   </ul>
   <pre><code class="hljs lang-c">
@@ -816,12 +805,11 @@ int main(void){
   <ul>
     <li>Global variables are defined outside of all functions</li>
     <li>
-      Global variables are <span class="orange-select">initialized</span> to
-      zero
+      Global variables are <span class="hl-orange">initialized</span> to zero
     </li>
     <li>
       Global variables are available to all
-      <span class="green-select">subsequent</span> functions
+      <span class="hl-green">subsequent</span> functions
     </li>
   </ul>
   <pre><code class="hljs lang-c">
@@ -918,16 +906,16 @@ void main(void){
       <li>Input parameters of a function</li>
       <li>Variables defined inside a function/block</li>
       <li>
-        Keyword <span class="orange-select">auto</span> is optional before them
+        Keyword <span class="hl-orange">auto</span> is optional before them
       </li>
     </ul>
     <li>
       Generated at the
-      <span class="green-select">start of each run of the block</span>
+      <span class="hl-green">start of each run of the block</span>
     </li>
     <li>
       Destroyed at the
-      <span class="cyan-select">end of each run of the block</span>
+      <span class="hl-cyan">end of each run of the block</span>
     </li>
     <li>Are not initialized</li>
   </ul>
@@ -941,7 +929,7 @@ void main(void){
       <li>Are generated when program starts</li>
       <li>Are destroyed when program finishes</li>
     </ul>
-    <li>Usage of keyword <span class="orange-select">extern</span></li>
+    <li>Usage of keyword <span class="hl-orange">extern</span></li>
     <ul>
       <li>To use global variables in other files</li>
       <li>To use global variables before definition</li>
@@ -955,14 +943,14 @@ void main(void){
 <section>
   <h2>Storage Classes: Static</h2>
   <ul>
-    <li>Keyword <span class="orange-select">static</span> comes before them</li>
+    <li>Keyword <span class="hl-orange">static</span> comes before them</li>
     <li>For local variables:</li>
     <ul>
       <li>
         Generated in
-        <span class="green-select">the first run of the block</span>
+        <span class="hl-green">the first run of the block</span>
       </li>
-      <li>Destroyed <span class="cyan-select">when program finishes</span></li>
+      <li>Destroyed <span class="hl-cyan">when program finishes</span></li>
       <li>Initialized</li>
       <ul>
         <li>If no value &rarr; initialized by 0</li>
@@ -974,11 +962,11 @@ void main(void){
 <section>
   <h2>Storage Classes: Static</h2>
   <ul>
-    <li>Keyword <span class="orange-select">static</span> comes before them</li>
+    <li>Keyword <span class="hl-orange">static</span> comes before them</li>
     <li>For global variables:</li>
     <ul>
-      <li>Generated <span class="green-select">when program starts</span></li>
-      <li>Destroyed <span class="cyan-select">when program finishes</span></li>
+      <li>Generated <span class="hl-green">when program starts</span></li>
+      <li>Destroyed <span class="hl-cyan">when program finishes</span></li>
       <li>Initialized</li>
       <ul>
         <li>If no value &rarr; initialized by 0</li>
@@ -990,13 +978,11 @@ void main(void){
 <section>
   <h2>Storage Classes: Register</h2>
   <ul>
-    <li>
-      Keyword <span class="orange-select">register</span> comes before them
-    </li>
+    <li>Keyword <span class="hl-orange">register</span> comes before them</li>
     <li>Can be used for local variables</li>
     <li>Compiler tries to allocated the variable in registers of CPU</li>
     <ul>
-      <li>But does <span class="red-select">not</span> guaranteed</li>
+      <li>But does <span class="hl-red">not</span> guaranteed</li>
       <li>Registers are very fast and small memories</li>
     </ul>
     <li>Improve performance</li>
@@ -1093,11 +1079,11 @@ for(i = 0; i &lt; 100; i++)
     <li>Variable is defined in a block of a loop</li>
     <li>
       The variable retains its value between iterations of the loop if it is
-      <span class="red-select">NOT</span> variable length array
+      <span class="hl-red">NOT</span> variable length array
     </li>
     <li>
-      The variable does <span class="red-select">NOT</span> retain its value
-      between iterations of the loop if it is a variable length array
+      The variable does <span class="hl-red">NOT</span> retain its value between
+      iterations of the loop if it is a variable length array
     </li>
   </ul>
 </section>
@@ -1308,16 +1294,16 @@ int main(void) {
     <li>Original problem can be solved by</li>
     <ul>
       <li>
-        Solving a <span class="orange-select">similar</span> but
-        <span class="green-select">simpler</span> problem (recursion)
+        Solving a <span class="hl-orange">similar</span> but
+        <span class="hl-green">simpler</span> problem (recursion)
       </li>
       <ul>
         <li>(n-1)! in factorial, GCD(b, b mod a)</li>
       </ul>
     </ul>
     <li>
-      There is a simple (<span class="red-select">basic</span>) problem which we
-      can solve it directly (without recursion)
+      There is a simple (<span class="hl-red">basic</span>) problem which we can
+      solve it directly (without recursion)
     </li>
     <ul>
       <li>1! = 1 in factorial, b = 0 in GCD</li>
@@ -1334,7 +1320,7 @@ int main(void) {
     </ul>
     <li>
       Recursive Algorithms are implemented by
-      <span class="orange-select">recursive functions</span>
+      <span class="hl-orange">recursive functions</span>
     </li>
     <li>Recursive function</li>
     <ul>
