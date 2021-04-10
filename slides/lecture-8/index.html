@@ -805,7 +805,8 @@ int main(void){
   <ul>
     <li>Global variables are defined outside of all functions</li>
     <li>
-      Global variables are <span class="hl-orange">initialized</span> to zero
+      Global variables are <span class="hl-orange">initialized</span> to
+      <span class="hl-cyan">zero</span>
     </li>
     <li>
       Global variables are available to all
@@ -868,8 +869,8 @@ void main(void){
   <section>
     <ul>
       <li>
-        Don’t use this method. Parameters should be passed by input parameter
-        list.
+        <span class="hl-red">Don’t</span> use this method. Parameters should be
+        passed by input parameter list.
       </li>
       <li>
         Global variable are used to define (large) variables that are used in
@@ -921,30 +922,64 @@ void main(void){
   </ul>
 </section>
 <section>
-  <h2>Storage Classes: External</h2>
-  <ul>
-    <li>All global variables are external by default</li>
+  <section>
+    <h2>Storage Classes: External</h2>
     <ul>
-      <li>Are initialized by 0</li>
-      <li>Are generated when program starts</li>
-      <li>Are destroyed when program finishes</li>
-    </ul>
-    <li>Usage of keyword <span class="hl-orange">extern</span></li>
-    <ul>
-      <li>To use global variables in other files</li>
-      <li>To use global variables before definition</li>
-      <li>To emphasize that variable is global</li>
+      <li>All global variables are external by default</li>
       <ul>
-        <li>This usage is optional</li>
+        <li>Are initialized by 0</li>
+        <li>Are generated when program starts</li>
+        <li>Are destroyed when program finishes</li>
+      </ul>
+      <li>Usage of keyword <span class="hl-orange">extern</span></li>
+      <ul>
+        <li>To use global variables in other files</li>
+        <li>To use global variables before definition</li>
+        <li>To emphasize that variable is global</li>
+        <ul>
+          <li>This usage is optional</li>
+        </ul>
       </ul>
     </ul>
-  </ul>
+  </section>
+  <section>
+    <ul>
+      <li>We only declare <code>var</code> and later define it.</li>
+    </ul>
+    <pre><code class="lang-c">
+#include &lt;stdio.h&gt;
+
+extern int var;
+
+int main(void)
+{
+  printf("%d\n", var);
+  return 0;
+}
+
+int var = 20;
+    </code></pre>
+    <ul>
+      <li>We declare and define <code>var</code>. (optional usage)</li>
+    </ul>
+    <pre><code class="lang-c">
+#include &lt;stdio.h&gt;
+
+extern int var = 10;
+
+int main(void)
+{
+  printf("%d\n", var);
+  return 0;
+}
+    </code></pre>
+  </section>
 </section>
 <section>
   <h2>Storage Classes: Static</h2>
   <ul>
     <li>Keyword <span class="hl-orange">static</span> comes before them</li>
-    <li>For local variables:</li>
+    <li>For <span class="hl-yellow">local</span> variables:</li>
     <ul>
       <li>
         Generated in
@@ -960,10 +995,10 @@ void main(void){
   </ul>
 </section>
 <section>
-  <h2>Storage Classes: Static</h2>
+  <h2>Storage Classes: Static (Cont.)</h2>
   <ul>
     <li>Keyword <span class="hl-orange">static</span> comes before them</li>
-    <li>For global variables:</li>
+    <li>For <span class="hl-yellow">global</span> variables:</li>
     <ul>
       <li>Generated <span class="hl-green">when program starts</span></li>
       <li>Destroyed <span class="hl-cyan">when program finishes</span></li>
