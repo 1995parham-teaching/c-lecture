@@ -386,7 +386,7 @@ void bubble_sort(int a[], int size){
 
   for(i = 0; i &lt; size - 1; i++)
     for(j = i + 1; j &lt; size; j++)
-      if(a[i] &lt; a[j])
+      if(a[i] &gt; a[j])
         array_swap(a, i, j);
 }
 
