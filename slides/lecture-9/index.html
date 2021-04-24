@@ -537,7 +537,7 @@ void display_matrix(int n_rows, int n_cols, int matrix[n_rows][n_cols]) {
 
   for (row = 0; row &lt; n_rows; row++) {
     for (column = 0; column &lt; n_cols; column++)
-      printf("%5i ", matrix[row][column]);
+      printf("%5d ", matrix[row][column]);
     printf("\n");
   }
 }
@@ -781,8 +781,8 @@ printf("%s\n", str1); // Test String
 <section>
   <h2>Concatenate Strings: Example</h2>
   <pre><code class="hljs lang-c">
-char str1[]  = "String";
-char str2[20]= "Test ";
+char str1[] = "String";
+char str2[20] = "Test ";
 
 strcat(str2, str1);
 
@@ -803,7 +803,7 @@ printf("%s\n", str2); // Test String
       <li>if(strlen(src) &lt; n)</li>
       <ul>
         <li>Copy <span class="hl-cyan">src</span> to <span class="hl-material">dst</span></li>
-        <li>Add n – strlen(src) – 1 ‘\0’ to end of dst</li>
+        <li>Add n – strlen(src) – 1 <code class="hl-yellow">‘\0’</code>s to end of dst</li>
         <ul>
           <li>dst must be large enough</li>
           <li>n &lt; size of dst</li>
@@ -813,6 +813,7 @@ printf("%s\n", str2); // Test String
   </ul>
 </section>
 <section>
+  <section>
   <h2>Sized Version of the Functions</h2>
   <ul>
     <li><span class="hl-orange">strncmp(str1, str2, n):</span></li>
@@ -828,6 +829,18 @@ printf("%s\n", str2); // Test String
       <li>dst must be large enough</li>
     </ul>
   </ul>
+  </section>
+  <section>
+    <pre><code class="lang-c">
+char s1[] = "Hello";
+char s2[] = "Hell";
+
+printf("%d\n", strcmp(s1, s2));     // s1 &gt; s2
+printf("%d\n", strncmp(s1, s2, 2)); // s1 == s2
+printf("%d\n", strncmp(s1, s2, 4)); // s1 == s2
+printf("%d\n", strncmp(s1, s2, 5)); // s1 &gt; s2
+    </code></pre>
+  </section>
 </section>
 <section>
   <h2>Numbers and Strings: number &rarr; string</h2>
