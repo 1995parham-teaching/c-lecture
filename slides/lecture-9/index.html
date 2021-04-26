@@ -984,7 +984,8 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
       <li>You cannot assign a value to array</li>
       <pre><code class="hljs lang-c">
 int a[4], b[4];
-a = b; // Error
+a = b; // error: assignment to expression with array type
+a = 4; // error: assignment to expression with array type
       </code></pre>
       <li>To debug</li>
       <ul>
