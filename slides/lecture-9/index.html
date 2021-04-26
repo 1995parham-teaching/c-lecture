@@ -479,6 +479,7 @@ int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
 int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
       </code></pre>
       <li>num[1][1] is 2, num[2][0] is 3</li>
+      <li>All dimentions <strong class="hl-orange">except the first one</strong> are required in initiation</li>
     </ul>
   </section>
 </section>
@@ -847,6 +848,8 @@ printf("%d\n", strncmp(s1, s2, 5)); // s1 &gt; s2
   <ul>
     <li>To convert a number to string</li>
     <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt; // sprintf
+
 char str1[100];
 
 int i = 100;
@@ -864,7 +867,8 @@ sprintf(str1, "%0.2f", f); // str1 = “10.11”
   <ul>
     <li>To convert from strings to numbers</li>
     <pre><code class="hljs lang-c">
-#include &lt;stdlib.h&gt;
+#include &lt;stdlib.h&gt; // atoi, atof
+#include &lt;stdio.h&gt; // sscanf
 
 char str1[] = "10";
 int i;
