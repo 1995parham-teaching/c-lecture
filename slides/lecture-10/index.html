@@ -437,7 +437,7 @@ void array_copy_wrong1(int a[], int b[]) {
 
 int main() {
   int a[] = {1, 2, 3, 4};
-  int b[4];
+	int b[4] = {0};
 
   array_copy_wrong1(b, a);
 
@@ -463,7 +463,7 @@ void array_copy_wrong2(int *a, int *b){
 
 int main() {
   int a[] = {1, 2, 3, 4};
-  int b[4];
+	int b[4] = {0};
 
   array_copy_wrong2(b, a);
 
@@ -484,13 +484,13 @@ int main() {
   <section>
     <pre><code class="hljs lang-c">
 void array_copy1(int dst[], int src[], int size){
-  for(int i = 0; i &lt; size; i++)
-       dst[i] = src[i];
+	for(int i = 0; i &lt; size; i++)
+		dst[i] = src[i];
 }
 
 int main() {
   int a[] = {1, 2, 3, 4};
-  int b[4];
+	int b[4] = {0};
 
   array_copy1(b, a, 4);
 
@@ -511,13 +511,13 @@ int main() {
   <section>
     <pre><code class="hljs lang-c">
 void array_copy2(int *dst, int *src, int size){
-   for(int i = 0; i &lt; size; i++)
-       dst[i] = src[i];
+	for(int i = 0; i &lt; size; i++)
+		dst[i] = src[i];
 }
 
 int main() {
   int a[] = {1, 2, 3, 4};
-  int b[4];
+	int b[4] = {0};
 
   array_copy2(b, a, 4);
 
@@ -538,13 +538,13 @@ int main() {
   <section>
     <pre><code class="hljs lang-c">
 void array_copy3(int *dst, int *src, int size){
-   for(int i = 0; i &lt; size; i++)
-       *(dst + i) = *(src + i);
+  for(int i = 0; i &lt; size; i++)
+    *(dst + i) = *(src + i);
 }
 
 int main() {
   int a[] = {1, 2, 3, 4};
-  int b[4];
+	int b[4] = {0};
 
   array_copy3(b, a, 4);
 
@@ -565,13 +565,13 @@ int main() {
   <section>
     <pre><code class="hljs lang-c">
 void array_copy4(int *dst, int *src, int size){
-       for(int i = 0; i &lt; size; i++, src++, dst++)
-           *dst = *src;
+  for(int i = 0; i &lt; size; i++, src++, dst++)
+    *dst = *src;
 }
 
 int main() {
   int a[] = {1, 2, 3, 4};
-  int b[4];
+	int b[4] = {0};
 
   array_copy4(b, a, 4);
 
