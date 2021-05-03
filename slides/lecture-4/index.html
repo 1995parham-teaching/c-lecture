@@ -2,12 +2,12 @@
 index: 4
 title: Calculation
 topics:
-- Basic mathematic operations in C
-- Effect of type and type conversion
-- Precedence
-- Advanced mathematical operations
-- Mathematic library
-- Random Numbers
+  - Basic mathematic operations in C
+  - Effect of type and type conversion
+  - Precedence
+  - Advanced mathematical operations
+  - Mathematic library
+  - Random Numbers
 ---
 
 <section>
@@ -19,7 +19,7 @@ topics:
 <section>
   <h2>Basic operations</h2>
   <table>
-    <thead style="color: #ff9966;">
+    <thead style="color: #ff9966">
       <th>Name</th>
       <th>in C</th>
     </thead>
@@ -84,11 +84,27 @@ int main(void){
 <section>
   <h2>General rules of type conversion</h2>
   <ul>
-    <li>If either operand is <span class="orange-select">long double</span>, convert the other to <span class="orange-select">long double</span>.</li>
-    <li>Otherwise, if either operand is <span class="green-select">double</span>, convert the other to <span class="green-select">double</span>.</li>
-    <li>Otherwise, if either operand is <span class="cyan-select">float</span>, convert the other to <span class="cyan-select">float</span>.</li>
-    <li>Otherwise, convert <span class="orange-select">char</span> and <span class="orange-select">short</span> to <span class="orange-select">int</span>.</li>
-    <li>Then, if either operand is <span class="green-select">long</span>, convert the other to <span class="green-select">long</span>.</li>
+    <li>
+      If either operand is <span class="orange-select">long double</span>,
+      convert the other to <span class="orange-select">long double</span>.
+    </li>
+    <li>
+      Otherwise, if either operand is <span class="green-select">double</span>,
+      convert the other to <span class="green-select">double</span>.
+    </li>
+    <li>
+      Otherwise, if either operand is <span class="cyan-select">float</span>,
+      convert the other to <span class="cyan-select">float</span>.
+    </li>
+    <li>
+      Otherwise, convert <span class="orange-select">char</span> and
+      <span class="orange-select">short</span> to
+      <span class="orange-select">int</span>.
+    </li>
+    <li>
+      Then, if either operand is <span class="green-select">long</span>, convert
+      the other to <span class="green-select">long</span>.
+    </li>
   </ul>
 </section>
 <section>
@@ -108,7 +124,9 @@ int main(void){
 <section>
   <h2>Effect of types</h2>
   <ul>
-    <li>If both operand of division (/) is <span class="orange-select">int</span></li>
+    <li>
+      If both operand of division (/) is <span class="orange-select">int</span>
+    </li>
     <li>&rarr; data lost</li>
   </ul>
 </section>
@@ -225,8 +243,14 @@ i = i - 1; // i = 10
 <section>
   <h2>Increment &amp; Decrement (cont’d)</h2>
   <ul>
-    <li><span class="cyan-select">Postfix:</span> Use the value then apply the operator</li>
-    <li><span class="cyan-select">Prefix:</span> Apply the operator then use the value</li>
+    <li>
+      <span class="cyan-select">Postfix:</span> Use the value then apply the
+      operator
+    </li>
+    <li>
+      <span class="cyan-select">Prefix:</span> Apply the operator then use the
+      value
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 int i = 10, k = 6, j;
@@ -244,7 +268,9 @@ j = i - 1; // i = 10, j = 9
     <li>These are equal</li>
     <ul>
       <li>&lt;variable&gt; &lt;op&gt; = &lt;expression&gt;</li>
-      <li>&lt;variable&gt; = &lt;variable&gt; &lt;op&gt; (&lt;expression&gt;)</li>
+      <li>
+        &lt;variable&gt; = &lt;variable&gt; &lt;op&gt; (&lt;expression&gt;)
+      </li>
     </ul>
   </ul>
   <pre><code class="hljs lang-c">
@@ -316,7 +342,9 @@ i += -3 // [i = -2]
 <section>
   <h2>Arithmetic on characters</h2>
   <ul>
-    <li><span class="orange-select">char</span> can be used as 8-bit integer</li>
+    <li>
+      <span class="orange-select">char</span> can be used as 8-bit integer
+    </li>
     <li>All arithmetic operation can be used with characters</li>
   </ul>
   <pre><code class="hljs lang-c">
@@ -335,7 +363,9 @@ i = c - ch + 'X' - 'Z'; // i = -5
     <li><span class="green-select">sizeof</span> is a unary operator</li>
     <ul>
       <li>Return the size of operand</li>
-      <li>Operand can be <span class="cyan-select">Variable, value or type</span></li>
+      <li>
+        Operand can be <span class="cyan-select">Variable, value or type</span>
+      </li>
       <li>The operand inside the sizeof() operator is not evaluated</li>
     </ul>
   </ul>
@@ -384,7 +414,10 @@ size = sizeof(char)
 <section>
   <h2>Undefined Statements</h2>
   <ul>
-    <li>When standard does <span class="orange-select">not</span> tell what will happen</li>
+    <li>
+      When standard does <span class="orange-select">not</span> tell what will
+      happen
+    </li>
     <li>Examples</li>
   </ul>
   <pre><code class="hljs lang-c">
@@ -402,7 +435,10 @@ i = j + i++; // i = 11 or ???
   <ul>
     <li>Computer’s precision is limited</li>
     <ul>
-      <li><span class="orange-select">The number of bits</span> in each type is limited</li>
+      <li>
+        <span class="orange-select">The number of bits</span> in each type is
+        limited
+      </li>
       <li>double [-1e308, 1e308]</li>
     </ul>
     <li>Overflow</li>
@@ -578,6 +614,8 @@ int main(void){
 </section>
 <section>
   <h2>Legends</h2>
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Ken Thompson</h6>
-  <img src="img/ken.jpg" alt="ken">
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    Ken Thompson
+  </h6>
+  <img src="img/ken.jpg" alt="ken" />
 </section>

@@ -2,12 +2,12 @@
 index: 9
 title: Arrays
 topics:
-- Introduction
-- Arrays in functions
-- Multidimensional arrays
-- String
-- String functions
-- Bugs and avoiding them
+  - Introduction
+  - Arrays in functions
+  - Multidimensional arrays
+  - String
+  - String functions
+  - Bugs and avoiding them
 ---
 
 <section>
@@ -95,37 +95,30 @@ topics:
   <ul>
     <li>Array declaration in C</li>
     <p>
-      <span class="hl-orange">
-        &lt;Elements’ Type&gt;
-      </span>
-      <span class="hl-green">
-        &lt;identifier&gt;
-      </span>
+      <span class="hl-orange"> &lt;Elements’ Type&gt; </span>
+      <span class="hl-green"> &lt;identifier&gt; </span>
       [
-      <span class="hl-cyan">
-        &lt;size&gt;
-      </span>
+      <span class="hl-cyan"> &lt;size&gt; </span>
       ]
     </p>
     <li>
-      <span class="hl-orange">
-        &lt;Elements’ Type&gt;
-      </span>:
-      int, char, float, ...
+      <span class="hl-orange"> &lt;Elements’ Type&gt; </span>: int, char, float,
+      ...
     </li>
-    <li>
-      <span class="hl-cyan">
-        &lt;size&gt;
-      </span>:
-      <ul>
-        <li>Old compilers (standard): <span class="hl-red">it should be constant</span></li>
-        <li>New compilers (standard): <span class="hl-red">it can be variable</span></li>
-      </ul>
-      <li>Elements in array</li>
-      <ul>
-        <li>From 0 to (size – 1)</li>
-      </ul>
-    </li>
+    <li><span class="hl-cyan"> &lt;size&gt; </span>:</li>
+    <ul>
+      <li>
+        Old compilers (standard):
+        <span class="hl-red">it should be constant</span>
+      </li>
+      <li>
+        New compilers (standard): <span class="hl-red">it can be variable</span>
+      </li>
+    </ul>
+    <li>Elements in array</li>
+    <ul>
+      <li>From 0 to (size – 1)</li>
+    </ul>
   </ul>
 </section>
 <section>
@@ -134,7 +127,10 @@ topics:
     <span class="hl-red">int num[20];</span>
   </p>
   <ul>
-    <li><span class="hl-orange">num</span> is array of 20 <span class="hl-green">integers</span></li>
+    <li>
+      <span class="hl-orange">num</span> is array of 20
+      <span class="hl-green">integers</span>
+    </li>
     <li><span class="hl-orange">num[0]</span> is the first integer variable</li>
     <li><span class="hl-orange">num[19]</span> is the last integer</li>
   </ul>
@@ -142,9 +138,15 @@ topics:
     <span class="hl-red">float farr[100];</span>
   </p>
   <ul>
-    <li><span class="hl-orange">farr</span> is array of 100 <span class="hl-green">floats</span></li>
+    <li>
+      <span class="hl-orange">farr</span> is array of 100
+      <span class="hl-green">floats</span>
+    </li>
     <li><span class="hl-orange">farr[0]</span> is the first float</li>
-    <li><span class="hl-orange">farr[49]</span> is the 50th <span class="hl-green">float</span></li>
+    <li>
+      <span class="hl-orange">farr[49]</span> is the 50th
+      <span class="hl-green">float</span>
+    </li>
     <li><span class="hl-orange">farr[99]</span> is the last float</li>
   </ul>
 </section>
@@ -153,11 +155,12 @@ topics:
 </section>
 <section>
   <h2>Arrays in Functions</h2>
-  <p>
-    int number[20];
-  </p>
+  <p>int number[20];</p>
   <ul>
-    <li><span class="hl-green">number[i]</span> is an <span class="hl-orange">integer</span> variable</li>
+    <li>
+      <span class="hl-green">number[i]</span> is an
+      <span class="hl-orange">integer</span> variable
+    </li>
     <li>Array element can be used for call by value input</li>
     <li>Array element can be use for output</li>
     <pre><code class="hljs lang-c">
@@ -172,13 +175,21 @@ void h(void) {
 <section>
   <h2>Arrays in Functions (cont’d)</h2>
   <ul>
-    <li>Array can <span class="hl-red">not</span> be used as output type of function</li>
+    <li>
+      Array can <span class="hl-red">not</span> be used as output type of
+      function
+    </li>
     <p>
-      <span class="hl-red">int []</span> f(int x, int y); <span class="hl-red">//compile error</span>
+      <span class="hl-red">int []</span> f(int x, int y);
+      <span class="hl-red">//compile error</span>
     </p>
     <li>Arrays can be used in input list of functions</li>
-    <li>Arrays are <span class="hl-orange">not</span> passed by Call By Value</li>
-    <li>Arrays are passed by Call By <span class="hl-green">Reference</span></li>
+    <li>
+      Arrays are <span class="hl-orange">not</span> passed by Call By Value
+    </li>
+    <li>
+      Arrays are passed by Call By <span class="hl-green">Reference</span>
+    </li>
     <ul>
       <li>If we change array elements in a function</li>
       <li>The element is changed in the caller function</li>
@@ -188,7 +199,10 @@ void h(void) {
 <section>
   <h2>Arrays in Functions (version 1)</h2>
   <ul>
-    <li>Function <span class="hl-orange">arr_func</span> takes an array of integers</li>
+    <li>
+      Function <span class="hl-orange">arr_func</span> takes an array of
+      integers
+    </li>
     <pre><code class="hljs lang-c">
 int arr_func(int num[90]){
 }
@@ -197,7 +211,10 @@ int arr_func(int num[90]){
 int arr_func(int num[]){
 }
     </code></pre>
-    <li>Array <span class="hl-green">a</span> is passed to function <span class="hl-orange">arr_func</span></li>
+    <li>
+      Array <span class="hl-green">a</span> is passed to function
+      <span class="hl-orange">arr_func</span>
+    </li>
     <pre><code class="hljs lang-c">
 int a[90];
 i = arr_func(a);
@@ -227,15 +244,22 @@ void main(void){
   <section>
     <h2>Array Size in Functions</h2>
     <ul>
-      <li>If array is an <span class="hl-orange">input parameter</span> of a function</li>
+      <li>
+        If array is an <span class="hl-orange">input parameter</span> of a
+        function
+      </li>
       <ul>
-        <li>It <span class="hl-red">cannot</span> find out the size of the array</li>
+        <li>
+          It <span class="hl-red">cannot</span> find out the size of the array
+        </li>
       </ul>
     </ul>
   </section>
   <section>
     <ul>
-      <li>Array size should be passed from caller function to called function</li>
+      <li>
+        Array size should be passed from caller function to called function
+      </li>
       <ul>
         <li>Using definitions</li>
         <pre><code class="hljs lang-c">
@@ -259,7 +283,10 @@ void main(void){
     <li>If array is declared in a function</li>
     <ul>
       <li>It knows the size of the array</li>
-      <li>It <span class="hl-orange">can</span> find out the size of the array using <span class="hl-green">sizeof</span></li>
+      <li>
+        It <span class="hl-orange">can</span> find out the size of the array
+        using <span class="hl-green">sizeof</span>
+      </li>
     </ul>
   </ul>
   <pre><code class="hljs lang-c">
@@ -417,9 +444,13 @@ int main(void){
   <section>
     <h2>Binary Search</h2>
     <ul>
-      <li>Given a <span class="hl-orange">sorted array</span> arr[] of n elements, write a function to <span class="hl-green">search a given element</span> x in arr[].</li>
+      <li>
+        Given a <span class="hl-orange">sorted array</span> arr[] of n elements,
+        write a function to
+        <span class="hl-green">search a given element</span> x in arr[].
+      </li>
     </ul>
-    <img src="img/binary-search.png" alt="binary-search">
+    <img src="img/binary-search.png" alt="binary-search" />
   </section>
   <section>
     <pre><code class="hljs lang-c">
@@ -443,7 +474,9 @@ int bsearch(int start, int end, int a[], int value){
 <section>
   <h2>Multidimensional Arrays</h2>
   <ul>
-    <li>If element of an array is array itself, it will be Multidimensional array</li>
+    <li>
+      If element of an array is array itself, it will be Multidimensional array
+    </li>
     <pre><code class="hljs lang-c">
 int t[10][20];
     </code></pre>
@@ -479,7 +512,11 @@ int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
 int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
       </code></pre>
       <li>num[1][1] is 2, num[2][0] is 3</li>
-      <li>All dimentions <strong class="hl-orange">except the first one</strong> are required in initiation</li>
+      <li>
+        All dimentions
+        <strong class="hl-orange">except the first one</strong> are required in
+        initiation
+      </li>
     </ul>
   </section>
 </section>
@@ -487,8 +524,8 @@ int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
   <h2>Multidimensional Arrays in Functions</h2>
   <ul>
     <li>
-      Can be used as input of functions.
-      All dimensions except the first one <span class="hl-orange">must</span> be given.
+      Can be used as input of functions. All dimensions except the first one
+      <span class="hl-orange">must</span> be given.
     </li>
     <pre><code class="hljs lang-c">
 void func(int a[10][20][5]);
@@ -503,7 +540,9 @@ void func(int a[][20][30], int size);
 void func(int size1, int size2, int a[size1][size2]);
     </code></pre>
     <ul>
-      <li>Input is a matrix of integers that both rows and columns are variable</li>
+      <li>
+        Input is a matrix of integers that both rows and columns are variable
+      </li>
     </ul>
   </ul>
 </section>
@@ -567,7 +606,7 @@ Original matrix:
 <section>
   <section>
     <h2>Array In Memory</h2>
-    <img src="img/arrays-in-memory.png" alt="arrays-in-memory">
+    <img src="img/arrays-in-memory.png" alt="arrays-in-memory" />
   </section>
   <section>
     <pre><code class="hljs lang-c">
@@ -630,7 +669,7 @@ char *str4 = "program"; //we will see later
   </table>
 </section>
 <section>
-  <h2>Reading &amp; Writing Strings </h2>
+  <h2>Reading &amp; Writing Strings</h2>
   <ul>
     <li><span class="hl-orange">printf</span> can be used to print strings</li>
     <pre><code class="hljs lang-c">
@@ -645,20 +684,32 @@ char str[200];
 scanf("%s", str);
     </code></pre>
     <li>Initial white spaces are ignored</li>
-    <li>Read until <span class="hl-cyan">space</span> or <span class="hl-cyan">'\n'</span> (which is replaced by \0)</li>
+    <li>
+      Read until <span class="hl-cyan">space</span> or
+      <span class="hl-cyan">'\n'</span> (which is replaced by \0)
+    </li>
     <li>We must allocate <span class="hl-material">sufficient size</span></li>
   </ul>
 </section>
 <section>
   <h2>Reading &amp; Writing Strings (cont’d)</h2>
   <ul>
-    <li><span class="hl-orange">puts(str)</span> is very simple version of <span class="hl-green">printf</span></li>
+    <li>
+      <span class="hl-orange">puts(str)</span> is very simple version of
+      <span class="hl-green">printf</span>
+    </li>
     <ul>
       <li>Can only be used to print strings</li>
       <li>Adds <span class="hl-green">‘\n’</span> to end of string</li>
     </ul>
-    <li><span class="hl-orange">gets(char str[])</span> can be used to read strings</li>
-    <li><span class="hl-orange">gets</span> does <span class="hl-red">not</span> ignore the white spaces</li>
+    <li>
+      <span class="hl-orange">gets(char str[])</span> can be used to read
+      strings
+    </li>
+    <li>
+      <span class="hl-orange">gets</span> does
+      <span class="hl-red">not</span> ignore the white spaces
+    </li>
     <ul>
       <li>Read until \n</li>
     </ul>
@@ -689,7 +740,10 @@ scanf("%s", str);
   <h2>Length of String</h2>
   <ul>
     <li><span class="hl-orange">strlen(str)</span>: Length of string</li>
-    <li>From start to first occurrence of the <span class="hl-green">null char</span></li>
+    <li>
+      From start to first occurrence of the
+      <span class="hl-green">null char</span>
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 char str[] = "This is test";
@@ -703,14 +757,20 @@ strlen(str1) // returns 2 😱
   <ul>
     <li>str1 and str2 are compared as follows</li>
     <ul>
-      <li>Compare <span class="hl-green">char by char</span> from <span class="hl-cyan">left to right</span> until str1 and str2 has same chars.</li>
+      <li>
+        Compare <span class="hl-green">char by char</span> from
+        <span class="hl-cyan">left to right</span> until str1 and str2 has same
+        chars.
+      </li>
       <li>In the first different char</li>
       <ul>
         <li>if (char of str1 &lt; char of str2) &rarr; str1 &lt; str2</li>
       </ul>
       <li>if (both string finish) &rarr; str1 = str2</li>
     </ul>
-    <li><span class="hl-orange">strcmp(str1, str2)</span>:compare str1 and str2</li>
+    <li>
+      <span class="hl-orange">strcmp(str1, str2)</span>:compare str1 and str2
+    </li>
   </ul>
 </section>
 <section>
@@ -754,9 +814,19 @@ strcmpi(str1, str2) &rarr; 0
   <h2>Copy Strings</h2>
   <ul>
     <li>Strings should be copied char by char</li>
-    <li><span class="hl-orange">strcpy(dst_str, src_str)</span>: copy the <span class="hl-green">src_str</span> to the <span class="hl-cyan">dst_str</span> including NULL</li>
-    <li><span class="hl-green">src_str</span> is a <span class="hl-material">constant</span> string</li>
-    <li><span class="hl-cyan">dst_str</span> should have <span class="hl-material">sufficient size</span></li>
+    <li>
+      <span class="hl-orange">strcpy(dst_str, src_str)</span>: copy the
+      <span class="hl-green">src_str</span> to the
+      <span class="hl-cyan">dst_str</span> including NULL
+    </li>
+    <li>
+      <span class="hl-green">src_str</span> is a
+      <span class="hl-material">constant</span> string
+    </li>
+    <li>
+      <span class="hl-cyan">dst_str</span> should have
+      <span class="hl-material">sufficient size</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -774,9 +844,19 @@ printf("%s\n", str1); // Test String
 <section>
   <h2>Concatenate Strings</h2>
   <ul>
-    <li><span class="hl-orange">strcat(dst_str, src_str)</span>: Append the <span class="hl-green">src</span> string to the end of <span class="hl-cyan">dst</span> including NULL</li>
-    <li><span class="hl-green">src</span> is a <span class="hl-material">constant</span> string</li>
-    <li><span class="hl-cyan">dst</span> should have <span class="hl-material">sufficient space</span></li>
+    <li>
+      <span class="hl-orange">strcat(dst_str, src_str)</span>: Append the
+      <span class="hl-green">src</span> string to the end of
+      <span class="hl-cyan">dst</span> including NULL
+    </li>
+    <li>
+      <span class="hl-green">src</span> is a
+      <span class="hl-material">constant</span> string
+    </li>
+    <li>
+      <span class="hl-cyan">dst</span> should have
+      <span class="hl-material">sufficient space</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -795,16 +875,27 @@ printf("%s\n", str2); // Test String
   <ul>
     <li><span class="hl-orange">strncpy(dst, src, n):</span></li>
     <ul>
-      <li>copys <span class="hl-green">n</span> chars from <span class="hl-cyan">src</span> to <span class="hl-material">dst</span></li>
+      <li>
+        copys <span class="hl-green">n</span> chars from
+        <span class="hl-cyan">src</span> to <span class="hl-material">dst</span>
+      </li>
       <li>if(strlen(src) &gt; n)</li>
       <ul>
         <li>Copies n chars to <span class="hl-material">dst</span></li>
-        <li>Does not add ‘\0’ to end of <span class="hl-material">dst</span></li>
+        <li>
+          Does not add ‘\0’ to end of <span class="hl-material">dst</span>
+        </li>
       </ul>
       <li>if(strlen(src) &lt; n)</li>
       <ul>
-        <li>Copy <span class="hl-cyan">src</span> to <span class="hl-material">dst</span></li>
-        <li>Add n – strlen(src) – 1 <code class="hl-yellow">‘\0’</code>s to end of dst</li>
+        <li>
+          Copy <span class="hl-cyan">src</span> to
+          <span class="hl-material">dst</span>
+        </li>
+        <li>
+          Add n – strlen(src) – 1 <code class="hl-yellow">‘\0’</code>s to end of
+          dst
+        </li>
         <ul>
           <li>dst must be large enough</li>
           <li>n &lt; size of dst</li>
@@ -815,21 +906,29 @@ printf("%s\n", str2); // Test String
 </section>
 <section>
   <section>
-  <h2>Sized Version of the Functions</h2>
-  <ul>
-    <li><span class="hl-orange">strncmp(str1, str2, n):</span></li>
+    <h2>Sized Version of the Functions</h2>
     <ul>
-      <li>compares the first <span class="hl-green">x</span> chars</li>
-      <li><span class="hl-green">x</span> = min{ n, strlen(str1) + 1, strlen(str2) + 1 }</li>
+      <li><span class="hl-orange">strncmp(str1, str2, n):</span></li>
+      <ul>
+        <li>compares the first <span class="hl-green">x</span> chars</li>
+        <li>
+          <span class="hl-green">x</span> = min{ n, strlen(str1) + 1,
+          strlen(str2) + 1 }
+        </li>
+      </ul>
+      <li><span class="hl-orange">strncat(dst, src, n):</span></li>
+      <ul>
+        <li>
+          Appends the <span class="hl-green">x</span> chars from src to dst
+        </li>
+        <li><span class="hl-green">x</span> = min{ n, strlen(src) }</li>
+        <li>
+          Adds ‘\0’ to end of dst <span class="hl-red">unlike</span>
+          <span class="hl-cyan">strncpy</span>
+        </li>
+        <li>dst must be large enough</li>
+      </ul>
     </ul>
-    <li><span class="hl-orange">strncat(dst, src, n):</span></li>
-    <ul>
-      <li>Appends the <span class="hl-green">x</span> chars from src to dst</li>
-      <li><span class="hl-green">x</span> = min{ n, strlen(src) }</li>
-      <li>Adds ‘\0’ to end of dst <span class="hl-red">unlike</span> <span class="hl-cyan">strncpy</span></li>
-      <li>dst must be large enough</li>
-    </ul>
-  </ul>
   </section>
   <section>
     <pre><code class="lang-c">
@@ -859,7 +958,10 @@ float f = 10.11;
 sprintf(str1, "%0.2f", f); // str1 = “10.11”
 
     </code></pre>
-    <li>String <span class="hl-orange">str1</span> should have <span class="hl-material">sufficient size</span></li>
+    <li>
+      String <span class="hl-orange">str1</span> should have
+      <span class="hl-material">sufficient size</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -905,19 +1007,54 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
     </code></pre>
     <table class="cell">
       <tr>
-        <td>'z'</td><td>'e'</td><td>'r'</td><td>'o'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
+        <td>'z'</td>
+        <td>'e'</td>
+        <td>'r'</td>
+        <td>'o'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
       </tr>
       <tr>
-        <td>'u'</td><td>'n'</td><td>'o'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
+        <td>'u'</td>
+        <td>'n'</td>
+        <td>'o'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
       </tr>
       <tr>
-        <td>'d'</td><td>'u'</td><td>'e'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
+        <td>'d'</td>
+        <td>'u'</td>
+        <td>'e'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
       </tr>
       <tr>
-        <td>'t'</td><td>'r'</td><td>'e'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td><td>'\0'</td>
+        <td>'t'</td>
+        <td>'r'</td>
+        <td>'e'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
       </tr>
       <tr>
-        <td>'q'</td><td>'u'</td><td>'a'</td><td>'t'</td><td>'t'</td><td>'r'</td><td>'o'</td><td>'\0'</td>
+        <td>'q'</td>
+        <td>'u'</td>
+        <td>'a'</td>
+        <td>'t'</td>
+        <td>'t'</td>
+        <td>'r'</td>
+        <td>'o'</td>
+        <td>'\0'</td>
       </tr>
     </table>
   </ul>
@@ -939,27 +1076,39 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
   <ul>
     <li>int isdigit(ch)</li>
     <ul>
-      <li class="fragment" data-fragment-index="1">Check ch is digital char or not</li>
+      <li class="fragment" data-fragment-index="1">
+        Check ch is digital char or not
+      </li>
     </ul>
     <li>int isalpha(ch)</li>
     <ul>
-      <li class="fragment" data-fragment-index="2">Check ch is alphabetic or not</li>
+      <li class="fragment" data-fragment-index="2">
+        Check ch is alphabetic or not
+      </li>
     </ul>
     <li>int islower(ch)</li>
     <ul>
-      <li class="fragment" data-fragment-index="3">Check ch is lowercase alphabetic or not</li>
+      <li class="fragment" data-fragment-index="3">
+        Check ch is lowercase alphabetic or not
+      </li>
     </ul>
     <li>int isupper(ch)</li>
     <ul>
-      <li class="fragment" data-fragment-index="4">Check ch is uppercase alphabetic or not</li>
+      <li class="fragment" data-fragment-index="4">
+        Check ch is uppercase alphabetic or not
+      </li>
     </ul>
     <li>char tolower(ch)</li>
     <ul>
-      <li class="fragment" data-fragment-index="5">Convert ch to lowercase and return it</li>
+      <li class="fragment" data-fragment-index="5">
+        Convert ch to lowercase and return it
+      </li>
     </ul>
     <li>char toupper(ch)</li>
     <ul>
-      <li class="fragment" data-fragment-index="6">Convert ch to upper case and return it</li>
+      <li class="fragment" data-fragment-index="6">
+        Convert ch to upper case and return it
+      </li>
     </ul>
   </ul>
 </section>
@@ -979,7 +1128,10 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
       <ul>
         <li>You should never destroy it, some library functions do!</li>
       </ul>
-      <li>Out of range array index!!!! (read/write, wrong size in function, multidimensional array memory)</li>
+      <li>
+        Out of range array index!!!! (read/write, wrong size in function,
+        multidimensional array memory)
+      </li>
     </ul>
   </section>
   <section>
@@ -1000,6 +1152,8 @@ a = 4; // error: assignment to expression with array type
 </section>
 <section>
   <h2>Legends</h2>
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Robert Cecil Martin</h6>
-  <img src="img/uncle-bob.png" alt="uncle-bob" height="300px">
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    Robert Cecil Martin
+  </h6>
+  <img src="img/uncle-bob.png" alt="uncle-bob" height="300px" />
 </section>

@@ -2,10 +2,10 @@
 index: 12
 title: Files
 topics:
-- Introduction
-- Text File Operations
-- Binary File Operations
-- Bugs and avoiding them
+  - Introduction
+  - Text File Operations
+  - Binary File Operations
+  - Bugs and avoiding them
 ---
 
 <section>
@@ -22,11 +22,16 @@ topics:
       <li>Main memory (RAM)</li>
       <ul>
         <li>It is <span class="orange-select">volatile</span></li>
-        <li>Read / Write data using <span class="green-select">variables</span></li>
+        <li>
+          Read / Write data using <span class="green-select">variables</span>
+        </li>
       </ul>
       <li>Secondary storage (Hard Disk)</li>
       <ul>
-        <li>It is <span class="red-select">not</span> <span class="orange-select">volatile</span></li>
+        <li>
+          It is <span class="red-select">not</span>
+          <span class="orange-select">volatile</span>
+        </li>
         <li>Read / Write data using <span class="green-select">files</span></li>
       </ul>
     </ol>
@@ -73,7 +78,9 @@ topics:
   <ul>
     <li>Binary encoding</li>
     <ul>
-      <li>int, double, float, struct, ... are directly (as 0,1) stored in the file</li>
+      <li>
+        int, double, float, struct, ... are directly (as 0,1) stored in the file
+      </li>
     </ul>
     <li>Human unreadable files</li>
     <ul>
@@ -137,7 +144,9 @@ FILE* fopen(char* name, char* mode);
       <li>Saves information about file.</li>
       <li>We <span class="green-select">don’t need</span> to know about it.</li>
     </ul>
-    <li>If cannot open file, fopen returns <span class="red-select">NULL</span>.</li>
+    <li>
+      If cannot open file, fopen returns <span class="red-select">NULL</span>.
+    </li>
     <li>name is the name of file:</li>
     <ul>
       <li><span class="cyan-select">Absolute</span> name: C:\prog\test.txt</li>
@@ -158,11 +167,23 @@ FILE* fopen(char* name, char* mode);
       <tbody>
         <tr>
           <td><span class="cyan-select">r</span></td>
-          <td>Open a file for <span class="orange-select">reading</span>. If a file is in reading mode, then <span class="green-select">no data is deleted</span> if a file is already present on a system.</td>
+          <td>
+            Open a file for <span class="orange-select">reading</span>. If a
+            file is in reading mode, then
+            <span class="green-select">no data is deleted</span> if a file is
+            already present on a system.
+          </td>
         </tr>
         <tr>
           <td><span class="cyan-select">w</span></td>
-          <td>Open a file for <span class="orange-select">writing</span>. If a file is in writing mode, then a new file is created if a file doesn't exist at all. If a file is already present on a system, then <span class="green-select">all the data inside the file is truncated</span>, and it is opened for writing purposes.</td>
+          <td>
+            Open a file for <span class="orange-select">writing</span>. If a
+            file is in writing mode, then a new file is created if a file
+            doesn't exist at all. If a file is already present on a system, then
+            <span class="green-select"
+              >all the data inside the file is truncated</span
+            >, and it is opened for writing purposes.
+          </td>
         </tr>
       </tbody>
     </table>
@@ -178,7 +199,10 @@ FILE* fopen(char* name, char* mode);
       <tbody>
         <tr>
           <td><span class="cyan-select">a</span></td>
-          <td>Open a file in append mode. If a file is in append mode, then the file is opened. The content within the file doesn't change.</td>
+          <td>
+            Open a file in append mode. If a file is in append mode, then the
+            file is opened. The content within the file doesn't change.
+          </td>
         </tr>
         <tr>
           <td><span class="cyan-select">r+</span></td>
@@ -221,9 +245,7 @@ if(fp == NULL){
   return -1;
 }
   </code></pre>
-  <p>
-    Open file c:\test.txt for reading
-  </p>
+  <p>Open file c:\test.txt for reading</p>
 </section>
 <section>
   <h2>File-Position Pointer (FPP)</h2>
@@ -231,15 +253,25 @@ if(fp == NULL){
     <li>File-Position Pointer</li>
     <ul>
       <li>A pointer in file</li>
-      <li>Points to <span class="orange-select">current location</span> of read and write</li>
+      <li>
+        Points to <span class="orange-select">current location</span> of read
+        and write
+      </li>
     </ul>
     <li>When file is open</li>
     <ul>
-      <li>File-Position Pointer is set to <span class="cyan-select">start of file</span> except for <span class="green-select">"a"</span> mode</li>
+      <li>
+        File-Position Pointer is set to
+        <span class="cyan-select">start of file</span> except for
+        <span class="green-select">"a"</span> mode
+      </li>
     </ul>
     <li>When you read/write from/to file</li>
     <ul>
-      <li>The File-Position Pointer <span class="violet-select">advance according to the size of data</span></li>
+      <li>
+        The File-Position Pointer
+        <span class="violet-select">advance according to the size of data</span>
+      </li>
       <ul>
         <li>If you read 2 bytes, it moves 2 bytes</li>
         <li>If you write 50 bytes, it advances 50 bytes</li>
@@ -265,11 +297,17 @@ fclose(FILE *fp);
   <h2>Reading/Writing Text File</h2>
   <ul>
     <li><span class="orange-select">fscanf</span> reads from file.</li>
-    <li><span class="orange-select">fscanf</span> is same to <span class="green-select">scanf</span>.</li>
+    <li>
+      <span class="orange-select">fscanf</span> is same to
+      <span class="green-select">scanf</span>.
+    </li>
     <li>Returns EOF if reached to the end of file.</li>
-    <hr>
+    <hr />
     <li><span class="cyan-select">fprintf</span> writes to file.</li>
-    <li><span class="cyan-select">fprintf</span> is same to <span class="violet-select">printf</span>.</li>
+    <li>
+      <span class="cyan-select">fprintf</span> is same to
+      <span class="violet-select">printf</span>.
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 int fscanf(FILE *fp,"format", parameters);
@@ -407,9 +445,7 @@ fputc(char c, FILE *fp)
 char fgetc(FILE *fp);
     </code></pre>
   </ul>
-  <p>
-    Returns EOF if reaches to End of File
-  </p>
+  <p>Returns EOF if reaches to End of File</p>
 </section>
 <section>
   <h2>cp &lt;src&gt; &lt;dst&gt;</h2>
@@ -460,7 +496,10 @@ int main() {
         <li>End of fie indicator</li>
         <li>Error indicator</li>
       </ul>
-      <li>These indicators are set when we want to read but there is not enough data or there is an error</li>
+      <li>
+        These indicators are set when we want to read but there is not enough
+        data or there is an error
+      </li>
       <li>How to use</li>
       <ul>
         <li>Try to read</li>
@@ -474,7 +513,9 @@ int main() {
   </section>
   <section>
     <p>
-      feof tells that an attempt has been made to read past the end of the file, which is not the same as that we just read the last data item from a file. We have to read one past the last data item for feof to return nonzero.
+      feof tells that an attempt has been made to read past the end of the file,
+      which is not the same as that we just read the last data item from a file.
+      We have to read one past the last data item for feof to return nonzero.
     </p>
   </section>
 </section>
@@ -494,16 +535,27 @@ while(1){
   <ul>
     <li>We can read a line of file</li>
     <ul>
-      <li><span class="green-select">fscanf</span> reads until the first free space</li>
+      <li>
+        <span class="green-select">fscanf</span> reads until the first free
+        space
+      </li>
     </ul>
     <pre><code class="hljs lang-c">
 char* fgets(char* buff, int maxnumber, FILE* fp);
     </code></pre>
     <li>Read at most <span class="orange-select">maxnumber-1</span> chars</li>
-    <li>Reading stops after <span class="cyan-select">EOF</span> or <span class="cyan-select">\n</span></li>
-    <li>If a <span class="cyan-select">\n</span> is read it is stored in buffer</li>
+    <li>
+      Reading stops after <span class="cyan-select">EOF</span> or
+      <span class="cyan-select">\n</span>
+    </li>
+    <li>
+      If a <span class="cyan-select">\n</span> is read it is stored in buffer
+    </li>
     <li>Add <span class="violet-select">\0</span> to the end of string</li>
-    <li>If reach to end of file without reading any character, return <span class="red-select">NULL</span></li>
+    <li>
+      If reach to end of file without reading any character, return
+      <span class="red-select">NULL</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -521,8 +573,11 @@ int fputs(char* buff, FILE* fp);
   <h2>Read/Write a Line</h2>
   <ul>
     <li>Read a line without knowing its maximum length</li>
-    <li>The caller may provide a pointer to a malloced buffer for the line in <span class="orange-select">*linep</span>
-      , and the capacity of the buffer in <span class="green-select">*linecapp</span>.</li>
+    <li>
+      The caller may provide a pointer to a malloced buffer for the line in
+      <span class="orange-select">*linep</span> , and the capacity of the buffer
+      in <span class="green-select">*linecapp</span>.
+    </li>
     <pre><code class="hljs lang-c">
 int getline(char** linep, int* linecapp, FILE* stream);
     </code></pre>
@@ -603,7 +658,10 @@ Number of Lines = 2
     <li>We must use different functions to read/write from/to binary files</li>
     <ul>
       <li>Why?</li>
-      <li>Because, data should not be converted to/from ASCII encoding in writing/reading the files</li>
+      <li>
+        Because, data should not be converted to/from ASCII encoding in
+        writing/reading the files
+      </li>
     </ul>
   </ul>
 </section>
@@ -623,14 +681,20 @@ fprintf(fp, “%d”, 10)
         <pre><code class="hljs lang-c">
 fscanf(fp, “%d”, &amp;i)
         </code></pre>
-        <li>Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2 which mean integer number 10</li>
+        <li>
+          Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2
+          which mean integer number 10
+        </li>
       </ul>
     </ul>
   </section>
   <section>
     <h2>No Conversion to ASCII</h2>
     <ul>
-      <li>In binary files, there is not any binary to text conversion, everything is read/write in binary format</li>
+      <li>
+        In binary files, there is not any binary to text conversion, everything
+        is read/write in binary format
+      </li>
       <ul>
         <pre><code class="hljs lang-c">
 int i = 10;
@@ -654,7 +718,11 @@ fread(&amp;i, sizeof(int), 1, fp)
 int fwrite(void *buf, int size, int num, FILE *fp)
   </code></pre>
   <ul>
-    <li>Writes <span class="orange-select">num</span> objects from <span class="green-select">buf</span> to <span class="violet-select">fp</span>.</li>
+    <li>
+      Writes <span class="orange-select">num</span> objects from
+      <span class="green-select">buf</span> to
+      <span class="violet-select">fp</span>.
+    </li>
     <li>Size of each object is <span class="yellow-select">size</span>.</li>
     <li>Returns the number of written objects.</li>
     <li>If (return_val &lt; <span class="orange-select">num</span>)</li>
@@ -669,7 +737,11 @@ int fwrite(void *buf, int size, int num, FILE *fp)
 int fread(void *buf, int size, int num, FILE *fp)
   </code></pre>
   <ul>
-    <li>Reads <span class="orange-select">num</span> objects from file <span class="violet-select">fp</span> to <span class="green-select">buf</span>.</li>
+    <li>
+      Reads <span class="orange-select">num</span> objects from file
+      <span class="violet-select">fp</span> to
+      <span class="green-select">buf</span>.
+    </li>
     <li>Size of each object is <span class="yellow-select">size</span>.</li>
     <li>Returns the number of read objects.</li>
     <li>If (return val &lt; <span class="orange-select">num</span>)</li>
@@ -689,9 +761,14 @@ fread(&amp;i, sizeof(int), 1, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Read <span class="orange-select">1</span> object from file <span class="violet-select">fp</span>.</li>
+      <li>
+        Read <span class="orange-select">1</span> object from file
+        <span class="violet-select">fp</span>.
+      </li>
       <li>Save result in <span class="green-select">&amp;i</span>.</li>
-      <li>The size of the object is <span class="yellow-select">sizeof(int)</span></li>
+      <li>
+        The size of the object is <span class="yellow-select">sizeof(int)</span>
+      </li>
     </ul>
     <li>It reads 4 bytes from file and saves in &amp;i</li>
     <ul>
@@ -709,9 +786,15 @@ fread(farr, sizeof(float), 5, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Read <span class="orange-select">5</span> objects from file <span class="violet-select">fp</span>.</li>
+      <li>
+        Read <span class="orange-select">5</span> objects from file
+        <span class="violet-select">fp</span>.
+      </li>
       <li>Save result in <span class="green-select">farr</span>.</li>
-      <li>The size of each object is <span class="yellow-select">sizeof(float)</span></li>
+      <li>
+        The size of each object is
+        <span class="yellow-select">sizeof(float)</span>
+      </li>
     </ul>
     <li>It reads 20 bytes from file and saves in farr</li>
     <ul>
@@ -729,8 +812,14 @@ fwrite(&amp;c, sizeof(char), 1, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Write <span class="orange-select">1</span> object from <span class="green-select">&amp;c</span> into file <span class="violet-select">fp</span>.</li>
-      <li>Size of the object is <span class="yellow-select">sizeof(char)</span></li>
+      <li>
+        Write <span class="orange-select">1</span> object from
+        <span class="green-select">&amp;c</span> into file
+        <span class="violet-select">fp</span>.
+      </li>
+      <li>
+        Size of the object is <span class="yellow-select">sizeof(char)</span>
+      </li>
     </ul>
     <li>It writes 1 byte from address &amp;c and saves result in file</li>
     <ul>
@@ -748,8 +837,14 @@ fwrite(darr, sizeof(double), 4, fp);
     </code></pre>
     <li>This means</li>
     <ul>
-      <li>Write <span class="orange-select">4</span> object from <span class="green-select">darr</span> into file <span class="violet-select">fp</span>.</li>
-      <li>Size of the object is <span class="yellow-select">sizeof(double)</span></li>
+      <li>
+        Write <span class="orange-select">4</span> object from
+        <span class="green-select">darr</span> into file
+        <span class="violet-select">fp</span>.
+      </li>
+      <li>
+        Size of the object is <span class="yellow-select">sizeof(double)</span>
+      </li>
     </ul>
     <li>It writes 32 bytes from address darr and saves result in file</li>
     <ul>
@@ -837,7 +932,10 @@ int main() {
   <h2>Moving FPP, Why?</h2>
   <ul>
     <li>To access randomly</li>
-    <li>Consider very large file (information about all students in the university)</li>
+    <li>
+      Consider very large file (information about all students in the
+      university)
+    </li>
     <li>Change the name of 5000th student</li>
     <ul>
       <li>If it is saved in text file</li>
@@ -986,8 +1084,7 @@ fseek(fp, 0, SEEK_END)
     <h2>Legends</h2>
   </section>
   <section>
-    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">?</h6>
-    <ul class="fragment" data-fragment-index="2">
-    </ul>
+    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">?</h6>
+    <ul class="fragment" data-fragment-index="2"></ul>
   </section>
 </section>

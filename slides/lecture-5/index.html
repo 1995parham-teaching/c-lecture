@@ -2,8 +2,8 @@
 index: 5
 title: Interaction
 topics:
-- Produce output
-- Get input values
+  - Produce output
+  - Get input values
 ---
 
 <section>
@@ -50,7 +50,11 @@ printf("%ld, %i", +1000, -100);
 <section>
   <h2>Printing Unsigned Integers</h2>
   <ul>
-    <li><span class="hl-orange">%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span></li>
+    <li>
+      <span class="hl-orange"
+        >%u (base 10), %o (base 8), %x (base 16) and %X (base 16)</span
+      >
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 unsigned int i = 26;
@@ -151,7 +155,9 @@ This is message
   <ul>
     <li>Field length is a <span class="hl-orange">number</span></li>
     <li>Comes after % (and before the type char)</li>
-    <li>It is the <span class="hl-cyan">minimum</span> space reserved for print</li>
+    <li>
+      It is the <span class="hl-cyan">minimum</span> space reserved for print
+    </li>
     <ul>
       <li>If value is smaller than the space</li>
       <ul>
@@ -180,7 +186,9 @@ printf("|%4s|\n", "ABCDE"); // |ABCDE|
 <section>
   <h2>Precision</h2>
   <ul>
-    <li>Precision is a <span class="hl-green">.number</span> and comes after %</li>
+    <li>
+      Precision is a <span class="hl-green">.number</span> and comes after %
+    </li>
     <li>For Integer</li>
     <ul>
       <li>The <span class="hl-orange">minimum</span> number of digits</li>
@@ -242,7 +250,10 @@ printf("|%5.10s|\n", "Hello, world");
 <section>
   <h2>Variable Field Length &amp; Precision : *</h2>
   <ul>
-    <li>* can be used to specify field length and precision which is replaced by a variable</li>
+    <li>
+      * can be used to specify field length and precision which is replaced by a
+      variable
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 int i = 30;
@@ -390,7 +401,7 @@ Spaces at the beginning are NOT ignored
     <li>To ignore white spaces, use “ “ before %c</li>
   </ul>
   <pre><code class="hljs lang-c">
-scanf("%d%c%d", &amp;i, &amnp;c, &amp;j);
+scanf("%d%c%d", &amp;i, &amp;c, &amp;j);
 Input: 123 45 → I = 123 c = ‘ ‘ j = 45
 
 scanf("%d %c%d", &amp;i, &amp;c, &amp;j);
@@ -407,11 +418,17 @@ Input: 123 456 → I = 123 c = ‘4’ j = 56
     </ul>
     <li>getch()</li>
     <ul>
-      <li>Read char <span class="hl-orange">without Enter</span>, <span class="hl-green">does NOT show</span> the char</li>
+      <li>
+        Read char <span class="hl-orange">without Enter</span>,
+        <span class="hl-green">does NOT show</span> the char
+      </li>
     </ul>
     <li>getche()</li>
     <ul>
-      <li>Read char <span class="hl-orange">without Enter</span>, <span class="hl-green">shows</span> the char</li>
+      <li>
+        Read char <span class="hl-orange">without Enter</span>,
+        <span class="hl-green">shows</span> the char
+      </li>
     </ul>
   </ul>
 </section>
@@ -432,7 +449,10 @@ Input: ABC DEF → str = "ABC DEF"
 <section>
   <h2>Field length in scanf</h2>
   <ul>
-    <li>Field length specifies the <span class="hl-orange">maximum</span> number of input characters (in the buffer) used for scanning</li>
+    <li>
+      Field length specifies the <span class="hl-orange">maximum</span> number
+      of input characters (in the buffer) used for scanning
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 int i, j;
@@ -463,7 +483,10 @@ Input: 1389/12/1 → y = 1389, m = 12, d = 1
 <section>
   <h2>Format of actual input data</h2>
   <ul>
-    <li>The format of actual input data <span class="hl-orange">MUST</span> match with the format of scanf</li>
+    <li>
+      The format of actual input data <span class="hl-orange">MUST</span> match
+      with the format of scanf
+    </li>
   </ul>
   <pre><code class="hljs lang-c">
 int a, b;
@@ -488,7 +511,9 @@ Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
       <li>printf("%d %d", 10);</li>
       <li>printf("%d", 10, 20);</li>
     </ul>
-    <li>Using name of variable instead of <span class="hl-orange">address</span></li>
+    <li>
+      Using name of variable instead of <span class="hl-orange">address</span>
+    </li>
     <ul>
       <li>scanf("%d", i);</li>
     </ul>
@@ -496,6 +521,8 @@ Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
 </section>
 <section>
   <h2>Legends</h2>
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Mohammad Ghodsi</h6>
-  <img src="img/ghodsi.jpg" alt="ghodsi">
+  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+    Mohammad Ghodsi
+  </h6>
+  <img src="img/ghodsi.jpg" alt="ghodsi" />
 </section>
