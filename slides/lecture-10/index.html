@@ -2,13 +2,13 @@
 index: 10
 title: Pointers &amp; Dynamic Memory
 topics:
-- Introduction
-- Pointers and Functions
-- Pointers and Arrays
-- Pointers and Strings
-- Pointer to Pointer & Pointer to Function
-- Dynamic memory allocation
-- Common Bugs
+  - Introduction
+  - Pointers and Functions
+  - Pointers and Arrays
+  - Pointers and Strings
+  - Pointer to Pointer & Pointer to Function
+  - Dynamic memory allocation
+  - Common Bugs
 ---
 
 <section>
@@ -22,7 +22,9 @@ topics:
   <ul>
     <li>Pointer is a variable that</li>
     <ul>
-      <li>Contains the <span class="hl-orange">address</span> of another variable</li>
+      <li>
+        Contains the <span class="hl-orange">address</span> of another variable
+      </li>
     </ul>
     <li>Pointer <span class="hl-green">refers</span> to an address</li>
     <li>Examples</li>
@@ -37,7 +39,10 @@ pi = &amp;i;
 <section>
   <h2>Pointer: Declaration and Initialization</h2>
   <ul>
-    <li><span class="hl-orange">&lt;type&gt;</span>* <span class="hl-green">&lt;identifier&gt;</span>;</li>
+    <li>
+      <span class="hl-orange">&lt;type&gt;</span>*
+      <span class="hl-green">&lt;identifier&gt;</span>;
+    </li>
     <li>Example</li>
     <pre><code class="hljs lang-c">
 int i, *pi;
@@ -54,30 +59,48 @@ float *pf = &amp;f;
 int *pi, *pj, i, j;
     </code></pre>
     <ul>
-      <li><span class="hl-orange">pi</span> variable contains the memory address</li>
+      <li>
+        <span class="hl-orange">pi</span> variable contains the memory address
+      </li>
       <ul>
-        <li>If you assign a value to it: <span class="hl-green">pi = &amp;i;</span></li>
+        <li>
+          If you assign a value to it:
+          <span class="hl-green">pi = &amp;i;</span>
+        </li>
         <ul>
           <li>The address is saved in <span class="hl-cyan">pi</span></li>
         </ul>
         <li>If you read it: <span class="hl-green">pj = pi;</span></li>
         <ul>
-          <li>The address is copied from <span class="hl-cyan">pi</span> from <span class="hl-cyan">pj</span></li>
+          <li>
+            The address is copied from <span class="hl-cyan">pi</span> from
+            <span class="hl-cyan">pj</span>
+          </li>
         </ul>
       </ul>
     </ul>
   </section>
   <section>
     <ul>
-      <li><span class="hl-orange">*pi</span> is the value of referred memory</li>
+      <li>
+        <span class="hl-orange">*pi</span> is the value of referred memory
+      </li>
       <ul>
         <li>If you read it: <span class="hl-green">j = *pi;</span></li>
         <ul>
-          <li>The <span class="hl-cyan">value in the referred address</span> is read from pi</li>
+          <li>
+            The <span class="hl-cyan">value in the referred address</span> is
+            read from pi
+          </li>
         </ul>
-        <li>If you assign a value to it: <span class="hl-green">*pj = i;</span></li>
+        <li>
+          If you assign a value to it: <span class="hl-green">*pj = i;</span>
+        </li>
         <ul>
-          <li>The value is saved in the <span class="hl-cyan">referred address</span></li>
+          <li>
+            The value is saved in the
+            <span class="hl-cyan">referred address</span>
+          </li>
         </ul>
       </ul>
     </ul>
@@ -163,8 +186,14 @@ void main(void){
   <ul>
     <li>Call by reference</li>
     <ul>
-      <li>The value of variable is <span class="hl-red">not</span> copied to function</li>
-      <li>If function changes the input parameter &rarr; the variable passed to the input is changed</li>
+      <li>
+        The value of variable is <span class="hl-red">not</span> copied to
+        function
+      </li>
+      <li>
+        If function changes the input parameter &rarr; the variable passed to
+        the input is changed
+      </li>
       <li>Is implemented by pointers in C</li>
     </ul>
   </ul>
@@ -203,16 +232,31 @@ int main(void) {
       <pre><code class="hljs lang-c">double result = 0;</code></pre>
       <li>The address of result is 100, value of result is 0</li>
       <pre><code class="hljs lang-c">add(d1, d2, &amp;result);</code></pre>
-      <li><span class="hl-orange">Value</span> of d1, <span class="hl-orange">Value</span> of d2 and the <span class="hl-green">address</span> of result is <span class="hl-green">copied</span> to add</li>
+      <li>
+        <span class="hl-orange">Value</span> of d1,
+        <span class="hl-orange">Value</span> of d2 and the
+        <span class="hl-green">address</span> of result is
+        <span class="hl-green">copied</span> to add
+      </li>
       <pre><code class="hljs lang-c">add(double a, double b, double *res)</code></pre>
-      <li>Value of a is the value of d1, value of b is the value of d2 and value of <span class="hl-orange">res is 100</span> and the <span class="hl-green">value of *res is 0</span></li>
+      <li>
+        Value of a is the value of d1, value of b is the value of d2 and value
+        of <span class="hl-orange">res is 100</span> and the
+        <span class="hl-green">value of *res is 0</span>
+      </li>
     </ul>
   </section>
   <section>
     <ul>
       <pre><code class="hljs lang-c">*res = a + b;</code></pre>
-      <li>Value of a is added to b and output is saved in <span class="hl-orange">the referred address by res (100)</span></li>
-      <li>But the 100 is the address of <span class="hl-cyan">result</span>. Therefore the value is saved in memory location result</li>
+      <li>
+        Value of a is added to b and output is saved in
+        <span class="hl-orange">the referred address by res (100)</span>
+      </li>
+      <li>
+        But the 100 is the address of <span class="hl-cyan">result</span>.
+        Therefore the value is saved in memory location result
+      </li>
     </ul>
   </section>
 </section>
@@ -261,11 +305,19 @@ void main(void) {
   <h2>Pointer as the function output</h2>
   <ul>
     <li>Functions can return a pointer as output</li>
-    <li>But, the address pointed by the pointer must be valid after the function finishes</li>
+    <li>
+      But, the address pointed by the pointer must be valid after the function
+      finishes
+    </li>
     <ul>
       <li>The pointed variable must be exist</li>
-      <li>It must <span class="hl-red">not</span> be <span class="hl-orange">automatic local variable</span> of the function</li>
-      <li>It can be static local variable, global variable, or the input parameter</li>
+      <li>
+        It must <span class="hl-red">not</span> be
+        <span class="hl-orange">automatic local variable</span> of the function
+      </li>
+      <li>
+        It can be static local variable, global variable, or the input parameter
+      </li>
     </ul>
   </ul>
 </section>
@@ -292,10 +344,15 @@ float *func_b(void) {
   <ul>
     <li>Arithmetic</li>
     <p>
-      <span class="hl-orange">&lt;pointer&gt;</span> - or + <span class="hl-green">&lt;integer&gt;</span>
-      (or <span class="hl-orange">&lt;pointer&gt;</span> -= or += <span class="hl-green">&lt;integer&gt;</span>)<br>
-      <span class="hl-orange">&lt;pointer&gt;</span> - <span class="hl-orange">&lt;pointer&gt;</span> (they must be the same type)<br>
-      <span class="hl-orange">&lt;pointer&gt;</span>++ or <span class="hl-orange">&lt;pointer&gt;</span>--
+      <span class="hl-orange">&lt;pointer&gt;</span> - or +
+      <span class="hl-green">&lt;integer&gt;</span> (or
+      <span class="hl-orange">&lt;pointer&gt;</span> -= or +=
+      <span class="hl-green">&lt;integer&gt;</span>)<br />
+      <span class="hl-orange">&lt;pointer&gt;</span> -
+      <span class="hl-orange">&lt;pointer&gt;</span> (they must be the same
+      type)<br />
+      <span class="hl-orange">&lt;pointer&gt;</span>++ or
+      <span class="hl-orange">&lt;pointer&gt;</span>--
     </p>
     <li>Comparison between pointers</li>
     <pre><code class="hljs lang-c">
@@ -369,7 +426,9 @@ pa = a;
     </ul>
   </ul>
   <p>
-    <span class="hl-orange">p[i]</span> <span class="hl-cyan">is equal to</span> <span class="hl-green">*(p + i)</span>
+    <span class="hl-orange">p[i]</span>
+    <span class="hl-cyan">is equal to</span>
+    <span class="hl-green">*(p + i)</span>
   </p>
 </section>
 <section>
@@ -418,12 +477,12 @@ int func2(int num[], int size) { }
 int func3(int *num, int size) { }
   </code></pre>
   <hr />
-  <p>
-    <pre><code class="hljs lang-c">int f(int num[], int size);</code></pre>
+  <div>
+    <pre><code class="hljs lang-c"> int f(int num[], int size); </code></pre>
     and
-    <pre><code class="hljs lang-c">int f(int *num, int size);</code></pre>
+    <pre><code class="hljs lang-c"> int f(int *num, int size); </code></pre>
     are the same.
-  </p>
+  </div>
 </section>
 <section>
   <section>
@@ -738,15 +797,24 @@ char *str4 = "program";
   <ul>
     <li>str1,str2 and str3 are array</li>
     <li>str4 is a pointer</li>
-    <li>We can <span class="hl-orange">not</span> assign a new value to str1, str2, str3</li>
+    <li>
+      We can <span class="hl-orange">not</span> assign a new value to str1,
+      str2, str3
+    </li>
     <ul>
       <li>Array is a fix location in memory</li>
       <li>We can change the elements of array</li>
     </ul>
     <li>We can assign a new value for str4</li>
     <ul>
-      <li>Pointer is <span class="hl-cyan">not</span> fix location, pointer contains address of memory</li>
-      <li>Content of str4 is <span class="hl-green">constant</span>, you can not change elements</li>
+      <li>
+        Pointer is <span class="hl-cyan">not</span> fix location, pointer
+        contains address of memory
+      </li>
+      <li>
+        Content of str4 is <span class="hl-green">constant</span>, you can not
+        change elements
+      </li>
     </ul>
   </ul>
 </section>
@@ -776,7 +844,11 @@ str2[1] = 'z'; // Runtime Error
       <li>Is <span class="hl-orange">not</span> null pointer</li>
       <li>Is <span class="hl-green">not</span> uninitialized pointer</li>
     </ul>
-    <img src="img/null-empty-string.png" alt="null-empty-string" height="300px">
+    <img
+      src="img/null-empty-string.png"
+      alt="null-empty-string"
+      height="300px"
+    />
   </ul>
 </section>
 <section>
@@ -785,13 +857,18 @@ str2[1] = 'z'; // Runtime Error
   </section>
   <section>
     <ul>
-      <li>char * strchr(
-        <span class="hl-orange">const char *s</span>,
+      <li>
+        char * strchr( <span class="hl-orange">const char *s</span>,
         <span class="hl-green">char c</span>
         )
       </li>
       <ul>
-        <li>Return the <span class="hl-cyan">pointer</span> to the first occurrence of <span class="hl-green">c</span> in <span class="hl-orange">s</span> or <span class="hl-yellow">NULL</span></li>
+        <li>
+          Return the <span class="hl-cyan">pointer</span> to the first
+          occurrence of <span class="hl-green">c</span> in
+          <span class="hl-orange">s</span> or
+          <span class="hl-yellow">NULL</span>
+        </li>
         <pre><code class="hljs lang-c">
 char *s="ABZDEZFZ";
 char *pc = strchr(s, 'Z');
@@ -804,13 +881,18 @@ First index of Z = 2
   </section>
   <section>
     <ul>
-      <li>char * strstr(
-        <span class="hl-orange">const char *s1</span>,
+      <li>
+        char * strstr( <span class="hl-orange">const char *s1</span>,
         <span class="hl-green">const char *s2</span>
         )
       </li>
       <ul>
-        <li>Return <span class="hl-cyan">pointer</span> to the first occurrence of <span class="hl-green">s2</span> in <span class="hl-orange">s1</span> or <span class="hl-yellow">NULL</span></li>
+        <li>
+          Return <span class="hl-cyan">pointer</span> to the first occurrence of
+          <span class="hl-green">s2</span> in
+          <span class="hl-orange">s1</span> or
+          <span class="hl-yellow">NULL</span>
+        </li>
         <pre><code class="hljs lang-c">
 char *s="ABCDxyEFxyGH";
 char *pc = strstr(s, "xy");
@@ -823,13 +905,20 @@ First index of xy = 4
   </section>
   <section>
     <ul>
-      <li>char * strdup(
+      <li>
+        char * strdup(
         <span class="hl-orange">const char *s1</span>
         )
       </li>
       <ul>
-        <li>Returns <span class="hl-cyan">a pointer</span> to a null-terminated byte string, which is a duplicate of the string pointed to by <span class="hl-orange">s1</span>.</li>
-        <li>The returned pointer must be passed to free to avoid a memory leak.</li>
+        <li>
+          Returns <span class="hl-cyan">a pointer</span> to a null-terminated
+          byte string, which is a duplicate of the string pointed to by
+          <span class="hl-orange">s1</span>.
+        </li>
+        <li>
+          The returned pointer must be passed to free to avoid a memory leak.
+        </li>
         <li>More on free/malloc later</li>
         <pre><code class="hljs lang-c">
 char *src = "Hello World";
@@ -1020,8 +1109,9 @@ printf("%d\n", *pj); // 30
       <span class="hl-cyan">char</span>, <span class="hl-cyan">float</span>)
     </p>
     <p>
-      <span class="hl-green">pf</span> is a pointer to a function that the function
-      return <span class="hl-orange">int</span> and its inputs are <span class="hl-cyan">char</span> and
+      <span class="hl-green">pf</span> is a pointer to a function that the
+      function return <span class="hl-orange">int</span> and its inputs are
+      <span class="hl-cyan">char</span> and
       <span class="hl-cyan">float</span>
     </p>
   </ul>
@@ -1117,8 +1207,12 @@ int main(void){
       <pre><code class="hljs lang-c">
 void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
       </code></pre>
-      <li>To sort array <span class="hl-orange">arr</span> with <span class="hl-green">num</span> elements of size <span class="hl-cyan">element_size</span>. The order between elements is
-        specified by the <span class="hl-red">compare</span> function</li>
+      <li>
+        To sort array <span class="hl-orange">arr</span> with
+        <span class="hl-green">num</span> elements of size
+        <span class="hl-cyan">element_size</span>. The order between elements is
+        specified by the <span class="hl-red">compare</span> function
+      </li>
     </ul>
   </ul>
 </section>
@@ -1157,35 +1251,35 @@ int main(void) {
 </section>
 <section>
   <section>
-  <h2>Sort Names with qsort</h2>
+    <h2>Sort Names with qsort</h2>
   </section>
   <section>
-<pre><code class="hljs lang-c">
+    <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 #include &lt;stdlib.h&gt;
 
 int name_cmp(const void *e1, const void *e2) {
-        char **a = (char**) e1;
-        char **b = (char**) e2;
+  char **a = (char**) e1;
+  char **b = (char**) e2;
 
-        return strcmp(*a, *b);
+  return strcmp(*a, *b);
 }
 
 int main() {
-        char *names[] = { "Parham", "Ali", "Saman", "Hesam" };
+  char *names[] = { "Parham", "Ali", "Saman", "Hesam" };
 
-        for (int i = 0; i &lt; 4; i++) {
-                printf("[%d]: %s\n", i, names[i]);
-        }
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d]: %s\n", i, names[i]);
+  }
 
-        printf("--\n");
-        qsort(names, 4, sizeof(char *), name_cmp);
-        printf("--\n");
+  printf("--\n");
+  qsort(names, 4, sizeof(char *), name_cmp);
+  printf("--\n");
 
-        for (int i = 0; i &lt; 4; i++) {
-                printf("[%d]: %s\n", i, names[i]);
-        }
+  for (int i = 0; i &lt; 4; i++) {
+    printf("[%d]: %s\n", i, names[i]);
+  }
 }
 </code></pre>
   </section>
@@ -1198,16 +1292,31 @@ int main() {
   <ul>
     <li>Until now</li>
     <ul>
-      <li>We define variables: <pre><code class="hljs lang-c">int i; int a[200]; int x[n]</code></pre></li>
-      <li>Memory is allocated for the variables <span class="hl-violet">when the scope starts</span></li>
-      <li>Allocated memory is released <span class="hl-yellow">when the scope finishes</span></li>
+      <li>
+        We define variables:
+        <pre><code class="hljs lang-c">int i; int a[200]; int x[n]</code></pre>
+      </li>
+      <li>
+        Memory is allocated for the variables
+        <span class="hl-violet">when the scope starts</span>
+      </li>
+      <li>
+        Allocated memory is released
+        <span class="hl-yellow">when the scope finishes</span>
+      </li>
     </ul>
-    <li>We <span class="hl-cyan">cannot change</span> the size of the allocated memories</li>
+    <li>
+      We <span class="hl-cyan">cannot change</span> the size of the allocated
+      memories
+    </li>
     <ul>
       <li>We cannot change the size of array</li>
     </ul>
     <li>These variables are in <span class="hl-orange">stack</span></li>
-    <li>We want to see how to allocate memory in <span class="hl-green">heap</span></li>
+    <li>
+      We want to see how to allocate memory in
+      <span class="hl-green">heap</span>
+    </li>
   </ul>
 </section>
 <section>
@@ -1215,7 +1324,9 @@ int main() {
   <ul>
     <li>Memory is compose of a few logical sections</li>
     <ul>
-      <li>Stack is one of the logical sections that is used for function calls</li>
+      <li>
+        Stack is one of the logical sections that is used for function calls
+      </li>
       <li>All automatic variables are allocated in stack</li>
       <ul>
         <li>Stack is managed by operating system</li>
@@ -1224,8 +1335,13 @@ int main() {
     </ul>
     <li>Another logical section is <span class="hl-yellow">Heap</span></li>
     <ul>
-      <li>Heap is used for <span class="hl-green">dynamic memory allocation</span></li>
-      <li>Heap is managed <span class="hl-orange">by programmer</span> (at least in C)</li>
+      <li>
+        Heap is used for <span class="hl-green">dynamic memory allocation</span>
+      </li>
+      <li>
+        Heap is managed <span class="hl-orange">by programmer</span> (at least
+        in C)
+      </li>
       <li>Memory allocation functions &amp; the Free function</li>
     </ul>
   </ul>
@@ -1238,7 +1354,10 @@ int main() {
 #include &lt;stdlib.h&gt;
 void * calloc(int num, int size);
     </code></pre>
-    <li><span class="hl-green">void *</span> is generic pointer, it can be converted to every pointer type</li>
+    <li>
+      <span class="hl-green">void *</span> is generic pointer, it can be
+      converted to every pointer type
+    </li>
     <li>Initializes allocated memory to zero</li>
     <li>If memory is not available calloc returns NULL</li>
   </ul>
@@ -1251,7 +1370,10 @@ void * calloc(int num, int size);
 #include &lt;stdlib.h&gt;
 void * malloc(int size);
     </code></pre>
-    <li><span class="hl-green">void *</span> is generic pointer, it can be converted to every pointer type</li>
+    <li>
+      <span class="hl-green">void *</span> is generic pointer, it can be
+      converted to every pointer type
+    </li>
     <li>If memory is not available malloc returns NULL</li>
   </ul>
 </section>
@@ -1273,8 +1395,13 @@ pd = calloc(1,sizeof(double));
 <section>
   <h2>Free</h2>
   <ul>
-    <li>In static memory allocation, memory is freed when block/scope is finished</li>
-    <li>In dynamic memory allocation, <span class="hl-orange">we must free</span> the allocated memory</li>
+    <li>
+      In static memory allocation, memory is freed when block/scope is finished
+    </li>
+    <li>
+      In dynamic memory allocation,
+      <span class="hl-orange">we must free</span> the allocated memory
+    </li>
     <pre><code class="hljs lang-c">
 int *pi;
 pi = malloc(sizeof(int));
@@ -1347,10 +1474,12 @@ int main(void){
 <section>
   <h2>BONUS 💯</h2>
   <p>
-    Write a code that allocates a 2-dimensional array that each of its rows has a different number of columns.
+    Write a code that allocates a 2-dimensional array that each of its rows has
+    a different number of columns.
   </p>
   <p style="text-align: center">
-    Send your solutions to <a href="mailto:parham.alvani@gmai.com">my email</a> with your student ID.
+    Send your solutions to
+    <a href="mailto:parham.alvani@gmai.com">my email</a> with your student ID.
   </p>
   <table class="cell">
     <tr>
@@ -1385,9 +1514,15 @@ int main(void){
     <pre><code class="hljs lang-c">
 void * realloc(void *p, int newsize);
     </code></pre>
-    <li>Allocate <span class="hl-orange">newsize</span> bytes for pointer <span class="hl-green">p</span></li>
+    <li>
+      Allocate <span class="hl-orange">newsize</span> bytes for pointer
+      <span class="hl-green">p</span>
+    </li>
     <li>Previous data of <span class="hl-green">p</span> does not change</li>
-    <li><span class="hl-cyan">UPDATE</span> <span class="hl-green">p</span> with its returned address</li>
+    <li>
+      <span class="hl-cyan">UPDATE</span> <span class="hl-green">p</span> with
+      its returned address
+    </li>
   </ul>
 </section>
 <section>
@@ -1423,7 +1558,9 @@ printf("%d\n", *p); // ?
   <section>
     <h2>Common Bugs</h2>
     <ul>
-      <li>Be <span class="hl-orange">very very</span> careful about pointers</li>
+      <li>
+        Be <span class="hl-orange">very very</span> careful about pointers
+      </li>
       <ul>
         <li>Invalid type of value assigned to pointer</li>
         <pre><code class="hljs lang-c">
@@ -1452,13 +1589,21 @@ char *s = "abc";
 <section>
   <section>
     <h2>Legends</h2>
-    <img src="img/dijkstra.jpg" height="500px">
+    <img src="img/dijkstra.jpg" height="500px" />
   </section>
   <section>
-    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff;">Edsger W. Dijkstra</h6>
+    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
+      Edsger W. Dijkstra
+    </h6>
     <ul class="fragment" data-fragment-index="2">
-      <li>Program testing can be used to show the presence of bugs, but never to show their absence!</li>
-      <li>Dijkstra's algorithm is an algorithm for finding the shortest paths between nodes in a graph</li>
+      <li>
+        Program testing can be used to show the presence of bugs, but never to
+        show their absence!
+      </li>
+      <li>
+        Dijkstra's algorithm is an algorithm for finding the shortest paths
+        between nodes in a graph
+      </li>
     </ul>
   </section>
 </section>
