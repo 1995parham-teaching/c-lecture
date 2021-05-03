@@ -30,7 +30,7 @@ topics:
 int i;
 int *pi;
 i = 20;
-pi = &i;
+pi = &amp;i;
     </code></pre>
   </ul>
 </section>
@@ -41,9 +41,9 @@ pi = &i;
     <li>Example</li>
     <pre><code class="hljs lang-c">
 int i, *pi;
-pi = &i;
+pi = &amp;i;
 float f;
-float *pf = &f;
+float *pf = &amp;f;
     </code></pre>
   </ul>
 </section>
@@ -275,12 +275,12 @@ void main(void) {
 int gi;
 
 int *func_a(void) {
-  return &gi;
+  return &amp;gi;
 }
 
 float *func_b(void) {
   static float x;
-  return &x;
+  return &amp;x;
 }
   </code></pre>
 </section>
@@ -367,10 +367,10 @@ pa = a;
     <ul>
       <li>pa + 2 = 108</li>
     </ul>
-    <p>
-      <span class="hl-orange">p[i]</span> <span class="hl-cyan">is equal to</span> <span class="hl-green">*(p + i)</span>
-    </p>
   </ul>
+  <p>
+    <span class="hl-orange">p[i]</span> <span class="hl-cyan">is equal to</span> <span class="hl-green">*(p + i)</span>
+  </p>
 </section>
 <section>
   <h2>Arrays &amp; Pointers: Similarity</h2>
@@ -417,7 +417,7 @@ int func1(int num[90]) {  }
 int func2(int num[], int size) { }
 int func3(int *num, int size) { }
   </code></pre>
-  <hr>
+  <hr />
   <p>
     <pre><code class="hljs lang-c">int f(int num[], int size);</code></pre>
     and
@@ -906,25 +906,39 @@ int main(void) {
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 
-int tokenizer(char *s, char *token, char result[][100]){
-  int res_index = 0;
+int tokenizer(const char *s, const char *token, char result[][100]){
+  int result_index = 0;
   char *index;
+
+  // s = hello
+  // token = ll
+  // hello
+  //   ^
+  //   |
+  //   index
+  // index - s = 2 =&gt; len
+  //
+  // hello
+  //     ^
+  //     |
+  //     index + strlen(token)
   while((index = strstr(s, token)) != NULL){
     int len = index - s;
     if(len &gt; 0){
-      strncpy(result[res_index], s, len);
-      result[res_index][len] = '\0';
-      res_index++;
+      strncpy(result[result_index], s, len);
+      result[result_index][len] = '\0';
+      result_index++;
     }
     s = index + strlen(token);
   }
-  if(strlen(s) &gt; 0){
-    strcpy(result[res_index], s);
-    res_index++;
-  }
-  return res_index;
-}
 
+  if(strlen(s) &gt; 0){
+    strcpy(result[result_index], s);
+    result_index++;
+  }
+
+  return result_index;
+}
 
 int main(void){
   char *s = "a123bb123ccc123dddd123eeeee123fffffffffff123";
@@ -980,7 +994,7 @@ printf("%d\n", **ppi); // 10
 ppi = &amp;pj;
 **ppi = 100;
 printf("%d\n", j); // 100
-*ppi = &k;
+*ppi = &amp;k;
 printf("%d\n", *pj); // 30
   </code></pre>
 </section>
@@ -1113,13 +1127,13 @@ void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
-int int_cmp_asc(void *i1, void *i2) {
+int int_cmp_asc(const void *i1, const void *i2) {
   int a = *((int *)i1);
   int b = *((int *)i2);
   return (a &gt; b) ? 1 : (a == b) ? 0 : -1;
 }
 
-int int_cmp_dsc(void *i1, void *i2) {
+int int_cmp_dsc(const void *i1, const void *i2) {
   int a = *((int *)i1);
   int b = *((int *)i2);
   return (a &gt; b) ? -1 : (a == b) ? 0 : 1;
@@ -1140,6 +1154,41 @@ int main(void) {
   return 0;
 }
   </code></pre>
+</section>
+<section>
+  <section>
+  <h2>Sort Names with qsort</h2>
+  </section>
+  <section>
+<pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+int name_cmp(const void *e1, const void *e2) {
+        char **a = (char**) e1;
+        char **b = (char**) e2;
+
+        return strcmp(*a, *b);
+}
+
+int main() {
+        char *names[] = { "Parham", "Ali", "Saman", "Hesam" };
+
+        for (int i = 0; i &lt; 4; i++) {
+                printf("[%d]: %s\n", i, names[i]);
+        }
+
+        printf("--\n");
+        qsort(names, 4, sizeof(char *), name_cmp);
+        printf("--\n");
+
+        for (int i = 0; i &lt; 4; i++) {
+                printf("[%d]: %s\n", i, names[i]);
+        }
+}
+</code></pre>
+  </section>
 </section>
 <section>
   <div class="toc" data-selected="5"></div>
@@ -1300,7 +1349,7 @@ int main(void){
   <p>
     Write a code that allocates a 2-dimensional array that each of its rows has a different number of columns.
   </p>
-  <p style="align: center">
+  <p style="text-align: center">
     Send your solutions to <a href="mailto:parham.alvani@gmai.com">my email</a> with your student ID.
   </p>
   <table class="cell">
@@ -1378,7 +1427,7 @@ printf("%d\n", *p); // ?
       <ul>
         <li>Invalid type of value assigned to pointer</li>
         <pre><code class="hljs lang-c">
-int i, *pi = &i;
+int i, *pi = &amp;i;
 *pi = 29.090; // No warning!!!
         </code></pre>
         <li>Invalid usage of pointers</li>
