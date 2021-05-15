@@ -833,7 +833,7 @@ read_st_info(&amp;st1);
 struct student {
   char first_name[200];
   char last_name[200];
-  int id[200];
+  int id;
 };
     </code></pre>
   </section>
@@ -1149,12 +1149,12 @@ list-&gt;next-&gt;next = node_construct(30);
   </ul>
 </section>
 <section>
-  <h2>print_list</h2>
+  <h2>list_print</h2>
   <pre><code class="hljs lang-c">
-void list_print(struct node *list){
+void list_print(struct node *head){
   struct node* current;
 
-  for(current = list; current != NULL; current = current-&gt; next) {
+  for(current = head; current != NULL; current = current-&gt; next) {
     printf("%d\n", current-&gt;info)
   }
 }
@@ -1163,10 +1163,10 @@ void list_print(struct node *list){
 <section>
   <h2>list_push_back</h2>
   <pre><code class="hljs lang-c">
-void list_push_back(struct node* list, struct node* nn){
+void list_push_back(struct node* head, struct node* nn){
   struct node* current;
 
-  for(current = list; current-&gt; next != NULL; current = current-&gt; next);
+  for(current = head; current-&gt; next != NULL; current = current-&gt; next);
 
   current-&gt;next = nn;
   nn-&gt;next = NULL;
@@ -1175,7 +1175,7 @@ void list_push_back(struct node* list, struct node* nn){
 </section>
 <section>
   <section>
-    <h2>list_pop_back (if more than 2 nodes)</h2>
+    <h2>list_pop_back (if more than 1 nodes)</h2>
     <p>X &rarr; Y &rarr; NULL</p>
     <hr />
     <ul>
@@ -1189,8 +1189,8 @@ void list_push_back(struct node* list, struct node* nn){
   </section>
   <section>
     <pre><code class="hljs lang-c">
-void list_pop_back(struct node* list) {
-  struct node* current = list;
+void list_pop_back(struct node* head) {
+  struct node* current = head;
   while(current-&gt;next-&gt;next != NULL) {
     current = current-&gt;next;
   }
@@ -1205,18 +1205,18 @@ void list_pop_back(struct node* list) {
   <section>
     <h2>list_push_front 🤔</h2>
     <pre><code class="hljs lang-c">
-void list_push_front(struct node* list, struct node* nn) {
+void list_push_front(struct node* head, struct node* nn) {
   nn-&gt;next = list;
-  list = nn;
+  head = nn;
 }
     </code></pre>
   </section>
   <section>
     <h2>list_push_front 😱</h2>
     <pre><code class="hljs lang-c">
-void list_push_front(struct node** plist, struct node* nn) {
-  nn-&gt;next = *plist;
-  *plist = nn;
+void list_push_front(struct node** phead, struct node* nn) {
+  nn-&gt;next = *phead;
+  *phead = nn;
 }
     </code></pre>
   </section>
@@ -1239,9 +1239,9 @@ void list_push_front(struct node** plist, struct node* nn) {
   </section>
   <section>
     <pre><code class="hljs lang-c">
-void list_pop_by_info(struct node* list, int v) {
+void list_pop_by_info(struct node* head, int v) {
   // find a node before the node that contains v
-  struct node* current = list;
+  struct node* current = head;
   for (current = list; current-&gt;next != NULL &amp;&amp; current-&gt;next-&gt;info != v; current = current-&gt;next);
 
   // there is no node that conaints v
