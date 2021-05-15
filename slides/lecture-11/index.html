@@ -865,10 +865,10 @@ void student_set_id(struct student *std, const char *name) {
     <p>
       First name field of stduent is an array and as you may remember arrays
       name contains the address of array's first cell. So is the following code
-      is correct? 🤔
+      correct? 🤔
     </p>
     <pre><code class="hljs lang-c">
-void student_set_id_wrong(struct student *std, const char *name) {
+void student_set_id_wrong(struct student std, const char *name) {
   strcpy(sed.first_name, name)
 }
     </code></pre>
