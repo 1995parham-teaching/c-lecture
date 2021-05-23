@@ -365,7 +365,7 @@ int main() {
   </code></pre>
 </section>
 <section>
-  <h2>Upper Average Students 🤓</h2>
+  <h2>Upper Average Students 🤓 v1</h2>
   <pre><code class="hljs lang-c">
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -428,6 +428,76 @@ int main() {
   fclose(fpout);
 
   return 0;
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Upper Average Students 🤓 v2</h2>
+  <pre><code class="hljs lang-c">
+#include &lt;tstdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct student {
+  int id;
+  double grade;
+};
+
+int main() {
+  char inname[200];
+  char outname[200];
+  FILE *fpin;
+  FILE *fpout;
+  struct student *students;
+
+  int num;
+  double sum = 0;
+
+	printf("input file: ");
+	scanf("%s", inname);
+
+  printf("output file: ");
+  scanf("%s", outname);
+
+	fpin = fopen(inname, "r");
+	if (fpin == NULL) {
+		printf("cannot open file %s\n", inname);
+		return 1;
+	}
+
+  fpout = fopen(outname, "w");
+  if (fpout == NULL) {
+		printf("cannot open file %s\n", outname);
+		return 1;
+  }
+
+	fscanf(fpin, "%d", &amp;num);
+
+  students = malloc(num * sizeof(struct student));
+
+  for (int i = 0; i &lt; num; i++) {
+		int id;
+    double grade;
+
+    fscanf(fpin, "%d %lf", &amp;id, &amp;grade);
+
+    sum += grade;
+
+    students[i].id = id;
+    students[i].grade = grade;
+
+    printf("id: %d, grade: %lf\n", id, grade);
+  }
+
+  double average = sum / num;
+  printf("average: %lf\n", average);
+
+  for (int i = 0; i &lt; num; i++) {
+    if (students[i].grade &gt;= average) {
+      fprintf(fpout, "%d\n", students[i].id);
+    }
+  }
+
+  fclose(fpin);
 }
   </code></pre>
 </section>
