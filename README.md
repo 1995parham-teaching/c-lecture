@@ -16,3 +16,6 @@ To run these slides locally you can use the `docker-compose`.
 docker-compose up -d
 # go to 127.0.0.1:4000
 ```
+
+datetime
+fmtcount
