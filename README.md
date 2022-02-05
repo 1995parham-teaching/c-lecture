@@ -5,6 +5,12 @@
 Here is all we got for C Programming Course in Amirkabir as online materials. All slides are based on Prof.Bakhshi's slides of
 Introduction to Programming Course.
 
+## How to build a nice courses page
+
+- course image from [unsplash](https://unsplash.com/photos/mDinBvq1Sfg)
+- how to join [quera.ir](https://quera.ir/)
+- teaching assistents and how to contact them.
+
 ## Requirements
 
 ```sh
