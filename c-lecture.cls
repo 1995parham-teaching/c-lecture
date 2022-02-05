@@ -6,14 +6,14 @@
 \RequirePackage{minted}
 \RequirePackage[useregional,calc,warn=false]{datetime2}
 
-\usemintedstyle{monokai}
-
 \DTMnewdatestyle{mmyy}{%
   \renewcommand*{\DTMdisplaydate}[4]{\DTMmonthname{##2} ##1}%
   \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}%
 }
 
 \LoadClass[]{beamer}
+
+\usemintedstyle{one-dark}
 
 \usetheme[secheader]{Boadilla}
 \usecolortheme{crane}
