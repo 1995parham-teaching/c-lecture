@@ -3,6 +3,12 @@
 
 \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{booktabs}
+\RequirePackage[useregional,calc,warn=false]{datetime2}
+
+\DTMnewdatestyle{mmyy}{%
+  \renewcommand*{\DTMdisplaydate}[4]{\DTMmonthname{##2} ##1}%
+  \renewcommand*{\DTMDisplaydate}{\DTMdisplaydate}%
+}
 
 \LoadClass[]{beamer}
 
@@ -15,7 +21,7 @@
 }
 \title{Fundamentals of Computer and Programming}
 \institute[AUT]{Amirkabir University of Technology}
-\date{\today}
+\date{\DTMsetdatestyle{mmyy}\Today}
 
 \AtBeginSection[]
 {%

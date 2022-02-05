@@ -8,5 +8,5 @@ Introduction to Programming Course.
 ## Requirements
 
 ```sh
-sudo tlmgr install datetime fmtcount algorithm2e ifoddpage relsize
+sudo tlmgr install datetime2 fmtcount algorithm2e ifoddpage relsize tracklang
 ```
