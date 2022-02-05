@@ -69,13 +69,13 @@
 int main(void){
   float num1, num2, num3, sum, average;
   printf("Enter 3 number: \n");
-  scanf("\%f",&num1);
-  scanf("\%f",&num2);
-  scanf("\%f",&num3);
+  scanf("%f",&num1);
+  scanf("%f",&num2);
+  scanf("%f",&num3);
   sum = num1 + num2 + num3;
   average = sum / 3;
   printf("mean = ");
-  printf("\%f\n", average);
+  printf("%f\n", average);
   return 0;
 }
   \end{minted}
@@ -192,9 +192,9 @@ int main(void){
     \item Parenthesis
     \item Unary + - (for sign): +4, -8
     \item Explicit casting
-    \item / * %
+    \item / * \%
     \item Binary + -: 4 + 8
-    \item If multiple + - or / * %: from left to right
+    \item If multiple + - or / * \%: from left to right
   \end{enumerate}
 \end{frame}
 
@@ -206,10 +206,10 @@ int main(void){
   double num1, num2;
   int sum;
   printf("Enter 2 number: \n");
-  scanf("\%lf", &num1);
-  scanf("\%lf", &num2);
+  scanf("%lf", &num1);
+  scanf("%lf", &num2);
   sum = (int)num1 + (int)num2;
-  printf("\%d\n", sum);
+  printf("%d\n", sum);
   return 0;
 }
   \end{minted}
@@ -222,12 +222,12 @@ int main(void){
 int main(void){
   double num1, num2, fpart1, fpart2, sum;
   printf("Enter 2 number: \n");
-  scanf("\%lf", &num1);
-  scanf("\%lf", &num2);
+  scanf("%lf", &num1);
+  scanf("%lf", &num2);
   fpart1 = num1 - (int)num1;
   fpart2 = num2 - (int)num2;
   sum = fpart1 + fpart2;
-  printf("\%lf\n", sum);
+  printf("%lf\n", sum);
   return 0;
 }
   \end{minted}
@@ -245,10 +245,10 @@ int main(void){
   \begin{minted}[bgcolor=Black]{c}
 int i = 10;
 i = i + 1; // i = 11
-i++; // i = 12
-++i; // i = 13
-i--; // i = 12
---i; // i = 11
+i++;       // i = 12
+++i;       // i = 13
+i--;       // i = 12
+--i;       // i = 11
 i = i - 1; // i = 10
   \end{minted}
 \end{frame}
@@ -264,12 +264,12 @@ i = i - 1; // i = 10
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 int i = 10, k = 6, j;
-j = i + 1; // i = 10, j = 11
-j = i++; // i = 11, j = 10
-j = ++i; // i = 12, j = 12
-j = i--; // i = 11, j = 12
-j = --i; // i = 10, j = 10
-j = i - 1; // i = 10, j = 9
+j = i + -1; // i = 10, j = 11
+j = i++;    // i = 9, j = 10
+j = ++i;    // i = 10, j = 12
+j = i--;    // i = 9, j = 12
+j = --i;    // i = 8, j = 10
+j = i - -1; // i = 10, j = 9
   \end{minted}
 \end{frame}
 
@@ -316,7 +316,6 @@ i += j *= -3 // [j = -3]
 i += -3 // [i = -2]
 // result
 // i = -2, j = -3, k = -3, l = 1
-*/
   \end{minted}
 \end{frame}
 
@@ -488,12 +487,12 @@ i = j + i++; // i = 11 or ???
 int main(void){
   double a, b, c, x, result;
   printf("Enter a, b, c, x: ");
-  scanf("\%lf", &a);
-  scanf("\%lf", &b);
-  scanf("\%lf", &c);
-  scanf("\%lf", &x);
+  scanf("%lf", &a);
+  scanf("%lf", &b);
+  scanf("%lf", &c);
+  scanf("%lf", &x);
   result = a * x * x + b * x + c;
-  printf("\%lf\n", result);
+  printf("%lf\n", result);
   return 0;
 }
   \end{minted}
@@ -508,19 +507,19 @@ int main(void){
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 double f = 36;
-fabs(-f) 36.000000
-sqrt(f) 6.00000
-pow(f, 0.5) 6.000000
-ceil(-10.2) -10.000000
-ceil(10.2) 11.000000
-floor(-10.2) -11.000000
-floor(10.2) 10.000000
-fmax(10.1, 20.2) 20.2
-fmin(10.1, 20.2) 10.1
-rint(10.2) 10.0
-rint(-10.2) -10.0
-rint(20.6) 21
-rint(-20.6) -21
+fabs(-f) // 36.000000
+sqrt(f) // 6.00000
+pow(f, 0.5) // 6.000000
+ceil(-10.2) // -10.000000
+ceil(10.2) // 11.000000
+floor(-10.2) // -11.000000
+floor(10.2) // 10.000000
+fmax(10.1, 20.2) // 20.2
+fmin(10.1, 20.2) // 10.1
+rint(10.2) // 10.0
+rint(-10.2) // -10.0
+rint(20.6) // 21
+rint(-20.6) // -21
   \end{minted}
 \end{frame}
 
@@ -530,14 +529,14 @@ rint(-20.6) -21
 const double PI = 3.141592653589793;
 const double E = 2.7182818284590451;
 
-// M_PI, M_E is defined in math.h
+// M_PI, M_E are defined in math.h
 
-sin(PI) 0.000000
-cos(PI/2) 0.000000
-acos(1) 0.000000
-log(E) 1.000000
-log(10) 2.30258
-exp(1) 2.718282
+sin(PI) // 0.000000
+cos(PI/2) // 0.000000
+acos(1) // 0.000000
+log(E)  // 1.000000
+log(10) // 2.30258
+exp(1) // 2.718282
   \end{minted}
 \end{frame}
 
@@ -550,11 +549,11 @@ exp(1) 2.718282
 int main(void){
   double r;
   printf("Enter Radius");
-  scanf("\%lf", &r);
+  scanf("%lf", &r);
   double area = M_PI * pow(r, 2);
   double perimeter = 2 * M_PI * r;
-  printf("Area = \%f\n", area);
-  printf("Perimeter = \%f\n", perimeter);
+  printf("Area = %f\n", area);
+  printf("Perimeter = %f\n", perimeter);
   return 0;
 }
   \end{minted}
@@ -615,11 +614,11 @@ int main(void) {
   int r1, r2;
   srand(0);
   r1 = rand();
-  printf("r1 = \%d\n", r1);
+  printf("r1 = %d\n", r1);
   time_t t = time(NULL);
   srand(t);
   r2 = rand();
-  printf("r2 = \%d\n", r2);
+  printf("r2 = %d\n", r2);
   return 0;
 }
   \end{minted}
