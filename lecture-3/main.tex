@@ -219,29 +219,29 @@ int main(void) {
 
     short &
     16 bits &
-    $0 \tilde 2^{16} - 1$ &
-    $-2^{15} \tilde 2^{15} - 1$ \\
+    $[0, 2^{16})$ &
+    $[-2^{15}, 2^{15})$ \\
 
     \midrule
 
     int &
     32 bits &
-    $0 \tilde 2^{32} - 1$ &
-    $-2^{31} \tilde 2^{31} - 1$ \\
+    $[0, 2^{32})$ &
+    $[-2^{31}, 2^{31})$ \\
 
     \midrule
 
     long --- long int &
     32/64 bits &
-    $0 \tilde 2^{32/64} - 1$ &
-    $-2^{31/63} \tilde 2^{31/63} - 1$ \\
+    $[0, 2^{32/64})$ &
+    $[-2^{31/63}, 2^{31/63})$ \\
 
     \midrule
 
     long long --- long long int &
     64 bits &
-    $0 \tilde 2^{64} - 1$ &
-    $-2^{63} \tilde 2^{63} - 1$ \\
+    $[0, 2^{64})$ &
+    $[-2^{63}, 2^{63})$ \\
 
     \bottomrule
   \end{tabular}
@@ -410,7 +410,7 @@ int id, counter, value;
       \item In C:\@ it is not 0.
     \end{itemize}
   \end{itemize}
-  \begin{block}
+  \begin{block}{}
   We need to assign a value to each variable before use it.
   \end{block}
 \end{frame}
@@ -651,7 +651,7 @@ int j = 1e23; // j = ???
     \begin{itemize}
       \item We MUST initialize the constant variables (why?!)
     \end{itemize}
-    \item <span class="green-select">const</span> is a qualifier
+    \item \textit{\color{LimeGreen} const} is a qualifier
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 const int STUDENTS = 38;
