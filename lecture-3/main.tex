@@ -318,25 +318,20 @@ int main(void) {
 \begin{frame}
   \frametitle{Variables: Identifier}
   \begin{itemize}
-    \item
-      The name of variables: {\color{Orange} identifier}
-    \item
-      Identifier is string ({\color{Green} single word})
+    \item The name of variables: {\color{Orange} identifier}
+    \item Identifier is string ({\color{Green} single word})
     \begin{itemize}
       \item Alphabet
       \item Numbers
-      \item _
+      \item \_
     \end{itemize}
     \item But
     \begin{itemize}
       \item Can {\color{Cyan} not} start with digits
-      \item
-        Can {\color{Cyan} not} be the key-words (reserved
+      \item Can {\color{Cyan} not} be the key-words (reserved
         words)
       \item Can {\color{Cyan} not} be duplicated
-      \item
-        Should {\color{Cyan} not} be library function names:
-        \mint{c}|printf|
+      \item Should {\color{Cyan} not} be library function names: \mint{c}|printf|
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -347,7 +342,7 @@ int main(void) {
     \item Use readable identifiers
     \begin{itemize}
       \item Do not use memorystartaddress
-      \item Use memory_start_address
+      \item Use memory\_start\_address
       \item Do not use xyz, abc, z, x, t
       \item Use counter, sum, average, result, parameter, \ldots
       \item Do not be lazy
@@ -359,10 +354,8 @@ int main(void) {
 \begin{frame}
   \frametitle{Variables: Identifier}
   \begin{itemize}
-    \item Valid identifiers
-    student --- grade --- sum --- all_students --- average_grade_1
-    \item Invalid identifiers
-    if --- 32_test --- wrong* --- \$sds\$
+    \item Valid identifiers:\@ student --- grade --- sum --- all\_students --- average\_grade\_1
+    \item Invalid identifiers:\@ if --- 32\_test --- wrong* --- \$sds\$
   \end{itemize}
 \end{frame}
 
@@ -458,7 +451,7 @@ int id, counter, value;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Values: Examples}
   \begin{minted}[bgcolor=Black]{c}
 int i, j;
@@ -493,9 +486,9 @@ d = 19.9;
   \frametitle{Values: Integers}
   \begin{itemize}
     \item Valid integer values
-    <p>10; -20; +400; 0x12A; 011; 5000L</p>
+    \mint{c}|10; -20; +400; 0x12A; 011; 5000L|
     \item Invalid integer values
-    <p>10.0; -+20; -40 0; 600,000; 5000 L</p>
+    \mint{c}|10.0; -+20; -40 0; 600,000; 5000 L|
   \end{itemize}
 \end{frame}
 
@@ -503,9 +496,9 @@ d = 19.9;
   \frametitle{Values: Float \& Double}
   \begin{itemize}
     \item Valid numbers:
-    0.2; .5; -.67; 20.0; 60e10 (60 * 10^10); 7e-2 (7 * 10^-2)
+    \mint{c}|0.2; .5; -.67; 20.0; 60e10 (60 * 10^10); 7e-2 (7 * 10^-2)|
     \item Invalid numbers:
-    0. 2; 20. 0; 20 .0; 7 e; 6e; e12
+    \mint{c}|0. 2; 20. 0; 20 .0; 7 e; 6e; e12|
   \end{itemize}
 \end{frame}
 
@@ -532,10 +525,10 @@ d = 19.9;
 \begin{frame}
   \frametitle{Basic Input Output}
   \begin{itemize}
-    \item To read something: <span class="green-select">scanf</span>
-    \item Integer: \mint{c}|scanf("%d", &int_variable);|
-    \item Float: \mint{c}|scanf("%f", &float_variable);|
-    \item Double: \mint{c}|scanf("%lf", &double_variable);|
+    \item To read something: \mint{c}|scanf|
+    \item Integer: \mint{c}|scanf("\%d", &int_variable);|
+    \item Float: \mint{c}|scanf("\%f", &float_variable);|
+    \item Double: \mint{c}|scanf("\%lf", &double_variable);|
   \end{itemize}
 \end{frame}
 
@@ -596,7 +589,7 @@ int i = 98.01; /* cast from double to int */
       \item And we do it
     \end{itemize}
   \end{itemize}
-  \begin{minted}[bgcolor=Gray]{c}
+  \begin{minted}[bgcolor=Black]{c}
 int i = (int) 98.1; /* cast from double to int */
 char c = (char) 90; /* cast from int to char */
   \end{minted}
@@ -611,7 +604,7 @@ char c = (char) 90; /* cast from int to char */
       \item No loss of data
     \end{itemize}
   \end{itemize}
-  \begin{minted}[bgcolor=Gray]{c}
+  \begin{minted}[bgcolor=Black]{c}
 int i;
 short s;
 float f;
@@ -632,7 +625,7 @@ d = 5666; // d = 5666.0
       \item Depends on the values
     \end{itemize}
   \end{itemize}
-  \begin{minted}[bgcolor=Gray]{c}
+  \begin{minted}[bgcolor=Black]{c}
 float f = 65536; // 65536.0
 double d = 65536; // 65536.0
 short s = 720; // 720
@@ -659,7 +652,7 @@ int j = 1e23; // j = ???
     \end{itemize}
     \item <span class="green-select">const</span> is a qualifier
   \end{itemize}
-  \begin{minted}[bgcolor=Gray]{c}
+  \begin{minted}[bgcolor=Black]{c}
 const int STUDENTS = 38;
 const long int MAX_GRADE = 20;
 int i;
@@ -680,7 +673,7 @@ STUDENT = 39; //ERROR
       \item Pre-processor replaces them by their values before compiling
     \end{itemize}
   \end{itemize}
-  \begin{minted}[bgcolor=Gray]{c}
+  \begin{minted}[bgcolor=Black]{c}
 #define STUDENTS 38
 int main(void) {
   int i;
