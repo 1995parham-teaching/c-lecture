@@ -54,15 +54,15 @@
   \begin{itemize}
     \item Write a program that prints
   \end{itemize}
-  \begin{minted}{output}
+  \begin{minted}[bgcolor=Black]{output}
 “Hello the CE juniors :-)”
   \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{The First C Program}
-  \begin{minted}{c}
-#include <stdio.h>;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 int main(void){
   printf("Hello the CE juniors :-) \n");
@@ -74,16 +74,14 @@ int main(void){
 \begin{frame}[fragile]
   \frametitle{General Rules}
   \begin{itemize}
-    \item
-      C is case sensitive: <span class="orange-select">main</span> is not
-      <span class="green-select">MaIn</span>
+    \item C is case sensitive: {\color{LimeGreen} main} is not
+      {\color{Red} MaIn}
 
-    \item A “;” is required after each statement
-    \item
-      Each program should have a
-      <span class="orange-select">main</span> function
+    \item A ``;'' is required after each statement
+    \item Each program should have a
+      {\color{Orange} main} function
 
-    \begin{minted}{c}
+    \begin{minted}[bgcolor=Black]{c}
 int main(void){...
 void main(void){...
 main(){...
@@ -97,12 +95,12 @@ int main(int argc, char ** argv){...
 
 \begin{frame}[fragile]
   \frametitle{Comments}
-    \begin{minted}{c}
+    \begin{minted}[bgcolor=Black]{c}
 /* Our first
 C program */
-#include <stdio.h>;
+#include <stdio.h>
 
-int main(void){
+int main(void) {
   //This program prints a simple message
   printf("Hello the CE juniors :-) \n");
   return 0;
@@ -136,41 +134,38 @@ int main(void){
   \begin{itemize}
     \item Solving problems
     \begin{itemize}
-      \item Input data -- Algorithm -- Output data
+      \item Input data --- Algorithm --- Output data
     \end{itemize}
     \item What we need
     \begin{itemize}
       \item Implementing the algorithm
       \begin{itemize}
-        \item Named <span class="orange-select">Functions</span>
+        \item Named {\color{Orange} Functions}
         \item We will discuss later
       \end{itemize}
       \item Storing the input/output data
       \begin{itemize}
-        \item <span class="orange-select">Variables</span>
+        \item {\color{Orange} Variables}
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Variables (cont’d)}
   \begin{itemize}
     \item Data is stored in the main memory
     \item Variables
     \begin{itemize}
-      \item
-        Are the <span class="orange-select">name</span> of locations in the main
+      \item Are the {\color{Orange} name} of locations in the main
         memory
-
       \begin{itemize}
         \item We use names instead of physical addresses
       \end{itemize}
-      \item
-        Specify the <span class="green-select">coding</span> of the location
-
+      \item Specify the {\color{Green} coding} of the location
       \begin{itemize}
-        \item What do the “01”s means?
-        \item What is the <span class="cyan-select">type</span> of data?
+        \item What do the ``01''s means?
+        \item What is the {\color{Cyan} type} of data?
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -258,20 +253,26 @@ int main(void){
   \begin{itemize}
     \item Floating point number
   \end{itemize}
-  <table>
-    <tr>
-      <td>float</td>
-      <td>32 bits</td>
-    </tr>
-    <tr>
-      <td>double</td>
-      <td>64 bits</td>
-    </tr>
-    <tr>
-      <td>long double</td>
-      <td>96 bits</td>
-    </tr>
-  </table>
+  \begin{table}
+  \begin{tabular}{cc}
+    \toprule
+
+    float &
+    32 bits \\
+
+    \midrule
+
+    double &
+    64 bits \\
+
+    \midrule
+
+    long double &
+    96 bits \\
+
+    \bottomrule
+  \end{tabular}
+  \end{table}
   \begin{itemize}
     \item Limited precision
     \begin{itemize}
@@ -291,14 +292,12 @@ int main(void){
     \end{itemize}
     \item Overflow
     \begin{itemize}
-      \item
-        Assign a very big number to a variable that is larger than the limit of
+      \item Assign a very big number to a variable that is larger than the limit of
         the variable
     \end{itemize}
     \item Underflow
     \begin{itemize}
-      \item
-        Assign a very small number to a variable that is smaller than the limit
+      \item Assign a very small number to a variable that is smaller than the limit
         of the variable
     \end{itemize}
   \end{itemize}
@@ -330,14 +329,14 @@ int main(void){
     \end{itemize}
     \item But
     \begin{itemize}
-      \item Can<span class="cyan-select">not</span> start with digits
+      \item Can {\color{Cyan} not} start with digits
       \item
-        Can<span class="cyan-select">not</span> be the key-words (reserved
+        Can {\color{Cyan} not} be the key-words (reserved
         words)
-      \item Can<span class="cyan-select">not</span> be duplicated
+      \item Can {\color{Cyan} not} be duplicated
       \item
-        Should <span class="cyan-select">not</span> be library function names:
-        printf
+        Should {\color{Cyan} not} be library function names:
+        \mint{c}|printf|
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -356,13 +355,14 @@ int main(void){
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Variables: Identifier}
   \begin{itemize}
     \item Valid identifiers
-    <p>student -- grade -- sum -- all_students -- average_grade_1</p>
+    student --- grade --- sum --- all_students --- average_grade_1
     \item Invalid identifiers
-    <p>if -- 32_test -- wrong* -- $sds$</p>
+    if --- 32_test --- wrong* --- \$sds\$
   \end{itemize}
 \end{frame}
 
@@ -371,14 +371,14 @@ int main(void){
   \begin{itemize}
     \item
       Reserve memory for variable:
-      <span class="orange-select">declaration</span>
+      {\color{Orange} declaration}
     \begin{itemize}
       \item <type> <identifier>;
     \end{itemize}
     \item
-      A variable must be declared <span class="green-select">before</span> use
+      A variable must be declared {\color{LimeGreen} before} use
   \end{itemize}
-  \begin{minted}{c}
+  \begin{minted}[bgcolor=Black]{c}
 char test_char;
 int sample_int;
 long my_long;
@@ -390,23 +390,21 @@ int id, counter, value;
 \begin{frame}
   \frametitle{Variable Type Effect (in complied Lang.)}
   \begin{itemize}
-    \item
-      <span class="orange-select">Important note:</span> the type of variable is
+    \item \textbf{\color{Orange} Important note:} the type of variable is
       NOT stored in the main memory
-    \item
-      After compiling the program, NO type is associated to memory locations!!!
+    \item After compiling the program, NO type is associated to memory locations!!!
   \end{itemize}
   \begin{itemize}
     \item So, what does do the type?!
     \item
-      It determines the <span class="green-select">operations</span> that work
+      It determines the {\color{Green} operations} that work
       with the memory location
   \end{itemize}
   \begin{itemize}
     \item
-      int x, y, z; z = x + y performed by <span class="cyan-select">ALU</span>
+      int x, y, z; z = x + y performed by {\color{Cyan} ALU}
     \item
-      float a, b, c; c = a + b performed by <span class="cyan-select">FPU</span>
+      float a, b, c; c = a + b performed by {\color{Cyan} FPU}
   \end{itemize}
 \end{frame}
 
@@ -415,17 +413,16 @@ int id, counter, value;
   \begin{itemize}
     \item What this the initial value of a variable?
     \begin{itemize}
-      \item In C: we do not know
-      \item In C: it is not 0.
+      \item In C:\@ we do not know
+      \item In C:\@ it is not 0.
     \end{itemize}
   \end{itemize}
   \begin{block}
   We need to assign a value to each variable before use it.
   \end{block}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
+
+\section{Values}
 
 \begin{frame}
   \frametitle{Constants in C}
@@ -449,7 +446,7 @@ int id, counter, value;
     \item Declaration specifies the type and name (identifier) of variable
     \item
       Assigning value to the variable:
-      <span class="orange-select">assignment</span>
+      {\color{Orange} assignment}
 
     \begin{itemize}
       \item <identifier> = <value>;
@@ -463,7 +460,7 @@ int id, counter, value;
 
 \begin{frame}
   \frametitle{Values: Examples}
-  \begin{minted}{c}
+  \begin{minted}[bgcolor=Black]{c}
 int i, j;
 long l;
 float f;
@@ -523,6 +520,7 @@ d = 19.9;
     \item Character vs. Integer
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Effect of Value Types}
   \begin{itemize}
@@ -545,15 +543,13 @@ d = 19.9;
   \frametitle{Basic Input Output}
   \begin{itemize}
     \item To print something: <span class="orange-select">printf</span>
-    \item Integer: printf("%d", int_variable);
-    \item Float: printf("%f", float_variable);
-    \item Message: printf("message");
+    \item Integer: \mint{c}|printf("%d", int_variable);|
+    \item Float: \mint{c}|printf("%f", float_variable);|
+    \item Message: \mint{c}|printf("message");|
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  <div class="toc" data-selected="3"></div>
-\end{frame}
+\section{Casting}
 
 \begin{frame}
   \frametitle{Casting}
@@ -562,12 +558,12 @@ d = 19.9;
     \begin{itemize}
       \item
         When the type of variable and value
-        <span class="cyan-select">are not the same</span>
+        {\color{Cyan} are not the same}
       \item Example: Assigning double value to integer variable
     \end{itemize}
     \item It is not a syntax error in C (only warning)
     \begin{itemize}
-      \item But can cause <span class="orange-select">runtime errors</span>
+      \item But can cause {\color{Orange} runtime errors}
     \end{itemize}
     \item It is useful (in special situations)
     \begin{itemize}
@@ -576,7 +572,7 @@ d = 19.9;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Implicit casting}
   \begin{itemize}
     \item Implicit
@@ -585,12 +581,13 @@ d = 19.9;
       \item But we do it
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char f2 = 50e6; /* cast from double to char */
 int i = 98.01; /* cast from double to int */
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Explicit casting}
   \begin{itemize}
     \item Explicit
@@ -599,12 +596,13 @@ int i = 98.01; /* cast from double to int */
       \item And we do it
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Gray]{c}
 int i = (int) 98.1; /* cast from double to int */
 char c = (char) 90; /* cast from int to char */
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Casting effects}
   \begin{itemize}
     \item Casting from small types to large types
@@ -613,7 +611,7 @@ char c = (char) 90; /* cast from int to char */
       \item No loss of data
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Gray]{c}
 int i;
 short s;
 float f;
@@ -622,9 +620,10 @@ s = 'A'; // s = 65
 i = 'B'; // i = 66
 f = 4566; // f = 4566.0
 d = 5666; // d = 5666.0
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Casting effects (cont’d)}
   \begin{itemize}
     \item Casting from large types to small types
@@ -633,7 +632,7 @@ d = 5666; // d = 5666.0
       \item Depends on the values
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Gray]{c}
 float f = 65536; // 65536.0
 double d = 65536; // 65536.0
 short s = 720; // 720
@@ -641,12 +640,12 @@ char c = (char) 65536; // c = 0
 short s = (short) 65536; // s = 0
 int i = 1.22; // i = 1
 int j = 1e23; // j = ???
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="4"></div>
-\end{frame}
-\begin{frame}
+
+\section{Constants \& Definition}
+
+\begin{frame}[fragile]
   \frametitle{Constant Variables}
   \begin{itemize}
     \item Constants
@@ -660,15 +659,16 @@ int j = 1e23; // j = ???
     \end{itemize}
     \item <span class="green-select">const</span> is a qualifier
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Gray]{c}
 const int STUDENTS = 38;
 const long int MAX_GRADE = 20;
 int i;
 i = MAX_GRADE;
 STUDENT = 39; //ERROR
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Definitions}
   \begin{itemize}
     \item Another tool to define constants
@@ -680,7 +680,7 @@ STUDENT = 39; //ERROR
       \item Pre-processor replaces them by their values before compiling
     \end{itemize}
   \end{itemize}
-  \begin{minted}{c}
+  \begin{minted}[bgcolor=Gray]{c}
 #define STUDENTS 38
 int main(void) {
   int i;
@@ -689,6 +689,7 @@ int main(void) {
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Summary}
   \begin{itemize}
