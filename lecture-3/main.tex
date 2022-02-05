@@ -522,22 +522,23 @@ d = 19.9;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Basic Input Output}
   \begin{itemize}
     \item To read something: \mint{c}|scanf|
-    \item Integer: \mint{c}|scanf("\%d", &int_variable);|
-    \item Float: \mint{c}|scanf("\%f", &float_variable);|
-    \item Double: \mint{c}|scanf("\%lf", &double_variable);|
+    \item Integer: \mint{c}|scanf("%d", &int_variable);|
+    \item Float: \mint{c}|scanf("%f", &float_variable);|
+    \item Double: \mint{c}|scanf("%lf", &double_variable);|
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Basic Input Output}
   \begin{itemize}
-    \item To print something: <span class="orange-select">printf</span>
+    \item To print something: \mint{c}|printf|
     \item Integer: \mint{c}|printf("%d", int_variable);|
     \item Float: \mint{c}|printf("%f", float_variable);|
+    \item Double \mint{c}|printf("%lf", double_variable);|
     \item Message: \mint{c}|printf("message");|
   \end{itemize}
 \end{frame}
