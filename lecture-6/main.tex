@@ -1,0 +1,838 @@
+\documentclass{../c-lecture}
+
+\subtitle{Making Decisions}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\section{Conditions and Boolean operations}
+
+\begin{frame}
+  \frametitle{Decision}
+  \begin{itemize}
+    \item Decisions are based on conditions
+    \begin{itemize}
+      \item If it is snowing
+        then We will cancel the game
+      \item If the class is not canceled
+        then I will attend
+        else I will go to gym
+    \end{itemize}
+    \item In programming
+    \begin{itemize}
+      \item Do statements based on conditions
+      \begin{itemize}
+        \item \textbf{\color{LimeGreen} True}: The statements will be done
+        \item \textbf{\color{RubineRed} False}: The statements won't be done
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditions}
+  \begin{itemize}
+    \item Conditions by comparisons; e.g.,
+    \begin{itemize}
+      \item Weather vs. snowing
+      \item Variable x vs. a value
+    \end{itemize}
+    \item Comparing numbers: Relational Operators
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conditions}
+  <table>
+    <thead>
+      <th>Relational Operator</th>
+      <th>Meaning</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>&lt;</td>
+        <td>is less than</td>
+      </tr>
+      <tr>
+        <td>&lt;=</td>
+        <td>is less than or equal to</td>
+      </tr>
+      <tr>
+        <td>&gt;</td>
+        <td>is greater than</td>
+      </tr>
+      <tr>
+        <td>&gt;=</td>
+        <td>is greater than or equal to</td>
+      </tr>
+      <tr>
+        <td>==</td>
+        <td>is equal to</td>
+      </tr>
+      <tr>
+        <td>!=</td>
+        <td>is not equal to</td>
+      </tr>
+    </tbody>
+  </table>
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Relations}
+  \begin{itemize}
+    \item Relations are not a complete statement
+    \begin{minted}[bgcolor=Black]{c}
+int a, b;
+a == b; // statement with no effect
+a <= b; // statement with no effect
+    \end{minted}
+    \item Relations produce a boolean value
+    \begin{minted}[bgcolor=Black]{c}
+int a, b;
+bool bl; // #include <stdbool.h>
+bl = a == b;
+bl = a <= b;
+    \end{minted}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Boolean operations}
+  \begin{itemize}
+    \item Multiple conditions in decision making
+    \item Logical relation between conditions
+    \begin{itemize}
+      \item
+        \textmd{\color{LimeGreen} if} you are student
+        \textmd{\color{YellowOrange} and} you have the programming course
+        \textmd{\color{Turquoise} then} You should read the book
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Boolean operations}
+  \begin{itemize}
+    \item and \&\&
+    \item or ||
+    \item not !
+  \end{itemize}
+  <table>
+    <thead>
+      <th>p</th>
+      <th>q</th>
+      <th>p &amp;&amp; q</th>
+      <th>p || q</th>
+      <th>!p</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>False</td>
+        <td>True</td>
+      </tr>
+      <tr>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+        <td>True</td>
+        <td>True</td>
+      </tr>
+      <tr>
+        <td>True</td>
+        <td>False</td>
+        <td>False</td>
+        <td>True</td>
+        <td>False</td>
+      </tr>
+      <tr>
+        <td>True</td>
+        <td>True</td>
+        <td>True</td>
+        <td>True</td>
+        <td>False</td>
+      </tr>
+    </tbody>
+  </table>
+\end{frame}
+
+\begin{frame}
+  \frametitle{Boolean operations (cont’d)}
+  \begin{itemize}
+    \item Examples
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+bool a = true, b = false, c;
+c = !a; // c = false
+c = a &amp;&amp; b; // c = false
+c = a || b; // c = true
+c = !a || b; // c = false
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Precedence}
+  <img src="img/c-precedence.png" alt="c-precedence" />
+\end{frame}
+\begin{frame}
+  \frametitle{Relations, No type effect}
+  \begin{itemize}
+    \item
+      Usual arithmetic conversions are performed on both operands following the
+      rules for arithmetic operators.
+
+    \item The values are compared after conversions.
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+int a = 10, b = 20;
+float f = 54.677f;
+double d = 547.775;
+char c1 = 'A', c2 = 'a';
+bool b1;
+
+b1 = a == f; // false
+b1 = a &lt;= d + 5; // true
+b1 = d &lt; c1 * 10; // true
+b1 = c1 == c2; // false
+b1 = '1' &lt; '2'; // true
+b1 = c1 + f &lt; d + a; // true
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Casting}
+  \begin{itemize}
+    \item In logical operations
+    \begin{itemize}
+      \item 0: False
+      \item non-zero: True
+    \end{itemize}
+    \item In mathematical &amp; comparison operations
+    \begin{itemize}
+      \item False: 0
+      \item True: 1
+    \end{itemize}
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+bool b1, b2;
+int i = 0, j = 20;
+b1 = i &amp;&amp; j; // b1 = false
+b2 = j || j; // b2 = true
+i = b1 + b2; // i = 1
+j = (i &lt; j) + (b1 &amp;&amp; b2); // j = 1
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Examples}
+    \begin{itemize}
+      \item x in [10, 20]
+      \item <span class="hl-red">Wrong Version</span>
+      \begin{itemize}
+        \item 10 &lt;= x &lt;= 20
+        \item Let x = 30
+        <ol>
+          \item 10 &lt;= 30 &lt;= 20
+          \item (10 &lt;= 30) &lt;= 20
+          \item true &lt;= 20
+          \item 1 &lt; 20
+          \item True
+        </ol>
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Examples}
+    \begin{itemize}
+      \item x in [10, 20]
+      \item <span class="hl-green">Correct Version</span>
+      \begin{itemize}
+        \item (10 &lt;= x) &amp;&amp; (x &lt;= 20)
+        \item Let x = 30
+        <ol>
+          \item (10 &lt;= 30) &amp;&amp; (30 &lt;= 20)
+          \item true &amp;&amp; false
+          \item false
+        </ol>
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Examples}
+    \begin{itemize}
+      \item a, b &gt; 0
+      \item <span class="hl-red">Wrong Version</span>
+      \begin{itemize}
+        \item a &amp;&amp; b &gt; 0
+        \item Let a = -10, b = 20
+        <ol>
+          \item -10 &amp;&amp; 20 &gt; 0
+          \item -10 &amp;&amp; (20 &gt; 0)
+          \item -10 &amp;&amp; true
+          \item true &amp;&amp; true
+          \item true
+        </ol>
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Examples}
+    \begin{itemize}
+      \item a, b &gt; 0
+      \item <span class="hl-green">Correct Version</span>
+      \begin{itemize}
+        \item (a &gt; 0) &amp;&amp; (b &gt; 0)
+        \item Let a = -10, b = 20
+        <ol>
+          \item (-10 &gt; 0) &amp;&amp; (20 &gt; 0)
+          \item false &amp;&amp; true
+          \item false
+        </ol>
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="1"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Type of statements}
+  \begin{itemize}
+    \item Expression statement
+    \begin{itemize}
+      \item Single statements
+    \end{itemize}
+    <pre><code class="hljs lang-c">
+x = y + 10;
+scanf("%d", &amp;i);
+    </code></pre>
+    \item Control statement
+    \begin{itemize}
+      \item Control the flow of program
+      \item Decisions and loops
+    \end{itemize}
+    \item Compound statement
+    \begin{itemize}
+      \item Starts with { and ends with }
+      \item All statements can be between { and }
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{if statement}
+  \begin{itemize}
+    \item Decision making in C
+    <pre><code class="hljs lang-c">
+if( &lt;expression&gt; )
+  &lt;statements1&gt;
+else
+  &lt;statements2&gt;
+    </code></pre>
+    \item Expression
+    \begin{itemize}
+      \item A boolean statement: <span class="hl-green">a &lt;= b</span>
+      \item
+        A mathematical statement: <span class="hl-green">a + b</span> or a
+        variable: <span class="hl-green">a</span>
+
+      \begin{itemize}
+        \item zero &rarr; false
+        \item non-zero &rarr; true
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Even-Odd}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+int main(void){
+  int number_to_test, remainder;
+  printf("Enter your number to be tested: ");
+  scanf("%d", &amp;number_to_test);
+  remainder = number_to_test % 2;
+  if(remainder == 0)
+    printf ("The number is even.\n");
+  else
+    printf ("The number is odd.\n");
+  return 0;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Statements in if-else}
+  \begin{itemize}
+    \item Empty statement
+    <pre><code class="hljs lang-c">
+if(a &gt; b)
+  printf("A is larger \n");
+else
+  ;
+    </code></pre>
+    \item Block statements
+    <pre><code class="hljs lang-c">
+if(a &lt;= b){
+  printf("A is less than b or ");
+  printf("A is equal b\n");
+}
+else
+  printf("A is greater than b\n");
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+int main(void){
+  int i;
+  char c;
+
+  printf("Enter a char: ");
+  scanf(" %c", &amp;c);
+
+  printf("Enter an int: ");
+  scanf("%d", &amp;i);
+
+  if(i &gt; 0)
+    printf("Your number is larger than 0\n");
+  else
+    printf("Your number is less than or equal 0\n");
+
+  if((c &gt;= '0') &amp;&amp; (c &lt;= '9'))
+    printf("Your char is Numeric \n");
+
+  return 0;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{More than two choices}
+  \begin{itemize}
+    \item If statement: 2 choices
+    \begin{itemize}
+      \item If conditions are true &rarr; if statements
+      \item If conditions are false &rarr; else statements
+    \end{itemize}
+    \item How to make decisions when there are multiple choices?
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Map numeric grade to alphabetic}
+  <pre><code class="hljs lang-c">
+int numg;
+char alphag;
+if(numg &lt; 25)
+  alphag = 'D';
+if((numg &gt;= 25) &amp;&amp; (numg &lt; 50))
+  alphag = 'C';
+if((numg &gt;= 50) &amp;&amp; (numg &lt; 75))
+  alphag = 'B';
+if(numg &gt;= 75)
+  alphag = 'A';
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{More than two choices}
+  \begin{itemize}
+    \item To avoid repeating conditions in if statements
+    \item To avoid running unnecessary statements
+    \item <span class="hl-red">Nested</span> if: check multiple conditions
+    \begin{itemize}
+      \item &lt;Statements 1&gt; becomes an if-else statement
+      \item &lt;Statements 2&gt; becomes an if-else statement
+      \item Repeat it as many as needed
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Nested if-else}
+  <pre><code class="hljs lang-c">
+if(c1 &amp;&amp; c2)
+  s1
+if(c1 &amp;&amp; !(c2))
+  s2
+if(!(c1) &amp;&amp; c3)
+  s3
+if(!(c1) &amp;&amp; !(c3))
+  s4
+  </code></pre>
+  <pre><code class="hljs lang-c">
+if(c1)
+  if(c2)
+    s1
+  else
+    s2
+else
+  if(c3)
+    s3
+  else
+    s4
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Map numeric grade to alphabetic}
+  <pre><code class="hljs lang-c">
+int numg;
+char alphag;
+
+if (numg &lt; 25)
+  alphag = ‘D’;
+else {
+  if (numg &lt; 50)
+    alphag = ‘C’;
+  else {
+    if (numg &lt; 75)
+      alphag = ‘B’;
+    else
+      alphag = ‘A’;
+  }
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Nested if-else}
+  <pre><code class="hljs lang-c">
+if (&lt;condition 1&gt;)
+  &lt;statement 1&gt;
+else {
+  if(&lt;condition 2&gt;)
+    &lt;statement 2&gt;
+  else
+    &lt;statement 3&gt;
+}
+  </code></pre>
+  <pre><code class="hljs lang-c">
+if (&lt;condition 1&gt;)
+  &lt;statement 1&gt;
+else if (&lt;condition 2&gt;)
+  &lt;statement 2&gt;
+else
+  &lt;statement 3&gt;
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Map numeric grade to alphabetic}
+  <pre><code class="hljs lang-c">
+int numg;
+char alphag;
+
+if(numg &lt; 25)
+  alphag = 'D';
+else if(numg &lt; 50)
+  alphag = 'C';
+else if(numg &lt; 75)
+  alphag = 'B';
+else
+  alphag = 'A';
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Nested if: Incomplete branch}
+  <ol>
+    \item <span class="hl-orange">else</span> part is optional
+    \item
+      <span class="hl-orange">else</span> always associates with the
+      <span class="hl-green">nearest</span>
+      <span class="hl-orange">if</span>
+
+    \item 1 + 2 can be dangerous specially in incomplete branchs
+  </ol>
+  <p>Example: Tell user to move or game over</p>
+  <pre><code class="hljs lang-c">
+if(gameIsOver == 0)
+  if(playerToMove == YOU)
+    printf ("Your Move\n");
+else
+  printf ("The game is over\n");
+  </code></pre>
+  \begin{itemize}
+    \item To avoid error you should
+    \item Close off you code or Use Empty statements
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="2"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{switch-case: Multiple choices}
+  \begin{itemize}
+    \item Multiple conditions
+    \begin{itemize}
+      \item if-else if-else if-….
+    \end{itemize}
+    \item
+      Select from alternative <span class="hl-orange">values</span> of a
+      <span class="hl-green">variable</span>
+
+    \begin{itemize}
+      \item switch-case
+      \item
+        Values should be <span class="hl-orange">constant</span> not expression:
+        i, i+j,
+
+      \item
+        Values &amp; Variables should be <span class="hl-orange">int</span> or
+        <span class="hl-orange">char</span>
+
+    \end{itemize}
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+switch (variable) {
+  case value1:
+    &lt;statements 1&gt;
+  case value2:
+    &lt;statements 2&gt;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{How does switch-case work?}
+  \begin{itemize}
+    \item Each switch-case can be rewritten by if-else
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+if(variable == value1)}
+  &lt;statements 1&gt;
+  &lt;statements 2&gt;
+}
+else if(variable == value2){
+  &lt;statements 2&gt;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{switch-case: complete version}
+  <pre><code class="hljs lang-c">
+switch(variable) {
+  case value1:
+    &lt;statements 1&gt;
+    break;
+  case value2:
+    &lt;statements 2&gt;
+    break;
+  default:
+    &lt;statements 3&gt;
+}
+  </code></pre>
+  <pre><code class="hljs lang-c">
+if(variable == value1) {
+  &lt;statements 1&gt;
+}
+else if(variable == value2) {
+  &lt;statements 2&gt;
+}
+else {
+  &lt;statements 3&gt;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{switch-case (cont’d)}
+  \begin{itemize}
+    \item All values used in case should be different
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+switch(i){ //Error
+case 1:
+…
+case 2:
+…
+case 1:
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{switch-case (cont’d)}
+  \begin{itemize}
+    \item All values must be value, not expression of variables
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+switch(i){ //Error
+case j:
+…
+case 2:
+…
+case k+10:
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{switch-case: multiple matches}
+  <pre><code class="hljs lang-c">
+switch(variable) {
+  case value1:
+  case value2:
+    &lt;statements 1&gt;
+    break;
+  case value3:
+    &lt;statements 2&gt;
+}
+  </code></pre>
+  <pre><code class="hljs lang-c">
+if(
+  (variable == value1) ||
+  (variable == value2)
+){
+    &lt;statements 1&gt;
+} else if (variable == value3) {
+    &lt;statements 2&gt;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{switch-case vs. if-else}
+  \begin{itemize}
+    \item
+      <span class="hl-orange">if-else</span> is more powerful than
+      <span class="hl-orange">switch-case</span>
+
+    \item
+      <span class="hl-orange">switch-case</span> is only for checking the
+      <span class="hl-green">values of a variable</span> and the values must be
+      <span class="hl-green">constant</span>
+
+    \item if-else is more suitable in some cases , e.g.,
+    <pre><code class="hljs lang-c">
+double var1, var2;
+if(var1 &lt;= 1.1)
+  &lt;statements 1&gt;
+if(var1 == var2)
+  &lt;statements 2&gt;
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Nested switch-case}
+  <pre><code class="hljs lang-c">
+bool b; //b = x &amp;&amp; y
+switch (x){
+  case 0:
+    b = 0;
+    break;
+  case 1:
+    switch(y){
+      case 0:
+        b = 0;
+        break;
+      case 1:
+        b = 1;
+        break;
+    }
+    break;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="3"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Conditional Expression}
+  \begin{itemize}
+    \item Assign value according to conditions
+    \item A ternary operator
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+int i, j, k;
+bool b;
+
+i = b ? j : k;
+  </code></pre>
+  <pre><code class="hljs lang-c">
+if (b)
+  i = j;
+else
+  i = k;
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Conditional Expression: Examples}
+  <pre><code class="hljs lang-c">
+y = (x &gt; 0) ? x : -x
+
+sign = (x &lt; 0) ? -1 : ((x &gt; 0) ? 1 : 0)
+  </code></pre>
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="4"></div>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Common Bugs}
+    \begin{itemize}
+      \item Equality of floating point numbers
+      \item
+        Two float numbers may or may <span class="hl-red">NOT</span> be equal
+
+    \end{itemize}
+    <pre><code class="hljs lang-c">
+double d1, d2;
+d1 = 1e20 + 1;
+d2 = 1e20 - 1;
+if(d1 == d2)
+  printf("They are equal :-o \n");
+else
+  printf("They are not equal :D \n");
+    </code></pre>
+    <p><span class="hl-red">They are equal :-o</span></p>
+  \end{frame}
+  \begin{frame}
+    <p>
+      Instead of checking for equality, check their difference to be in a
+      small-enough period.
+    </p>
+    <pre><code class="hljs lang-c">
+double d1, d2;
+d1 = 1e20 + 1;
+d2 = 1e20 - 1;
+if(fabs(d1 - d2) &lt;= 0.0000001)
+  printf("They are equal :-o \n");
+else
+  printf("They are not equal :D \n");
+    </code></pre>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \frametitle{Common Bugs}
+  \begin{itemize}
+    \item Danger of empty statement
+    \item Danger of assignment (=) and equality (==)
+    <pre><code class="hljs lang-c">
+int a = 10;
+int b = 20;
+if (a = b) // logical but not compile error!!!
+    </code></pre>
+    \item Danger of similarity between C and mathematic
+    <pre><code class="hljs lang-c">
+if (a &lt; b &lt; c) // Logical Error
+if (a &amp;&amp; b &gt; 0) // Logical Error
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Avoiding Bugs}
+  \begin{itemize}
+    \item Precedence of operators
+    \item Use parenthesis in conditions
+    \item Close-off code as much as you can
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Debugging by assert}
+  \begin{itemize}
+    \item
+      The assert macro is defined in <span class="hl-orange">assert.h</span>
+
+    \item assert(an expression)
+    \begin{itemize}
+      \item If the expression is true &rarr; nothing
+      \item If the expression is false &rarr; error message + halt
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\end{document}
