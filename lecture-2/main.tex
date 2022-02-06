@@ -189,27 +189,27 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{$sort(x, start, end)$}
+  \frametitle{$sort(X, start, end)$}
   \begin{algorithm}[H]
-  \KwData{$\forall x \in \mathbb{Z}$}
-  \KwResult{sorted $x$}
+  \KwData{$X = \{x | x \in \mathbb{Z}\}$}
+  \KwResult{sorted $X$}
   \While{$start \neq end$}{%
-    $j \gets find\_\min(x, start, end)$\; \Comment*[r]{find index of minimum element from $start$ to $end$}
-    $swap(x[j], x[start])$\;
+    $j \gets find\_\min(X, start, end)$\; \Comment*[r]{find index of minimum element from $start$ to $end$}
+    $swap(X[j], X[start])$\;
     $start \gets start + 1$\;
   }
   \end{algorithm}
 \end{frame}
 
 \begin{frame}
-  \frametitle{$find\_\min(x, start, end)$}
+  \frametitle{$find\_\min(X, start, end)$}
   \begin{algorithm}[H]
-  \KwData{$\forall x \in \mathbb{Z}$}
-  \KwResult{$index$ = index of minimum element from $x$}
+  \KwData{$X = \{x | x \in \mathbb{Z}\}$}
+  \KwResult{$index$ = index of minimum element from $X$}
   $i \gets start$\;
   $index \gets i$\;
   \While{$i \leq end$}{%
-    \If{$x[i] < x[index]$}{%
+    \If{$X[i] < X[index]$}{%
       $index \gets i$\;
     }
     $i \gets i + 1$\;
@@ -218,20 +218,20 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{$swap(x, j, i)$}
+  \frametitle{$swap(X, j, i)$}
   \begin{algorithm}[H]
-  \KwData{$\forall x \in \mathbb{Z}$}
+  \KwData{$X = \{x | x \in \mathbb{Z}\}$}
   \KwResult{}
-  $tmp \gets x[j]$\;
-  $x[j] \gets x[i]$\;
-  $x[i] \gets temp$\;
+  $tmp \gets X[j]$\;
+  $X[j] \gets X[i]$\;
+  $X[i] \gets temp$\;
   \end{algorithm}
 \end{frame}
 
 \begin{frame}
   \frametitle{$reverse(A, start, end)$}
   \begin{algorithm}[H]
-  \KwData{$\forall A \in \mathbb{Z}$}
+  \KwData{$A = \{a | a \in \mathbb{Z}\}$}
   \KwResult{A in a reverse order}
   \eIf{$start \geq end$}{%
     return\;
