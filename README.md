@@ -7,7 +7,7 @@ Introduction to Programming Course.
 
 ## Agenda
 
-- Introduction - 2 Session
+- Introduction - 2 Sessions
 - Algorithms - 2 Sessions
 
 ## How to build a nice courses page
