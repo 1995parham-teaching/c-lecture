@@ -1,0 +1,649 @@
+\documentclass{../c-lecture}
+
+\usepackage{algorithm2e}
+
+\subtitle{Repeating Statements}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Repetition}
+  \begin{itemize}
+    \item Example: Write a program that read 3 integer and compute average
+    \begin{itemize}
+      \item It is easy. 3 scanf, an addition, a division and, a printf
+    \end{itemize}
+    \item Example: Write a program that read 3000 integer and compute average
+    \begin{itemize}
+      \item ?? 3000 scanf !!!
+    \end{itemize}
+    \item Example: Write a program that read n integer and compute average
+    \begin{itemize}
+      \item N??? scanf
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Repetition: counter controlled}
+  \begin{itemize}
+    \item When we know the number of iteration
+    \begin{itemize}
+      \item Average of 10 number
+    \end{itemize}
+  \end{itemize}
+  \begin{algorithm}[H]
+  \KwData{}
+  \KwResult{}
+  $counter \gets 0$\;
+
+  \While{$counter < number\_of\_loop\_repetition$}{%
+    do something (e.g. read input, take sum)\;
+    $counter \gets counter + 1$\;
+  }
+  \end{algorithm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Repetition: sentinel controlled}
+  \begin{itemize}
+    \item
+      When we do \textbf{\color{RubineRed} NOT} know the number of iteration
+    \item But we know, when loop terminates
+    \begin{itemize}
+      \item E.g. Average of arbitrary positive numbers ending with <0
+    \end{itemize}
+  \end{itemize}
+  \begin{algorithm}[H]
+  \KwData{}
+  \KwResult{}
+  $n \gets$ get first input\;
+
+  \While{$n != sentinel$}{%
+    do something (sum, \ldots)\;
+    $n \gets$ get the next input\;
+    \eIf{there is not any valid input}{%
+      S1
+    }{%
+      S2
+    }
+  }
+  \end{algorithm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Repetition}
+  \begin{itemize}
+    \item Repetition is performed by loops
+    \begin{itemize}
+      \item
+        Put all statements to repeat in a \textbf{\color{Orange} loop}
+    \end{itemize}
+    \item Don’t loop to infinity
+    \begin{itemize}
+      \item Stop the repetition
+      \item Based on some conditions (counter, sentinel)
+    \end{itemize}
+    \item C has three statements for loops
+    \begin{itemize}
+      \item \textit{\color{Orange} while} statement
+      \item \textit{\color{Orange} do-while} statement
+      \item \textit{\color{Orange} for} statement
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{while statement}
+
+\begin{frame}
+  \frametitle{while statement}
+  \mint{c}|while ( <expression> ) <statements>|
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{print 0 to n}
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+
+int main(void){
+  int n, number;
+  number = 0;
+  printf("Enter n: ");
+  scanf("%d", &n);
+  while(number <= n) {
+    printf("%d \n", number);
+    number++;
+  }
+  return 0;
+}
+  \end{minted}
+\end{frame}
+
+\section{do-while statement}
+
+\begin{frame}[fragile]
+  \frametitle{do-while statement}
+  \begin{minted}[bgcolor=Black]{c}
+    do {
+    <statements>
+    } while ( <expression> );
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{sum of the n term: 1/2 + 2/3 ...}
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+  int n;
+  double number, sum;
+
+  printf("Enter n > 0: ");
+  scanf("%d", &n);
+
+  if(n < 1){
+    printf("wrong input");
+    return -1;
+  }
+
+  sum = 0;
+  number = 0.0;
+  do {
+    number++;
+    sum += number / (number + 1.0);
+  } while(number &lt; n);
+
+  printf("sum = %lf\n", sum);
+  return 0;
+}
+  \end{minted}
+\end{frame}
+
+\section{for statement}
+
+\begin{frame}[fragile]
+  \frametitle{for statement}
+  \begin{minted}[bgcolor=Black]{c}
+    for(<expression1>; <expression2>; <expression3>)
+    <statements>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{N students average grade}
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+
+int main(void){
+  int grade, count, i;
+  double average, sum;
+  sum = 0;
+  printf("Enter the number of students: ");
+  scanf("%d", &count);
+  for(i = 0; i < count; i++){
+    printf("Enter the grade of %d-th student: ", (i + 1));
+    scanf("%d", &grade);
+    sum += grade;
+  }
+  average = sum / count;
+  printf("The average of your class is %0.3lf\n", average);
+  return 0;
+}
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Expressions in for statements}
+  \begin{itemize}
+    \item
+      Expression1 and Expression3 can be any number of expressions, they execute
+      in the order
+
+    \begin{minted}[bgcolor=Black]{c}
+for(i = 0, j = 0; i < 10; i++, j--)
+    \end{minted}
+    \item Expression2 at most should be a single expression
+    \item
+      If multiple expressions then the value of the last one is evaluated as
+      True/False
+
+    \begin{minted}[bgcolor=Black]{c}
+for(i = 0, j = 0; i &lt; 10, j &gt; -100; i++, j--)
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Expressions in for statements}
+  \begin{itemize}
+    \item Any expression can be empty expression
+    \begin{minted}[bgcolor=Black]{c}
+for( ; i < 10; i++)
+for(;;)
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\section{Arrays}
+
+\begin{frame}
+  \frametitle{Introduction}
+  \begin{itemize}
+    \item Algorithms usually work on large data sets
+    \begin{itemize}
+      \item Sort a set of numbers
+      \item Search a specific number in a set of numbers
+    \end{itemize}
+    \item How to read and store a set of data?
+    \item To Read
+    \begin{itemize}
+      \item Repeat the scanf statement
+      \item Use the loop statements
+    \end{itemize}
+    \item To store the data
+    \begin{itemize}
+      \item Save each data in a single variable??
+      \item 3000 int variables!!!!
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Array}
+  \begin{itemize}
+    \item
+      An \textit{\color{Orange} ordered} collection of
+      \textit{\color{Orange} same type} variables
+
+    \item A $1 x n$ vector of
+    \begin{itemize}
+      \item Integers, chars, floats, ...
+    \end{itemize}
+    \item Example
+    \begin{itemize}
+      \item An array of 8 integers
+      \begin{table}
+      \begin{tabular}{*{8}{c}}
+        \toprule
+
+        0 &
+        1 &
+        2 &
+        3 &
+        4 &
+        5 &
+        6 &
+        7 \\
+
+        \midrule
+
+        3 &
+        1 &
+        5 &
+        11 &
+        10 &
+        19 &
+        0 &
+        12 \\
+
+        \bottomrule
+      \end{tabular}
+      \end{table}
+      \item An array of 5 chars
+      \begin{table}
+      \begin{tabular}{*{4}{c}}
+        \toprule
+
+        0 &
+        1 &
+        2 &
+        3 &
+        4 \\
+
+        \midrule
+
+        a &
+        z &
+        F &
+        z &
+        k \\
+
+        \bottomrule
+      \end{tabular}
+      \end{table}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Arrays in C}
+  \begin{itemize}
+    \item Array declaration in C
+    <p>
+      <span class="hl-orange">&lt;Elements’ Type&gt;</span>
+      <span class="hl-green">&lt;identifier&gt;</span>[<span class="hl-red"
+        >&lt;size&gt;</span
+      >]
+    </p>
+    <p>
+      <span class="hl-orange">int</span> <span class="hl-green">arr</span>[<span
+        class="hl-red"
+        >20</span
+      >]
+    </p>
+    \item
+      <span class="hl-orange">&lt;Elements’ Type&gt;</span>: int, char, float,
+      \ldots
+
+    \item <span class="hl-red">&lt;size&gt;</span>
+    \begin{itemize}
+      \item Old compilers (standard): it should be constant
+      \item New compilers (standard): it can be variable
+    \end{itemize}
+    \item Elements in array
+    \begin{itemize}
+      \item From 0 to (size – 1)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  <p>
+    <span class="hl-orange">int</span> <span class="hl-green">num</span>[<span
+      class="hl-red"
+      >20</span
+    >]
+  </p>
+  \begin{itemize}
+    \item num is array of 20 <span class="hl-cyan">integers</span>
+    \item num[0] is the first integer variable
+    \item num[19] is the last integer
+  \end{itemize}
+  <p>
+    <span class="hl-orange">float</span>
+    <span class="hl-green">farr</span>[<span class="hl-red">100</span>]
+  </p>
+  \begin{itemize}
+    \item farr is array of <span class="hl-cyan">100</span> floats
+    \item farr[0] is the first float
+    \item farr[49] is the 50th float
+    \item farr[99] is the last float
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Array Initialization: Known Length}
+  \begin{itemize}
+    <pre><code class="hljs lang-c">int num[3]={10, 20, 60};</code></pre>
+    \item num is the array of 3 integers, num[0] is 10, …
+    <pre><code class="hljs lang-c">int num[]={40, 50, 60, 70, 70, 80};</code></pre>
+    \item num is the array of 6 integers
+    <pre><code class="hljs lang-c">int num[10]={40, 50, 60};</code></pre>
+    \item num is the array of 10 integers
+    \item num[0] is 40, num[1] is 50, num[2] is 60
+    \item num[3], num[4], ..., num[9] are 0
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Array Initialization (cont’d)}
+  <pre><code class="hljs lang-c">
+int num[2]={40, 50, 60, 70};
+/* Compile warning */
+
+int num[5]={[0] = 3, [4] = 6};
+/* num[5] = {3, 0, 0, 0, 6} */
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Initializing Variable Length Arrays}
+  <pre><code class="hljs lang-c">
+int n;
+scanf("%d", &amp;n);
+int num[n]={0}; /* Compile error */
+  </code></pre>
+  <p>Variable length arrays cannot be initialized!</p>
+  <pre><code class="hljs lang-c">
+for(i = 0; i &lt; n; i++)
+  num[i] = 0;
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Variable Length Array Declaration}
+  <pre><code class="hljs lang-c">
+int n;
+scanf("%d", &amp;n);
+int num[n];
+  </code></pre>
+  <p><span class="hl-orange">num</span> is usable</p>
+  <pre><code class="hljs lang-c">
+int n;
+int num[n];
+scanf("%d", &amp;n);
+  </code></pre>
+  <p>
+    <span class="hl-orange">num</span> is
+    <span class="hl-red">not</span> usable, why?
+  </p>
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="5"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Empty statements}
+  \begin{itemize}
+    \item &lt;statement&gt; in loops can be empty
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+while(&lt;expression&gt;) ;
+E.g.,
+while(i++ &lt;= n) ;
+
+for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;) ;
+E.g.,
+for(i = 0; i &lt; 10; printf("%d\n",i), i++) ;
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Nested loops}
+  \begin{itemize}
+    \item &lt;statement&gt; in loops can be loop itself
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+while(&lt;expression0&gt;)
+  for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
+    &lt;statements&gt;
+  </code></pre>
+  <pre><code class="hljs lang-c">
+for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
+  do
+    &lt;statements&gt;
+  while(&lt;expression&gt;)
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Nested loops example}
+    \begin{itemize}
+      \item A program that takes n and m and prints
+      <pre><code class="hljs plaintext">
+        *** ….* (m * in each line)
+        *** ….*
+        …
+        *** ….*
+        (n lines)
+      </code></pre>
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  int i, j, n, m;
+  printf("Enter n &amp; m: ");
+  scanf("%d %d", &amp;n, &amp;m);
+
+  for(i = 0; i &lt; n; i++){
+    for(j = 0; j &lt; m; j++) {
+      printf("*");
+    }
+    printf("\n");
+  }
+  return 0;
+}
+    </code></pre>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Nested loops example}
+    \begin{itemize}
+      \item A program that takes n and prints
+      <pre><code class="hljs plaintext">
+        * (i * in i-th line)
+        **
+        ***
+        *** ….*
+        (n lines)
+      </code></pre>
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int main(void){
+  int i, j, n;
+  printf("Enter n: ");
+  scanf("%d", &amp;n);
+
+  i = 1;
+  while(i &lt;= n) {
+    for(j = 0; j &lt; i; j++) {
+      printf("*");
+    }
+    printf("\n");
+    i++;
+  }
+  return 0;
+}
+    </code></pre>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \frametitle{break statement}
+  \begin{itemize}
+    \item Exit from loop based on some conditions
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+do{
+  scanf("%d", &amp;a);
+  scanf("%d", &amp;b);
+
+  if(b == 0)
+    break;
+
+  res = a / b;
+  printf("a / b = %d\n", res);
+} while(b &gt; 0);
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{continue statement}
+  \begin{itemize}
+    \item Jump to end of loop and continue repetition
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+do{
+  scanf("%f", &amp;a);
+  scanf("%f", &amp;b);
+  if(b == 0)
+    continue;
+  res = a / b;
+  printf("a / b = %f\n", res);
+} while(a &gt; 0);
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Which loop?}
+  \begin{itemize}
+    \item When you know the number of repetition
+    \begin{itemize}
+      \item Counter-controlled loops
+      \item Usually, <span class="hl-orange">for</span> statements
+    \end{itemize}
+    \item When you don’t know the number of repetitions (sentinel loop)
+    \begin{itemize}
+      \item Some condition should be check before starting loop
+      \begin{itemize}
+        \item Usually, <span class="hl-green">while</span> statement
+      \end{itemize}
+      \item The loop should be executed at least one time
+      \begin{itemize}
+        \item Usually, <span class="hl-cyan">do-while</span>
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="6"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Common bugs and avoiding them}
+  \begin{itemize}
+    \item Loop should terminate
+    \begin{itemize}
+      \item
+        E.g., in for loops, after each iteration, we should approach to the stop
+        condition
+
+    \end{itemize}
+    <pre><code class="hljs lang-c">
+for(i = 0; i &lt; 10; i++) //OK
+for(i = 0; i &lt; 10; i--) //Bug
+    </code></pre>
+    \item Initialize loop control variables
+    <pre><code class="hljs lang-c">
+int i;
+for( ; i &lt; 10; i++)
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Common bugs and avoiding them}
+  \begin{itemize}
+    \item Don’t modify for loop controller in loop body
+    <pre><code class="hljs lang-c">
+for(i = 0; i &lt; 10; i++) {
+  ...
+  i--; //Bug
+}
+    </code></pre>
+    \item Take care about wrong control conditions
+    \begin{itemize}
+      \item &lt; vs. &lt;=
+      \item = vs. ==
+    \end{itemize}
+    <pre><code class="hljs lang-c">
+int b = 10;
+while(a = b){ //it means while(true)
+  scanf("%d", &amp;a)
+    </code></pre>
+  \end{itemize}
+\end{frame}
+
+\end{document}
