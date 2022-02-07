@@ -53,16 +53,17 @@
   \begin{algorithm}[H]
   \KwData{$n \in \mathbb{Z}$}
   \KwResult{$n$ is even or odd}
+  $m \gets n$\;
   \If{n < 0}{%
     $n \gets -1 * n$\;
   }
-  \While{$n \geq 0$}{%
+  \While{$n > 0$}{%
     $n \gets n - 2$\;
   }
   \eIf{$n == 0$}{%
-      print $n$ ``is even''\;
+      print $m$ ``is even''\;
     }{%
-      print $n$ ``is odd''\;
+      print $m$ ``is odd''\;
     }
   \end{algorithm}
 \end{frame}
@@ -71,9 +72,10 @@
   \frametitle{Odd-Even-3}
   \begin{algorithm}[H]
   \KwData{$n \in \mathbb{Z}$}
+  $m \gets n$\;
   \KwResult{$n$ is even or odd}
-  $r \gets n \% 2$\;
-  \While{$n \geq 0$ or $n \leq -1$}{%
+  \Comment{$sign(0) = 0, sign(n > 0) = 1, sign(n < 0) = -1$}
+  \While{$n > 0$ or $n < -1$}{%
     $n \gets n - sign(n) * 2$\;
   }
   \eIf{$n == 0$}{%
@@ -168,7 +170,7 @@
   \KwData{$n \in \mathbb{Z} \geq 0$}
   \KwResult{$ result = n! $}
   $result \gets 1$\;
-  \While{$n \geq 0$}{%
+  \While{$n > 0$}{%
     $result \gets n * result$\;
     $n \gets n - 1$\;
   }
