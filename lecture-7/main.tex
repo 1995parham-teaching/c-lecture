@@ -61,7 +61,7 @@
       When we do \textbf{\color{RubineRed} NOT} know the number of iteration
     \item But we know, when loop terminates
     \begin{itemize}
-      \item E.g. Average of arbitrary positive numbers ending with <0
+      \item E.g. Average of arbitrary positive numbers ending with < 0
     \end{itemize}
   \end{itemize}
   \begin{algorithm}[H]
@@ -163,7 +163,7 @@ int main(void) {
   do {
     number++;
     sum += number / (number + 1.0);
-  } while(number &lt; n);
+  } while(number < n);
 
   printf("sum = %lf\n", sum);
   return 0;
@@ -183,6 +183,7 @@ int main(void) {
 
 \begin{frame}[fragile]
   \frametitle{N students average grade}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -220,12 +221,12 @@ for(i = 0, j = 0; i < 10; i++, j--)
       True/False
 
     \begin{minted}[bgcolor=Black]{c}
-for(i = 0, j = 0; i &lt; 10, j &gt; -100; i++, j--)
+for(i = 0, j = 0; i < 10, j > -100; i++, j--)
     \end{minted}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Expressions in for statements}
   \begin{itemize}
     \item Any expression can be empty expression
@@ -303,7 +304,7 @@ for(;;)
       \end{table}
       \item An array of 5 chars
       \begin{table}
-      \begin{tabular}{*{4}{c}}
+      \begin{tabular}{*{5}{c}}
         \toprule
 
         0 &
@@ -327,27 +328,20 @@ for(;;)
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Arrays in C}
   \begin{itemize}
     \item Array declaration in C
-    <p>
-      <span class="hl-orange">&lt;Elements’ Type&gt;</span>
-      <span class="hl-green">&lt;identifier&gt;</span>[<span class="hl-red"
-        >&lt;size&gt;</span
-      >]
-    </p>
-    <p>
-      <span class="hl-orange">int</span> <span class="hl-green">arr</span>[<span
-        class="hl-red"
-        >20</span
-      >]
-    </p>
+    \begin{minted}[bgcolor=Black]{c}
+      <Elements’ Type> <identifier>[<size>]
+    \end{minted}
+    \begin{minted}[bgcolor=Black]{c}
+      int arr[20]
+    \end{minted}
     \item
-      <span class="hl-orange">&lt;Elements’ Type&gt;</span>: int, char, float,
+      <Elements’ Type>: int, char, float,
       \ldots
-
-    \item <span class="hl-red">&lt;size&gt;</span>
+    \item <size>
     \begin{itemize}
       \item Old compilers (standard): it should be constant
       \item New compilers (standard): it can be variable
@@ -359,181 +353,183 @@ for(;;)
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Example}
-  <p>
-    <span class="hl-orange">int</span> <span class="hl-green">num</span>[<span
-      class="hl-red"
-      >20</span
-    >]
-  </p>
+  \begin{minted}[bgcolor=Black]{c}
+    int num[20]
+  \end{minted}
   \begin{itemize}
-    \item num is array of 20 <span class="hl-cyan">integers</span>
+    \item num is array of 20 integers
     \item num[0] is the first integer variable
     \item num[19] is the last integer
   \end{itemize}
-  <p>
-    <span class="hl-orange">float</span>
-    <span class="hl-green">farr</span>[<span class="hl-red">100</span>]
-  </p>
+  \begin{minted}[bgcolor=Black]{c}
+    float farr[100]
+  \end{minted}
   \begin{itemize}
-    \item farr is array of <span class="hl-cyan">100</span> floats
+    \item farr is array of 100 floats
     \item farr[0] is the first float
     \item farr[49] is the 50th float
     \item farr[99] is the last float
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Array Initialization: Known Length}
   \begin{itemize}
-    <pre><code class="hljs lang-c">int num[3]={10, 20, 60};</code></pre>
-    \item num is the array of 3 integers, num[0] is 10, …
-    <pre><code class="hljs lang-c">int num[]={40, 50, 60, 70, 70, 80};</code></pre>
+    \mint{c}|int num[3]={10, 20, 60};|
+    \item num is the array of 3 integers, \mint{c}|num[0]| is \mint{c}|10|, \ldots
+    \mint{c}|int num[]={40, 50, 60, 70, 70, 80};|
     \item num is the array of 6 integers
-    <pre><code class="hljs lang-c">int num[10]={40, 50, 60};</code></pre>
+    \mint{c}|int num[10]={40, 50, 60};|
     \item num is the array of 10 integers
-    \item num[0] is 40, num[1] is 50, num[2] is 60
-    \item num[3], num[4], ..., num[9] are 0
+    \item \mint{c}|num[0]| is \mint{c}|40|, \mint{c}|num[1]| is \mint{c}|50|, \mint{c}|num[2]| is \mint{c}|60|
+    \item \mint{c}|num[3]|, \mint{c}|num[4]|, \ldots, \mint{c}|num[9]| are \mint{c}|0|
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Array Initialization (cont’d)}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int num[2]={40, 50, 60, 70};
 /* Compile warning */
 
 int num[5]={[0] = 3, [4] = 6};
 /* num[5] = {3, 0, 0, 0, 6} */
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Initializing Variable Length Arrays}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int n;
-scanf("%d", &amp;n);
+scanf("%d", &n);
 int num[n]={0}; /* Compile error */
-  </code></pre>
-  <p>Variable length arrays cannot be initialized!</p>
-  <pre><code class="hljs lang-c">
-for(i = 0; i &lt; n; i++)
+  \end{minted}
+  \begin{block}{}
+    Variable length arrays cannot be initialized!
+  \end{block}
+  \begin{minted}[bgcolor=Black]{c}
+for(i = 0; i < n; i++)
   num[i] = 0;
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Variable Length Array Declaration}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int n;
-scanf("%d", &amp;n);
+scanf("%d", &n);
 int num[n];
-  </code></pre>
+  \end{minted}
   <p><span class="hl-orange">num</span> is usable</p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int n;
 int num[n];
-scanf("%d", &amp;n);
-  </code></pre>
-  <p>
-    <span class="hl-orange">num</span> is
-    <span class="hl-red">not</span> usable, why?
-  </p>
+scanf("%d", &n);
+  \end{minted}
+  \begin{block}{}
+    \textit{\color{Orange} num} is
+    \textit{\color{RubineRed} not} usable, why?
+  \end{block}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="5"></div>
-\end{frame}
-\begin{frame}
+
+\section{Advanced loops}
+
+\begin{frame}[fragile]
   \frametitle{Empty statements}
   \begin{itemize}
-    \item &lt;statement&gt; in loops can be empty
+    \item <statement> in loops can be empty
   \end{itemize}
-  <pre><code class="hljs lang-c">
-while(&lt;expression&gt;) ;
+  \begin{minted}[bgcolor=Black]{c}
+while(<expression>) ;
 E.g.,
-while(i++ &lt;= n) ;
+while(i++ <= n) ;
 
-for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;) ;
+for(<expression1>; <expression2>; <expression3>) ;
 E.g.,
-for(i = 0; i &lt; 10; printf("%d\n",i), i++) ;
-  </code></pre>
+for(i = 0; i < 10; printf("%d\n",i), i++) ;
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Nested loops}
   \begin{itemize}
-    \item &lt;statement&gt; in loops can be loop itself
+    \item <statement> in loops can be loop itself
   \end{itemize}
-  <pre><code class="hljs lang-c">
-while(&lt;expression0&gt;)
-  for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
-    &lt;statements&gt;
-  </code></pre>
-  <pre><code class="hljs lang-c">
-for(&lt;expression1&gt;; &lt;expression2&gt;; &lt;expression3&gt;)
+  \begin{minted}[bgcolor=Black]{c}
+while(<expression0>)
+  for(<expression1>; <expression2>; <expression3>)
+    <statements>
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
+for(<expression1>; <expression2>; <expression3>)
   do
-    &lt;statements&gt;
-  while(&lt;expression&gt;)
-  </code></pre>
+    <statements>
+  while(<expression>)
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Nested loops example}
-    \begin{itemize}
-      \item A program that takes n and m and prints
-      <pre><code class="hljs plaintext">
-        *** ….* (m * in each line)
-        *** ….*
-        …
-        *** ….*
-        (n lines)
-      </code></pre>
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+
+\begin{frame}[fragile]
+  \frametitle{Nested loops example}
+  \begin{itemize}
+    \item A program that takes n and m and prints
+    \begin{minted}[bgcolor=Black]{output}
+      *** ….* (m * in each line)
+      *** ….*
+      …
+      *** ….*
+      (n lines)
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 int main(void){
   int i, j, n, m;
-  printf("Enter n &amp; m: ");
-  scanf("%d %d", &amp;n, &amp;m);
+  printf("Enter n & m: ");
+  scanf("%d %d", &n, &m);
 
-  for(i = 0; i &lt; n; i++){
-    for(j = 0; j &lt; m; j++) {
+  for(i = 0; i < n; i++){
+    for(j = 0; j < m; j++) {
       printf("*");
     }
     printf("\n");
   }
   return 0;
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Nested loops example}
-    \begin{itemize}
-      \item A program that takes n and prints
-      <pre><code class="hljs plaintext">
-        * (i * in i-th line)
-        **
-        ***
-        *** ….*
-        (n lines)
-      </code></pre>
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
 
-int main(void){
+\begin{frame}[fragile]
+  \frametitle{Nested loops example}
+  \begin{itemize}
+    \item A program that takes n and prints
+    \begin{minted}[bgcolor=Black]{output}
+* (i * in i-th line)
+**
+***
+*** ….*
+(n lines)
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+
+int main(void) {
   int i, j, n;
   printf("Enter n: ");
-  scanf("%d", &amp;n);
+  scanf("%d", &n);
 
   i = 1;
-  while(i &lt;= n) {
-    for(j = 0; j &lt; i; j++) {
+  while(i <= n) {
+    for(j = 0; j < i; j++) {
       printf("*");
     }
     printf("\n");
@@ -541,109 +537,123 @@ int main(void){
   }
   return 0;
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{break statement}
   \begin{itemize}
     \item Exit from loop based on some conditions
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 do{
-  scanf("%d", &amp;a);
-  scanf("%d", &amp;b);
+  scanf("%d", &a);
+  scanf("%d", &b);
 
   if(b == 0)
     break;
 
   res = a / b;
   printf("a / b = %d\n", res);
-} while(b &gt; 0);
-  </code></pre>
+} while(b > 0);
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{continue statement}
   \begin{itemize}
     \item Jump to end of loop and continue repetition
   \end{itemize}
-  <pre><code class="hljs lang-c">
-do{
-  scanf("%f", &amp;a);
-  scanf("%f", &amp;b);
+  \begin{minted}[bgcolor=Black]{c}
+do {
+  scanf("%f", &a);
+  scanf("%f", &b);
   if(b == 0)
     continue;
   res = a / b;
   printf("a / b = %f\n", res);
-} while(a &gt; 0);
-  </code></pre>
+} while(a > 0);
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Which loop?}
   \begin{itemize}
     \item When you know the number of repetition
     \begin{itemize}
       \item Counter-controlled loops
-      \item Usually, <span class="hl-orange">for</span> statements
+      \item Usually, \textit{\color{Orange} for} statements
     \end{itemize}
     \item When you don’t know the number of repetitions (sentinel loop)
     \begin{itemize}
       \item Some condition should be check before starting loop
       \begin{itemize}
-        \item Usually, <span class="hl-green">while</span> statement
+        \item Usually, \textit{\color{LimeGreen} while} statement
       \end{itemize}
       \item The loop should be executed at least one time
       \begin{itemize}
-        \item Usually, <span class="hl-cyan">do-while</span>
+        \item Usually, \textit{\color{Cyan} do-while}
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="6"></div>
-\end{frame}
-\begin{frame}
+
+\section{Bugs and avoiding them}
+
+\begin{frame}[fragile]
   \frametitle{Common bugs and avoiding them}
   \begin{itemize}
     \item Loop should terminate
     \begin{itemize}
       \item
-        E.g., in for loops, after each iteration, we should approach to the stop
+        e.g., in for loops, after each iteration, we should approach to the stop
         condition
-
     \end{itemize}
-    <pre><code class="hljs lang-c">
-for(i = 0; i &lt; 10; i++) //OK
-for(i = 0; i &lt; 10; i--) //Bug
-    </code></pre>
+    \begin{minted}[bgcolor=Black]{c}
+for(i = 0; i < 10; i++) // ok
+for(i = 0; i < 10; i--) // bug
+    \end{minted}
     \item Initialize loop control variables
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int i;
-for( ; i &lt; 10; i++)
-    </code></pre>
+for( ; i < 10; i++)
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Common bugs and avoiding them}
   \begin{itemize}
-    \item Don’t modify for loop controller in loop body
-    <pre><code class="hljs lang-c">
-for(i = 0; i &lt; 10; i++) {
+    \item {\color{RubineRed} Don’t modify} for loop controller in loop body
+    \begin{minted}[bgcolor=Black]{c}
+for(i = 0; i < 10; i++) {
   ...
-  i--; //Bug
+  i--; // bug
 }
-    </code></pre>
+    \end{minted}
     \item Take care about wrong control conditions
     \begin{itemize}
-      \item &lt; vs. &lt;=
-      \item = vs. ==
+      \item{< vs. <=}
+      \item{= vs. ==}
     \end{itemize}
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int b = 10;
-while(a = b){ //it means while(true)
-  scanf("%d", &amp;a)
-    </code></pre>
+int a = 0;
+while(a = b) { // it means while(true)
+  scanf("%d", &a)
+}
+    \end{minted}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Legends}
+  \begin{figure}
+    \includegraphics[width=.75\textwidth]{./img/nowruz.jpg}
+  \end{figure}
+  \pause%
+  \centering
+  \color{Violet} Happy Nowruz
 \end{frame}
 
 \end{document}
