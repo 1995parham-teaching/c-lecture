@@ -36,6 +36,7 @@
     \item Modular <span class="hl-red">programming</span>
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Modular programming}
   \begin{itemize}
@@ -48,10 +49,10 @@
       \item Later, we think about the black-boxes and develop them
     \end{itemize}
     \item
-      Black-boxes are implemented by <span class="hl-red">functions</span>
-
+      Black-boxes are implemented by \textbf{\color{RubineRed} functions}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Modular programming: Advantages}
   \begin{itemize}
@@ -60,45 +61,45 @@
     \begin{itemize}
       \item Something is used frequently
       \begin{itemize}
-        \item Mathematic: Square, Power, Sin, ...
+        \item Mathematic: Square, Power, Sin, \ldots
         \item Programming: Printing, Reading
       \end{itemize}
       \item
-        Develop it <span class="hl-orange">one time</span>, use it
-        <span class="hl-green">many times</span>
-
+        Develop it \textbf{\color{Orange} one time}, use it
+        \textbf{\color{LimeGreen} many times}
     \end{itemize}
     \item Multiple developers can work on different parts
     \item Each module can be tested and debugged separately
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Functions in C}
   \begin{itemize}
     \item Functions in mathematics
     \begin{itemize}
-      \item z = f(x, y)
+      \item \mint{c}|z = f(x, y)|
     \end{itemize}
     \item Functions in C
     \begin{itemize}
-      \item <span class="hl-orange">Queries</span>: Return a value
+      \item \textbf{\color{YellowOrange} Queries}: Return a value
       \begin{itemize}
-        \item sin(), fabs()
+        \item \mint{c}|sin()|, \mint{c}|fabs()|
       \end{itemize}
       \item
-        <span class="hl-orange">Commands</span>: do some tasks, do not return
+        \textbf{\color{LimeGreen} Commands}: do some tasks, do not return
         any value
-
       \begin{itemize}
-        \item printf_my_info(...)
+        \item \mint{c}|printf_my_info(...)|
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Functions in C}
   <p>Three steps to use functions in C</p>
-  <ol>
+  \begin{enumerate}
     \item Function prototype (declaration)
     \begin{itemize}
       \item Introduce the function to compiler
@@ -111,8 +112,9 @@
     \begin{itemize}
       \item Use the function
     \end{itemize}
-  </ol>
+  \end{enumerate}
 \end{frame}
+
 \begin{frame}
   \frametitle{Function prototype}
   <p>
