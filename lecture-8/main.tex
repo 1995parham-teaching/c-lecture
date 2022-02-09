@@ -289,7 +289,7 @@ int main(void) {
   \frametitle{How Does Function Call Work?}
   \begin{itemize}
     \item
-      Function call is implemented by \textit{\color{YellowOrange} {``stack''}}
+      Function call is implemented by \textit{\color{YellowOrange} ``stack''}
     \item
       Stack is a \textit{\color{LimeGreen} logical} part of the main memory
     \item Variables of function and its input variables are in stack
@@ -375,25 +375,23 @@ res = a - b;
   \begin{itemize}
     \item
       The local parameters are
-      <span class="hl-orange">references</span> to the storage locations of
+      \textbf{\color{Orange} references} to the storage locations of
       the original arguments passed in.
-
     \item
       Changes to these variables in the function
-      <span class="hl-green">will affect</span> the originals
-
+      \textbf{\color{LimeGreen} will affect} the originals
     \item
       \textit{\color{Cyan} No copy is made}, so overhead of copying
       (time, storage) is saved
   \end{itemize}
 \end{frame}
 
-\begin{frame}{GIFs in Beamer}
+\begin{frame}
   \centering
-  \animategraphics[loop,width=4cm]{10}{img/pass-by-reference-vs-pass-by-value-animation}{0}{74}
+  \animategraphics[loop,width=4cm]{10}{./img/pass-by-reference-vs-pass-by-value-animation-}{0}{74}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{add function (wrong version)}
   \begin{minted}[bgcolor=Black]{c}
 void add(double a, double b, double res){
@@ -434,11 +432,11 @@ int main(void){
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{fragile}
   \frametitle{The return command}
   \begin{itemize}
     \item To generate a result by a function
-    <p>return &lt;value&gt;;</p>
+    \mint{c}|return <value>;|
     \item Only one value can be returned
     \item <span class="hl-green">return</span> finishes running the function
     \item Function can have multiple return
