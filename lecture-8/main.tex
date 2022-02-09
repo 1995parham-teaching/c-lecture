@@ -2,8 +2,6 @@
 
 \subtitle{Functions}
 
-\usepackage{animate}
-
 \begin{document}
 
 \begin{frame}
@@ -386,11 +384,6 @@ res = a - b;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \centering
-  \animategraphics[loop,width=4cm]{10}{./img/pass-by-reference-vs-pass-by-value-animation-}{0}{74}
-\end{frame}
-
 \begin{frame}[fragile]
   \frametitle{add function (wrong version)}
   \begin{minted}[bgcolor=Black]{c}
@@ -452,7 +445,7 @@ int main(void){
 
 \begin{frame}
   \frametitle{Exmaple: my_fabs (Version 1)}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   double res;
   if(x &gt;= 0)
@@ -469,12 +462,12 @@ void main(void){
   printf("%lf\n", b);
   printf("%lf\n", my_fabs(-2 * b));
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Exmaple: my_fabs (Version 2)}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   if(x &gt;= 0)
     return x;
@@ -489,10 +482,10 @@ void main(void){
   b = my_fabs(-2 * d);
   printf("b = %lf\n", b);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Output of functions}
   \begin{itemize}
     \item
@@ -501,13 +494,14 @@ void main(void){
 
     \item Output of functions can be dropped
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 double f;
 sin(f); // we drop the output of sin
 gcd(10, 20); // we drop the output of gcd
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Casting in functions}
   \begin{itemize}
     \item Cast for input
@@ -525,7 +519,8 @@ gcd(10, 20); // we drop the output of gcd
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Be careful: empty input/output type}
   \begin{itemize}
     \item
@@ -536,26 +531,30 @@ gcd(10, 20); // we drop the output of gcd
       \item Casting may not work
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 f1(a){
   printf("a = %d\n", a); return a / 2;
 }
+
 f2(int a){
   printf("a = %d\n", a); return a / 2;
 }
+
 f3(float a){
     printf("a = %f\n", a);  return a / 2;
 }
+
 int main(){
   printf("%d\n", f1(10.5));
   printf("%d\n", f2(10.5));
   printf("%d\n", f3(10.5));
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Inline Functions &amp; Macro}
+  \frametitle{Inline Functions \& Macro}
   \begin{itemize}
     \item Function call using stack has its overhead
     \begin{itemize}
@@ -574,14 +573,15 @@ inline int f(float x)
       </code></pre>
     \end{itemize}
     \item Macros
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 #define PRINT_INT(X) printf("%d\n", X)
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Example: GCD}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 #define PRINT_INT(x) printf("%d\n",x); \
                       printf("===================\n");
 
@@ -606,11 +606,11 @@ void main(void){
   printf("GCD of %d and %d = ", j , i);
   PRINT_INT(g);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="3"></div>
-\end{frame}
+
+\section{Scope of variables}
+
 \begin{frame}
   \frametitle{Scope of Variables}
   \begin{itemize}
@@ -634,6 +634,7 @@ void main(void){
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Scopes and Blocks}
   \begin{itemize}
@@ -655,16 +656,17 @@ void main(void){
     \item The declared block is the scope of the variable
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Variables in Blocks}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 #include &lt;stdio.h&gt;
 int main(void){
   int i;
   for(i = 1; i &lt;= 10; i++){
     int number;
     printf("Enter %d-th number: ", i);
-    scanf("%d", &amp;number);
+    scanf("%d", &number);
 
     if((number % 2) == 0)
         printf("Your number is even\n");
@@ -675,8 +677,9 @@ int main(void){
    printf("The last number is %d\n", number); */
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Nested Scopes/Blocks}
   \begin{itemize}
@@ -685,19 +688,20 @@ int main(void){
       \item Example: Nested if, nested for, ...
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
-void main(){ //block 1
+  \begin{minted}[bgcolor=Black]{c}
+void main(){ // block 1
   int i;
-  { //block 2
+  { // block 2
     int j;
-    { //block 3
+    { // block 3
        int k;
     }
     int m;
   }
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Variables in Nested Blocks}
   \begin{itemize}
@@ -717,9 +721,10 @@ void main(){ //block 1
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Variables in Nested Blocks: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int k;
 
 for(int i = 0; i &lt; 10; i++){
@@ -739,8 +744,9 @@ for(int i = 0; i &lt; 10; i++){
 
   /* k = l; compile error */
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Variables in Nested Blocks: Example}
   \begin{itemize}
@@ -761,6 +767,7 @@ for(int i = 0; i &lt; 10; i++){
   \end{itemize}
   <p class="hl-red" style="font-size: 120px">Do Not Use It</p>
 \end{frame}
+
 \begin{frame}
   \frametitle{Local Variables}
   \begin{itemize}
@@ -773,7 +780,7 @@ for(int i = 0; i &lt; 10; i++){
       functions
 
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void func(void){
   /* These are local variables */
   int i, j;
@@ -784,9 +791,10 @@ int main(void){
   i = 10; /* compile error, why? */
   f = 0; /* compile error, why? */
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Global/External Variables}
   \begin{itemize}
     \item Global variables are defined outside of all functions
@@ -799,7 +807,7 @@ int main(void){
       <span class="hl-green">subsequent</span> functions
 
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void f(){
    i = 0; // compile error
 }
@@ -807,11 +815,12 @@ int i;
 void g(){
    int j = i; // g can use i
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Global/External Variables: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int i, j;
 float f;
 
@@ -831,12 +840,12 @@ int main(void){
   f1();
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Parameter Passing by Global Variables: my_fabs (V.3)}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Parameter Passing by Global Variables: my_fabs (V.3)}
+  \begin{minted}[bgcolor=Black]{c}
 double x;
 
 void my_fabs(void){
@@ -850,24 +859,23 @@ void main(void){
   b = x;
   printf("b = %f\n", b);
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      \item
-        <span class="hl-red">Don’t</span> use this method. Parameters should be
-        passed by input parameter list.
-
-      \item
-        Global variable are used to define (large) variables that are used in
-        many functions
-
-    \end{itemize}
-  \end{frame}
+  \end{minted}
 \end{frame}
 \begin{frame}
-  <div class="toc" data-selected="4"></div>
+  \begin{itemize}
+    \item
+      <span class="hl-red">Don’t</span> use this method. Parameters should be
+      passed by input parameter list.
+
+    \item
+      Global variable are used to define (large) variables that are used in
+      many functions
+
+  \end{itemize}
 \end{frame}
+
+\section{Storage Class of variables}
+
 \begin{frame}
   \begin{itemize}
     \item Storage class
@@ -885,6 +893,7 @@ void main(void){
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Storage Classes: Automatic}
   \begin{itemize}
@@ -894,7 +903,6 @@ void main(void){
       \item Variables defined inside a function/block
       \item
         Keyword <span class="hl-orange">auto</span> is optional before them
-
     \end{itemize}
     \item
       Generated at the
@@ -907,6 +915,7 @@ void main(void){
     \item Are not initialized
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{frame}
     \frametitle{Storage Classes: External}
