@@ -425,7 +425,7 @@ int main(void){
   \end{itemize}
 \end{frame}
 
-\begin{frame}{fragile}
+\begin{frame}[fragile]
   \frametitle{The return command}
   \begin{itemize}
     \item To generate a result by a function
@@ -443,7 +443,7 @@ int main(void){
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Exmaple: my_fabs (Version 1)}
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
@@ -552,7 +552,7 @@ int main(){
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Inline Functions \& Macro}
   \begin{itemize}
     \item Function call using stack has its overhead
@@ -567,10 +567,10 @@ int main(){
         <span class="hl-green">Clang</span> don't support
         <span class="hl-orange">inline</span> functions
 
-      <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 inline int f(float x)
       </code></pre>
-    \end{itemize}
+    \end{minted}
     \item Macros
     \begin{minted}[bgcolor=Black]{c}
 #define PRINT_INT(X) printf("%d\n", X)
@@ -578,7 +578,7 @@ inline int f(float x)
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Example: GCD}
   \begin{minted}[bgcolor=Black]{c}
 #define PRINT_INT(x) printf("%d\n",x); \
@@ -680,7 +680,7 @@ int main(void){
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Nested Scopes/Blocks}
   \begin{itemize}
     \item Scopes can be nested
@@ -768,7 +768,7 @@ for(int i = 0; i <; 10; i++){
   <p class="hl-red" style="font-size: 120px">Do Not Use It</p>
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Local Variables}
   \begin{itemize}
     \item
@@ -1226,7 +1226,7 @@ int main(){
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Main Overall Algorithm}
   \begin{minted}[bgcolor=Black]{c}
 while(number is not zero)
@@ -1238,7 +1238,7 @@ while(number is not zero)
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Check Goldbach’s Conjecture Algorithm}
   <p>
     <b>Algorithm:</b> Goldbach<br />
@@ -1256,7 +1256,7 @@ Conjecture is incorrect
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{is_prime algorithm}
   <p>
     <b>Algorithm:</b> is_prime<br />
