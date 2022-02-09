@@ -307,41 +307,6 @@ int main(void) {
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{print_sub: What happen?}
-  \mint{c}|print_sub(56.0, 6.0);|
-  \begin{itemize}
-    \item 56.0 is copied the memory location \textbf{\color{LimeGreen} a}
-    \item 6.0 is copied to memory location \textbf{\color{Orange} b}
-  \end{itemize}
-  \begin{minted}[bgcolor=Black]{c}
-double a = 56.0;
-double b = 6.0;
-double res;
-res = a - b;
-  \end{minted}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{print_sub: What happen?}
-  \mint{c}|print_sub(d1, d2);|
-  \begin{itemize}
-    \item
-      value of d1 is copied the memory location
-      \textit{\color{LimeGreen} a}
-    \item
-      value of d2 is copied to memory location
-      \textit{\color{YellowOrange} b}
-  \end{itemize}
-  \begin{minted}[bgcolor=Black]{c}
-double a = 10.1;
-double b = 6.0;
-double res;
-res = a - b;
-  \end{minted}
-  \textbf{\color{RubineRed} Call by Value}
-\end{frame}
-
 \begin{frame}
   \frametitle{Call by value}
   \begin{itemize}
@@ -444,7 +409,7 @@ int main(void){
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exmaple: my_fabs (Version 1)}
+  \frametitle{Exmaple: my\_fabs (Version 1)}
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   double res;
@@ -466,7 +431,7 @@ void main(void){
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exmaple: my_fabs (Version 2)}
+  \frametitle{Exmaple: my\_fabs (Version 2)}
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   if(x >= 0)
@@ -566,7 +531,7 @@ int main(){
         <span class="hl-green">GCC</span> and
         <span class="hl-green">Clang</span> don't support
         <span class="hl-orange">inline</span> functions
-
+    \end{itemize}
     \begin{minted}[bgcolor=Black]{c}
 inline int f(float x)
       </code></pre>
@@ -844,7 +809,7 @@ int main(void){
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Parameter Passing by Global Variables: my_fabs (V.3)}
+  \frametitle{Parameter Passing by Global Variables: my\_fabs (V.3)}
   \begin{minted}[bgcolor=Black]{c}
 double x;
 
@@ -917,31 +882,31 @@ void main(void){
 \end{frame}
 
 \begin{frame}
-  \begin{frame}
-    \frametitle{Storage Classes: External}
+  \frametitle{Storage Classes: External}
+  \begin{itemize}
+    \item All global variables are external by default
     \begin{itemize}
-      \item All global variables are external by default
+      \item Are initialized by 0
+      \item Are generated when program starts
+      \item Are destroyed when program finishes
+    \end{itemize}
+    \item Usage of keyword <span class="hl-orange">extern</span>
+    \begin{itemize}
+      \item To use global variables in other files
+      \item To use global variables before definition
+      \item To emphasize that variable is global
       \begin{itemize}
-        \item Are initialized by 0
-        \item Are generated when program starts
-        \item Are destroyed when program finishes
-      \end{itemize}
-      \item Usage of keyword <span class="hl-orange">extern</span>
-      \begin{itemize}
-        \item To use global variables in other files
-        \item To use global variables before definition
-        \item To emphasize that variable is global
-        \begin{itemize}
-          \item This usage is optional
-        \end{itemize}
+        \item This usage is optional
       \end{itemize}
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      \item We only declare <code>var</code> and later define it.
-    \end{itemize}
-    <pre><code class="lang-c">
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item We only declare <code>var</code> and later define it.
+  \end{itemize}
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>;
 
 extern int var;
@@ -953,11 +918,11 @@ int main(void)
 }
 
 int var = 20;
-    </code></pre>
-    \begin{itemize}
-      \item We declare and define <code>var</code>. (optional usage)
-    \end{itemize}
-    <pre><code class="lang-c">
+  \end{minted}
+  \begin{itemize}
+    \item We declare and define <code>var</code>. (optional usage)
+  \end{itemize}
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 extern int var = 10;
@@ -967,9 +932,9 @@ int main(void)
   printf("%d\n", var);
   return 0;
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Storage Classes: Static}
   \begin{itemize}
@@ -983,12 +948,13 @@ int main(void)
       \item Destroyed <span class="hl-cyan">when program finishes</span>
       \item Initialized
       \begin{itemize}
-        \item If no value &rarr; initialized by 0
+        \item If no value: initialized by 0
         \item Only initialized in the first run of the block
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Storage Classes: Static (Cont.)}
   \begin{itemize}
@@ -999,12 +965,13 @@ int main(void)
       \item Destroyed <span class="hl-cyan">when program finishes</span>
       \item Initialized
       \begin{itemize}
-        \item If no value &rarr; initialized by 0
+        \item If no value: initialized by 0
       \end{itemize}
       \item Is not accessible for other files
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Storage Classes: Register}
   \begin{itemize}
@@ -1018,21 +985,23 @@ int main(void)
     \item Improve performance
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Storage Classes, Auto: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void f(int i, double d){
   int i2;
   auto int i3;
   double d2;
   auto double d3;
 }
-  </code></pre>
+  \end{minted}
   <p>All variables (i, d, i2, i3, d2, d3) are auto variables</p>
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Storage Classes, Extern: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int i = 10, j = 20;
 
 void print(void){
@@ -1048,7 +1017,7 @@ int main(void){
   print();
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1120,10 +1089,9 @@ for(i = 0; i <; 100; i++)
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \begin{frame}
-    \frametitle{loop &amp; automatic variables}
-    <pre><code class="hljs lang-c">
+\begin{frame}[fragile]
+  \frametitle{loop \& automatic variables}
+  \begin{minted}[bgcolor=Black]{c}
 int main(){
   int i;
   for(i = 0; i <; 5; i++) {
@@ -1136,44 +1104,43 @@ int main(){
     }
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{output}
 &j = 0x7ffeed9f3964, j = 0
 &j = 0x7ffeed9f3964, j = 1
 &j = 0x7ffeed9f3964, j = 2
 &j = 0x7ffeed9f3964, j = 3
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
 
-\begin{frame}
-  \begin{frame}
-    \frametitle{loop &amp; automatic variables}
-    <pre><code class="hljs lang-c">
+\begin{frame}[fragile]
+  \frametitle{loop \& automatic variables}
+  \begin{minted}[bgcolor=Black]{c}
 int main(){
   int i;
   for(i = 0; i <; 5; i++) {
     int j[5 * i + 1];
     if(i) {
-      printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
+      printf("&j[0] = %p, j[0] = %d\n", (&j[0]), j[0]);
       j[0]++;
     } else {
       j[0] = i;
     }
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
-&amp;j[0] = 0x7ffee735b910, j[0] = -415909520
-&amp;j[0] = 0x7ffee735b900, j[0] = -415909520
-&amp;j[0] = 0x7ffee735b8f0, j[0] = -415909520
-&amp;j[0] = 0x7ffee735b8d0, j[0] = -415909872
-    </code></pre>
-  \end{frame}
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{output}
+&j[0] = 0x7ffee735b910, j[0] = -415909520
+&j[0] = 0x7ffee735b900, j[0] = -415909520
+&j[0] = 0x7ffee735b8f0, j[0] = -415909520
+&j[0] = 0x7ffee735b8d0, j[0] = -415909872
+  \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1239,11 +1206,11 @@ while(number is not zero)
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Check Goldbach’s Conjecture Algorithm}
+  \frametitle{Check Goldbach's Conjecture Algorithm}
   <p>
-    <b>Algorithm:</b> Goldbach<br />
-    <b>Input:</b> n<br />
-    <b>Output:</b> 0 if conjecture is incorrect else 1<br />
+    <b>Algorithm:</b> Goldbach
+    <b>Input:</b> n
+    <b>Output:</b> 0 if conjecture is incorrect else 1
   </p>
   \begin{minted}[bgcolor=Black]{c}
 for(i from 2 to n/2)
@@ -1257,11 +1224,11 @@ Conjecture is incorrect
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{is_prime algorithm}
+  \frametitle{is\_prime algorithm}
   <p>
-    <b>Algorithm:</b> is_prime<br />
-    <b>Input:</b> n<br />
-    <b>Output:</b> 1 if n is prime else 0<br />
+    <b>Algorithm:</b> is\_prime
+    <b>Input:</b> n
+    <b>Output:</b> 1 if n is prime else 0
   </p>
   \begin{minted}[bgcolor=Black]{c}
 for(i from 2 to sqrt(n))
@@ -1273,9 +1240,9 @@ n is prime
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{next_prime_number algorithm}
+  \frametitle{next\_prime\_number algorithm}
   <p>
-    <b>Algorithm:</b> next_prime_number<br />
+    <b>Algorithm:</b> next\_prime\_number<br />
     <b>Input:</b> n (is prime)<br />
     <b>Output:</b> the first prime number that is greater than n<br />
   </p>
@@ -1378,10 +1345,10 @@ int main(void) {
 int factorial(int n){
    int res, tmp;
 
-   if(n == 1)
+   if(n == 1) {
       /* The basic problem */
       res = 1;
-    } else{
+   } else{
       /* recursive call */
       tmp = factorial(n - 1);
       res = n * tmp;
