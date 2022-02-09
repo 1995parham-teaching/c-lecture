@@ -27,7 +27,7 @@
     \begin{itemize}
       \item Compressing a file
       \item Calculator
-      \item Games, MS Word, Firefox, ...
+      \item Games, MS Word, Firefox, \ldots
     \end{itemize}
     \item Cannot be developed at once
     \begin{itemize}
@@ -35,7 +35,7 @@
       \item Solve the sub-problems
       \item Put the solutions altogether to get the final solution
     \end{itemize}
-    \item Modular <span class="hl-red">programming</span>
+    \item \textbf{\color{Melon} Modular} programming
   \end{itemize}
 \end{frame}
 
@@ -100,7 +100,7 @@
 
 \begin{frame}
   \frametitle{Functions in C}
-  <p>Three steps to use functions in C</p>
+  Three steps to use functions in C:
   \begin{enumerate}
     \item Function prototype (declaration)
     \begin{itemize}
@@ -123,7 +123,7 @@
   \begin{itemize}
     \item <output type>
     \begin{itemize}
-      \item \textmd{\color{Orange} Queries}: int, float, ...
+      \item \textmd{\color{Orange} Queries}: int, float, \ldots
       \item \textmd{\color{LimeGreen} Command}: void
     \end{itemize}
     \item
@@ -149,7 +149,7 @@
   \begin{itemize}
     \item <output type>
     \begin{itemize}
-      \item \textmd{\color{Orange} Queries}: int, float, ...
+      \item \textmd{\color{Orange} Queries}: int, float, \ldots
       \item \textmd{\color{LimeGreen} Command}: void
     \end{itemize}
     \item
@@ -159,7 +159,7 @@
       \item
         <type> <identifier>, <type> <identifier>, \ldots
       \begin{itemize}
-        \item int in, float f, ...
+        \item int in, float f, \ldots
       \end{itemize}
       \item void
     \end{itemize}
@@ -251,16 +251,16 @@ int main(void) {
   \begin{itemize}
     \item Inputs of function
     \begin{itemize}
-      \item No input: <span class="hl-orange">void</span>
+      \item No input: \textit{\color{YellowOrange} void}
       \item One or multiple inputs
     \end{itemize}
     \item Each input should have a type
-    \item Input parameters are split by “,”
+    \item Input parameters are split by ``,''
     \begin{minted}[bgcolor=Black]{c}
 void f(void)
 void f(int a)
 void f(int a, float b)
-void f(int a, b) //compile error
+void f(int a, b) // compile error
     \end{minted}
   \end{itemize}
 \end{frame}
@@ -331,7 +331,6 @@ res = a - b;
     \item
       value of d1 is copied the memory location
       \textit{\color{LimeGreen} a}
-
     \item
       value of d2 is copied to memory location
       \textit{\color{YellowOrange} b}
@@ -351,20 +350,17 @@ res = a - b;
     \item In call by value mechanism
     \begin{itemize}
       \item
-        The values are <span class="hl-orange">copied</span> to the function
-
+        The values are \textit{\color{Orange} copied} to the function
     \end{itemize}
     \item If we change values in the function
     \begin{itemize}
       \item The copied version is changed
       \item
-        The original value does <span class="hl-red">not</span> affected
-
+        The original value does \textit{\color{RubineRed} not} affected
     \end{itemize}
     \item
-      Call by value inputs <span class="hl-red">cannot</span> be used to
+      Call by value inputs \textit{\color{RubineRed} cannot} be used to
       produce output
-
   \end{itemize}
 \end{frame}
 
