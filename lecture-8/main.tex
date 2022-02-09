@@ -448,7 +448,7 @@ int main(void){
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   double res;
-  if(x &gt;= 0)
+  if(x >= 0)
     res = x;
   else
     res = -1 * x;
@@ -469,7 +469,7 @@ void main(void){
   \frametitle{Exmaple: my_fabs (Version 2)}
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
-  if(x &gt;= 0)
+  if(x >= 0)
     return x;
   return (-1 * x);
 }
@@ -524,9 +524,8 @@ gcd(10, 20); // we drop the output of gcd
   \frametitle{Be careful: empty input/output type}
   \begin{itemize}
     \item
-      If output or input type is not specified &rarr;
-      <span class="hl-orange">int</span>
-
+      If output or input type is not specified:
+      \textbf{\color{Orange} int}
     \begin{itemize}
       \item Casting may not work
     \end{itemize}
@@ -660,10 +659,11 @@ void main(void){
 \begin{frame}[fragile]
   \frametitle{Variables in Blocks}
   \begin{minted}[bgcolor=Black]{c}
-#include &lt;stdio.h&gt;
+#include <stdio.h>
+
 int main(void){
   int i;
-  for(i = 1; i &lt;= 10; i++){
+  for(i = 1; i <= 10; i++){
     int number;
     printf("Enter %d-th number: ", i);
     scanf("%d", &number);
@@ -727,15 +727,15 @@ void main(){ // block 1
   \begin{minted}[bgcolor=Black]{c}
 int k;
 
-for(int i = 0; i &lt; 10; i++){
+for(int i = 0; i <; 10; i++){
   /* block 1 */
-  if(i &gt; 5){
+  if(i > 5){
     /* block 2 */
     int j = i;
     ...
   }
 
-  while(k &gt; 10){
+  while(k > 10){
     /* block 3 */
     int l = i;
     /* int m = j; compile error */
@@ -849,7 +849,7 @@ int main(void){
 double x;
 
 void my_fabs(void){
-  x = (x &gt; 0) ? x : -1 * x;
+  x = (x > 0) ? x : -1 * x;
 }
 
 void main(void){
@@ -942,7 +942,7 @@ void main(void){
       \item We only declare <code>var</code> and later define it.
     \end{itemize}
     <pre><code class="lang-c">
-#include &lt;stdio.h&gt;
+#include <stdio.h>;
 
 extern int var;
 
@@ -958,7 +958,7 @@ int var = 20;
       \item We declare and define <code>var</code>. (optional usage)
     \end{itemize}
     <pre><code class="lang-c">
-#include &lt;stdio.h&gt;
+#include <stdio.h>
 
 extern int var = 10;
 
@@ -1097,7 +1097,7 @@ int main(void){
   \frametitle{Storage Classes, Register: Examples}
   <pre><code class="hljs lang-c">
 register int i;
-for(i = 0; i &lt; 100; i++)
+for(i = 0; i <; 100; i++)
   </code></pre>
 \end{frame}
 
@@ -1126,7 +1126,7 @@ for(i = 0; i &lt; 100; i++)
     <pre><code class="hljs lang-c">
 int main(){
   int i;
-  for(i = 0; i &lt; 5; i++) {
+  for(i = 0; i <; 5; i++) {
     int j;
     if(i) { // when i != 0 update j
       printf("&amp;j = %p, j = %d\n", &amp;j, j);
@@ -1154,7 +1154,7 @@ int main(){
     <pre><code class="hljs lang-c">
 int main(){
   int i;
-  for(i = 0; i &lt; 5; i++) {
+  for(i = 0; i <; 5; i++) {
     int j[5 * i + 1];
     if(i) {
       printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
@@ -1181,7 +1181,7 @@ int main(){
   \begin{minted}[bgcolor=Black]{c}
 int main(){
   int i;
-  for(i = 0; i &lt; 5; i++) {
+  for(i = 0; i <; 5; i++) {
     int j[5 * 3 + 1];
     if(i) {
       printf("&j[0] = %p, j[0] = %d\n", (&j[0]), j[0]);
@@ -1230,7 +1230,7 @@ int main(){
   \frametitle{Main Overall Algorithm}
   \begin{minted}[bgcolor=Black]{c}
 while(number is not zero)
-  if(number &gt; 2 and even)
+  if(number > 2 and even)
     Check Goldbach’s Conjecture
   else
     Print some message
@@ -1470,7 +1470,7 @@ int main(void) {
 \begin{frame}[fragile]
   \frametitle{Example: Fibonacci}
   \begin{minted}[bgcolor=Black]{c}
-#include &lt;stdio.h&gt;
+#include <stdio.h>
 
 int fibo(int n) {
   if(n == 1)
