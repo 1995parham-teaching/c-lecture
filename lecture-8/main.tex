@@ -2,6 +2,8 @@
 
 \subtitle{Functions}
 
+\usepackage{algorithm2e}
+
 \begin{document}
 
 \begin{frame}
@@ -305,6 +307,41 @@ int main(void) {
     \end{itemize}
     \item When function finished, its stack is freed
   \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{print\_sub: What happen?}
+  \mint{c}|print_sub(56.0, 6.0);|
+  \begin{itemize}
+    \item 56.0 is copied the memory location \textbf{\color{LimeGreen} a}
+    \item 6.0 is copied to memory location \textbf{\color{Orange} b}
+  \end{itemize}
+  \begin{minted}[bgcolor=Black]{c}
+double a = 56.0;
+double b = 6.0;
+double res;
+res = a - b;
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{print\_sub: What happen?}
+  \mint{c}|print_sub(d1, d2);|
+  \begin{itemize}
+    \item
+      value of d1 is copied the memory location
+      \textit{\color{LimeGreen} a}
+    \item
+      value of d2 is copied to memory location
+      \textit{\color{YellowOrange} b}
+  \end{itemize}
+  \begin{minted}[bgcolor=Black]{c}
+double a = 10.1;
+double b = 6.0;
+double res;
+res = a - b;
+  \end{minted}
+  \textbf{\color{RubineRed} Call by Value}
 \end{frame}
 
 \begin{frame}
@@ -1223,38 +1260,34 @@ Conjecture is incorrect
   \end{minted}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
   \frametitle{is\_prime algorithm}
-  <p>
-    <b>Algorithm:</b> is\_prime
-    <b>Input:</b> n
-    <b>Output:</b> 1 if n is prime else 0
-  </p>
-  \begin{minted}[bgcolor=Black]{c}
-for(i from 2 to sqrt(n))
-  if(n % i == 0)
-    n is not prime
-
-n is prime
-  \end{minted}
+  \begin{algorithm}[H]
+  \KwData{$n$}
+  \KwResult{$1$ if $n$ is prime else $0$}
+  \For{$i$ from $2$ to $sqrt{n}$}{
+    \If{$n \% i == 0$}{
+      $n$ is not prime\;
+    }
+  }
+  $n$ is prime\;
+  \end{algorithm}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{next\_prime\_number algorithm}
-  <p>
-    <b>Algorithm:</b> next\_prime\_number<br />
-    <b>Input:</b> n (is prime)<br />
-    <b>Output:</b> the first prime number that is greater than n<br />
-  </p>
-  \begin{minted}[bgcolor=Black]{c}
-if n is 2
-  output is 3
-else
-  do
-    n = n + 2
-  while(is_prime(n) == 0)
+  \begin{algorithm}[H]
+  \KwData{$n$ (is prime)}
+  \KwResult{the first prime number that is greater than $n$}
+  \eIf{$n$ is $2$}{%
+    output is $3$\;
+  }{%
+    do
+      n = n + 2
+    while(is_prime(n) == 0)
+  }
   output is n
-  \end{minted}
+  \end{algorithm}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1283,7 +1316,7 @@ int main(void) {
     \item Iteration vs. Recursion
     \item Factorial
     \begin{itemize}
-      \item n! = n x n-1 x ... x 2 x 1
+      \item n! = n x n-1 x \ldots x 2 x 1
       \item n! = n x (n-1)!
     \end{itemize}
     \item GCD
@@ -1369,15 +1402,9 @@ void main(void){
   \frametitle{Function Call Graph + Stacks}
   \begin{itemize}
     \item factorial(4) = ?
-    \begin{itemize}
-      \item factorial(3) = ?
-      \begin{itemize}
-        \item factorial(2) = ?
-        \begin{itemize}
-          \item factorial(1) = ?
-        \end{itemize}
-      \end{itemize}
-    \end{itemize}
+    \item factorial(3) = ?
+    \item factorial(2) = ?
+    \item factorial(1) = ?
   \end{itemize}
 \end{frame}
 
@@ -1385,15 +1412,9 @@ void main(void){
   \frametitle{Function Call Graph + Stacks}
   \begin{itemize}
     \item factorial(4) = 4 * (3 * (2 * 1))
-    \begin{itemize}
-      \item factorial(3) = 3 * (2 * 1)
-      \begin{itemize}
-        \item factorial(2) = 2 * 1
-        \begin{itemize}
-          \item factorial(1) = 1
-        \end{itemize}
-      \end{itemize}
-    \end{itemize}
+    \item factorial(3) = 3 * (2 * 1)
+    \item factorial(2) = 2 * 1
+    \item factorial(1) = 1
   \end{itemize}
 \end{frame}
 
@@ -1412,7 +1433,7 @@ void main(void){
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Example: GCD}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
