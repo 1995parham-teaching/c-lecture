@@ -2,6 +2,8 @@
 
 \subtitle{Functions}
 
+\usepackage{animate}
+
 \begin{document}
 
 \begin{frame}
@@ -390,16 +392,14 @@ res = a - b;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  <img
-    src="img/pass-by-reference-vs-pass-by-value-animation.gif"
-    alt="pass-by-reference-vs-pass-by-value-animation"
-  />
+\begin{frame}{GIFs in Beamer}
+  \centering
+  \animategraphics[loop,width=4cm]{10}{img/pass-by-reference-vs-pass-by-value-animation}{0}{74}
 \end{frame}
 
 \begin{frame}
   \frametitle{add function (wrong version)}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void add(double a, double b, double res){
   res = a + b;
   return;
@@ -413,11 +413,11 @@ int main(void){
   add(d1, d2, result);
   printf("result = %lf\n", result);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
+
+\section{Producing output}
+
 \begin{frame}
   \frametitle{Producing output}
   \begin{itemize}
@@ -437,6 +437,7 @@ int main(void){
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{The return command}
   \begin{itemize}
@@ -454,6 +455,7 @@ int main(void){
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Exmaple: my_fabs (Version 1)}
   <pre><code class="hljs lang-c">
@@ -475,6 +477,7 @@ void main(void){
 }
   </code></pre>
 \end{frame}
+
 \begin{frame}
   \frametitle{Exmaple: my_fabs (Version 2)}
   <pre><code class="hljs lang-c">
@@ -494,6 +497,7 @@ void main(void){
 }
   </code></pre>
 \end{frame}
+
 \begin{frame}
   \frametitle{Output of functions}
   \begin{itemize}
