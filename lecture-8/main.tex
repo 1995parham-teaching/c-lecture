@@ -115,87 +115,71 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Function prototype}
-  <p>
-    <span class="hl-orange">&lt;output type&gt;</span>
-    <span class="hl-green">&lt;function name&gt;</span>
-    (
-    <span class="hl-cyan">&lt;input parameter types&gt;</span>
-    );
-  </p>
+\begin{frame}[fragile]
+  \frametitle{Function \textbf{prototype}}
+  \mint{c}|<output type> <function name>(<input parameter types>);|
   \begin{itemize}
-    \item <span class="hl-orange">&lt;output type&gt;</span>
+    \item <output type>
     \begin{itemize}
-      \item <span class="hl-red">Queries</span>: int, float, ...
-      \item <span class="hl-red">Command</span>: void
+      \item \textmd{\color{Orange} Queries}: int, float, ...
+      \item \textmd{\color{LimeGreen} Command}: void
     \end{itemize}
     \item
-      <span class="hl-green">&lt;function name&gt;</span> is an identifier
-
-    \item <span class="hl-cyan">&lt;input parameter types&gt;</span>
+      <function name> is an identifier
+    \item <input parameter types>
     \begin{itemize}
-      \item &lt;type&gt;, &lt;type&gt;, ...
+      \item <type>, <type>, \ldots
       \begin{itemize}
-        \item int, float, ...
+        \item int, float, \ldots
       \end{itemize}
       \item void
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Function definition}
-    <p>
-      <span class="hl-orange">&lt;output type&gt;</span>
-      <span class="hl-green">&lt;function name&gt;</span>
-      (
-      <span class="hl-cyan">&lt;input parameters&gt;</span>
-      )<br />
-      {<br />
-      &lt;statements&gt;<br />
-      }
-    </p>
+
+\begin{frame}[fragile]
+  \frametitle{Function \textbf{definition}}
+  \begin{minted}[bgcolor=Black]{c}
+<output type> <function name>(<input parameters>) {
+  <statements>
+}
+  \end{minted}
+  \begin{itemize}
+    \item <output type>
     \begin{itemize}
-      \item <span class="hl-orange">&lt;output type&gt;</span>
-      \begin{itemize}
-        \item <span class="hl-red">Queries</span>: int, float, ...
-        \item <span class="hl-red">Command</span>: void
-      \end{itemize}
+      \item \textmd{\color{Orange} Queries}: int, float, ...
+      \item \textmd{\color{LimeGreen} Command}: void
+    \end{itemize}
+    \item
+      \textit{\color{LimeGreen} <function name>} is an identifier
+    \item \textit{\color{Cyan} <input parameter>}
+    \begin{itemize}
       \item
-        <span class="hl-green">&lt;function name&gt;</span> is an identifier
-
-      \item <span class="hl-cyan">&lt;input parameter&gt;</span>
+        <type> <identifier>, <type> <identifier>, \ldots
       \begin{itemize}
-        \item
-          &lt;type&gt; &lt;identifier&gt;, &lt;type&gt; &lt;identifier&gt;, ...
-
-        \begin{itemize}
-          \item int in, float f, ...
-        \end{itemize}
-        \item void
+        \item int in, float f, ...
       \end{itemize}
+      \item void
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      \item Function definition should be out of other functions
-      \begin{itemize}
-        \item Function in function is not allowed
-      \end{itemize}
-    \end{itemize}
-  \end{frame}
+  \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item Function definition should be out of other functions
+    \begin{itemize}
+      \item Function in function is not allowed
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Function call}
   \begin{itemize}
     \item Command function
-    <p><span class="hl-green">&lt;function name&gt;</span>(inputs)</p>
+    \textit{\color{LimeGreen} <function name>(inputs)}
     \item Query function
-    <p>
-      &lt;variable&gt; =
-      <span class="hl-green">&lt;function name&gt;</span>(inputs)
-    </p>
+    \textit{\color{LimeGreen} <variable> = <function name>(inputs)}
     \item Inputs should match by function definition
     \item Functions are called by another function
     \begin{itemize}
@@ -203,9 +187,10 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 /* Function declaration */
 void my_info(void);
 
@@ -221,43 +206,45 @@ void my_info(void){
   printf("Student name is Parham Alvani\n");
   printf("Student number: 9231058\n");
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 /* Function definition */
-void my_info(void){
+void my_info(void) {
   printf("Student name is Parham Alvani\n");
   printf("Student number: 9231058\n");
 }
 
-int main(void){
+int main(void) {
   printf("This is my info");
   my_info(); /* Function call */
   printf("=============");
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Function Declaration?!!!!}
   \begin{itemize}
     \item Is function declaration needed?
     \item Is there any useful application of function declaration?
-    \item <span class="hl-orange">Yes!</span>
+    \item \textbf{\color{Orange} Yes!}
     \item Libraries are implemented using it
     \begin{itemize}
       \item .h files contains the function declarations
       \item and also other definitions
-      \item .so, .a, .dll, ... are the compiled function definitions
+      \item .so, .a, .dll, \ldots are the compiled function definitions
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="1"></div>
-\end{frame}
-\begin{frame}
+
+\section{Passing input parameters}
+
+\begin{frame}[fragile]
   \frametitle{Input Parameters}
   \begin{itemize}
     \item Inputs of function
@@ -267,17 +254,18 @@ int main(void){
     \end{itemize}
     \item Each input should have a type
     \item Input parameters are split by “,”
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 void f(void)
 void f(int a)
 void f(int a, float b)
 void f(int a, b) //compile error
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 void print_sub(double a, double b) {
   double res;
@@ -292,17 +280,16 @@ int main(void) {
   print_sub(d1, d2 + d2);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{How Does Function Call Work?}
   \begin{itemize}
     \item
-      Function call is implemented by <span class="hl-orange">“stack”</span>
-
+      Function call is implemented by \textit{\color{YellowOrange} {``stack''}}
     \item
-      Stack is a <span class="hl-green">logical</span> part of the main memory
-
+      Stack is a \textit{\color{LimeGreen} logical} part of the main memory
     \item Variables of function and its input variables are in stack
     \item When a function calls
     \begin{itemize}
@@ -310,103 +297,106 @@ int main(void) {
       \item
         The value of input parameters from caller function is pushed to stack of
         called function
-
       \begin{itemize}
         \item
-          They are <span class="hl-cyan">copied</span> in to the variables of
+          They are \textbf{\color{Cyan} copied} in to the variables of
           function
-
       \end{itemize}
     \end{itemize}
     \item When function finished, its stack is freed
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{print_sub: What happen?}
-  <p>print_sub(56.0, 6.0);</p>
+  \mint{c}|print_sub(56.0, 6.0);|
   \begin{itemize}
-    \item 56.0 is copied the memory location <span class="hl-green">a</span>
-    \item 6.0 is copied to memory location <span class="hl-orange">b</span>
+    \item 56.0 is copied the memory location \textbf{\color{LimeGreen} a}
+    \item 6.0 is copied to memory location \textbf{\color{Orange} b}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 double a = 56.0;
 double b = 6.0;
 double res;
 res = a - b;
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{print_sub: What happen?}
-  <p>print_sub(d1, d2);</p>
+  \mint{c}|print_sub(d1, d2);|
   \begin{itemize}
     \item
       value of d1 is copied the memory location
-      <span class="hl-green">a</span>
+      \textit{\color{LimeGreen} a}
 
     \item
       value of d2 is copied to memory location
-      <span class="hl-orange">b</span>
-
+      \textit{\color{YellowOrange} b}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 double a = 10.1;
 double b = 6.0;
 double res;
 res = a - b;
-  </code></pre>
-  <p><span class="hl-red">Call by Value</span></p>
+  \end{minted}
+  \textbf{\color{RubineRed} Call by Value}
 \end{frame}
+
 \begin{frame}
-  \begin{frame}
-    \frametitle{Call by value}
-    \begin{itemize}
-      \item In call by value mechanism
-      \begin{itemize}
-        \item
-          The values are <span class="hl-orange">copied</span> to the function
-
-      \end{itemize}
-      \item If we change values in the function
-      \begin{itemize}
-        \item The copied version is changed
-        \item
-          The original value does <span class="hl-red">not</span> affected
-
-      \end{itemize}
-      \item
-        Call by value inputs <span class="hl-red">cannot</span> be used to
-        produce output
-
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <img src="img/pass-by-value.png" alt="pass-by-value" />
-  \end{frame}
-  \begin{frame}
-    \frametitle{Call by Reference}
+  \frametitle{Call by value}
+  \begin{itemize}
+    \item In call by value mechanism
     \begin{itemize}
       \item
-        The local parameters are
-        <span class="hl-orange">references</span> to the storage locations of
-        the original arguments passed in.
-
-      \item
-        Changes to these variables in the function
-        <span class="hl-green">will affect</span> the originals
-
-      \item
-        <span class="hl-cyan">No copy is made</span>, so overhead of copying
-        (time, storage) is saved
+        The values are <span class="hl-orange">copied</span> to the function
 
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <img
-      src="img/pass-by-reference-vs-pass-by-value-animation.gif"
-      alt="pass-by-reference-vs-pass-by-value-animation"
-    />
-  \end{frame}
+    \item If we change values in the function
+    \begin{itemize}
+      \item The copied version is changed
+      \item
+        The original value does <span class="hl-red">not</span> affected
+
+    \end{itemize}
+    \item
+      Call by value inputs <span class="hl-red">cannot</span> be used to
+      produce output
+
+  \end{itemize}
 \end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \includegraphics[width=\textwidth]{./img/pass-by-value.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Call by Reference}
+  \begin{itemize}
+    \item
+      The local parameters are
+      <span class="hl-orange">references</span> to the storage locations of
+      the original arguments passed in.
+
+    \item
+      Changes to these variables in the function
+      <span class="hl-green">will affect</span> the originals
+
+    \item
+      \textit{\color{Cyan} No copy is made}, so overhead of copying
+      (time, storage) is saved
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  <img
+    src="img/pass-by-reference-vs-pass-by-value-animation.gif"
+    alt="pass-by-reference-vs-pass-by-value-animation"
+  />
+\end{frame}
+
 \begin{frame}
   \frametitle{add function (wrong version)}
   <pre><code class="hljs lang-c">
@@ -1053,7 +1043,8 @@ int main(void){
 }
   </code></pre>
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Storage Classes: Examples}
   <pre><code class="hljs lang-c">
 int i;
@@ -1074,7 +1065,8 @@ int main(void){
 }
   </code></pre>
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Storage Classes, Static: Examples}
   <pre><code class="hljs lang-c">
 void func(void){
@@ -1093,6 +1085,7 @@ int main(void){
 }
   </code></pre>
 \end{frame}
+
 \begin{frame}
   \frametitle{Storage Classes, Register: Examples}
   <pre><code class="hljs lang-c">
@@ -1100,26 +1093,26 @@ register int i;
 for(i = 0; i &lt; 100; i++)
   </code></pre>
 \end{frame}
+
 \begin{frame}
-  \frametitle{Be careful: loop &amp; automatic variables}
+  \frametitle{Be careful: loop \& automatic variables}
   \begin{itemize}
     \item According to standard:
-    <q>
+    \begin{block}{}
       For such an object that does not have a variable length array type, its
       lifetime extends from entry into the block with which it is associated
       until execution of that block ends in any way.
-    </q>
-    \item Variable is defined in a block of a loop
+    \end{block}
+    \item Variable is \textit{\color{Yellow} defined in a block of a loop}
     \item
       The variable retains its value between iterations of the loop if it is
-      <span class="hl-red">NOT</span> variable length array
-
+      \textbf{\color{RubineRed} NOT} variable length array
     \item
-      The variable does <span class="hl-red">NOT</span> retain its value between
+      The variable does \textbf{\color{RubineRed} NOT} retain its value between
       iterations of the loop if it is a variable length array
-
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{frame}
     \frametitle{loop &amp; automatic variables}
@@ -1140,13 +1133,14 @@ int main(){
   \end{frame}
   \begin{frame}
     <pre><code>
-&amp;j = 0x7ffeed9f3964, j = 0
-&amp;j = 0x7ffeed9f3964, j = 1
-&amp;j = 0x7ffeed9f3964, j = 2
-&amp;j = 0x7ffeed9f3964, j = 3
+&j = 0x7ffeed9f3964, j = 0
+&j = 0x7ffeed9f3964, j = 1
+&j = 0x7ffeed9f3964, j = 2
+&j = 0x7ffeed9f3964, j = 3
     </code></pre>
   \end{frame}
 \end{frame}
+
 \begin{frame}
   \begin{frame}
     \frametitle{loop &amp; automatic variables}
@@ -1174,36 +1168,36 @@ int main(){
     </code></pre>
   \end{frame}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{loop &amp; automatic variables}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{loop \& automatic variables}
+  \begin{minted}[bgcolor=Black]{c}
 int main(){
   int i;
   for(i = 0; i &lt; 5; i++) {
     int j[5 * 3 + 1];
     if(i) {
-      printf("&amp;j[0] = %p, j[0] = %d\n", (&amp;j[0]), j[0]);
+      printf("&j[0] = %p, j[0] = %d\n", (&j[0]), j[0]);
       j[0]++;
     } else {
       j[0] = i;
     }
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
-&amp;j[0] = 0x7ffee2a4d920, j[0] = 0
-&amp;j[0] = 0x7ffee2a4d920, j[0] = 1
-&amp;j[0] = 0x7ffee2a4d920, j[0] = 2
-&amp;j[0] = 0x7ffee2a4d920, j[0] = 3
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="5"></div>
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{output}
+&j[0] = 0x7ffee2a4d920, j[0] = 0
+&j[0] = 0x7ffee2a4d920, j[0] = 1
+&j[0] = 0x7ffee2a4d920, j[0] = 2
+&j[0] = 0x7ffee2a4d920, j[0] = 3
+  \end{minted}
 \end{frame}
+
+\section{Function usage example}
+
 \begin{frame}
   \frametitle{How to use functions: Example}
   \begin{itemize}
@@ -1217,25 +1211,26 @@ int main(){
     \end{itemize}
     \item It is not proved yet!
     \begin{itemize}
-      \item 1,000,000$ to proof 😋
+      \item 1,000,000\$ to proof 😋
     \end{itemize}
     \item
       Write a program that takes a set numbers which ends by 0 and checks
       correctness of the conjecture
-
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Main Overall Algorithm}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 while(number is not zero)
   if(number &gt; 2 and even)
     Check Goldbach’s Conjecture
   else
     Print some message
   read next number
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Check Goldbach’s Conjecture Algorithm}
   <p>
@@ -1243,7 +1238,7 @@ while(number is not zero)
     <b>Input:</b> n<br />
     <b>Output:</b> 0 if conjecture is incorrect else 1<br />
   </p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 for(i from 2 to n/2)
   j = n – i
   if(is_prime(j))
@@ -1251,8 +1246,9 @@ for(i from 2 to n/2)
   i = next_prime_number(i)
 
 Conjecture is incorrect
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{is_prime algorithm}
   <p>
@@ -1260,22 +1256,23 @@ Conjecture is incorrect
     <b>Input:</b> n<br />
     <b>Output:</b> 1 if n is prime else 0<br />
   </p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 for(i from 2 to sqrt(n))
   if(n % i == 0)
     n is not prime
 
 n is prime
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{next_prime_number algorithm}
   <p>
     <b>Algorithm:</b> next_prime_number<br />
     <b>Input:</b> n (is prime)<br />
     <b>Output:</b> the first prime number that is greater than n<br />
   </p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 if n is 2
   output is 3
 else
@@ -1283,11 +1280,12 @@ else
     n = n + 2
   while(is_prime(n) == 0)
   output is n
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Putting them altogether}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int is_prime(int n) {
   ...
 }
@@ -1300,7 +1298,7 @@ int check_Goldbach(int n) {
 int main(void) {
   ...
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 
 \section{Recursion}
@@ -1491,14 +1489,14 @@ int main(void) {
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
-void print_digit_right_left(int n){
+void print_digit_right_left(int n) {
   int digit = n % 10;
   printf("%d \n", digit);
-  if(n &gt;= 10)
+  if(n >= 10)
     print_digit_right_left(n / 10);
 }
 
-int main(void){
+int main(void) {
   printf("\n print_digit_right_left(123): ");
   print_digit_right_left(123);
 
@@ -1515,14 +1513,14 @@ int main(void){
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
-void print_digit_left_right(int n){
-  if(n &gt;= 10)
+void print_digit_left_right(int n) {
+  if(n >= 10)
     print_digit_left_right(n / 10);
   int digit = n % 10;
   printf("%d  \n", digit);
 }
 
-int main(void){
+int main(void) {
   printf("\n print_digit_left_right(123): ");
   print_digit_left_right(123);
 
