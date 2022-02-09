@@ -1012,11 +1012,11 @@ int main(void)
 \begin{frame}
   \frametitle{Storage Classes: Register}
   \begin{itemize}
-    \item Keyword <span class="hl-orange">register</span> comes before them
+    \item Keyword \textit{\color{Orange} register} comes before them
     \item Can be used for local variables
     \item Compiler tries to allocated the variable in registers of CPU
     \begin{itemize}
-      \item But does <span class="hl-red">not</span> guaranteed
+      \item But does \textbf{\color{RubineRed} not} guaranteed
       \item Registers are very fast and small memories
     \end{itemize}
     \item Improve performance
@@ -1033,7 +1033,9 @@ void f(int i, double d){
   auto double d3;
 }
   \end{minted}
-  <p>All variables (i, d, i2, i3, d2, d3) are auto variables</p>
+  \begin{block}{}
+    All variables (i, d, i2, i3, d2, d3) are auto variables
+  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1059,7 +1061,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int i;
 
 void func(void){
@@ -1076,35 +1078,36 @@ int main(void){
   func();
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes, Static: Examples}
-  <pre><code class="hljs lang-c">
-void func(void){
+  \begin{minted}[bgcolor=Black]{c}
+void func(void) {
   int j;
   static int i;
   printf("i = %d \n", i);
   printf("j = %d \n", j);
   i = 20;
 }
-int main(void){
+
+int main(void) {
   func();
   func();
   /* i = 30; compile error, why? */
   func();
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 
 \begin{frame}
   \frametitle{Storage Classes, Register: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 register int i;
 for(i = 0; i <; 100; i++)
-  </code></pre>
+  \end{minted}
 \end{frame}
 
 \begin{frame}
@@ -1218,7 +1221,6 @@ int main(){
       \item
         Any even number larger than 2 can be expressed as sum of two prime
         numbers
-
     \end{itemize}
     \item It is not proved yet!
     \begin{itemize}
@@ -1232,32 +1234,34 @@ int main(){
 
 \begin{frame}[fragile]
   \frametitle{Main Overall Algorithm}
-  \begin{minted}[bgcolor=Black]{c}
-while(number is not zero)
-  if(number > 2 and even)
-    Check Goldbach’s Conjecture
-  else
-    Print some message
-  read next number
-  \end{minted}
+  \begin{algorithm}[H]
+\While{$number$ is not zero}{%
+  \eIf{$number > 2$ and even}{%
+    Check Goldbach’s Conjecture\;
+  }{
+    Print some message\;
+  }
+  read next $number$\;
+}
+  \end{algorithm}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Check Goldbach's Conjecture Algorithm}
-  <p>
-    <b>Algorithm:</b> Goldbach
-    <b>Input:</b> n
-    <b>Output:</b> 0 if conjecture is incorrect else 1
-  </p>
-  \begin{minted}[bgcolor=Black]{c}
-for(i from 2 to n/2)
-  j = n – i
-  if(is_prime(j))
-    conjecture is correct
-  i = next_prime_number(i)
-
+  \begin{algorithm}[H]
+  \KwData{$n$}
+  \KwResult{$0$ if conjecture is incorrect else $1$}
+  \For{i from 2 to n/2}{%
+    $j \gets n – i$\;
+    \If{$is\_prime(j))$}{%
+      conjecture is correct
+    }
+    $i \gets next\_prime\_number(i)$\;
+  }
+  \end{algorithm}
+  \begin{block}{}
 Conjecture is incorrect
-  \end{minted}
+  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -1282,11 +1286,12 @@ Conjecture is incorrect
   \eIf{$n$ is $2$}{%
     output is $3$\;
   }{%
-    do
-      n = n + 2
-    while(is_prime(n) == 0)
+    $n \gets n + 2$\;
+    \While{$is\_prime(n) == 0$}{%
+      $n \gets n + 2$\;
+    }
   }
-  output is n
+  output is $n$\;
   \end{algorithm}
 \end{frame}
 
@@ -1546,7 +1551,7 @@ int main(void) {
   \end{itemize}
 \end{frame}
 
-\section{Passing input parameters}
+\section{Bugs \& Avoiding Them}
 
 \begin{frame}[fragile]
   \frametitle{Bugs \& Avoiding Them}
