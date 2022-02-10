@@ -247,6 +247,21 @@ for(;;)
   \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Loop Variable}
+  \begin{itemize}
+    \item
+      Often, people place the definition of the loop variable somewhere before the for or even
+      reuse variable for several loops.
+    \item \textbf{\color{RubineRed} DON'T} do that.
+    \item to help occasional reader and the compiler understand your code
+    \item it is important to know that this variable has the special meaning of an iteration counter for that given for loop
+  \end{itemize}
+  \begin{minted}[bgcolor=Black]{c}
+for(int i = 0; i < 10; i++)
+  \end{minted}
+\end{frame}
+
 \section{Arrays}
 
 \begin{frame}
