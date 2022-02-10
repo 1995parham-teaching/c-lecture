@@ -1338,9 +1338,8 @@ int main(void) {
     \item Original problem can be solved by
     \begin{itemize}
       \item
-        Solving a <span class="hl-orange">similar</span> but
-        <span class="hl-green">simpler</span> problem (recursion)
-
+        Solving a \textbf{\color{Orange} similar} but
+        \textbf{\color{LimeGreen} simpler} problem (recursion)
       \begin{itemize}
         \item (n-1)! in factorial, GCD(b, b mod a)
       \end{itemize}
@@ -1348,7 +1347,6 @@ int main(void) {
     \item
       There is a simple (<span class="hl-red">basic</span>) problem which we can
       solve it directly (without recursion)
-
     \begin{itemize}
       \item 1! = 1 in factorial, b = 0 in GCD
     \end{itemize}
@@ -1366,7 +1364,6 @@ int main(void) {
     \item
       Recursive Algorithms are implemented by
       \textbf{\color{Orange} recursive functions}
-
     \item Recursive function
     \begin{itemize}
       \item A function which calls itself
@@ -1377,6 +1374,7 @@ int main(void) {
 
 \begin{frame}[fragile]
   \frametitle{Factorial}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -1426,12 +1424,12 @@ void main(void){
 \begin{frame}
   \frametitle{Examples}
   \begin{itemize}
-    \item Recursive version of GCD?
+    \item Recursive version of GCD
     \item Recursive version of Fibonacci numbers
     \begin{itemize}
       \item Fibonacci numbers
       \begin{itemize}
-        \item 1, 1, 2, 3, 5, 8, ...
+        \item 1, 1, 2, 3, 5, 8, \ldots
       \end{itemize}
     \end{itemize}
     \item Print digits: left-to-right and right-to-left
@@ -1440,6 +1438,7 @@ void main(void){
 
 \begin{frame}[fragile]
   \frametitle{Example: GCD}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
