@@ -49,48 +49,59 @@
     \item Example
     \begin{itemize}
       \item An array of 8 integer
-      <table class="cell">
-        <tr>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>1</td>
-          <td>5</td>
-          <td>11</td>
-          <td>10</td>
-          <td>19</td>
-          <td>0</td>
-          <td>12</td>
-        </tr>
-      </table>
+      \begin{table}
+      \begin{tabular}{*{8}{c}}
+        \toprule
+
+        0 &
+        1 &
+        2 &
+        3 &
+        4 &
+        5 &
+        6 &
+        7 \\
+
+        \midrule
+
+        3 &
+        1 &
+        5 &
+        11 &
+        10 &
+        19 &
+        0 &
+        12 \\
+
+        \bottomrule
+      \end{tabular}
+      \end{table}
       \item An array of 5 chars
-      <table class="cell">
-        <tr>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-        </tr>
-        <tr>
-          <td>'a'</td>
-          <td>'z'</td>
-          <td>'F'</td>
-          <td>'z'</td>
-          <td>'k'</td>
-        </tr>
-      </table>
+      \begin{table}
+      \begin{tabular}{*{5}{c}}
+        \toprule
+
+        0 &
+        1 &
+        2 &
+        3 &
+        4 \\
+
+        \midrule
+
+        a &
+        z &
+        F &
+        z &
+        k \\
+
+        \bottomrule
+      \end{tabular}
+      \end{table}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Arrays in C}
   \begin{itemize}
@@ -110,11 +121,9 @@
     \begin{itemize}
       \item
         Old compilers (standard):
-        <span class="hl-red">it should be constant</span>
-
+        \textit{\color{RedOrange} it should be constant}
       \item
-        New compilers (standard): <span class="hl-red">it can be variable</span>
-
+        New compilers (standard): \textit{\color{RubineRed} it can be variable}
     \end{itemize}
     \item Elements in array
     \begin{itemize}
@@ -122,6 +131,7 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Example}
   <p>
@@ -151,12 +161,12 @@
     \item <span class="hl-orange">farr[99]</span> is the last float
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="1"></div>
-\end{frame}
-\begin{frame}
+
+\section{Arrays in functions}
+
+\begin{frame}[fragile]
   \frametitle{Arrays in Functions}
-  <p>int number[20];</p>
+  \mint{c}|int number[20];|
   \begin{itemize}
     \item
       <span class="hl-green">number[i]</span> is an
@@ -164,15 +174,16 @@
 
     \item Array element can be used for call by value input
     \item Array element can be use for output
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int f(int x);
 void h(void) {
   int arr[50];
   // Array element in call by value arr[30] = f(arr[5]);
 }
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Arrays in Functions (cont’d)}
   \begin{itemize}
