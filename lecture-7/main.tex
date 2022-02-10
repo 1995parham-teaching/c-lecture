@@ -25,7 +25,7 @@
     \end{itemize}
     \item Example: Write a program that read 3000 integer and compute average
     \begin{itemize}
-      \item ?? 3000 scanf !!!
+      \item 3000 scanf!!!?
     \end{itemize}
     \item Example: Write a program that read n integer and compute average
     \begin{itemize}
@@ -115,7 +115,7 @@
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
-int main(void){
+int main(void) {
   int n, number;
   number = 0;
   printf("Enter n: ");
@@ -181,6 +181,18 @@ int main(void) {
   \end{minted}
 \end{frame}
 
+\begin{frame}
+  \frametitle{for statement}
+  \begin{enumerate}
+    \item The delaration, definition, and initialization of the \textbf{loop variable(s)}
+    \item A \textbf{loop condition} which specifies how long the for iteration should continue.
+    \begin{itemize}
+      \item The loop condition is checked before each execution of the loop body.
+    \end{itemize}
+    \item Another statement which is executed after each iteration.
+  \end{enumerate}
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{N students average grade}
   \scriptsize
@@ -211,7 +223,6 @@ int main(void){
     \item
       Expression1 and Expression3 can be any number of expressions, they execute
       in the order
-
     \begin{minted}[bgcolor=Black]{c}
 for(i = 0, j = 0; i < 10; i++, j--)
     \end{minted}
@@ -219,7 +230,6 @@ for(i = 0, j = 0; i < 10; i++, j--)
     \item
       If multiple expressions then the value of the last one is evaluated as
       True/False
-
     \begin{minted}[bgcolor=Black]{c}
 for(i = 0, j = 0; i < 10, j > -100; i++, j--)
     \end{minted}
