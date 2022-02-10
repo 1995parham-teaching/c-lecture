@@ -1,0 +1,1155 @@
+\documentclass{../c-lecture}
+
+\subtitle{Arrays}
+
+\usepackage{algorithm2e}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents{}
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Introduction}
+  \begin{itemize}
+    \item Algorithms usually work on large data sets
+    \begin{itemize}
+      \item Sort a set of numbers
+      \item Search a specific number in a set of numbers
+    \end{itemize}
+    \item How to read and store a set of data?
+    \item To read
+    \begin{itemize}
+      \item Repeat the scanf statement
+      \item Use the loop statements
+    \end{itemize}
+    \item To store the data
+    \begin{itemize}
+      \item Save each data in a single variable??
+      \item 3000 int variables 😱
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Array}
+  \begin{itemize}
+    \item A collection of \textbf{\color{Peach}same type} variables
+    \item A $nx1$ vector of
+    \begin{itemize}
+      \item Integers, chars, floats, \ldots
+    \end{itemize}
+    \item Example
+    \begin{itemize}
+      \item An array of 8 integer
+      <table class="cell">
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1</td>
+          <td>5</td>
+          <td>11</td>
+          <td>10</td>
+          <td>19</td>
+          <td>0</td>
+          <td>12</td>
+        </tr>
+      </table>
+      \item An array of 5 chars
+      <table class="cell">
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+        </tr>
+        <tr>
+          <td>'a'</td>
+          <td>'z'</td>
+          <td>'F'</td>
+          <td>'z'</td>
+          <td>'k'</td>
+        </tr>
+      </table>
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Arrays in C}
+  \begin{itemize}
+    \item Array declaration in C
+    <p>
+      <span class="hl-orange"> &lt;Elements’ Type&gt; </span>
+      <span class="hl-green"> &lt;identifier&gt; </span>
+      [
+      <span class="hl-cyan"> &lt;size&gt; </span>
+      ]
+    </p>
+    \item
+      <span class="hl-orange"> &lt;Elements’ Type&gt; </span>: int, char, float,
+      \ldots
+
+    \item <span class="hl-cyan"> &lt;size&gt; </span>:
+    \begin{itemize}
+      \item
+        Old compilers (standard):
+        <span class="hl-red">it should be constant</span>
+
+      \item
+        New compilers (standard): <span class="hl-red">it can be variable</span>
+
+    \end{itemize}
+    \item Elements in array
+    \begin{itemize}
+      \item From 0 to (size – 1)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Example}
+  <p>
+    <span class="hl-red">int num[20];</span>
+  </p>
+  \begin{itemize}
+    \item
+      <span class="hl-orange">num</span> is array of 20
+      <span class="hl-green">integers</span>
+
+    \item <span class="hl-orange">num[0]</span> is the first integer variable
+    \item <span class="hl-orange">num[19]</span> is the last integer
+  \end{itemize}
+  <p>
+    <span class="hl-red">float farr[100];</span>
+  </p>
+  \begin{itemize}
+    \item
+      <span class="hl-orange">farr</span> is array of 100
+      <span class="hl-green">floats</span>
+
+    \item <span class="hl-orange">farr[0]</span> is the first float
+    \item
+      <span class="hl-orange">farr[49]</span> is the 50th
+      <span class="hl-green">float</span>
+
+    \item <span class="hl-orange">farr[99]</span> is the last float
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="1"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Arrays in Functions}
+  <p>int number[20];</p>
+  \begin{itemize}
+    \item
+      <span class="hl-green">number[i]</span> is an
+      <span class="hl-orange">integer</span> variable
+
+    \item Array element can be used for call by value input
+    \item Array element can be use for output
+    <pre><code class="hljs lang-c">
+int f(int x);
+void h(void) {
+  int arr[50];
+  // Array element in call by value arr[30] = f(arr[5]);
+}
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Arrays in Functions (cont’d)}
+  \begin{itemize}
+    \item
+      Array can <span class="hl-red">not</span> be used as output type of
+      function
+
+    <p>
+      <span class="hl-red">int []</span> f(int x, int y);
+      <span class="hl-red">//compile error</span>
+    </p>
+    \item Arrays can be used in input list of functions
+    \item
+      Arrays are <span class="hl-orange">not</span> passed by Call By Value
+
+    \item
+      Arrays are passed by Call By <span class="hl-green">Reference</span>
+
+    \begin{itemize}
+      \item If we change array elements in a function
+      \item The element is changed in the caller function
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Arrays in Functions (version 1)}
+  \begin{itemize}
+    \item
+      Function <span class="hl-orange">arr_func</span> takes an array of
+      integers
+
+    <pre><code class="hljs lang-c">
+int arr_func(int num[90]){
+}
+    </code></pre>
+    <pre><code class="hljs lang-c">
+int arr_func(int num[]){
+}
+    </code></pre>
+    \item
+      Array <span class="hl-green">a</span> is passed to function
+      <span class="hl-orange">arr_func</span>
+
+    <pre><code class="hljs lang-c">
+int a[90];
+i = arr_func(a);
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void init_array(int arr[10]){
+  int i;
+  for(i = 0; i &lt; 10; i++)
+    arr[i] = i;
+}
+
+void main(void){
+  int a[10];
+  init_array(a);
+  int j;
+  for(j = 0; j &lt; 10; j++)
+     printf("a[%d] = %d\n", j, a[j]);
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Array Size in Functions}
+    \begin{itemize}
+      \item
+        If array is an <span class="hl-orange">input parameter</span> of a
+        function
+
+      \begin{itemize}
+        \item
+          It <span class="hl-red">cannot</span> find out the size of the array
+
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \begin{itemize}
+      \item
+        Array size should be passed from caller function to called function
+
+      \begin{itemize}
+        \item Using definitions
+        <pre><code class="hljs lang-c">
+  #define SIZE 20
+  void func(int a[]){ for(int i = 0; i &lt; SIZE; i++)
+        </code></pre>
+        \item Using input variable
+        <pre><code class="hljs lang-c">
+  void read(int a[], int size){ for(int i = 0; i &lt; size; i++)
+        </code></pre>
+        <pre><code class="hljs lang-c">
+  void read(int size, int a[size]){ for(int i = 0; i &lt; size; i++)
+        </code></pre>
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \frametitle{Array Size in Functions (cont’d)}
+  \begin{itemize}
+    \item If array is declared in a function
+    \begin{itemize}
+      \item It knows the size of the array
+      \item
+        It <span class="hl-orange">can</span> find out the size of the array
+        using <span class="hl-green">sizeof</span>
+
+    \end{itemize}
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+void func(void){
+  int i, a[200];
+  for(i = 0; i &lt; 200; i++)
+    a[i] = 0;
+  // or
+  for(i = 0; i &lt; sizeof(a)/sizeof(a[0]); i++)
+    a[i] = 0;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Out-of-range access}
+  \begin{itemize}
+    \item C compiler does not check the range you access
+    \begin{itemize}
+      <pre><code class="hljs lang-c">
+int x[10]; x[20] = 30; y = x[100];
+      </code></pre>
+      \item No compiler error!
+    \end{itemize}
+    \item What happen
+    \begin{itemize}
+      \item Read: Logical error
+      <pre><code class="hljs lang-c">
+y = x[100];
+      </code></pre>
+      \item Write: May or may not logical or runtime error
+      <pre><code class="hljs lang-c">
+x[20] = 30;
+      </code></pre>
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Out-of-range Example}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void init_array(int size, int arr[]){
+  int i;
+  for(i = 0; i &lt; size; i++)
+    arr[i] = i;
+}
+
+void print_array(int size, int arr[]){
+  int i;
+  for(i = 0; i &lt; size; i++)
+    printf("arr[%d] = %d\n", i, arr[i]);
+}
+
+void main(void){
+  int x = 1;
+  int y = 2;
+  int a[10] = {0};
+  init_array(10, a);   // OK
+  print_array(10, a);  // OK
+  print_array(30, a);  // Wrong output
+  init_array(1000, a); // May be Run-time error!!!
+  init_array(20, a);   // May changes X, Y!!!
+                       // Logical error
+  printf("x = %d, y = %d\n" , x, y);
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Max Index Example}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+int max_index(int a[], int size){
+  int i;
+  int index = 0;
+  for(i = 1; i &lt; size; i++)
+    if(a[i] &gt; a[index])
+      index = i;
+  return index;
+}
+
+void main(void){
+  int arr[] = {1, 4, 12, 93, 23};
+  printf("max index = %d\n", max_index(arr, 5));
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Array Swap Example}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void array_swap(int a[], int i, int j){
+  int tmp;
+  tmp = a[i];
+  a[i] = a[j];
+  a[j] = tmp;
+}
+
+void main(void){
+  int num[10] = {1, 2, 5, 6};
+  int x = 2, y = 6;
+
+  printf("num[%d] = %d, num[%d] = %d\n", x, num[x], y, num[y]);
+  array_swap(num, x, y);
+  printf("num[%d] = %d, num[%d] = %d\n", x, num[x], y, num[y]);
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Sort}
+  <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void array_swap(int a[], int i, int j){
+  int tmp;
+  tmp = a[i];
+  a[i] = a[j];
+  a[j] = tmp;
+}
+
+void bubble_sort(int a[], int size){
+  int i, j;
+
+  for(i = 0; i &lt; size - 1; i++)
+    for(j = i + 1; j &lt; size; j++)
+      if(a[i] &gt; a[j])
+        array_swap(a, i, j);
+}
+
+void print(int a[], int size){
+  int i;
+  for(i = 0; i &lt; size; i++)
+    printf("%d ", a[i]);
+  printf("\n");
+}
+
+int main(void){
+  int arr[] = {1, 7, 3, 7, 11, 0};
+  int size = sizeof(arr) / sizeof(arr[0]);
+
+  printf("Before sort: ");
+  print(arr, size);
+
+  bubble_sort(arr, size);
+
+  printf("After sort: ");
+  print(arr, size);
+
+  return 0;
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Binary Search}
+    \begin{itemize}
+      \item
+        Given a <span class="hl-orange">sorted array</span> arr[] of n elements,
+        write a function to
+        <span class="hl-green">search a given element</span> x in arr[].
+
+    \end{itemize}
+    <img src="img/binary-search.png" alt="binary-search" />
+  \end{frame}
+  \begin{frame}
+    <pre><code class="hljs lang-c">
+int bsearch(int start, int end, int a[], int value){
+  int mid = (start + end) / 2;
+
+  if(a[mid] == value)
+     return mid;
+  else if(start &gt;= end)
+    return -1;
+  else if(value &gt; a[mid])
+    return bsearch(mid + 1, end, a, value);
+  else
+    return bsearch(start, mid - 1 , a, value); }
+    </code></pre>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="2"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Multidimensional Arrays}
+  \begin{itemize}
+    \item
+      If element of an array is array itself, it will be Multidimensional array
+
+    <pre><code class="hljs lang-c">
+int t[10][20];
+    </code></pre>
+    \item 10x20 matrix of integers
+    <pre><code class="hljs lang-c">
+t[1][1]; //t[1,1] &rarr; compile error
+    </code></pre>
+    \item Integer variable in location (1,1)
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Initializing Multidimensional Arrays}
+    \begin{itemize}
+      <pre><code class="hljs lang-c">
+int num[2][3] = {1, 2, 0, 3, 4, 7};
+int num[2][3] = { {1, 2, 0}, {3, 4, 7} };
+      </code></pre>
+      \item num[0][2] is 0, num[1][0] is 3
+      <pre><code class="hljs lang-c">
+int num[5][3] = { {1, 2, 0}, {3, 4, 7} };
+      </code></pre>
+      \item num[2][2] is 0, num[1][2] is 7
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \begin{itemize}
+      <pre><code class="hljs lang-c">
+int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
+      </code></pre>
+      \item num[0][2][1] is 6, num[1][0][1] is 0
+      <pre><code class="hljs lang-c">
+int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
+      </code></pre>
+      \item num[1][1] is 2, num[2][0] is 3
+      \item
+        All dimentions
+        <strong class="hl-orange">except the first one</strong> are required in
+        initiation
+
+    \end{itemize}
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \frametitle{Multidimensional Arrays in Functions}
+  \begin{itemize}
+    \item
+      Can be used as input of functions. All dimensions except the first one
+      <span class="hl-orange">must</span> be given.
+
+    <pre><code class="hljs lang-c">
+void func(int a[10][20][5]);
+    </code></pre>
+    \begin{itemize}
+      \item Input is a 10x20x5 integer matrix
+    \end{itemize}
+    <pre><code class="hljs lang-c">
+void func(int a[][20][30], int size);
+    </code></pre>
+    <pre><code class="hljs lang-c">
+void func(int size1, int size2, int a[size1][size2]);
+    </code></pre>
+    \begin{itemize}
+      \item
+        Input is a matrix of integers that both rows and columns are variable
+
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Matrix Transpose}
+  <pre><code class="hljs lang-c">
+#define SIZE 5
+
+void swap(int a[SIZE][SIZE], int i, int j){
+  int tmp;
+  tmp = a[i][j];
+  a[i][j] = a[j][i];
+  a[j][i] = tmp;
+}
+
+void transpose(int a[][SIZE]){
+  int i, j;
+  for(i = 0; i &lt; SIZE; i++)
+    for(j = i; j &lt; SIZE; j++)
+      swap(a, i, j);
+}
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Matrix Print}
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+void display_matrix(int n_rows, int n_cols, int matrix[n_rows][n_cols]) {
+  int row, column;
+
+  for (row = 0; row &lt; n_rows; row++) {
+    for (column = 0; column &lt; n_cols; column++)
+      printf("%5d ", matrix[row][column]);
+    printf("\n");
+  }
+}
+
+int main (void){
+  int sample[3][5] =
+    {
+      { 7, 16, 55, 13, 12 },
+      { 12, 10, 52, 0, 7 },
+      { -2, 1, 2, 4, 9 }
+    };
+    printf ("Original matrix:\n");
+    display_matrix(3, 5, sample);
+}
+    </code></pre>
+  \end{frame}
+  \begin{frame}
+    <pre><code>
+Original matrix:
+    7    16    55    13    12
+   12    10    52     0     7
+   -2     1     2     4     9
+    </code></pre>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Array In Memory}
+    <img src="img/arrays-in-memory.png" alt="arrays-in-memory" />
+  \end{frame}
+  \begin{frame}
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt;
+
+
+int main() {
+  int arr[][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+
+  printf("%lu\n", sizeof(arr)); // 36 = 9 * 4 = 9 * sizeof(int)
+}
+    </code></pre>
+    <p>There is no way to findout dimensions of an array</p>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="3"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{Introduction}
+  \begin{itemize}
+    \item Until now
+    \begin{itemize}
+      \item We have seen strings in <span class="hl-cyan">printf</span>
+      \item Our old definition: string is a set of char between “” 😂
+      <pre><code class="hljs lang-c">
+printf("This is a string\n");
+printf("This is %s\n", "a string\n");
+      </code></pre>
+    \end{itemize}
+    \item Strings:
+    \begin{itemize}
+      \item An array of chars
+      \item Terminated by the <span class="hl-orange">null char</span> '\0'
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Strings in C}
+  \begin{itemize}
+    \item Since strings are array
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+char str1[] = {'p', 'r', 'o', 'g', 'r', 'a', 'm', '\0'};
+char str2[8] = "program";
+char str3[] = "program";
+char *str4 = "program"; //we will see later
+  </code></pre>
+  <table class="cell">
+    <tr>
+      <td>'p'</td>
+      <td>'r'</td>
+      <td>'o'</td>
+      <td>'g'</td>
+      <td>'r'</td>
+      <td>'a'</td>
+      <td>'m'</td>
+      <td class="hl-orange">'\0'</td>
+    </tr>
+  </table>
+\end{frame}
+\begin{frame}
+  \frametitle{Reading &amp; Writing Strings}
+  \begin{itemize}
+    \item <span class="hl-orange">printf</span> can be used to print strings
+    <pre><code class="hljs lang-c">
+printf("program");
+printf("%s", "program");
+    </code></pre>
+  \end{itemize}
+  \begin{itemize}
+    \item <span class="hl-green">scanf</span> can be used to read strings
+    <pre><code class="hljs lang-c">
+char str[200];
+scanf("%s", str);
+    </code></pre>
+    \item Initial white spaces are ignored
+    \item
+      Read until <span class="hl-cyan">space</span> or
+      <span class="hl-cyan">'\n'</span> (which is replaced by \0)
+
+    \item We must allocate <span class="hl-material">sufficient size</span>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Reading &amp; Writing Strings (cont’d)}
+  \begin{itemize}
+    \item
+      <span class="hl-orange">puts(str)</span> is very simple version of
+      <span class="hl-green">printf</span>
+
+    \begin{itemize}
+      \item Can only be used to print strings
+      \item Adds <span class="hl-green">‘\n’</span> to end of string
+    \end{itemize}
+    \item
+      <span class="hl-orange">gets(char str[])</span> can be used to read
+      strings
+
+    \item
+      <span class="hl-orange">gets</span> does
+      <span class="hl-red">not</span> ignore the white spaces
+
+    \begin{itemize}
+      \item Read until \n
+    \end{itemize}
+    \item String should be large enough
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="4"></div>
+\end{frame}
+\begin{frame}
+  \frametitle{String Library}
+  \begin{itemize}
+    \item Access to string library by
+    <pre><code class="hljs lang-c">
+#include &lt;string.h&gt;
+    </code></pre>
+    \item Many functions to work with strings
+    \begin{itemize}
+      \item Find the length of string
+      \item Compare strings
+      \item Copy strings
+      \item Search in strings
+      \item ...
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Length of String}
+  \begin{itemize}
+    \item <span class="hl-orange">strlen(str)</span>: Length of string
+    \item
+      From start to first occurrence of the
+      <span class="hl-green">null char</span>
+
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+char str[] = "This is test";
+char str1[10] = {'a', 'b', '\0', 'c', '\0'};
+strlen(str)  // returns 12
+strlen(str1) // returns 2 😱
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Compare Strings}
+  \begin{itemize}
+    \item str1 and str2 are compared as follows
+    \begin{itemize}
+      \item
+        Compare <span class="hl-green">char by char</span> from
+        <span class="hl-cyan">left to right</span> until str1 and str2 has same
+        chars.
+
+      \item In the first different char
+      \begin{itemize}
+        \item if (char of str1 &lt; char of str2) &rarr; str1 &lt; str2
+      \end{itemize}
+      \item if (both string finish) &rarr; str1 = str2
+    \end{itemize}
+    \item
+      <span class="hl-orange">strcmp(str1, str2)</span>:compare str1 and str2
+
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Compare Strings: Examples}
+  <pre><code class="hljs lang-c">
+char s1[] = "abc";
+char s2[] = "abc";
+i = strcmp(s1, s2); // i = 0, s1 is equal to s2
+
+char s3[] = "abc";
+char s4[] = "abx";
+i = strcmp(s3, s4); // i = -1, s3 is lower than s4
+
+char s5[] = "axc";
+char s6[] = "abc";
+i = strcmp(s5, s6); // i = 1, s5 is greater than s6
+
+char s7[] = "ab";
+char s8[] = "abc";
+i = strcmp(s7, s8); // i = -1, s7 is lower than s8
+
+char s9[] = "abc";
+char s10[] = "aBc";
+i = strcmp(s9, s10); // i = 1, s9 is greater than s10
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Compare Strings}
+  \begin{itemize}
+    \item <span class="hl-orange">strcmpi(str1, str2)</span>
+    \item Compares str1 and str2 similar to strcmp
+    \item But ignores uppercase/lowercase difference
+  \end{itemize}
+  <pre><code class="hljs lang-c">
+char str1[] = "ABC";
+char str2[] = "abC";
+strcmpi(str1, str2) &rarr; 0
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Copy Strings}
+  \begin{itemize}
+    \item Strings should be copied char by char
+    \item
+      <span class="hl-orange">strcpy(dst_str, src_str)</span>: copy the
+      <span class="hl-green">src_str</span> to the
+      <span class="hl-cyan">dst_str</span> including NULL
+
+    \item
+      <span class="hl-green">src_str</span> is a
+      <span class="hl-material">constant</span> string
+
+    \item
+      <span class="hl-cyan">dst_str</span> should have
+      <span class="hl-material">sufficient size</span>
+
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Copy Strings: Example}
+  <pre><code class="hljs lang-c">
+char str1[] = "Test String";
+char str2[20];
+
+strcpy(str2, str1);
+
+printf("%s\n", str2); // Test String
+printf("%s\n", str1); // Test String
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Concatenate Strings}
+  \begin{itemize}
+    \item
+      <span class="hl-orange">strcat(dst_str, src_str)</span>: Append the
+      <span class="hl-green">src</span> string to the end of
+      <span class="hl-cyan">dst</span> including NULL
+
+    \item
+      <span class="hl-green">src</span> is a
+      <span class="hl-material">constant</span> string
+
+    \item
+      <span class="hl-cyan">dst</span> should have
+      <span class="hl-material">sufficient space</span>
+
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Concatenate Strings: Example}
+  <pre><code class="hljs lang-c">
+char str1[] = "String";
+char str2[20] = "Test ";
+
+strcat(str2, str1);
+
+printf("%s\n", str2); // Test String
+  </code></pre>
+\end{frame}
+\begin{frame}
+  \frametitle{Sized Version of the Functions}
+  \begin{itemize}
+    \item <span class="hl-orange">strncpy(dst, src, n):</span>
+    \begin{itemize}
+      \item
+        copys <span class="hl-green">n</span> chars from
+        <span class="hl-cyan">src</span> to <span class="hl-material">dst</span>
+
+      \item if(strlen(src) &gt; n)
+      \begin{itemize}
+        \item Copies n chars to <span class="hl-material">dst</span>
+        \item
+          Does not add ‘\0’ to end of <span class="hl-material">dst</span>
+
+      \end{itemize}
+      \item if(strlen(src) &lt; n)
+      \begin{itemize}
+        \item
+          Copy <span class="hl-cyan">src</span> to
+          <span class="hl-material">dst</span>
+
+        \item
+          Add n – strlen(src) – 1 <code class="hl-yellow">‘\0’</code>s to end of
+          dst
+
+        \begin{itemize}
+          \item dst must be large enough
+          \item n &lt; size of dst
+        \end{itemize}
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Sized Version of the Functions}
+    \begin{itemize}
+      \item <span class="hl-orange">strncmp(str1, str2, n):</span>
+      \begin{itemize}
+        \item compares the first <span class="hl-green">x</span> chars
+        \item
+          <span class="hl-green">x</span> = min{ n, strlen(str1) + 1,
+          strlen(str2) + 1 }
+
+      \end{itemize}
+      \item <span class="hl-orange">strncat(dst, src, n):</span>
+      \begin{itemize}
+        \item
+          Appends the <span class="hl-green">x</span> chars from src to dst
+
+        \item <span class="hl-green">x</span> = min{ n, strlen(src) }
+        \item
+          Adds ‘\0’ to end of dst <span class="hl-red">unlike</span>
+          <span class="hl-cyan">strncpy</span>
+
+        \item dst must be large enough
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    <pre><code class="lang-c">
+char s1[] = "Hello";
+char s2[] = "Hell";
+
+printf("%d\n", strcmp(s1, s2));     // s1 &gt; s2
+printf("%d\n", strncmp(s1, s2, 2)); // s1 == s2
+printf("%d\n", strncmp(s1, s2, 4)); // s1 == s2
+printf("%d\n", strncmp(s1, s2, 5)); // s1 &gt; s2
+    </code></pre>
+  \end{frame}
+\end{frame}
+\begin{frame}
+  \frametitle{Numbers and Strings: number &rarr; string}
+  \begin{itemize}
+    \item To convert a number to string
+    <pre><code class="hljs lang-c">
+#include &lt;stdio.h&gt; // sprintf
+
+char str1[100];
+
+int i = 100;
+sprintf(str1, "%d", i); // str1 = “100”
+
+float f = 10.11;
+sprintf(str1, "%0.2f", f); // str1 = “10.11”
+
+    </code></pre>
+    \item
+      String <span class="hl-orange">str1</span> should have
+      <span class="hl-material">sufficient size</span>
+
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Numbers and Strings: string &rarr; number}
+  \begin{itemize}
+    \item To convert from strings to numbers
+    <pre><code class="hljs lang-c">
+#include &lt;stdlib.h&gt; // atoi, atof
+#include &lt;stdio.h&gt; // sscanf
+
+char str1[] = "10";
+int i;
+i = atoi(str1); // i = 10
+sscanf(str1, "%d", &amp;i); // i = 10
+
+char str2[] = "20.44";
+double f;
+f = atof(str2); // f = 20.44
+sscanf(str2, "%lf", &amp;f); // f = 20.44
+    </code></pre>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{String as Array}
+  \begin{itemize}
+    \item Strings are array of chars
+    \item We work on arrays element by element
+    \item We can work on strings char by char
+    <pre><code class="hljs lang-c">
+char str1[] = "100000";
+str1[2] = '2';
+    </code></pre>
+    \item We can pass strings to functions
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Array of Strings}
+  \begin{itemize}
+    \item 2 dimensional array, each row is a string
+    <pre><code class="hljs lang-c">
+char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
+char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
+    </code></pre>
+    <table class="cell">
+      <tr>
+        <td>'z'</td>
+        <td>'e'</td>
+        <td>'r'</td>
+        <td>'o'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+      </tr>
+      <tr>
+        <td>'u'</td>
+        <td>'n'</td>
+        <td>'o'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+      </tr>
+      <tr>
+        <td>'d'</td>
+        <td>'u'</td>
+        <td>'e'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+      </tr>
+      <tr>
+        <td>'t'</td>
+        <td>'r'</td>
+        <td>'e'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+        <td>'\0'</td>
+      </tr>
+      <tr>
+        <td>'q'</td>
+        <td>'u'</td>
+        <td>'a'</td>
+        <td>'t'</td>
+        <td>'t'</td>
+        <td>'r'</td>
+        <td>'o'</td>
+        <td>'\0'</td>
+      </tr>
+    </table>
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{ctype.h}
+  \begin{itemize}
+    \item Many function to work on chars
+    \begin{itemize}
+      \item Check digit
+      \item Check alphabetic
+      \item Check lower or upper case
+      \item Convert from/to upper/lower case
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{ctype.h}
+  \begin{itemize}
+    \item int isdigit(ch)
+    \begin{itemize}
+      <li class="fragment" data-fragment-index="1">
+        Check ch is digital char or not
+
+    \end{itemize}
+    \item int isalpha(ch)
+    \begin{itemize}
+      <li class="fragment" data-fragment-index="2">
+        Check ch is alphabetic or not
+
+    \end{itemize}
+    \item int islower(ch)
+    \begin{itemize}
+      <li class="fragment" data-fragment-index="3">
+        Check ch is lowercase alphabetic or not
+
+    \end{itemize}
+    \item int isupper(ch)
+    \begin{itemize}
+      <li class="fragment" data-fragment-index="4">
+        Check ch is uppercase alphabetic or not
+
+    \end{itemize}
+    \item char tolower(ch)
+    \begin{itemize}
+      <li class="fragment" data-fragment-index="5">
+        Convert ch to lowercase and return it
+
+    \end{itemize}
+    \item char toupper(ch)
+    \begin{itemize}
+      <li class="fragment" data-fragment-index="6">
+        Convert ch to upper case and return it
+
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  <div class="toc" data-selected="5"></div>
+\end{frame}
+\begin{frame}
+  \begin{frame}
+    \frametitle{Common Bugs &amp; Avoiding them}
+    \begin{itemize}
+      \item Strings which are used as destination
+      \begin{itemize}
+        \item scanf, sprintf, strcpy, ....
+        \item Must be large enough
+      \end{itemize}
+      \item Take care about the ‘\0’
+      \begin{itemize}
+        \item You should never destroy it, some library functions do!
+      \end{itemize}
+      \item
+        Out of range array index!!!! (read/write, wrong size in function,
+        multidimensional array memory)
+
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Common Bugs &amp; Avoiding them}
+    \begin{itemize}
+      \item You cannot assign a value to array
+      <pre><code class="hljs lang-c">
+int a[4], b[4];
+a = b; // error: assignment to expression with array type
+a = 4; // error: assignment to expression with array type
+      </code></pre>
+      \item To debug
+      \begin{itemize}
+        \item Print the array index and corresponding value
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+\end{frame}
+
+\end{document}
