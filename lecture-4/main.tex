@@ -645,6 +645,33 @@ int main(void) {
   \end{itemize}
 \end{frame}
 
+\section{Type-generic math}
+
+\begin{frame}
+  \frametitle{\textit{tgmath.h}}
+  \begin{itemize}
+    \item The header \textit{\color{Orange} <tgmath.h>} includes the headers \textit{\color{LimeGreen} <math.h>} and \textit{\color{LimeGreen} <complex.h>}
+      and defines several type-generic macros that determine which real or, when applicable, complex function to call based on the types of the arguments.
+    \item Each of the arguments provided for these generic parameters that is of an integer type is casted to a double;
+      Arguments of floating-point types are used without transformation (directly as float, double or long double).
+    \item real function:
+    \begin{itemize}
+      \item \textit{float} variant XXXf
+      \item \textit{double} variant XXX
+      \item \textit{long double} variant XXXl
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{fabs}
+  \begin{itemize}
+    \item fabsf --- float
+    \item fabs --- double
+    \item fabsl --- long double
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Legends}
   \begin{figure}
@@ -653,6 +680,15 @@ int main(void) {
   \pause%
   \centering
   \color{Violet} Ken Thompson
+\end{frame}
+
+\begin{frame}
+  \frametitle{Legends}
+  \begin{itemize}
+    \item he designed and implemented the original Unix operating system.
+    \item he worked at Google, where he co-developed the Go programming language.
+    \item he worked on regular expressions and early computer text editors QED and ed.
+  \end{itemize}
 \end{frame}
 
 \end{document}
