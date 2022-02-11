@@ -249,43 +249,41 @@ void main(void) {
 \end{frame}
 
 \begin{frame}
-  \begin{frame}
-    \frametitle{Array Size in Functions}
+  \frametitle{Array Size in Functions}
+  \begin{itemize}
+    \item
+      If array is an <span class="hl-orange">input parameter</span> of a
+      function
     \begin{itemize}
       \item
-        If array is an <span class="hl-orange">input parameter</span> of a
-        function
-
-      \begin{itemize}
-        \item
-          It <span class="hl-red">cannot</span> find out the size of the array
-
-      \end{itemize}
+        It <span class="hl-red">cannot</span> find out the size of the array
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      \item
-        Array size should be passed from caller function to called function
+  \end{itemize}
+\end{frame}
 
-      \begin{itemize}
-        \item Using definitions
-        \begin{minted}[bgcolor=Black]{c}
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item
+      Array size should be passed from caller function to called function
+
+    \begin{itemize}
+      \item Using definitions
+      \begin{minted}[bgcolor=Black]{c}
 #define SIZE 20
 void func(int a[]){ for(int i = 0; i < SIZE; i++)
-        \end{minted}
-        \item Using input variable
-        \begin{minted}[bgcolor=Black]{c}
+      \end{minted}
+      \item Using input variable
+      \begin{minted}[bgcolor=Black]{c}
 void read(int a[], int size){ for(int i = 0; i < size; i++)
-        \end{minted}
-        \begin{minted}[bgcolor=Black]{c}
+      \end{minted}
+      \begin{minted}[bgcolor=Black]{c}
 void read(int size, int a[size]){ for(int i = 0; i < size; i++)
-        \end{minted}
-      \end{itemize}
+      \end{minted}
     \end{itemize}
-  \end{frame}
+  \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Array Size in Functions (cont’d)}
   \begin{itemize}
     \item If array is declared in a function
@@ -297,8 +295,8 @@ void read(int size, int a[size]){ for(int i = 0; i < size; i++)
 
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
-void func(void){
+  \begin{minted}[bgcolor=Black]{c}
+void func(void) {
   int i, a[200];
   for(i = 0; i < 200; i++)
     a[i] = 0;
@@ -306,34 +304,36 @@ void func(void){
   for(i = 0; i < sizeof(a)/sizeof(a[0]); i++)
     a[i] = 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Out-of-range access}
   \begin{itemize}
     \item C compiler does not check the range you access
     \begin{itemize}
-      <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 int x[10]; x[20] = 30; y = x[100];
-      </code></pre>
+      \end{minted}
       \item No compiler error!
     \end{itemize}
     \item What happen
     \begin{itemize}
       \item Read: Logical error
-      <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 y = x[100];
-      </code></pre>
+      \end{minted}
       \item Write: May or may not logical or runtime error
-      <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 x[20] = 30;
-      </code></pre>
+      \end{minted}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Out-of-range Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 void init_array(int size, int arr[]){
@@ -360,11 +360,12 @@ void main(void){
                        // Logical error
   printf("x = %d, y = %d\n" , x, y);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Max Index Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 int max_index(int a[], int size){
@@ -380,11 +381,12 @@ void main(void){
   int arr[] = {1, 4, 12, 93, 23};
   printf("max index = %d\n", max_index(arr, 5));
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Array Swap Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 void array_swap(int a[], int i, int j){
@@ -402,11 +404,13 @@ void main(void){
   array_swap(num, x, y);
   printf("num[%d] = %d, num[%d] = %d\n", x, num[x], y, num[y]);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Sort}
-  <pre><code class="hljs lang-c">
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 void array_swap(int a[], int i, int j){
@@ -446,22 +450,25 @@ int main(void){
 
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Binary Search}
-    \begin{itemize}
-      \item
-        Given a <span class="hl-orange">sorted array</span> arr[] of n elements,
-        write a function to
-        <span class="hl-green">search a given element</span> x in arr[].
 
-    \end{itemize}
-    <img src="img/binary-search.png" alt="binary-search" />
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+\begin{frame}
+  \frametitle{Binary Search}
+  \begin{itemize}
+    \item
+      Given a <span class="hl-orange">sorted array</span> arr[] of n elements,
+      write a function to
+      <span class="hl-green">search a given element</span> x in arr[].
+
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=.75\textwidth]{./img/binary-search.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{minted}[bgcolor=Black]{c}
 int bsearch(int start, int end, int a[], int value){
   int mid = (start + end) / 2;
 
@@ -473,21 +480,20 @@ int bsearch(int start, int end, int a[], int value){
     return bsearch(mid + 1, end, a, value);
   else
     return bsearch(start, mid - 1 , a, value); }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
+
+\section{Multidimensional arrays}
+
 \begin{frame}
   \frametitle{Multidimensional Arrays}
   \begin{itemize}
     \item
       If element of an array is array itself, it will be Multidimensional array
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int t[10][20];
-    </code></pre>
+    \end{minted}
     \item 10x20 matrix of integers
     <pre><code class="hljs lang-c">
 t[1][1]; //t[1,1] &rarr; compile error
