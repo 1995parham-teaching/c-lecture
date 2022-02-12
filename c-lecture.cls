@@ -26,6 +26,10 @@
 \institute[AUT]{Amirkabir University of Technology}
 \date{\DTMsetdatestyle{mmyy}\Today}
 
+\setbeamertemplate{headline}[infolines theme]
+% the following command suppresses all navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
 \AtBeginSection[]
 {%
   \begin{frame}
