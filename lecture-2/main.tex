@@ -197,7 +197,7 @@
   \While{$start \neq end$}{%
     \tcp{find index of minimum element from $start$ to $end$}
     $j \gets find\_\min(X, start, end)$\;
-    $swap(X[j], X[start])$\;
+    $swap(X, j, start)$\;
     $start \gets start + 1$\;
   }
   \end{algorithm}
