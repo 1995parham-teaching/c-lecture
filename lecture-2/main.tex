@@ -1,7 +1,6 @@
 \documentclass{../c-lecture}
 
 \usepackage{algorithm2e}
-\SetKwComment{Comment}{/* }{ */}
 
 \subtitle{Algorithm Design}
 
@@ -74,8 +73,8 @@
   \KwData{$n \in \mathbb{Z}$}
   $m \gets n$\;
   \KwResult{$n$ is even or odd}
-  \Comment{$sign(0) = 0, sign(n > 0) = 1, sign(n < 0) = -1$}
   \While{$n > 0$ or $n < -1$}{%
+    \tcp{$sign(0) = 0, sign(n > 0) = 1, sign(n < 0) = -1$}
     $n \gets n - sign(n) * 2$\;
   }
   \eIf{$n == 0$}{%
@@ -196,7 +195,8 @@
   \KwData{$X = \{x | x \in \mathbb{Z}\}$}
   \KwResult{sorted $X$}
   \While{$start \neq end$}{%
-    $j \gets find\_\min(X, start, end)$\; \Comment*[r]{find index of minimum element from $start$ to $end$}
+    \tcp{find index of minimum element from $start$ to $end$}
+    $j \gets find\_\min(X, start, end)$\;
     $swap(X[j], X[start])$\;
     $start \gets start + 1$\;
   }
