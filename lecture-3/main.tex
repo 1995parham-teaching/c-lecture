@@ -111,7 +111,8 @@ C program */
 #include <stdio.h>
 
 int main(void) {
-  // This program prints a simple message [the c++style comment]
+  // This program prints a simple message
+  // [the c++style comment]
   printf("Hello the CE juniors :-) \n");
   return 0;
 }
@@ -534,12 +535,20 @@ d = 19.9;
 \end{frame}
 
 \begin{frame}
-  \frametitle{Values: Float \& Double}
+  \frametitle{Values: Double}
   \begin{itemize}
     \item Valid numbers:
     \mint{c}|0.2; .5; -.67; 20.0; 60e10 (60 * 10^10); 7e-2 (7 * 10^-2)|
     \item Invalid numbers:
     \mint{c}|0. 2; 20. 0; 20 .0; 7 e; 6e; e12|
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Values: Float}
+  \begin{itemize}
+    \item Valid numbers:
+    \mint{c}|0.2f; .5f|
   \end{itemize}
 \end{frame}
 
@@ -668,8 +677,8 @@ d = 5666; // d = 5666.0
     \end{itemize}
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
-float f = 65536; // 65536.0
-double d = 65536; // 65536.0
+float f = 65536ll; // 65536.0
+double d = 65536ll; // 65536.0
 short s = 720; // 720
 char c = (char) 65536; // c = 0
 short s = (short) 65536; // s = 0
