@@ -160,13 +160,14 @@
   \mint{c}|int number[20];|
   \begin{itemize}
     \item
-      <span class="hl-green">number[i]</span> is an
-      <span class="hl-orange">integer</span> variable
+      \textit{\color{LimeGreen} number[i]} is an
+      \textit{\color{Orange} integer} variable
 
     \item Array element can be used for call by value input
     \item Array element can be use for output
     \begin{minted}[bgcolor=Black]{c}
 int f(int x);
+
 void h(void) {
   int arr[50];
   // Array element in call by value arr[30] = f(arr[5]);
@@ -175,23 +176,23 @@ void h(void) {
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Arrays in Functions (cont’d)}
   \begin{itemize}
     \item
-      Array can <span class="hl-red">not</span> be used as output type of
+      Array can \textbf{\color{RubineRed} not} be used as output type of
       function
 
-    <p>
-      <span class="hl-red">int []</span> f(int x, int y);
-      <span class="hl-red">//compile error</span>
-    </p>
+    \begin{minted}[bgcolor=Black]{c}
+      int[] f(int x, int y);
+      //compile error
+    \end{minted}
     \item Arrays can be used in input list of functions
     \item
-      Arrays are <span class="hl-orange">not</span> passed by Call By Value
+      Arrays are \textit{\color{Orange} not} passed by Call By Value
 
     \item
-      Arrays are passed by Call By <span class="hl-green">Reference</span>
+      Arrays are passed by Call By \textbf{\color{LimeGreen} Reference}
 
     \begin{itemize}
       \item If we change array elements in a function
@@ -204,7 +205,7 @@ void h(void) {
   \frametitle{Arrays in Functions (version 1)}
   \begin{itemize}
     \item
-      Function \textit{\color{Orange} arr_func} takes an array of
+      Function \textit{\color{Orange} arr\_func} takes an array of
       integers
 
     \begin{minted}[bgcolor=Black]{c}
@@ -217,7 +218,7 @@ int arr_func(int num[]) {
     \end{minted}
     \item
       Array \textit{\color{Orange}a} is passed to function
-      \textit{\color{Orange} arr_func}
+      \textit{\color{Orange} arr\_func}
 
     \begin{minted}[bgcolor=Black]{c}
 int a[90];
@@ -226,7 +227,7 @@ i = arr_func(a);
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -250,11 +251,11 @@ void main(void) {
   \frametitle{Array Size in Functions}
   \begin{itemize}
     \item
-      If array is an <span class="hl-orange">input parameter</span> of a
+      If array is an \textit{\color{Orange} input parameter} of a
       function
     \begin{itemize}
       \item
-        It <span class="hl-red">cannot</span> find out the size of the array
+        It \textit{\color{RubineRed} cannot} find out the size of the array
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -288,9 +289,8 @@ void read(int size, int a[size]){ for(int i = 0; i < size; i++)
     \begin{itemize}
       \item It knows the size of the array
       \item
-        It <span class="hl-orange">can</span> find out the size of the array
-        using <span class="hl-green">sizeof</span>
-
+        It {\color{Orange} can} find out the size of the array
+        using {\color{LimeGreen} sizeof}
     \end{itemize}
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
@@ -329,7 +329,7 @@ x[20] = 30;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Out-of-range Example}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -465,7 +465,7 @@ int main(void){
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \begin{minted}[bgcolor=Black]{c}
 int bsearch(int start, int end, int a[], int value){
   int mid = (start + end) / 2;
@@ -483,7 +483,7 @@ int bsearch(int start, int end, int a[], int value){
 
 \section{Multidimensional arrays}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Multidimensional Arrays}
   \begin{itemize}
     \item
@@ -493,64 +493,65 @@ int bsearch(int start, int end, int a[], int value){
 int t[10][20];
     \end{minted}
     \item 10x20 matrix of integers
-    <pre><code class="hljs lang-c">
-t[1][1]; //t[1,1] &rarr; compile error
-    </code></pre>
+    \begin{minted}[bgcolor=Black]{c}
+t[1][1];
+// t[1,1] // compile error
+    \end{minted}
     \item Integer variable in location (1,1)
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Initializing Multidimensional Arrays}
-    \begin{itemize}
-      <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Initializing Multidimensional Arrays}
+  \begin{itemize}
+    \begin{minted}[bgcolor=Black]{c}
 int num[2][3] = {1, 2, 0, 3, 4, 7};
 int num[2][3] = { {1, 2, 0}, {3, 4, 7} };
-      </code></pre>
-      \item num[0][2] is 0, num[1][0] is 3
-      <pre><code class="hljs lang-c">
+    \end{minted}
+    \item num[0][2] is 0, num[1][0] is 3
+    \begin{minted}[bgcolor=Black]{c}
 int num[5][3] = { {1, 2, 0}, {3, 4, 7} };
-      </code></pre>
-      \item num[2][2] is 0, num[1][2] is 7
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      <pre><code class="hljs lang-c">
-int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
-      </code></pre>
-      \item num[0][2][1] is 6, num[1][0][1] is 0
-      <pre><code class="hljs lang-c">
-int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
-      </code></pre>
-      \item num[1][1] is 2, num[2][0] is 3
-      \item
-        All dimentions
-        <strong class="hl-orange">except the first one</strong> are required in
-        initiation
-
-    \end{itemize}
-  \end{frame}
+    \end{minted}
+    \item num[2][2] is 0, num[1][2] is 7
+  \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \begin{minted}[bgcolor=Black]{c}
+int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
+    \end{minted}
+    \item num[0][2][1] is 6, num[1][0][1] is 0
+    \begin{minted}[bgcolor=Black]{c}
+int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
+    \end{minted}
+    \item num[1][1] is 2, num[2][0] is 3
+    \item
+      All dimentions
+      \textbf{\color{Orange} except the first one} \textbf{\color{Yellow} are required} in
+      initiation
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Multidimensional Arrays in Functions}
   \begin{itemize}
     \item
       Can be used as input of functions. All dimensions except the first one
-      <span class="hl-orange">must</span> be given.
+      {\color{YellowOrange} must} be given.
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 void func(int a[10][20][5]);
-    </code></pre>
+    \end{minted}
     \begin{itemize}
       \item Input is a 10x20x5 integer matrix
     \end{itemize}
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 void func(int a[][20][30], int size);
-    </code></pre>
-    <pre><code class="hljs lang-c">
+    \end{minted}
+    \begin{minted}[bgcolor=Black]{c}
 void func(int size1, int size2, int a[size1][size2]);
-    </code></pre>
+    \end{minted}
     \begin{itemize}
       \item
         Input is a matrix of integers that both rows and columns are variable
@@ -558,9 +559,10 @@ void func(int size1, int size2, int a[size1][size2]);
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Matrix Transpose}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 #define SIZE 5
 
 void swap(int a[SIZE][SIZE], int i, int j){
@@ -576,12 +578,12 @@ void transpose(int a[][SIZE]){
     for(j = i; j < SIZE; j++)
       swap(a, i, j);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Matrix Print}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Matrix Print}
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 void display_matrix(int n_rows, int n_cols, int matrix[n_rows][n_cols]) {
@@ -604,107 +606,115 @@ int main (void){
     printf ("Original matrix:\n");
     display_matrix(3, 5, sample);
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{output}
 Original matrix:
     7    16    55    13    12
    12    10    52     0     7
    -2     1     2     4     9
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Array In Memory}
-    <img src="img/arrays-in-memory.png" alt="arrays-in-memory" />
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
-#include <stdio.h>
 
+\begin{frame}
+  \frametitle{Array In Memory}
+  \begin{figure}
+    \includegraphics[width=.75\textwidth]{./img/arrays-in-memory.png}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 int main() {
   int arr[][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
 
   printf("%lu\n", sizeof(arr)); // 36 = 9 * 4 = 9 * sizeof(int)
 }
-    </code></pre>
-    <p>There is no way to findout dimensions of an array</p>
-  \end{frame}
+  \end{minted}
+  \begin{block}{}
+    There is no way to findout dimensions of an array
+  \end{block}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="3"></div>
-\end{frame}
-\begin{frame}
+
+\section{String}
+
+\begin{frame}[fragile]
   \frametitle{Introduction}
   \begin{itemize}
     \item Until now
     \begin{itemize}
       \item We have seen strings in <span class="hl-cyan">printf</span>
       \item Our old definition: string is a set of char between “” 😂
-      <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 printf("This is a string\n");
 printf("This is %s\n", "a string\n");
-      </code></pre>
+      \end{minted}
     \end{itemize}
     \item Strings:
     \begin{itemize}
       \item An array of chars
-      \item Terminated by the <span class="hl-orange">null char</span> '\0'
+      \item Terminated by the \textit{\color{Orange} null char} \mint{c}|'\0'|
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Strings in C}
   \begin{itemize}
     \item Since strings are array
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char str1[] = {'p', 'r', 'o', 'g', 'r', 'a', 'm', '\0'};
 char str2[8] = "program";
 char str3[] = "program";
 char *str4 = "program"; //we will see later
-  </code></pre>
-  <table class="cell">
-    <tr>
-      <td>'p'</td>
-      <td>'r'</td>
-      <td>'o'</td>
-      <td>'g'</td>
-      <td>'r'</td>
-      <td>'a'</td>
-      <td>'m'</td>
-      <td class="hl-orange">'\0'</td>
-    </tr>
-  </table>
+  \end{minted}
+  \begin{table}
+  \begin{tabular}{*{8}{c}}
+    \toprule
+    'p' &
+    'r' &
+    'o' &
+    'g' &
+    'r' &
+    'a' &
+    'm' &
+    {\color{Orange} '\textbackslash 0'} \\
+    \bottomrule
+  \end{tabular}
+  \end{table}
 \end{frame}
-\begin{frame}
-  \frametitle{Reading &amp; Writing Strings}
+
+\begin{frame}[fragile]
+  \frametitle{Reading \& Writing Strings}
   \begin{itemize}
     \item <span class="hl-orange">printf</span> can be used to print strings
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 printf("program");
 printf("%s", "program");
-    </code></pre>
+    \end{minted}
   \end{itemize}
   \begin{itemize}
     \item <span class="hl-green">scanf</span> can be used to read strings
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char str[200];
 scanf("%s", str);
-    </code></pre>
+    \end{minted}
     \item Initial white spaces are ignored
     \item
-      Read until <span class="hl-cyan">space</span> or
-      <span class="hl-cyan">'\n'</span> (which is replaced by \0)
+      Read until \textit{\color{Orange} space} or
+      \mint{c}|'\n'| (which is replaced by \mint{c}|\0|)
 
     \item We must allocate <span class="hl-material">sufficient size</span>
   \end{itemize}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Reading &amp; Writing Strings (cont’d)}
+  \frametitle{Reading \& Writing Strings (cont’d)}
   \begin{itemize}
     \item
       <span class="hl-orange">puts(str)</span> is very simple version of
@@ -712,7 +722,7 @@ scanf("%s", str);
 
     \begin{itemize}
       \item Can only be used to print strings
-      \item Adds <span class="hl-green">‘\n’</span> to end of string
+      \item Adds \mint{c}|'\n'| to end of string
     \end{itemize}
     \item
       <span class="hl-orange">gets(char str[])</span> can be used to read
@@ -723,32 +733,33 @@ scanf("%s", str);
       <span class="hl-red">not</span> ignore the white spaces
 
     \begin{itemize}
-      \item Read until \n
+      \item Read until \mint{c}|'\n'|
     \end{itemize}
     \item String should be large enough
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="4"></div>
-\end{frame}
-\begin{frame}
+
+\section{String functions}
+
+\begin{frame}[fragile]
   \frametitle{String Library}
   \begin{itemize}
     \item Access to string library by
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 #include <string.h>
-    </code></pre>
+    \end{minted}
     \item Many functions to work with strings
     \begin{itemize}
       \item Find the length of string
       \item Compare strings
       \item Copy strings
       \item Search in strings
-      \item ...
+      \item \ldots
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Length of String}
   \begin{itemize}
     \item <span class="hl-orange">strlen(str)</span>: Length of string
@@ -757,13 +768,14 @@ scanf("%s", str);
       <span class="hl-green">null char</span>
 
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char str[] = "This is test";
 char str1[10] = {'a', 'b', '\0', 'c', '\0'};
 strlen(str)  // returns 12
 strlen(str1) // returns 2 😱
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Compare Strings}
   \begin{itemize}
@@ -776,18 +788,18 @@ strlen(str1) // returns 2 😱
 
       \item In the first different char
       \begin{itemize}
-        \item if (char of str1 < char of str2) &rarr; str1 < str2
+        \item if (char of str1 < char of str2) \textrightarrow str1 < str2
       \end{itemize}
-      \item if (both string finish) &rarr; str1 = str2
+      \item if (both string finish) \textrightarrow str1 = str2
     \end{itemize}
     \item
       <span class="hl-orange">strcmp(str1, str2)</span>:compare str1 and str2
-
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Compare Strings: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char s1[] = "abc";
 char s2[] = "abc";
 i = strcmp(s1, s2); // i = 0, s1 is equal to s2
@@ -807,43 +819,45 @@ i = strcmp(s7, s8); // i = -1, s7 is lower than s8
 char s9[] = "abc";
 char s10[] = "aBc";
 i = strcmp(s9, s10); // i = 1, s9 is greater than s10
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Compare Strings}
   \begin{itemize}
     \item <span class="hl-orange">strcmpi(str1, str2)</span>
     \item Compares str1 and str2 similar to strcmp
     \item But ignores uppercase/lowercase difference
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char str1[] = "ABC";
 char str2[] = "abC";
-strcmpi(str1, str2) &rarr; 0
-  </code></pre>
+strcmpi(str1, str2) // 0
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Copy Strings}
   \begin{itemize}
     \item Strings should be copied char by char
     \item
-      <span class="hl-orange">strcpy(dst_str, src_str)</span>: copy the
-      <span class="hl-green">src_str</span> to the
-      <span class="hl-cyan">dst_str</span> including NULL
+      \mint{c}|strcpy(dst_str, src_str)|: copy the
+      \mint{c}|src_str| to the
+      \mint{c}|dst_str| including NULL
 
     \item
-      <span class="hl-green">src_str</span> is a
-      <span class="hl-material">constant</span> string
+      \mint{c}|src_str| is a
+      \textbf{\color{YellowOrange} constant} string
 
     \item
-      <span class="hl-cyan">dst_str</span> should have
-      <span class="hl-material">sufficient size</span>
-
+      \mint{c}|dst_str| should have
+      \textbf{\color{YellowOrange} sufficient size}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Copy Strings: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char str1[] = "Test String";
 char str2[20];
 
@@ -851,37 +865,37 @@ strcpy(str2, str1);
 
 printf("%s\n", str2); // Test String
 printf("%s\n", str1); // Test String
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Concatenate Strings}
   \begin{itemize}
     \item
-      <span class="hl-orange">strcat(dst_str, src_str)</span>: Append the
-      <span class="hl-green">src</span> string to the end of
-      <span class="hl-cyan">dst</span> including NULL
-
+      \mint{c}|strcat(dst_str, src_str)|: Append the
+      \mint{c}|src| string to the end of
+      \mint{c}|dst| including NULL
     \item
-      <span class="hl-green">src</span> is a
-      <span class="hl-material">constant</span> string
-
+      \mint{c}|src| is a
+      \textbf{\color{YellowOrange} constant} string
     \item
-      <span class="hl-cyan">dst</span> should have
-      <span class="hl-material">sufficient space</span>
-
+      \mint{c}|dst| should have
+      \textbf{\color{YellowOrange} sufficient space}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Concatenate Strings: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char str1[] = "String";
 char str2[20] = "Test ";
 
 strcat(str2, str1);
 
 printf("%s\n", str2); // Test String
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Sized Version of the Functions}
   \begin{itemize}
@@ -916,34 +930,35 @@ printf("%s\n", str2); // Test String
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Sized Version of the Functions}
+
+\begin{frame}[fragile]
+  \frametitle{Sized Version of the Functions}
+  \begin{itemize}
+    \item <span class="hl-orange">strncmp(str1, str2, n):</span>
     \begin{itemize}
-      \item <span class="hl-orange">strncmp(str1, str2, n):</span>
-      \begin{itemize}
-        \item compares the first <span class="hl-green">x</span> chars
-        \item
-          <span class="hl-green">x</span> = min{ n, strlen(str1) + 1,
-          strlen(str2) + 1 }
+      \item compares the first <span class="hl-green">x</span> chars
+      \item
+        <span class="hl-green">x</span> = min{ n, strlen(str1) + 1,
+        strlen(str2) + 1 }
 
-      \end{itemize}
-      \item <span class="hl-orange">strncat(dst, src, n):</span>
-      \begin{itemize}
-        \item
-          Appends the <span class="hl-green">x</span> chars from src to dst
-
-        \item <span class="hl-green">x</span> = min{ n, strlen(src) }
-        \item
-          Adds ‘\0’ to end of dst <span class="hl-red">unlike</span>
-          <span class="hl-cyan">strncpy</span>
-
-        \item dst must be large enough
-      \end{itemize}
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="lang-c">
+    \item <span class="hl-orange">strncat(dst, src, n):</span>
+    \begin{itemize}
+      \item
+        Appends the <span class="hl-green">x</span> chars from src to dst
+
+      \item <span class="hl-green">x</span> = min{ n, strlen(src) }
+      \item
+        Adds ‘\0’ to end of dst <span class="hl-red">unlike</span>
+        <span class="hl-cyan">strncpy</span>
+
+      \item dst must be large enough
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{minted}[bgcolor=Black]{c}
 char s1[] = "Hello";
 char s2[] = "Hell";
 
@@ -951,9 +966,9 @@ printf("%d\n", strcmp(s1, s2));     // s1 > s2
 printf("%d\n", strncmp(s1, s2, 2)); // s1 == s2
 printf("%d\n", strncmp(s1, s2, 4)); // s1 == s2
 printf("%d\n", strncmp(s1, s2, 5)); // s1 > s2
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Numbers and Strings: number &rarr; string}
   \begin{itemize}
@@ -976,26 +991,28 @@ sprintf(str1, "%0.2f", f); // str1 = “10.11”
 
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Numbers and Strings: string &rarr; number}
   \begin{itemize}
     \item To convert from strings to numbers
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 #include <stdlib.h> // atoi, atof
 #include <stdio.h> // sscanf
 
 char str1[] = "10";
 int i;
 i = atoi(str1); // i = 10
-sscanf(str1, "%d", &amp;i); // i = 10
+sscanf(str1, "%d", &i); // i = 10
 
 char str2[] = "20.44";
 double f;
 f = atof(str2); // f = 20.44
-sscanf(str2, "%lf", &amp;f); // f = 20.44
-    </code></pre>
+sscanf(str2, "%lf", &f); // f = 20.44
+    \end{minted}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{String as Array}
   \begin{itemize}
@@ -1009,6 +1026,7 @@ str1[2] = '2';
     \item We can pass strings to functions
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Array of Strings}
   \begin{itemize}
@@ -1129,7 +1147,7 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
 \end{frame}
 \begin{frame}
   \begin{frame}
-    \frametitle{Common Bugs &amp; Avoiding them}
+    \frametitle{Common Bugs \& Avoiding them}
     \begin{itemize}
       \item Strings which are used as destination
       \begin{itemize}
@@ -1147,7 +1165,7 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
     \end{itemize}
   \end{frame}
   \begin{frame}
-    \frametitle{Common Bugs &amp; Avoiding them}
+    \frametitle{Common Bugs \& Avoiding them}
     \begin{itemize}
       \item You cannot assign a value to array
       <pre><code class="hljs lang-c">
