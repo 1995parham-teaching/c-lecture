@@ -105,11 +105,7 @@
   \begin{itemize}
     \item Array declaration in C
     \begin{minted}[bgcolor=Black]{c}
-      <Elements' Type>
-      <identifier>
-      [
-      <size>
-      ]
+      <Elements' Type> <identifier> [<size>]
     \end{minted}
     \item
       <Elements' Type>: int, char, float,
@@ -657,7 +653,7 @@ printf("This is %s\n", "a string\n");
     \item Strings:
     \begin{itemize}
       \item An array of chars
-      \item Terminated by the \textit{\color{Orange} null char} \mint{c}|'\0'|
+      \item Terminated by the \textit{\color{Orange} null char} \mintinline{c}|'\0'|
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -707,7 +703,7 @@ scanf("%s", str);
     \item Initial white spaces are ignored
     \item
       Read until \textit{\color{Orange} space} or
-      \mint{c}|'\n'| (which is replaced by \mint{c}|\0|)
+      \mintinline{c}|'\n'| (which is replaced by \mintinline{c}|\0|)
 
     \item We must allocate <span class="hl-material">sufficient size</span>
   \end{itemize}
@@ -722,7 +718,7 @@ scanf("%s", str);
 
     \begin{itemize}
       \item Can only be used to print strings
-      \item Adds \mint{c}|'\n'| to end of string
+      \item Adds \mintinline{c}|'\n'| to end of string
     \end{itemize}
     \item
       <span class="hl-orange">gets(char str[])</span> can be used to read
@@ -733,7 +729,7 @@ scanf("%s", str);
       <span class="hl-red">not</span> ignore the white spaces
 
     \begin{itemize}
-      \item Read until \mint{c}|'\n'|
+      \item Read until \mintinline{c}|'\n'|
     \end{itemize}
     \item String should be large enough
   \end{itemize}
@@ -782,8 +778,8 @@ strlen(str1) // returns 2 😱
     \item str1 and str2 are compared as follows
     \begin{itemize}
       \item
-        Compare <span class="hl-green">char by char</span> from
-        <span class="hl-cyan">left to right</span> until str1 and str2 has same
+        Compare \textit{\color{LimeGreen} char by char} from
+        \textit{\color{Cyan} left to right} until str1 and str2 has same
         chars.
 
       \item In the first different char
@@ -841,16 +837,16 @@ strcmpi(str1, str2) // 0
   \begin{itemize}
     \item Strings should be copied char by char
     \item
-      \mint{c}|strcpy(dst_str, src_str)|: copy the
-      \mint{c}|src_str| to the
-      \mint{c}|dst_str| including NULL
+      \mintinline{c}|strcpy(dst_str, src_str)|: copy the
+      \mintinline{c}|src_str| to the
+      \mintinline{c}|dst_str| including NULL
 
     \item
-      \mint{c}|src_str| is a
+      \mintinline{c}|src_str| is a
       \textbf{\color{YellowOrange} constant} string
 
     \item
-      \mint{c}|dst_str| should have
+      \mintinline{c}|dst_str| should have
       \textbf{\color{YellowOrange} sufficient size}
   \end{itemize}
 \end{frame}
@@ -872,14 +868,14 @@ printf("%s\n", str1); // Test String
   \frametitle{Concatenate Strings}
   \begin{itemize}
     \item
-      \mint{c}|strcat(dst_str, src_str)|: Append the
-      \mint{c}|src| string to the end of
-      \mint{c}|dst| including NULL
+      \mintinline{c}|strcat(dst_str, src_str)|: Append the
+      \mintinline{c}|src| string to the end of
+      \mintinline{c}|dst| including NULL
     \item
-      \mint{c}|src| is a
+      \mintinline{c}|src| is a
       \textbf{\color{YellowOrange} constant} string
     \item
-      \mint{c}|dst| should have
+      \mintinline{c}|dst| should have
       \textbf{\color{YellowOrange} sufficient space}
   \end{itemize}
 \end{frame}
@@ -909,7 +905,7 @@ printf("%s\n", str2); // Test String
       \begin{itemize}
         \item Copies n chars to <span class="hl-material">dst</span>
         \item
-          Does not add ‘\0’ to end of <span class="hl-material">dst</span>
+          Does not add \mintinline{c}|'\0'| to end of <span class="hl-material">dst</span>
 
       \end{itemize}
       \item if(strlen(src) < n)
@@ -919,45 +915,43 @@ printf("%s\n", str2); // Test String
           <span class="hl-material">dst</span>
 
         \item
-          Add n – strlen(src) – 1 <code class="hl-yellow">‘\0’</code>s to end of
+          Add n – strlen(src) – 1 \mintinline{c}|'\0'|s to end of
           dst
 
-        \begin{itemize}
-          \item dst must be large enough
-          \item n < size of dst
-        \end{itemize}
+        \item dst must be large enough
+        \item n < size of dst
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
   \frametitle{Sized Version of the Functions}
   \begin{itemize}
     \item <span class="hl-orange">strncmp(str1, str2, n):</span>
     \begin{itemize}
       \item compares the first <span class="hl-green">x</span> chars
       \item
-        <span class="hl-green">x</span> = min{ n, strlen(str1) + 1,
-        strlen(str2) + 1 }
+        <span class="hl-green">x</span> = min( n, strlen(str1) + 1,
+        strlen(str2) + 1 )
 
     \end{itemize}
-    \item <span class="hl-orange">strncat(dst, src, n):</span>
+    \item \mintinline{c}|strncat(dst, src, n)|:
     \begin{itemize}
       \item
         Appends the <span class="hl-green">x</span> chars from src to dst
 
-      \item <span class="hl-green">x</span> = min{ n, strlen(src) }
+      \item \textit{\color{RubineRed} x} = min{ n, strlen(src) }
       \item
-        Adds ‘\0’ to end of dst <span class="hl-red">unlike</span>
-        <span class="hl-cyan">strncpy</span>
+        Adds \mintinline{c}|'\0'| to end of dst \textbf{\color{RubineRed} unlike}
+        \textit{\color{Cyan} strncpy}
 
       \item dst must be large enough
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \begin{minted}[bgcolor=Black]{c}
 char s1[] = "Hello";
 char s2[] = "Hell";
@@ -970,7 +964,7 @@ printf("%d\n", strncmp(s1, s2, 5)); // s1 > s2
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Numbers and Strings: number &rarr; string}
+  \frametitle{Numbers and Strings: number \textrightarrow string}
   \begin{itemize}
     \item To convert a number to string
     \begin{minted}[bgcolor=Black]{c}
@@ -992,8 +986,8 @@ sprintf(str1, "%0.2f", f); // str1 = “10.11”
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Numbers and Strings: string &rarr; number}
+\begin{frame}[fragile]
+  \frametitle{Numbers and Strings: string \textrightarrow number}
   \begin{itemize}
     \item To convert from strings to numbers
     \begin{minted}[bgcolor=Black]{c}
@@ -1035,60 +1029,59 @@ str1[2] = '2';
 char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
 char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
     \end{minted}
-    <table class="cell">
-      <tr>
-        <td>'z'</td>
-        <td>'e'</td>
-        <td>'r'</td>
-        <td>'o'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-      </tr>
-      <tr>
-        <td>'u'</td>
-        <td>'n'</td>
-        <td>'o'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-      </tr>
-      <tr>
-        <td>'d'</td>
-        <td>'u'</td>
-        <td>'e'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-      </tr>
-      <tr>
-        <td>'t'</td>
-        <td>'r'</td>
-        <td>'e'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-        <td>'\0'</td>
-      </tr>
-      <tr>
-        <td>'q'</td>
-        <td>'u'</td>
-        <td>'a'</td>
-        <td>'t'</td>
-        <td>'t'</td>
-        <td>'r'</td>
-        <td>'o'</td>
-        <td>'\0'</td>
-      </tr>
-    </table>
+    \begin{table}
+    \begin{tabular}{*{8}{c}}
+      \toprule
+        'z' &
+        'e' &
+        'r' &
+        'o' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' \\
+      \midrule
+        'u' &
+        'n' &
+        'o' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' \\
+      \midrule
+        'd' &
+        'u' &
+        'e' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' \\
+      \midrule
+        't' &
+        'r' &
+        'e' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' &
+        '\textbackslash 0' \\
+      \midrule
+        'q' &
+        'u' &
+        'a' &
+        't' &
+        't' &
+        'r' &
+        'o' &
+        '\textbackslash 0' \\
+      \bottomrule
+    \end{tabular}
+    \end{table}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{ctype.h}
   \begin{itemize}
@@ -1101,84 +1094,88 @@ char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{ctype.h}
   \begin{itemize}
     \item int isdigit(ch)
     \begin{itemize}
-      <li class="fragment" data-fragment-index="1">
-        Check ch is digital char or not
-
+      \item Check ch is digital char or not
     \end{itemize}
+
+    \pause
+
     \item int isalpha(ch)
     \begin{itemize}
-      <li class="fragment" data-fragment-index="2">
-        Check ch is alphabetic or not
-
+      \item Check ch is alphabetic or not
     \end{itemize}
+
+    \pause
+
     \item int islower(ch)
     \begin{itemize}
-      <li class="fragment" data-fragment-index="3">
-        Check ch is lowercase alphabetic or not
-
+      \item Check ch is lowercase alphabetic or not
     \end{itemize}
+
+    \pause
+
     \item int isupper(ch)
     \begin{itemize}
-      <li class="fragment" data-fragment-index="4">
-        Check ch is uppercase alphabetic or not
-
+      \item Check ch is uppercase alphabetic or not
     \end{itemize}
+
+    \pause
+
     \item char tolower(ch)
     \begin{itemize}
-      <li class="fragment" data-fragment-index="5">
-        Convert ch to lowercase and return it
-
+      \item Convert ch to lowercase and return it
     \end{itemize}
+
+    \pause
+
     \item char toupper(ch)
     \begin{itemize}
-      <li class="fragment" data-fragment-index="6">
-        Convert ch to upper case and return it
-
+      \item Convert ch to upper case and return it
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="5"></div>
-\end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Common Bugs \& Avoiding them}
-    \begin{itemize}
-      \item Strings which are used as destination
-      \begin{itemize}
-        \item scanf, sprintf, strcpy, ....
-        \item Must be large enough
-      \end{itemize}
-      \item Take care about the ‘\0’
-      \begin{itemize}
-        \item You should never destroy it, some library functions do!
-      \end{itemize}
-      \item
-        Out of range array index!!!! (read/write, wrong size in function,
-        multidimensional array memory)
 
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \frametitle{Common Bugs \& Avoiding them}
+\section{Bugs and avoiding them}
+
+\begin{frame}
+  \frametitle{Common Bugs \& Avoiding them}
+  \begin{itemize}
+    \item Strings which are used as destination
     \begin{itemize}
-      \item You cannot assign a value to array
-      <pre><code class="hljs lang-c">
+      \item scanf, sprintf, strcpy, \ldots
+      \item Must be large enough
+    \end{itemize}
+    \item Take care about the \mintinline{c}|'\0'|
+    \begin{itemize}
+      \item You should never destroy it, some library functions do!
+    \end{itemize}
+    \item
+      Out of range array index!!!! (read/write, wrong size in function,
+      multidimensional array memory)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Common Bugs \& Avoiding them}
+  \begin{itemize}
+    \item You cannot assign a value to array
+    \scriptsize
+    \begin{minted}[bgcolor=Black]{c}
 int a[4], b[4];
 a = b; // error: assignment to expression with array type
 a = 4; // error: assignment to expression with array type
-      </code></pre>
-      \item To debug
-      \begin{itemize}
-        \item Print the array index and corresponding value
-      \end{itemize}
+    \end{minted}
+    \normalsize
+    \item To debug
+    \begin{itemize}
+      \item Print the array index and corresponding value
     \end{itemize}
-  \end{frame}
+  \end{itemize}
 \end{frame}
 
 \end{document}
