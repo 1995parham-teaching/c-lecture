@@ -33,19 +33,18 @@ pi = &i;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Pointer: Declaration and Initialization}
   \begin{itemize}
     \item
-      <span class="hl-orange">&lt;type&gt;</span>*
-      <span class="hl-green">&lt;identifier&gt;</span>;
-
+      {\color{Orange}<type>}*
+      {\color{LimeGreen}<identifier>};
     \item Example
     \begin{minted}[bgcolor=Black]{c}
 int i, *pi;
 pi = &i;
 float f;
-float *pf = &amp;f;
+float *pf = &f;
     \end{minted}
   \end{itemize}
 \end{frame}
@@ -62,7 +61,7 @@ int *pi, *pj, i, j;
     \begin{itemize}
       \item
         If you assign a value to it:
-        <span class="hl-green">pi = &amp;i;</span>
+        \mint{c}|pi = &i;|
 
       \begin{itemize}
         \item The address is saved in <span class="hl-cyan">pi</span>
@@ -103,63 +102,63 @@ int *pi, *pj, i, j;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Using Pointers: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int i = 10, j;
 /* address of i is 100, value of i is 10 */
 /* address of j is 200, value of j is ?? */
 int *pi;
 /* address of pi is 300, value of pi is ?? */
-pi = &amp;i;
+pi = &i;
 /* address of pi is 300, value of pi is 100 */
 j = *pi;
 /* address of j is 200, value of j is 10 */
 *pi = 20;
 /* address of pi is 300, value of pi is 100 */
 /* address of i is 100, value of i is 20 */
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Using Pointers: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 double d1, d2, *pda, *pdb;
 d1 = 10;
 d2 = 20;
-pda = &amp;d1;
-pdb = &amp;d1;
+pda = &d1;
+pdb = &d1;
 *pda = 15;
 d2 = d2 + *pdb;
 printf("d2 = %f\n", d2); // d2 = 35.0
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Pointer: Reference to Memory}
   \begin{itemize}
     \item Pointer variable contains an address
     \item There is a special address
-    \begin{itemize}
-      <li class="hl-orange">NULL
-    \end{itemize}
+    \mint{c}|NULL|
     \item We can <span class="hl-green">NOT</span>
     \begin{itemize}
       \item Read any value from NULL
       \item Write any value to NULL
     \end{itemize}
-    \item If you try to read/write &rarr; Run time error
-    \item NULL is usually used
+    \item If you try to read/write \textrightarrow Run time error
+    \item \mintinline{c}|NULL| is usually used
     \begin{itemize}
       \item For pointer initialization
       \item Check some conditions
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="1"></div>
-\end{frame}
-\begin{frame}
+
+\section{Pointers and Functions}
+
+\begin{frame}[fragile]
   \frametitle{Call by value}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void func(int y){
   y = 0;
 }
@@ -169,7 +168,7 @@ void main(void){
   func(x);
   printf("%d", x); // 100 not 0
 }
-  </code></pre>
+  \end{minted}
   \begin{itemize}
     \item Call by value
     \begin{itemize}
@@ -178,7 +177,8 @@ void main(void){
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Call by reference}
   \begin{itemize}
     \item Call by reference
@@ -186,29 +186,27 @@ void main(void){
       \item
         The value of variable is <span class="hl-red">not</span> copied to
         function
-
       \item
-        If function changes the input parameter &rarr; the variable passed to
+        If function changes the input parameter \textrightarrow the variable passed to
         the input is changed
-
       \item Is implemented by pointers in C
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void func(int *y){
   *y = 0;
 }
 void main(void){
   int x = 100;
-  func(&amp;x);
+  func(&x);
   printf("%d", x); // 0 ☺️
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Pointers in Functions}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Pointers in Functions}
+  \begin{minted}[bgcolor=Black]{c}
 void add(double a, double b, double *res) {
   *res = a + b;
   return;
@@ -217,50 +215,48 @@ void add(double a, double b, double *res) {
 int main(void) {
   double d1 = 10.1, d2 = 20.2;
   double result = 0;
-  add(d1, d2, &amp;result);
+  add(d1, d2, &result);
   printf("%lf\n", result); // 30.3
   return 0;
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    \frametitle{What happen?}
-    \begin{itemize}
-      <pre><code class="hljs lang-c">double result = 0;</code></pre>
-      \item The address of result is 100, value of result is 0
-      <pre><code class="hljs lang-c">add(d1, d2, &amp;result);</code></pre>
-      \item
-        <span class="hl-orange">Value</span> of d1,
-        <span class="hl-orange">Value</span> of d2 and the
-        <span class="hl-green">address</span> of result is
-        <span class="hl-green">copied</span> to add
-
-      <pre><code class="hljs lang-c">add(double a, double b, double *res)</code></pre>
-      \item
-        Value of a is the value of d1, value of b is the value of d2 and value
-        of <span class="hl-orange">res is 100</span> and the
-        <span class="hl-green">value of *res is 0</span>
-
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      <pre><code class="hljs lang-c">*res = a + b;</code></pre>
-      \item
-        Value of a is added to b and output is saved in
-        <span class="hl-orange">the referred address by res (100)</span>
-
-      \item
-        But the 100 is the address of <span class="hl-cyan">result</span>.
-        Therefore the value is saved in memory location result
-
-    \end{itemize}
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Swap function ❌}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{What happen?}
+  \begin{itemize}
+    \mint{c}|double result = 0;|
+    \item The address of result is 100, value of result is 0
+    \mint{c}|add(d1, d2, &result);|
+    \item
+      <span class="hl-orange">Value</span> of d1,
+      <span class="hl-orange">Value</span> of d2 and the
+      <span class="hl-green">address</span> of result is
+      <span class="hl-green">copied</span> to add
+
+    \mint{c}|add(double a, double b, double *res)|
+    \item
+      Value of a is the value of d1, value of b is the value of d2 and value
+      of <span class="hl-orange">res is 100</span> and the
+      <span class="hl-green">value of *res is 0</span>
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \mint{c}|*res = a + b;|
+    \item
+      Value of a is added to b and output is saved in
+      <span class="hl-orange">the referred address by res (100)</span>
+    \item
+      But the 100 is the address of <span class="hl-cyan">result</span>.
+      Therefore the value is saved in memory location result
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Swap function ❌}
+  \begin{minted}[bgcolor=Black]{c}
 void swap(double a, double b) {
   double temp;
   temp = a;
@@ -276,11 +272,12 @@ int main(void){
   printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 10.1, d2 = 20.2
   return 0;
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    \frametitle{Swap function ✅}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Swap function ✅}
+  \begin{minted}[bgcolor=Black]{c}
 void swap(double *a, double *b) {
   double temp;
   temp = *a;
@@ -292,12 +289,12 @@ void swap(double *a, double *b) {
 void main(void) {
   double d1 = 10.1, d2 = 20.2;
   printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 10.1, d2 = 20.1
-  swap(&amp;d1, &amp;d2);
+  swap(&d1, &d2);
   printf("d1 = %lf, d2 = %lf\n", d1, d2); // d1 = 20.2, d2 = 10.1
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Pointer as the function output}
   \begin{itemize}
@@ -318,61 +315,63 @@ void main(void) {
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Pointer as the function output}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int gi;
 
 int *func_a(void) {
-  return &amp;gi;
+  return &gi;
 }
 
 float *func_b(void) {
   static float x;
-  return &amp;x;
+  return &x;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
-\begin{frame}
+
+\section{Pointers and Arrays}
+
+\begin{frame}[fragile]
   \frametitle{Operations on Pointers}
   \begin{itemize}
     \item Arithmetic
     <p>
-      <span class="hl-orange">&lt;pointer&gt;</span> - or +
-      <span class="hl-green">&lt;integer&gt;</span> (or
-      <span class="hl-orange">&lt;pointer&gt;</span> -= or +=
-      <span class="hl-green">&lt;integer&gt;</span>)<br />
-      <span class="hl-orange">&lt;pointer&gt;</span> -
-      <span class="hl-orange">&lt;pointer&gt;</span> (they must be the same
+      <span class="hl-orange"><pointer></span> - or +
+      <span class="hl-green"><integer></span> (or
+      <span class="hl-orange"><pointer></span> -= or +=
+      <span class="hl-green"><integer></span>)<br />
+      <span class="hl-orange"><pointer></span> -
+      <span class="hl-orange"><pointer></span> (they must be the same
       type)<br />
-      <span class="hl-orange">&lt;pointer&gt;</span>++ or
-      <span class="hl-orange">&lt;pointer&gt;</span>--
+      <span class="hl-orange"><pointer></span>++ or
+      <span class="hl-orange"><pointer></span>--
     </p>
     \item Comparison between pointers
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int arr[20];
 int *pi, *pj, i;
-pi = &amp;arr[10];
-pj = &amp;arr[15];
+pi = &arr[10];
+pj = &arr[15];
 i = pj - pi; // i = 5
 i = pi - pj; // i = -5
-if(pi &lt; pj) // if is True
+if(pi < pj) // if is True
 if(pi == pj) // if is False
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Operations on Pointers Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int *pi, *pj, *pk, i, j, k;
 char *pa, *pb, *pc, a, b, c;
-pi = &amp;i;
+pi = &i;
 pj = pi + 2;
 pk = pj + 2;
-pa = &amp;a;
+pa = &a;
 pb = pa + 2;
 
 i = pj - pi; // i = 2
@@ -382,32 +381,34 @@ k = pk - pi; // k = 4
 pi = pj + pk; // compile error: No + for 2 pointers
 pc = pi; // compile error: Different types
 i = pa – pi; // compile error: Different ptr types
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \frametitle{Array &amp; Pointers}
+
+\begin{frame}[fragile]
+  \frametitle{Array \& Pointers}
   \begin{itemize}
     \item Pointer can refer to each element in an array
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int a[20];
 int *pa;
-pa = &amp;a[10]; // pa refers to element 10
+pa = &a[10]; // pa refers to element 10
 a[11] = *pa; // value of pa is saved in element 11
-    </code></pre>
+    \end{minted}
     \item The name of array is the pointer to the first element
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 pa = a; // pa refers to element 0
-pa = &amp;a[0];// pa refers to element 0
-    </code></pre>
+pa = &a[0];// pa refers to element 0
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \frametitle{Array &amp; Pointers}
-  <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Array \& Pointers}
+  \begin{minted}[bgcolor=Black]{c}
 int a[50];
 int *pa;
 pa = a;
-  </code></pre>
+  \end{minted}
   \begin{itemize}
     \item If address a = 100
     \begin{itemize}
@@ -428,12 +429,13 @@ pa = a;
     <span class="hl-green">*(p + i)</span>
   </p>
 \end{frame}
-\begin{frame}
-  \frametitle{Arrays &amp; Pointers: Similarity}
-  <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Arrays \& Pointers: Similarity}
+  \begin{minted}[bgcolor=Black]{c}
 int arr[20], *pi, j;
 
-pi = &amp;arr[0]; // pi refers to array
+pi = &arr[0]; // pi refers to array
 
 pi = pi + 2; // pi refers to element 2
 
@@ -446,10 +448,11 @@ pi = arr + 2; // pi refers to element 2
 
 /* pi is used as array */
 j = pi[8]; // value of element 10
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \frametitle{Arrays &amp; Pointers: Difference}
+
+\begin{frame}[fragile]
+  \frametitle{Arrays \& Pointers: Difference}
   \begin{itemize}
     \item We can change pointers
     \begin{itemize}
@@ -457,36 +460,34 @@ j = pi[8]; // value of element 10
     \end{itemize}
     \item We cannot change the array variable
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int arr[20], arr2[20], *pi;
 pi = arr;
 pi++;
 arr2 = pi; // Compile error
 arr2 = arr; // Compile error
 arr++; // Compile error
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Arrays in Functions}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int func1(int num[90]) {  }
 int func2(int num[], int size) { }
 int func3(int *num, int size) { }
-  </code></pre>
-  <hr />
-  <div>
-    <pre><code class="hljs lang-c"> int f(int num[], int size); </code></pre>
+  \end{minted}
+  \begin{block}{}
+    \mintinline{c}|int f(int num[], int size);|
     and
-    <pre><code class="hljs lang-c"> int f(int *num, int size); </code></pre>
+    \mintinline{c}|int f(int *num, int size);|
     are the same.
-  </div>
+  \end{block}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{A Function which Copies an Array into another}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 void array_copy_wrong1(int a[], int b[]) {
   a = b;
 }
@@ -497,22 +498,26 @@ int main() {
 
   array_copy_wrong1(b, a);
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{output}
 [0] = 0
 [1] = 0
 [2] = 0
 [3] = 0
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 void array_copy_wrong2(int *a, int *b){
    a = b;
 }
@@ -523,24 +528,28 @@ int main() {
 
   array_copy_wrong2(b, a);
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{output}
 [0] = 0
 [1] = 0
 [2] = 0
 [3] = 0
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 void array_copy1(int dst[], int src[], int size){
-	for(int i = 0; i &lt; size; i++)
+	for(int i = 0; i < size; i++)
 		dst[i] = src[i];
 }
 
@@ -550,24 +559,28 @@ int main() {
 
   array_copy1(b, a, 4);
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{output}
 [0] = 1
 [1] = 2
 [2] = 3
 [3] = 4
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 void array_copy2(int *dst, int *src, int size){
-	for(int i = 0; i &lt; size; i++)
+	for(int i = 0; i < size; i++)
 		dst[i] = src[i];
 }
 
@@ -577,24 +590,28 @@ int main() {
 
   array_copy2(b, a, 4);
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{output}
 [0] = 1
 [1] = 2
 [2] = 3
 [3] = 4
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 void array_copy3(int *dst, int *src, int size){
-  for(int i = 0; i &lt; size; i++)
+  for(int i = 0; i < size; i++)
     *(dst + i) = *(src + i);
 }
 
@@ -604,24 +621,28 @@ int main() {
 
   array_copy3(b, a, 4);
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{output}
 [0] = 1
 [1] = 2
 [2] = 3
 [3] = 4
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 void array_copy4(int *dst, int *src, int size){
-  for(int i = 0; i &lt; size; i++, src++, dst++)
+  for(int i = 0; i < size; i++, src++, dst++)
     *dst = *src;
 }
 
@@ -631,63 +652,64 @@ int main() {
 
   array_copy4(b, a, 4);
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d] = %d\n", i, b[i]);
   }
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <pre><code>
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{output}
 [0] = 1
 [1] = 2
 [2] = 3
 [3] = 4
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{A Function which Copies an Array into another}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{minted}[bgcolor=Black]{c}
 int t1[10] = { 0 };
 int t2[10] = { 0 };
 int t3[10] = { 0 };
 int t4[10] = { 0 };
 int x[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      \item array_copy1(t1, x, 10);
-      <pre><code class="hljs lang-c">
-t1 = { 1 2 3 4 5 6 7 8 9 10 }
-      </code></pre>
-      \item array_copy2(t2, x + 2, 8);
-      <pre><code class="hljs lang-c">
-t2 = { 3 4 5 6 7 8 9 10 0 0 }
-      </code></pre>
-      \item array_copy3(&amp;(t3[5]), x, 5);
-      <pre><code class="hljs lang-c">
-t3 = { 0 0 0 0 0 1 2 3 4 5 }
-      </code></pre>
-      \item array_copy4(t4 + 6, &amp;x[8], 2);
-      <pre><code class="hljs lang-c">
-t4 = { 0 0 0 0 0 0 9 10 0 0 }
-      </code></pre>
-    \end{itemize}
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A Function which Copies an Array into another}
+  \begin{itemize}
+    \item array_copy1(t1, x, 10);
+    \begin{minted}[bgcolor=Black]{c}
+t1 = { 1 2 3 4 5 6 7 8 9 10 }
+    \end{minted}
+    \item array_copy2(t2, x + 2, 8);
+    \begin{minted}[bgcolor=Black]{c}
+t2 = { 3 4 5 6 7 8 9 10 0 0 }
+    \end{minted}
+    \item array_copy3(&(t3[5]), x, 5);
+    \begin{minted}[bgcolor=Black]{c}
+t3 = { 0 0 0 0 0 1 2 3 4 5 }
+    \end{minted}
+    \item array_copy4(t4 + 6, &x[8], 2);
+    \begin{minted}[bgcolor=Black]{c}
+t4 = { 0 0 0 0 0 0 9 10 0 0 }
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Difference between two sets}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 int search(int *arr, int size, int num){
   int i;
-  for(i = 0; i &lt; size; i++)
+  for(i = 0; i < size; i++)
     if(arr[i] == num)
       return 1;
   return 0;
@@ -696,7 +718,7 @@ int search(int *arr, int size, int num){
 int sub_set(int *arr1, int size_arr1, int *arr2, int size_arr2, int *res){
   int i;
   int result_index = 0;
-  for(i = 0; i &lt; size_arr1; i++) {
+  for(i = 0; i < size_arr1; i++) {
     if(search(arr2, size_arr2, arr1[i]) == 0) {
       res[result_index] = arr1[i];
       result_index++;
@@ -706,7 +728,7 @@ int sub_set(int *arr1, int size_arr1, int *arr2, int size_arr2, int *res){
 }
 
 void print_arr(int *arr, int size) {
-  for(int i = 0; i &lt; size; i++)
+  for(int i = 0; i < size; i++)
     printf("%d ", arr[i]);
   printf("\n");
 }
@@ -719,15 +741,16 @@ int main(void) {
 
   result_size = sub_set(a1, sizeof(a1) / sizeof(int), a2, sizeof(a2) / sizeof(int), res);
 
-  if (result_size &gt; 0)
+  if (result_size > 0)
     print_arr(res, result_size);
   else
     printf("a1 - a2 = {}\n");
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Array of pointers}
   \begin{itemize}
     \item Pointer is a type in C
@@ -736,35 +759,35 @@ int main(void) {
       \item We can define array of pointer
     \end{itemize}
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int i = 10, j = 20, k = 30;
 int *arr_of_pointers[10];
 
-arr_of_pointers[0] = &amp;i;
-arr_of_pointers[1] = &amp;j;
-arr_of_pointers[2] = &amp;k;
+arr_of_pointers[0] = &i;
+arr_of_pointers[1] = &j;
+arr_of_pointers[2] = &k;
 
 *arr_of_pointers[1] = *arr_of_pointers[2];
 
 &rarr; i = 10, j = 30, k = 30
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="3"></div>
-\end{frame}
-\begin{frame}
-  \frametitle{Strings &amp; Pointers}
+
+\section{Pointers and Strings}
+
+\begin{frame}[fragile]
+  \frametitle{Strings \& Pointers}
   \begin{itemize}
     \item Since strings are array
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char str1[8] = "program";
 char str2[] = "program";
 char str3[] = {'p', 'r', 'o', 'g', 'r', 'a', 'm', '\0'};
-    </code></pre>
+    \end{minted}
     \item Because arrays are similar to pointers
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char *str4 = "program";
-    </code></pre>
+    \end{minted}
     <table class="cell">
       <tr>
         <th>0</th>
@@ -789,6 +812,7 @@ char *str4 = "program";
     </table>
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Strings in C (cont’d)}
   \begin{itemize}
@@ -815,24 +839,26 @@ char *str4 = "program";
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{char Array vs. char *: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 // this is array initialization
 char str1[8] = "program";
 // this is a constant string
 char *str2 = "program";
-  </code></pre>
-  <pre><code class="hljs lang-c">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
 str1[6] = 'z';
 str2 = "new string";
-  </code></pre>
-  <pre><code class="hljs lang-c">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
 str1 = "new array"; // Compile Error
 str2[1] = 'z'; // Runtime Error
 *(str2 + 3) = 'a'; // Runtime Error
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Empty vs. Null}
   \begin{itemize}
@@ -841,83 +867,80 @@ str2[1] = 'z'; // Runtime Error
       \item Is <span class="hl-orange">not</span> null pointer
       \item Is <span class="hl-green">not</span> uninitialized pointer
     \end{itemize}
-    <img
-      src="img/null-empty-string.png"
-      alt="null-empty-string"
-      height="300px"
-    />
+    \begin{figure}
+      \includegraphics[width=\textwidth]{img/null-empty-string.png}
+    \end{figure}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{More String Functions}
-  \end{frame}
-  \begin{frame}
+
+\begin{frame}[fragile]
+  \frametitle{More String Functions}
+  \begin{itemize}
+    \item
+      char * strchr( <span class="hl-orange">const char *s</span>,
+      <span class="hl-green">char c</span>
+      )
     \begin{itemize}
       \item
-        char * strchr( <span class="hl-orange">const char *s</span>,
-        <span class="hl-green">char c</span>
-        )
+        Return the <span class="hl-cyan">pointer</span> to the first
+        occurrence of <span class="hl-green">c</span> in
+        <span class="hl-orange">s</span> or
+        <span class="hl-yellow">NULL</span>
 
-      \begin{itemize}
-        \item
-          Return the <span class="hl-cyan">pointer</span> to the first
-          occurrence of <span class="hl-green">c</span> in
-          <span class="hl-orange">s</span> or
-          <span class="hl-yellow">NULL</span>
-
-        <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 char *s="ABZDEZFZ";
 char *pc = strchr(s, 'Z');
 printf("First index of Z = %d", (pc - s));
 
 First index of Z = 2
-        </code></pre>
-      \end{itemize}
+      \end{minted}
     \end{itemize}
-  \end{frame}
-  \begin{frame}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item
+      char * strstr( <span class="hl-orange">const char *s1</span>,
+      <span class="hl-green">const char *s2</span>
+      )
+
     \begin{itemize}
       \item
-        char * strstr( <span class="hl-orange">const char *s1</span>,
-        <span class="hl-green">const char *s2</span>
-        )
+        Return <span class="hl-cyan">pointer</span> to the first occurrence of
+        <span class="hl-green">s2</span> in
+        <span class="hl-orange">s1</span> or
+        <span class="hl-yellow">NULL</span>
 
-      \begin{itemize}
-        \item
-          Return <span class="hl-cyan">pointer</span> to the first occurrence of
-          <span class="hl-green">s2</span> in
-          <span class="hl-orange">s1</span> or
-          <span class="hl-yellow">NULL</span>
-
-        <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 char *s="ABCDxyEFxyGH";
 char *pc = strstr(s, "xy");
 printf("First index of xy = %d", (pc - s));
 
 First index of xy = 4
-        </code></pre>
-      \end{itemize}
+      \end{minted}
     \end{itemize}
-  \end{frame}
-  \begin{frame}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item
+      char * strdup(
+      <span class="hl-orange">const char *s1</span>
+      )
+
     \begin{itemize}
       \item
-        char * strdup(
-        <span class="hl-orange">const char *s1</span>
-        )
+        Returns <span class="hl-cyan">a pointer</span> to a null-terminated
+        byte string, which is a duplicate of the string pointed to by
+        <span class="hl-orange">s1</span>.
 
-      \begin{itemize}
-        \item
-          Returns <span class="hl-cyan">a pointer</span> to a null-terminated
-          byte string, which is a duplicate of the string pointed to by
-          <span class="hl-orange">s1</span>.
+      \item
+        The returned pointer must be passed to free to avoid a memory leak.
 
-        \item
-          The returned pointer must be passed to free to avoid a memory leak.
-
-        \item More on free/malloc later
-        <pre><code class="hljs lang-c">
+      \item More on free/malloc later
+      \begin{minted}[bgcolor=Black]{c}
 char *src = "Hello World";
 char *dst = NULL;
 
@@ -928,19 +951,19 @@ dst[0] = 'h'; // there is no compile error 🕺
 printf("Destination: %s\n", dst);
 
 free(dst);
-        </code></pre>
-      \end{itemize}
+      \end{minted}
     \end{itemize}
-  \end{frame}
+  \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{frame}
     \frametitle{Compare n Digits after decimal point of Two Double Number}
   \end{frame}
   \begin{frame}
-    <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <string.h>
 
 int check_equal(double d1, double d2, int n) {
   int dot_index1, dot_index2;
@@ -968,10 +991,10 @@ int main(void) {
   double d1, d2;
 
   printf("Enter numbers d1 and d2: ");
-  scanf("%lf %lf", &amp;d1, &amp;d2);
+  scanf("%lf %lf", &d1, &d2);
 
   printf("Enter n: ");
-  scanf("%d", &amp;n);
+  scanf("%d", &n);
 
   if(check_equal(d1, d2, n))
     printf("Are equal\n");
@@ -980,7 +1003,7 @@ int main(void) {
 
   return 0;
 }
-    </code></pre>
+    \end{minted}
   \end{frame}
 \end{frame}
 \begin{frame}
@@ -988,9 +1011,9 @@ int main(void) {
     \frametitle{String Tokenizer}
   \end{frame}
   \begin{frame}
-    <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <string.h>
 
 int tokenizer(const char *s, const char *token, char result[][100]){
   int result_index = 0;
@@ -1002,7 +1025,7 @@ int tokenizer(const char *s, const char *token, char result[][100]){
   //   ^
   //   |
   //   index
-  // index - s = 2 =&gt; len
+  // index - s = 2 => len
   //
   // hello
   //     ^
@@ -1010,7 +1033,7 @@ int tokenizer(const char *s, const char *token, char result[][100]){
   //     index + strlen(token)
   while((index = strstr(s, token)) != NULL){
     int len = index - s;
-    if(len &gt; 0){
+    if(len > 0){
       strncpy(result[result_index], s, len);
       result[result_index][len] = '\0';
       result_index++;
@@ -1018,7 +1041,7 @@ int tokenizer(const char *s, const char *token, char result[][100]){
     s = index + strlen(token);
   }
 
-  if(strlen(s) &gt; 0){
+  if(strlen(s) > 0){
     strcpy(result[result_index], s);
     result_index++;
   }
@@ -1033,11 +1056,11 @@ int main(void){
   int num = tokenizer(s, token, res);
 
   int i;
-  for(i = 0; i &lt; num; i++)
+  for(i = 0; i < num; i++)
      printf("Token %d = %s\n", i, res[i]);
   return 0;
 }
-    </code></pre>
+    \end{minted}
   \end{frame}
 \end{frame}
 \begin{frame}
@@ -1055,34 +1078,34 @@ int main(void){
     \begin{itemize}
       \item Saving the address of a pointer in another pointer
     \end{itemize}
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int i, j, *pi, *pj;
 int **ppi;
-pi = &amp;i;
-ppi = &amp;pi;
+pi = &i;
+ppi = &pi;
 j = **ppi;
 pj = *ppi;
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
 \begin{frame}
   \frametitle{Pointer to Pointer: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int i = 10, j = 20, k = 30;
 int *pi, *pj, **ppi;
 
-pi = &amp;i;
-pj = &amp;j;
-ppi = &amp;pi;
+pi = &i;
+pj = &j;
+ppi = &pi;
 
 printf("%d\n", *pi); // 10
 printf("%d\n", **ppi); // 10
-ppi = &amp;pj;
+ppi = &pj;
 **ppi = 100;
 printf("%d\n", j); // 100
-*ppi = &amp;k;
+*ppi = &k;
 printf("%d\n", *pj); // 30
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Pointer to functions}
@@ -1096,10 +1119,10 @@ printf("%d\n", *pj); // 30
       \item A pointer that store the address of a function
     \end{itemize}
     <p>
-      <span class="hl-orange">&lt;type&gt;</span> (
-      <span class="hl-green">*&lt;identifier&gt;</span>)(
-      <span class="hl-cyan">&lt;type1&gt;</span>,
-      <span class="hl-cyan">&lt;type2&gt;</span>, ...)
+      <span class="hl-orange"><type></span> (
+      <span class="hl-green">*<identifier></span>)(
+      <span class="hl-cyan"><type1></span>,
+      <span class="hl-cyan"><type2></span>, ...)
     </p>
     <p>
       <span class="hl-orange">int</span> (<span class="hl-green">*pf</span>)(
@@ -1115,7 +1138,7 @@ printf("%d\n", *pj); // 30
 \end{frame}
 \begin{frame}
   \frametitle{Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int f1(int x, char c){
   printf("This is f1: x = %d, c = %c\n", x, c);
   return 0;
@@ -1128,13 +1151,13 @@ int f2(int n, char m){
 
 int main(void){
   int (*f)(int, char);
-  f = f1; // or f = &amp;f1;
+  f = f1; // or f = &f1;
   (*f)(10, 'a'); // This is f1: x = 10, c = a
-  f = f2; // or f = &amp;f2
+  f = f2; // or f = &f2
   (*f)(100, 'z'); // This is f2: n = 100, m = z
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Pointer to function: Example 1}
@@ -1147,11 +1170,11 @@ int main(void){
       \end{itemize}
     \end{itemize}
     \item Example: atexit
-    <pre><code class="hljs lang-c">
-#include &lt;stdlib.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdlib.h>
 
 int atexit(void (*function)(void));
-    </code></pre>
+    \end{minted}
     \begin{itemize}
       \item To do a function, when the program is terminated
       \begin{itemize}
@@ -1161,9 +1184,9 @@ int atexit(void (*function)(void));
   \end{itemize}
 \end{frame}
 \begin{frame}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 void good_bye(void) {
   printf("Goooodddd Byeee :-)\n");
@@ -1173,13 +1196,13 @@ int main(void){
   int i;
   atexit(good_bye);
   printf("Enter an int: ");
-  scanf("%d", &amp;i);
+  scanf("%d", &i);
 
-  if (i &lt; 0){
+  if (i < 0){
     printf("No negative\n");
     return 0;
   }
-  if (i &gt; 7){
+  if (i > 7){
     printf("No more than 7\n");
     return 0;
   }
@@ -1189,7 +1212,7 @@ int main(void){
     printf("Do the homework \n");
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Pointer to function: Example 2}
@@ -1200,10 +1223,10 @@ int main(void){
       \begin{itemize}
         \item To change function operation in run-time
       \end{itemize}
-      \item Example: qsort function in &lt;stdlib.h&gt;
-      <pre><code class="hljs lang-c">
+      \item Example: qsort function in <stdlib.h>
+      \begin{minted}[bgcolor=Black]{c}
 void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
-      </code></pre>
+      \end{minted}
       \item
         To sort array <span class="hl-orange">arr</span> with
         <span class="hl-green">num</span> elements of size
@@ -1214,20 +1237,20 @@ void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
   \end{itemize}
 \end{frame}
 \begin{frame}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 int int_cmp_asc(const void *i1, const void *i2) {
   int a = *((int *)i1);
   int b = *((int *)i2);
-  return (a &gt; b) ? 1 : (a == b) ? 0 : -1;
+  return (a > b) ? 1 : (a == b) ? 0 : -1;
 }
 
 int int_cmp_dsc(const void *i1, const void *i2) {
   int a = *((int *)i1);
   int b = *((int *)i2);
-  return (a &gt; b) ? -1 : (a == b) ? 0 : 1;
+  return (a > b) ? -1 : (a == b) ? 0 : 1;
 }
 
 int main(void) {
@@ -1235,26 +1258,26 @@ int main(void) {
   int arr[] = {1, 7, 3, 11, 9};
 
   qsort(arr, 5, sizeof(int), int_cmp_asc);
-  for(i = 0; i &lt; 5; i++)
+  for(i = 0; i < 5; i++)
       printf("%d \n", arr[i]);
 
   qsort(arr, 5, sizeof(int), int_cmp_dsc);
-  for(i = 0; i &lt; 5; i++)
+  for(i = 0; i < 5; i++)
       printf("%d \n", arr[i]);
 
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \begin{frame}
     \frametitle{Sort Names with qsort}
   \end{frame}
   \begin{frame}
-    <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
-#include &lt;stdlib.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int name_cmp(const void *e1, const void *e2) {
   char **a = (char**) e1;
@@ -1266,7 +1289,7 @@ int name_cmp(const void *e1, const void *e2) {
 int main() {
   char *names[] = { "Parham", "Ali", "Saman", "Hesam" };
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d]: %s\n", i, names[i]);
   }
 
@@ -1274,11 +1297,11 @@ int main() {
   qsort(names, 4, sizeof(char *), name_cmp);
   printf("--\n");
 
-  for (int i = 0; i &lt; 4; i++) {
+  for (int i = 0; i < 4; i++) {
     printf("[%d]: %s\n", i, names[i]);
   }
 }
-</code></pre>
+\end{minted}
   \end{frame}
 \end{frame}
 \begin{frame}
@@ -1291,7 +1314,7 @@ int main() {
     \begin{itemize}
       \item
         We define variables:
-        <pre><code class="hljs lang-c">int i; int a[200]; int x[n]</code></pre>
+        \mint{c}|int i; int a[200]; int x[n]|
 
       \item
         Memory is allocated for the variables
@@ -1339,44 +1362,47 @@ int main() {
         Heap is managed <span class="hl-orange">by programmer</span> (at least
         in C)
 
-      \item Memory allocation functions &amp; the Free function
+      \item Memory allocation functions \& the Free function
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Dynamic Memory Allocation (cont’d)}
   \begin{itemize}
     \item Memory allocation by <span class="hl-orange">calloc</span>
-    <pre><code class="hljs lang-c">
-#include &lt;stdlib.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdlib.h>
 void * calloc(int num, int size);
-    </code></pre>
+    \end{minted}
     \item
       <span class="hl-green">void *</span> is generic pointer, it can be
       converted to every pointer type
 
     \item Initializes allocated memory to zero
-    \item If memory is not available calloc returns NULL
+    \item If memory is not available calloc returns \mintinline{c}|NULL|
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Dynamic Memory Allocation (cont’d)}
   \begin{itemize}
     \item Memory allocation by <span class="hl-orange">malloc</span>
-    <pre><code class="hljs lang-c">
-#include &lt;stdlib.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdlib.h>
 void * malloc(int size);
-    </code></pre>
+    \end{minted}
     \item
       <span class="hl-green">void *</span> is generic pointer, it can be
       converted to every pointer type
 
-    \item If memory is not available malloc returns NULL
+    \item If memory is not available malloc returns \mintinline{c}|NULL|
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Dynamic Memory Allocation: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int *pi;
 /* allocate memory, convert it to int * (it is not mandatory) */
 pi = (int *) malloc(sizeof(int));
@@ -1387,9 +1413,10 @@ if (pi == NULL){
 
 double *pd;
 pd = calloc(1,sizeof(double));
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Free}
   \begin{itemize}
     \item
@@ -1397,28 +1424,29 @@ pd = calloc(1,sizeof(double));
 
     \item
       In dynamic memory allocation,
-      <span class="hl-orange">we must free</span> the allocated memory
+      \textbf{\color{Orange} we must free} the allocated memory
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int *pi;
 pi = malloc(sizeof(int));
 if (pi != NULL)
   free(pi);
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{1 x N Array}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void){
   int i, n;
   int *arr;
 
   printf("Enter n: ");
-  scanf("%d", &amp;n);
+  scanf("%d", &n);
 
   arr = calloc(n, sizeof(int));
   if (arr == NULL){
@@ -1426,58 +1454,60 @@ int main(void){
     exit(-1);
   }
 
-  for(i = 0; i &lt; n; i++)
+  for(i = 0; i < n; i++)
     /* do you work here */
     arr[i] = i;
 
-  for(i = 0; i &lt; n; i++)
+  for(i = 0; i < n; i++)
     printf("%d\n", arr[i]);
 
   free(arr);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{N x M Array}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void){
   int i, j, n, m;
   int **arr;
 
   printf("Enter n, m: ");
-  scanf("%d%d", &amp;n, &amp;m);
+  scanf("%d%d", &n, &m);
 
   arr = malloc(n * sizeof(int *));
 
-  for(i = 0; i &lt; n; i++)
+  for(i = 0; i < n; i++)
     arr[i] = malloc(m * sizeof(int));
 
-  for(i = 0; i &lt; n; i++)
-    for(j = 0; j &lt; m; j++)
+  for(i = 0; i < n; i++)
+    for(j = 0; j < m; j++)
       arr[i][j] = i * j;
 
-  for(i = 0; i &lt; n; i++)
+  for(i = 0; i < n; i++)
       free(arr[i]);
 
   free(arr);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{BONUS 💯}
-  <p>
+  \begin{block}{}
     Write a code that allocates a 2-dimensional array that each of its rows has
     a different number of columns.
-  </p>
-  <p style="text-align: center">
+  \end{block}
+  \begin{block}{}
     Send your solutions to
-    <a href="mailto:parham.alvani@gmai.com">my email</a> with your student ID.
-  </p>
+    \href{mailto:parham.alvani@gmai.com}{my email} with your student ID.
+  \end{block}
   <table class="cell">
     <tr>
       <td>1</td>
@@ -1501,6 +1531,7 @@ int main(void){
     </tr>
   </table>
 \end{frame}
+
 \begin{frame}
   \frametitle{Reallocation}
   \begin{itemize}
@@ -1508,9 +1539,7 @@ int main(void){
     \begin{itemize}
       \item Expand or Shrink it
     \end{itemize}
-    <pre><code class="hljs lang-c">
-void * realloc(void *p, int newsize);
-    </code></pre>
+    \mint{c}|void * realloc(void *p, int newsize);|
     \item
       Allocate <span class="hl-orange">newsize</span> bytes for pointer
       <span class="hl-green">p</span>
@@ -1522,9 +1551,10 @@ void * realloc(void *p, int newsize);
 
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Reallocation: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int *p;
 p = calloc(2, sizeof(int));
 
@@ -1546,42 +1576,40 @@ printf("%d\n", *p); // ?
 p++;
 
 printf("%d\n", *p); // ?
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="6"></div>
-\end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Common Bugs}
-    \begin{itemize}
-      \item
-        Be <span class="hl-orange">very very</span> careful about pointers
 
-      \begin{itemize}
-        \item Invalid type of value assigned to pointer
-        <pre><code class="hljs lang-c">
-int i, *pi = &amp;i;
+\section{Common Bugs}
+
+\begin{frame}[fragile]
+  \frametitle{Common Bugs}
+  \begin{itemize}
+    \item
+      Be {\color{Orange} very very} careful about pointers
+    \begin{itemize}
+      \item Invalid type of value assigned to pointer
+      \begin{minted}[bgcolor=Black]{c}
+int i, *pi = &i;
 *pi = 29.090; // No warning!!!
-        </code></pre>
-        \item Invalid usage of pointers
-        <pre><code class="hljs lang-c">
+      \end{minted}
+      \item Invalid usage of pointers
+      \begin{minted}[bgcolor=Black]{c}
 int *pi, i;
 pi = i;
 i = pi;
-        </code></pre>
-      \end{itemize}
+      \end{minted}
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \begin{itemize}
-      \item We cannot change constant string
-      <pre><code class="hljs lang-c">
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item We cannot change constant string
+    \begin{minted}[bgcolor=Black]{c}
 char *s = "abc";
 *(s + 1) = 'z'; // Runtime Error
-      </code></pre>
-    \end{itemize}
-  \end{frame}
+    \end{minted}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -1600,11 +1628,9 @@ char *s = "abc";
     \item
       Program testing can be used to show the presence of bugs, but never to
       show their absence!
-
     \item
       Dijkstra's algorithm is an algorithm for finding the shortest paths
       between nodes in a graph
-
   \end{itemize}
 \end{frame}
 
