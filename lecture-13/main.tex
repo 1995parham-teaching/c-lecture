@@ -1,0 +1,133 @@
+\documentclass{../c-lecture}
+
+\subtitle{Miscellaneous}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{File postfix}
+  \begin{itemize}
+    \item Most compilers consider the source code file postfix
+    \begin{itemize}
+      \item .c \textrightarrow C code
+      \item .cc .cpp \textrightarrow C++ code
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{A program in multiple file}
+  \begin{itemize}
+    \item We can create our {\color{Yellow} .h} files
+    \item
+      These files contains \textit{\color{YellowOrange} structs},
+      \textit{\color{LimeGreen} functions declaration}, etc.
+    \item func.c
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+
+void f(int x) {
+  printf("%d", x);
+}
+    \end{minted}
+    \item func.h
+    \begin{minted}[bgcolor=Black]{c}
+#ifndef FUNC_H
+#define FUNC_H
+void f(int);
+#endif
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item Then includes header to use
+    \item main.c
+    \begin{minted}[bgcolor=Black]{c}
+#include "func.h"
+
+int main(void) {
+  f(20);
+}
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Preprocessor Command}
+  \begin{itemize}
+    \item
+      We can use preprocessor commands to control how our code is compiled and
+      etc.
+    \begin{itemize}
+      \item Conditional compilation
+    \end{itemize}
+    \item Main preprocessor commands
+    \begin{minted}[bgcolor=Black]{c}
+#define XYZ // define XYZ as a preprocessor definition (value is not important)
+#ifdef XYZ  // is true if XYZ is defined
+#ifndef XYZ // is true if XYZ is not defined
+#if XYZ     //  is true if XYZ != 0
+#endif      // End of a if block
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+
+#define ABC
+#define XYZ 1
+int main(){
+  #ifdef ABC
+  printf("ABC is defined \n");
+  #endif
+  printf ("I am here\n");
+  #if XYZ
+  printf("XYZ is defined and is not 0\n");
+  #endif
+}
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Preprocessor Command}
+  \begin{itemize}
+    \item Generate code before compilation
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#define A 10
+#define P(x) int x = 10;
+    \end{minted}
+    \begin{minted}[bgcolor=Black]{c}
+int main() {
+  int a = A;
+  P(b);
+  printf("%d\n", a);
+  printf("%d\n", b);
+}
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{itemize}
+    \item Here we have the generated code
+    \begin{minted}[bgcolor=Black]{c}
+int main() {
+  int a = 10;
+  int b = 10;;
+  printf("%d\n", a);
+  printf("%d\n", b);
+}
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
+\end{document}
