@@ -142,8 +142,8 @@ printf("d2 = %f\n", d2); // d2 = 35.0
     \mint{c}|NULL|
     \item We can <span class="hl-green">NOT</span>
     \begin{itemize}
-      \item Read any value from NULL
-      \item Write any value to NULL
+      \item Read any value from \mintinline{c}|NULL|
+      \item Write any value to \mintinline{c}|NULL|
     \end{itemize}
     \item If you try to read/write \textrightarrow Run time error
     \item \mintinline{c}|NULL| is usually used
@@ -478,9 +478,9 @@ int func2(int num[], int size) { }
 int func3(int *num, int size) { }
   \end{minted}
   \begin{block}{}
-    \mintinline{c}|int f(int num[], int size);|
+    \mintinline[bgcolor=Gray]{c}|int f(int num[], int size);|
     and
-    \mintinline{c}|int f(int *num, int size);|
+    \mintinline[bgcolor=Gray]{c}|int f(int *num, int size);|
     are the same.
   \end{block}
 \end{frame}
@@ -683,19 +683,19 @@ int x[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 \begin{frame}[fragile]
   \frametitle{A Function which Copies an Array into another}
   \begin{itemize}
-    \item array_copy1(t1, x, 10);
+    \item \mintinline{c}|array_copy1(t1, x, 10);|
     \begin{minted}[bgcolor=Black]{c}
 t1 = { 1 2 3 4 5 6 7 8 9 10 }
     \end{minted}
-    \item array_copy2(t2, x + 2, 8);
+    \item \mintinline{c}|array_copy2(t2, x + 2, 8);|
     \begin{minted}[bgcolor=Black]{c}
 t2 = { 3 4 5 6 7 8 9 10 0 0 }
     \end{minted}
-    \item array_copy3(&(t3[5]), x, 5);
+    \item \mintinline{c}|array_copy3(&(t3[5]), x, 5);|
     \begin{minted}[bgcolor=Black]{c}
 t3 = { 0 0 0 0 0 1 2 3 4 5 }
     \end{minted}
-    \item array_copy4(t4 + 6, &x[8], 2);
+    \item \mintinline{c}|array_copy4(t4 + 6, &x[8], 2);|
     \begin{minted}[bgcolor=Black]{c}
 t4 = { 0 0 0 0 0 0 9 10 0 0 }
     \end{minted}
@@ -807,7 +807,7 @@ char *str4 = "program";
         <td>'r'</td>
         <td>'a'</td>
         <td>'m'</td>
-        <td>'\0'</td>
+        <td>'\textbackslash 0'</td>
       </tr>
     </table>
   \end{itemize}
@@ -868,7 +868,7 @@ str2[1] = 'z'; // Runtime Error
       \item Is <span class="hl-green">not</span> uninitialized pointer
     \end{itemize}
     \begin{figure}
-      \includegraphics[width=\textwidth]{img/null-empty-string.png}
+      \includegraphics[height=.75\textheight]{img/null-empty-string.png}
     \end{figure}
   \end{itemize}
 \end{frame}
@@ -956,12 +956,9 @@ free(dst);
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \begin{frame}
-    \frametitle{Compare n Digits after decimal point of Two Double Number}
-  \end{frame}
-  \begin{frame}
-    \begin{minted}[bgcolor=Black]{c}
+\begin{frame}[fragile]
+  \frametitle{Compare n Digits after decimal point of Two Double Number}
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <string.h>
 
@@ -982,7 +979,7 @@ int check_equal(double d1, double d2, int n) {
   search_size = dot_index1 + n + 1;
   if(strncmp(s1, s2, search_size) == 0)
     return 1;
-￼ else
+  else
     return 0;
 }
 
@@ -1003,15 +1000,12 @@ int main(void) {
 
   return 0;
 }
-    \end{minted}
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{String Tokenizer}
-  \end{frame}
-  \begin{frame}
-    \begin{minted}[bgcolor=Black]{c}
+
+\begin{frame}[fragile]
+  \frametitle{String Tokenizer}
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <string.h>
 
@@ -1060,13 +1054,12 @@ int main(void){
      printf("Token %d = %s\n", i, res[i]);
   return 0;
 }
-    \end{minted}
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="4"></div>
-\end{frame}
-\begin{frame}
+
+\section{Pointer to Pointer \& Pointer to Function}
+
+\begin{frame}[fragile]
   \frametitle{Pointer to Pointer}
   \begin{itemize}
     \item Pointer is a variable
@@ -1088,7 +1081,8 @@ pj = *ppi;
     \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Pointer to Pointer: Example}
   \begin{minted}[bgcolor=Black]{c}
 int i = 10, j = 20, k = 30;
@@ -1107,6 +1101,7 @@ printf("%d\n", j); // 100
 printf("%d\n", *pj); // 30
   \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Pointer to functions}
   \begin{itemize}
@@ -1136,7 +1131,8 @@ printf("%d\n", *pj); // 30
     </p>
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example}
   \begin{minted}[bgcolor=Black]{c}
 int f1(int x, char c){
@@ -1159,7 +1155,8 @@ int main(void){
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Pointer to function: Example 1}
   \begin{itemize}
     \item Why?
@@ -1183,7 +1180,8 @@ int atexit(void (*function)(void));
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -1214,7 +1212,8 @@ int main(void){
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Pointer to function: Example 2}
   \begin{itemize}
     \item Why?
@@ -1230,13 +1229,13 @@ void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
       \item
         To sort array <span class="hl-orange">arr</span> with
         <span class="hl-green">num</span> elements of size
-        <span class="hl-cyan">element_size</span>. The order between elements is
+        <span class="hl-cyan">element\_size</span>. The order between elements is
         specified by the <span class="hl-red">compare</span> function
-
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -1269,12 +1268,10 @@ int main(void) {
 }
   \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Sort Names with qsort}
-  \end{frame}
-  \begin{frame}
-    \begin{minted}[bgcolor=Black]{c}
+
+\begin{frame}[fragile]
+  \frametitle{Sort Names with qsort}
+  \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -1301,12 +1298,11 @@ int main() {
     printf("[%d]: %s\n", i, names[i]);
   }
 }
-\end{minted}
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="5"></div>
-\end{frame}
+
+\section{Dynamic memory allocation}
+
 \begin{frame}
   \frametitle{Dynamic Memory Allocation}
   \begin{itemize}
@@ -1339,6 +1335,7 @@ int main() {
 
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Heap}
   \begin{itemize}
@@ -1506,30 +1503,32 @@ int main(void){
   \end{block}
   \begin{block}{}
     Send your solutions to
-    \href{mailto:parham.alvani@gmai.com}{my email} with your student ID.
+    \textit{\color{Orange} parham.alvani@gmai.com} with your student ID.
   \end{block}
-  <table class="cell">
-    <tr>
-      <td>1</td>
-      <td>3</td>
-      <td>7</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>9</td>
-      <td>9</td>
-      <td>5</td>
-    </tr>
-  </table>
+  \begin{table}
+  \begin{tabular}{*{8}{c}}
+    \toprule
+      1 &
+      3 &
+      7 &
+      3 &
+      \multicolumn{4}{c}{} \\
+    \midrule
+      7 &
+      8 &
+      \multicolumn{6}{c}{} \\
+    \midrule
+      2 &
+      0 &
+      0 &
+      2 &
+      1 &
+      9 &
+      9 &
+      5 \\
+    \bottomrule
+  \end{tabular}
+  \end{table}
 \end{frame}
 
 \begin{frame}
