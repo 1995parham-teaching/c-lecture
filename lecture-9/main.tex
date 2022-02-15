@@ -969,11 +969,11 @@ printf("%d\n", strncmp(s1, s2, 5)); // s1 > s2
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Numbers and Strings: number &rarr; string}
   \begin{itemize}
     \item To convert a number to string
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h> // sprintf
 
 char str1[100];
@@ -984,7 +984,7 @@ sprintf(str1, "%d", i); // str1 = “100”
 float f = 10.11;
 sprintf(str1, "%0.2f", f); // str1 = “10.11”
 
-    </code></pre>
+    \end{minted}
     \item
       String <span class="hl-orange">str1</span> should have
       <span class="hl-material">sufficient size</span>
@@ -1013,28 +1013,28 @@ sscanf(str2, "%lf", &f); // f = 20.44
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{String as Array}
   \begin{itemize}
     \item Strings are array of chars
     \item We work on arrays element by element
     \item We can work on strings char by char
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char str1[] = "100000";
 str1[2] = '2';
-    </code></pre>
+    \end{minted}
     \item We can pass strings to functions
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Array of Strings}
   \begin{itemize}
     \item 2 dimensional array, each row is a string
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
 char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
-    </code></pre>
+    \end{minted}
     <table class="cell">
       <tr>
         <td>'z'</td>
