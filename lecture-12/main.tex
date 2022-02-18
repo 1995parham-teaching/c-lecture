@@ -20,7 +20,7 @@
   \frametitle{Introduction}
   \begin{itemize}
     \item Data storages of computers:
-    <ol>
+    \begin{enumerate}
       \item Main memory (RAM)
       \begin{itemize}
         \item It is <span class="hl-orange">volatile</span>
@@ -34,7 +34,7 @@
 
         \item Read / Write data using <span class="hl-green">files</span>
       \end{itemize}
-    </ol>
+    \end{enumerate}
   \end{itemize}
 \end{frame}
 
@@ -291,11 +291,9 @@ fclose(FILE *fp);
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  <div class="toc" data-selected="1"></div>
-\end{frame}
+\section{Text File Operations}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Reading/Writing Text File}
   \begin{itemize}
     \item <span class="hl-orange">fscanf</span> reads from file.
@@ -316,7 +314,8 @@ int fscanf(FILE *fp,"format", parameters);
 int fprintf(FILE *fp,"format", parameters);
   \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Text File: Example}
   \begin{minted}[bgcolor=Black]{c}
 <Number of students>
@@ -326,7 +325,7 @@ int fprintf(FILE *fp,"format", parameters);
 <id of student n> <grade of student n>
   \end{minted}
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Average of Students' Grade}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -368,7 +367,7 @@ int main() {
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Upper Average Students 🤓 v1}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -435,7 +434,7 @@ int main() {
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Upper Average Students 🤓 v2}
   \begin{minted}[bgcolor=Black]{c}
 #include <tstdio.h>
@@ -505,7 +504,7 @@ int main() {
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Reading/Writing Characters (Text Files)}
   \begin{itemize}
     \item To write a character to file
@@ -519,7 +518,8 @@ char fgetc(FILE *fp);
   \end{itemize}
   <p>Returns EOF if reaches to End of File</p>
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{cp <src> <dst>}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -559,39 +559,38 @@ int main() {
 }
   \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Checking End of File}
-    \begin{itemize}
-      \item Each file has two indicators
-      \begin{itemize}
-        \item End of fie indicator
-        \item Error indicator
-      \end{itemize}
-      \item
-        These indicators are set when we want to read but there is not enough
-        data or there is an error
 
-      \item How to use
+\begin{frame}
+  \frametitle{Checking End of File}
+  \begin{itemize}
+    \item Each file has two indicators
+    \begin{itemize}
+      \item End of fie indicator
+      \item Error indicator
+    \end{itemize}
+    \item
+      These indicators are set when we want to read but there is not enough
+      data or there is an error
+    \item How to use
+    \begin{itemize}
+      \item Try to read
+      \item If the number of read object is less than expected
       \begin{itemize}
-        \item Try to read
-        \item If the number of read object is less than expected
-        \begin{itemize}
-          \item Check end of file &rarr; feof
-          \item Check error of file &rarr; ferror
-        \end{itemize}
+        \item Check end of file \textrightarrow \textit{\color{YellowOrange} feof}
+        \item Check error of file \textrightarrow \textit{\color{LimeGreen} ferror}
       \end{itemize}
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <p>
-      feof tells that an attempt has been made to read past the end of the file,
-      which is not the same as that we just read the last data item from a file.
-      We have to read one past the last data item for feof to return nonzero.
-    </p>
-  \end{frame}
+  \end{itemize}
 \end{frame}
 \begin{frame}
+  \begin{block}
+    feof tells that an attempt has been made to read past the end of the file,
+    which is not the same as that we just read the last data item from a file.
+    We have to read one past the last data item for feof to return nonzero.
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Checking End of File}
   \begin{minted}[bgcolor=Black]{c}
 while(1){
@@ -602,7 +601,7 @@ while(1){
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Read/Write a Line}
   \begin{itemize}
     \item We can read a line of file
@@ -617,17 +616,18 @@ char* fgets(char* buff, int maxnumber, FILE* fp);
     \item Read at most <span class="hl-orange">maxnumber-1</span> chars
     \item
       Reading stops after <span class="hl-cyan">EOF</span> or
-      <span class="hl-cyan">\n</span>
+      \mintinline{c}|'\n'|
 
-    \item If a <span class="hl-cyan">\n</span> is read it is stored in buffer
-    \item Add <span class="hl-violet">\0</span> to the end of string
+    \item If a \mintinline{c}|'\n'| is read it is stored in buffer
+    \item Add \mintinline{c}|'\0'| to the end of string
     \item
       If reach to end of file without reading any character, return
       <span class="hl-red">NULL</span>
 
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Read/Write a Line}
   \begin{itemize}
     \item We can write a line to file
@@ -635,10 +635,11 @@ char* fgets(char* buff, int maxnumber, FILE* fp);
 int fputs(char* buff, FILE* fp);
     \end{minted}
     \item Write the string <span class="hl-orange">buff</span> to file
-    \item Does <span class="hl-red">NOT</span> add \n at the end
+    \item Does <span class="hl-red">NOT</span> add \mintinline{c}|'\n'| at the end
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Read/Write a Line}
   \begin{itemize}
     \item Read a line without knowing its maximum length
@@ -652,7 +653,8 @@ int getline(char** linep, int* linecapp, FILE* stream);
     \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example: Count the number of lines}
   \begin{minted}[bgcolor=Black]{c}
 char buf[500]; // 500 > every line length
@@ -673,7 +675,8 @@ while(fgets(buf, 500, fpin) != NULL)
 printf("Number of Lines = %d\n", count);
   \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example: Count the number of lines}
   \begin{minted}[bgcolor=Black]{c}
 char *buf = NULL;
@@ -698,7 +701,8 @@ while(getline(&buf, &length, fpin) > -1) {
 printf("Number of Lines = %d\n", count);
   \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Maximum Line Length Issue}
   \begin{minted}[bgcolor=Black]{c}
 12345678910
@@ -713,9 +717,9 @@ Number of Lines = 3
 Number of Lines = 2
   \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
+
+\section{Binary File Operations}
+
 \begin{frame}
   \frametitle{Binary Files: A Different File Format}
   \begin{itemize}
@@ -753,10 +757,10 @@ fscanf(fp, “%d”, &i)
       \item
         Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2
         which mean integer number 10
-
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}[fragile]
   \frametitle{No Conversion to ASCII}
   \begin{itemize}
@@ -781,7 +785,7 @@ fread(&i, sizeof(int), 1, fp)
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Writing to Binary Files}
   \begin{minted}[bgcolor=Black]{c}
 int fwrite(void *buf, int size, int num, FILE *fp)
@@ -793,14 +797,14 @@ int fwrite(void *buf, int size, int num, FILE *fp)
 
     \item Size of each object is <span class="hl-yellow">size</span>.
     \item Returns the number of written objects.
-    \item If (return_val < <span class="hl-orange">num</span>)
+    \item If (return\_val < <span class="hl-orange">num</span>)
     \begin{itemize}
       \item There is an error
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Reading from Binary Files}
   \begin{minted}[bgcolor=Black]{c}
 int fread(void *buf, int size, int num, FILE *fp)
@@ -815,12 +819,12 @@ int fread(void *buf, int size, int num, FILE *fp)
     \item If (return val < <span class="hl-orange">num</span>)
     \begin{itemize}
       \item There is an error
-      \item Or EOF &rarr; Check with feof
+      \item Or EOF \textrightarrow Check with feof
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{fread: Examples}
   \begin{itemize}
     \item Reading 1 int from binary file fp
@@ -834,19 +838,19 @@ fread(&i, sizeof(int), 1, fp);
         Read <span class="hl-orange">1</span> object from file
         <span class="hl-violet">fp</span>.
 
-      \item Save result in <span class="hl-green">&i</span>.
+      \item Save result in \mintinline{c}|&i|.
       \item
         The size of the object is <span class="hl-yellow">sizeof(int)</span>
 
     \end{itemize}
-    \item It reads 4 bytes from file and saves in &i
+    \item It reads 4 bytes from file and saves in \mintinline{c}|&i|
     \begin{itemize}
       \item We read an integer from file and save it in i
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{fread: Examples}
   \begin{itemize}
     \item Read five floats
@@ -873,7 +877,7 @@ fread(farr, sizeof(float), 5, fp);
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{fwrite: Examples}
   \begin{itemize}
     \item Writing 1 char to binary file fp
@@ -885,19 +889,19 @@ fwrite(&c, sizeof(char), 1, fp);
     \begin{itemize}
       \item
         Write <span class="hl-orange">1</span> object from
-        <span class="hl-green">&c</span> into file
+        <span class="hl-green">\&c</span> into file
         <span class="hl-violet">fp</span>.
 
       \item Size of the object is <span class="hl-yellow">sizeof(char)</span>
     \end{itemize}
-    \item It writes 1 byte from address &c and saves result in file
+    \item It writes 1 byte from address \&c and saves result in file
     \begin{itemize}
       \item We write char c to the file
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{fwrite: Examples}
   \begin{itemize}
     \item Writing 4 doubles to binary file fp
@@ -923,7 +927,7 @@ fwrite(darr, sizeof(double), 4, fp);
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -955,7 +959,7 @@ int main() {
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -1009,7 +1013,6 @@ int main() {
     \item
       Consider very large file (information about all students in the
       university)
-
     \item Change the name of 5000th student
     \begin{itemize}
       \item If it is saved in text file
@@ -1034,9 +1037,9 @@ int fseek(FILE *fp, long offset, int org)
     \item Set FPP in the offset respect to org
     \item org:
     \begin{itemize}
-      \item SEEK_SET: start of file
-      \item SEEK_CUR: current FPP
-      \item SEEK_END: End of file
+      \item \mintinline{c}|SEEK_SET|: start of file
+      \item \mintinline{c}|SEEK_CUR|: current FPP
+      \item \mintinline{c}|SEEK_END|: End of file
     \end{itemize}
     \item Returns nonzero if it is unsuccessful
   \end{itemize}
@@ -1075,7 +1078,7 @@ int ftell(FILE *fp)
     \end{minted}
     \item ftell returns the current FPP
     \begin{itemize}
-      \item With respect to SEEK_SET
+      \item With respect to \mintinline{c}|SEEK_SET|
     \end{itemize}
     \item Reset the FPP to the start of file
     \begin{minted}[bgcolor=Black]{c}
@@ -1119,7 +1122,8 @@ int main(void){
 }
   \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{fseek in Text files}
   \begin{itemize}
     \item Not very useful
