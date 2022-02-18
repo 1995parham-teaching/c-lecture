@@ -2,6 +2,8 @@
 
 \subtitle{Files}
 
+\usepackage{tabularx}
+
 \begin{document}
 
 \begin{frame}
@@ -35,8 +37,9 @@
     </ol>
   \end{itemize}
 \end{frame}
+
 \begin{frame}
-  \frametitle{Text &amp; Binary Files}
+  \frametitle{Text \& Binary Files}
   \begin{itemize}
     \item How does computer store data?
     \begin{itemize}
@@ -50,16 +53,17 @@
     \item When data are stored in secondary memory
     \begin{itemize}
       \item It is file
-      \item Coding is specified by the file type: Text &amp; Binary
+      \item Coding is specified by the file type: Text \& Binary
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Text Files}
   \begin{itemize}
     \item ASCII encoding
     \item Each line is a string
-    \item Each line is terminated by \n
+    \item Each line is terminated by \mintinline{c}|'\n'|
     \item Human-readable files
     \begin{itemize}
       \item Editable by text editor (e.g. Notepad)
@@ -107,10 +111,11 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Working with Files}
   <p>Main steps in working with files:</p>
-  <ol>
+  \begin{enumerate}
     \item Open file
     \begin{itemize}
       \item Get a file handler from Operating System
@@ -125,18 +130,19 @@
     \end{itemize}
     \item Other operations
     \begin{itemize}
-      \item Check end of file, skip in file, ...
+      \item Check end of file, skip in file, \ldots
     \end{itemize}
-  </ol>
+  \end{enumerate}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Opening Files}
   \begin{itemize}
     \item Function <span class="hl-violet">fopen</span> opens files
-    <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+    \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 FILE* fopen(char* name, char* mode);
-    </code></pre>
+    \end{minted}
     \item <span class="hl-orange">FILE*</span> is a struct
     \begin{itemize}
       \item Saves information about file.
@@ -147,77 +153,70 @@ FILE* fopen(char* name, char* mode);
 
     \item name is the name of file:
     \begin{itemize}
-      \item <span class="hl-cyan">Absolute</span> name: C:\prog\test.txt
+      \item <span class="hl-cyan">Absolute</span> name: C:\textbackslash prog\textbackslash test.txt
       \item <span class="hl-cyan">Relative</span> name: Mytest.txt
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
-  \begin{frame}
-    \frametitle{Opening Files: Modes}
-    <table>
-      <thead>
-        <tr>
-          <th>File Mode</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="hl-cyan">r</span></td>
-          <td>
-            Open a file for <span class="hl-orange">reading</span>. If a file is
-            in reading mode, then
-            <span class="hl-green">no data is deleted</span> if a file is
-            already present on a system.
-          </td>
-        </tr>
-        <tr>
-          <td><span class="hl-cyan">w</span></td>
-          <td>
-            Open a file for <span class="hl-orange">writing</span>. If a file is
-            in writing mode, then a new file is created if a file doesn't exist
-            at all. If a file is already present on a system, then
-            <span class="hl-green"
-              >all the data inside the file is truncated</span
-            >, and it is opened for writing purposes.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  \end{frame}
-  \begin{frame}
-    <table>
-      <thead>
-        <tr>
-          <th>File Mode</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="hl-cyan">a</span></td>
-          <td>
-            Open a file in append mode. If a file is in append mode, then the
-            file is opened. The content within the file doesn't change.
-          </td>
-        </tr>
-        <tr>
-          <td><span class="hl-cyan">r+</span></td>
-          <td>open for reading and writing from beginning</td>
-        </tr>
-        <tr>
-          <td><span class="hl-cyan">w+</span></td>
-          <td>open for reading and writing, overwriting a file</td>
-        </tr>
-        <tr>
-          <td><span class="hl-cyan">a+</span></td>
-          <td>open for reading and writing, appending to file</td>
-        </tr>
-      </tbody>
-    </table>
-  \end{frame}
+  \frametitle{Opening Files: Modes}
+  \begin{table}
+  \begin{tabularx}{\textwidth}{cc}
+    \toprule
+    File Mode &
+    Description \\
+    \midrule
+    <span class="hl-cyan">r</span> &
+    Open a file for <span class="hl-orange">reading</span>. If a file is
+    in reading mode, then
+    <span class="hl-green">no data is deleted</span> if a file is
+    already present on a system.\\
+    \midrule
+    <span class="hl-cyan">w</span> &
+    Open a file for <span class="hl-orange">writing</span>. If a file is
+    in writing mode, then a new file is created if a file doesn't exist
+    at all. If a file is already present on a system, then
+    <span class="hl-green"
+      >all the data inside the file is truncated</span
+    >, and it is opened for writing purposes.\\
+    \bottomrule
+  \end{tabularx}
+  \end{table}
 \end{frame}
+
+\begin{frame}
+  <table>
+    <thead>
+      <tr>
+        <th>File Mode</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="hl-cyan">a</span></td>
+        <td>
+          Open a file in append mode. If a file is in append mode, then the
+          file is opened. The content within the file doesn't change.
+        </td>
+      </tr>
+      <tr>
+        <td><span class="hl-cyan">r+</span></td>
+        <td>open for reading and writing from beginning</td>
+      </tr>
+      <tr>
+        <td><span class="hl-cyan">w+</span></td>
+        <td>open for reading and writing, overwriting a file</td>
+      </tr>
+      <tr>
+        <td><span class="hl-cyan">a+</span></td>
+        <td>open for reading and writing, appending to file</td>
+      </tr>
+    </tbody>
+  </table>
+\end{frame}
+
 \begin{frame}
   \frametitle{Opening Files: Modes}
   \begin{itemize}
@@ -233,18 +232,20 @@ FILE* fopen(char* name, char* mode);
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Opening Files: Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 FILE *fp;
 fp = fopen("c:\\test.txt", "r");
 if(fp == NULL){
   printf("Cannot open file\n");
   return -1;
 }
-  </code></pre>
-  <p>Open file c:\test.txt for reading</p>
+  \end{minted}
+  <p>Open file c:\textbackslash test.txt for reading</p>
 \end{frame}
+
 \begin{frame}
   \frametitle{File-Position Pointer (FPP)}
   \begin{itemize}
@@ -277,20 +278,23 @@ if(fp == NULL){
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Closing Files}
   \begin{itemize}
     \item Each opened file should be closed.
     \item If we write to a file and don’t close it, some of data may be LOST
     \item To close the file
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 fclose(FILE *fp);
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   <div class="toc" data-selected="1"></div>
 \end{frame}
+
 \begin{frame}
   \frametitle{Reading/Writing Text File}
   \begin{itemize}
@@ -307,26 +311,26 @@ fclose(FILE *fp);
       <span class="hl-violet">printf</span>.
 
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int fscanf(FILE *fp,"format", parameters);
 int fprintf(FILE *fp,"format", parameters);
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Text File: Example}
-  <pre><code>
-&lt;Number of students&gt;
-&lt;id of student 1&gt; &lt;grade of student 1&gt;
-&lt;id of student 2&gt; &lt;grade of student 2&gt;
+  \begin{minted}[bgcolor=Black]{c}
+<Number of students>
+<id of student 1> <grade of student 1>
+<id of student 2> <grade of student 2>
 ...
-&lt;id of student n&gt; &lt;grade of student n&gt;
-  </code></pre>
+<id of student n> <grade of student n>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Average of Students' Grade}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
   FILE* fpin;
@@ -347,12 +351,12 @@ int main() {
   }
 
   /* Read the number of students */
-  fscanf(fpin, "%d", &amp;num);
+  fscanf(fpin, "%d", &num);
 
   /* Read the id and grade from file */
   sum = 0;
-  for(i = 0; i &lt; num; i++){
-    fscanf(fpin, "%d %lf", &amp;id, &amp;grade);
+  for(i = 0; i < num; i++){
+    fscanf(fpin, "%d %lf", &id, &grade);
     sum += grade;
   }
 
@@ -362,13 +366,13 @@ int main() {
   fclose(fpin);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Upper Average Students 🤓 v1}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
   FILE* fpin;
@@ -396,12 +400,12 @@ int main() {
   }
 
   /* Read the number of students */
-  fscanf(fpin, "%d", &amp;num);
+  fscanf(fpin, "%d", &num);
 
   /* Read the id and grade from file */
   sum = 0;
-  for(i = 0; i &lt; num; i++){
-    fscanf(fpin, "%d %lf", &amp;id, &amp;grade);
+  for(i = 0; i < num; i++){
+    fscanf(fpin, "%d %lf", &id, &grade);
     sum += grade;
   }
 
@@ -411,13 +415,13 @@ int main() {
 
   fpin = fopen(inname, "r");
 
-  fscanf(fpin,"%d", &amp;num);
+  fscanf(fpin,"%d", &num);
   fprintf(fpout, "%lf\n", average);
 
-  for(i = 0; i &lt; num; i++) {
-    fscanf(fpin, "%d %lf", &amp;id, &amp;grade);
+  for(i = 0; i < num; i++) {
+    fscanf(fpin, "%d %lf", &id, &grade);
 
-    if(grade &gt;= average)
+    if(grade >= average)
       fprintf(fpout, "%d: %s\n", id, "passed");
     else
       fprintf(fpout, "%d: %s\n", id, "failed");
@@ -429,13 +433,13 @@ int main() {
 
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Upper Average Students 🤓 v2}
-  <pre><code class="hljs lang-c">
-#include &lt;tstdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <tstdio.h>
+#include <stdlib.h>
 
 struct student {
   int id;
@@ -470,15 +474,15 @@ int main() {
 		return 1;
   }
 
-	fscanf(fpin, "%d", &amp;num);
+	fscanf(fpin, "%d", &num);
 
   students = malloc(num * sizeof(struct student));
 
-  for (int i = 0; i &lt; num; i++) {
+  for (int i = 0; i < num; i++) {
 		int id;
     double grade;
 
-    fscanf(fpin, "%d %lf", &amp;id, &amp;grade);
+    fscanf(fpin, "%d %lf", &id, &grade);
 
     sum += grade;
 
@@ -491,35 +495,35 @@ int main() {
   double average = sum / num;
   printf("average: %lf\n", average);
 
-  for (int i = 0; i &lt; num; i++) {
-    if (students[i].grade &gt;= average) {
+  for (int i = 0; i < num; i++) {
+    if (students[i].grade >= average) {
       fprintf(fpout, "%d\n", students[i].id);
     }
   }
 
   fclose(fpin);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Reading/Writing Characters (Text Files)}
   \begin{itemize}
     \item To write a character to file
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 fputc(char c, FILE *fp)
-    </code></pre>
+    \end{minted}
     \item To read a char from file
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char fgetc(FILE *fp);
-    </code></pre>
+    \end{minted}
   \end{itemize}
   <p>Returns EOF if reaches to End of File</p>
 \end{frame}
 \begin{frame}
-  \frametitle{cp &lt;src&gt; &lt;dst&gt;}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+  \frametitle{cp <src> <dst>}
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
   FILE* fpin;
@@ -553,7 +557,7 @@ int main() {
   fclose(fpout);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \begin{frame}
@@ -589,14 +593,14 @@ int main() {
 \end{frame}
 \begin{frame}
   \frametitle{Checking End of File}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 while(1){
   c = fgetc(fpin);
   if(feof(fpin))
     break;
   fputc(c, fpout);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Read/Write a Line}
@@ -607,9 +611,9 @@ while(1){
         <span class="hl-green">fscanf</span> reads until the first free space
 
     \end{itemize}
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char* fgets(char* buff, int maxnumber, FILE* fp);
-    </code></pre>
+    \end{minted}
     \item Read at most <span class="hl-orange">maxnumber-1</span> chars
     \item
       Reading stops after <span class="hl-cyan">EOF</span> or
@@ -627,9 +631,9 @@ char* fgets(char* buff, int maxnumber, FILE* fp);
   \frametitle{Read/Write a Line}
   \begin{itemize}
     \item We can write a line to file
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int fputs(char* buff, FILE* fp);
-    </code></pre>
+    \end{minted}
     \item Write the string <span class="hl-orange">buff</span> to file
     \item Does <span class="hl-red">NOT</span> add \n at the end
   \end{itemize}
@@ -643,15 +647,15 @@ int fputs(char* buff, FILE* fp);
       <span class="hl-orange">*linep</span> , and the capacity of the buffer in
       <span class="hl-green">*linecapp</span>.
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int getline(char** linep, int* linecapp, FILE* stream);
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
 \begin{frame}
   \frametitle{Example: Count the number of lines}
-  <pre><code class="hljs lang-c">
-char buf[500]; // 500 &gt; every line length
+  \begin{minted}[bgcolor=Black]{c}
+char buf[500]; // 500 > every line length
 
 char inname[] = "1.txt";
 
@@ -667,11 +671,11 @@ while(fgets(buf, 500, fpin) != NULL)
   count++;
 
 printf("Number of Lines = %d\n", count);
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Example: Count the number of lines}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 char *buf = NULL;
 
 char inname[] = "1.txt";
@@ -685,29 +689,29 @@ if (fpin == NULL) {
 int count = 0;
 int length = 0;
 
-while(getline(&amp;buf, &amp;length, fpin) &gt; -1) {
+while(getline(&buf, &length, fpin) > -1) {
   count++;
   free(buf);
   buf = NULL;
 }
 
 printf("Number of Lines = %d\n", count);
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{Maximum Line Length Issue}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 12345678910
 123
-  </code></pre>
+  \end{minted}
   <p>fgets with maxlen = 10</p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 Number of Lines = 3
-  </code></pre>
+  \end{minted}
   <p>getline</p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 Number of Lines = 2
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   <div class="toc" data-selected="2"></div>
@@ -730,58 +734,58 @@ Number of Lines = 2
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{No Conversion to ASCII}
+
+\begin{frame}[fragile]
+  \frametitle{No Conversion to ASCII}
+  \begin{itemize}
+    \item In text files, everything is saved as ASCII codes
     \begin{itemize}
-      \item In text files, everything is saved as ASCII codes
-      \begin{itemize}
-        <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 fprintf(fp, “%d”, 10)
-        </code></pre>
-        \item Saves 2 bytes in the file: ASCII ‘1’ ASCII ‘0’
-        <pre><code class="hljs">
+      \end{minted}
+      \item Saves 2 bytes in the file: ASCII ‘1’ ASCII ‘0’
+      \begin{minted}[bgcolor=Black]{output}
 00110001 00110000
-        </code></pre>
-        <pre><code class="hljs lang-c">
-fscanf(fp, “%d”, &amp;i)
-        </code></pre>
-        \item
-          Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2
-          which mean integer number 10
-
-      \end{itemize}
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
-    \frametitle{No Conversion to ASCII}
-    \begin{itemize}
+      \end{minted}
+      \begin{minted}[bgcolor=Black]{c}
+fscanf(fp, “%d”, &i)
+      \end{minted}
       \item
-        In binary files, there is not any binary to text conversion, everything
-        is read/write in binary format
+        Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2
+        which mean integer number 10
 
-      \begin{itemize}
-        <pre><code class="hljs lang-c">
-int i = 10;
-fwrite(&amp;i, sizeof(int), 1, fp)
-        </code></pre>
-        \item Saves 4 bytes in the file: The code of 10 in base 2
-        <pre><code class="hljs">
-00000000 00000000 00000000 00001010
-        </code></pre>
-        <pre><code class="hljs lang-c">
-fread(&amp;i, sizeof(int), 1, fp)
-        </code></pre>
-        \item Reads 4 bytes from file into i (without any conversion)
-      \end{itemize}
     \end{itemize}
-  \end{frame}
+  \end{itemize}
 \end{frame}
+\begin{frame}[fragile]
+  \frametitle{No Conversion to ASCII}
+  \begin{itemize}
+    \item
+      In binary files, there is not any binary to text conversion, everything
+      is read/write in binary format
+
+    \begin{itemize}
+      \begin{minted}[bgcolor=Black]{c}
+int i = 10;
+fwrite(&i, sizeof(int), 1, fp)
+      \end{minted}
+      \item Saves 4 bytes in the file: The code of 10 in base 2
+      \begin{minted}[bgcolor=Black]{output}
+00000000 00000000 00000000 00001010
+      \end{minted}
+      \begin{minted}[bgcolor=Black]{c}
+fread(&i, sizeof(int), 1, fp)
+      \end{minted}
+      \item Reads 4 bytes from file into i (without any conversion)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Writing to Binary Files}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int fwrite(void *buf, int size, int num, FILE *fp)
-  </code></pre>
+  \end{minted}
   \begin{itemize}
     \item
       Writes <span class="hl-orange">num</span> objects from
@@ -789,17 +793,18 @@ int fwrite(void *buf, int size, int num, FILE *fp)
 
     \item Size of each object is <span class="hl-yellow">size</span>.
     \item Returns the number of written objects.
-    \item If (return_val &lt; <span class="hl-orange">num</span>)
+    \item If (return_val < <span class="hl-orange">num</span>)
     \begin{itemize}
       \item There is an error
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Reading from Binary Files}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int fread(void *buf, int size, int num, FILE *fp)
-  </code></pre>
+  \end{minted}
   \begin{itemize}
     \item
       Reads <span class="hl-orange">num</span> objects from file
@@ -807,46 +812,48 @@ int fread(void *buf, int size, int num, FILE *fp)
 
     \item Size of each object is <span class="hl-yellow">size</span>.
     \item Returns the number of read objects.
-    \item If (return val &lt; <span class="hl-orange">num</span>)
+    \item If (return val < <span class="hl-orange">num</span>)
     \begin{itemize}
       \item There is an error
       \item Or EOF &rarr; Check with feof
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{fread: Examples}
   \begin{itemize}
     \item Reading 1 int from binary file fp
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int i;
-fread(&amp;i, sizeof(int), 1, fp);
-    </code></pre>
+fread(&i, sizeof(int), 1, fp);
+    \end{minted}
     \item This means
     \begin{itemize}
       \item
         Read <span class="hl-orange">1</span> object from file
         <span class="hl-violet">fp</span>.
 
-      \item Save result in <span class="hl-green">&amp;i</span>.
+      \item Save result in <span class="hl-green">&i</span>.
       \item
         The size of the object is <span class="hl-yellow">sizeof(int)</span>
 
     \end{itemize}
-    \item It reads 4 bytes from file and saves in &amp;i
+    \item It reads 4 bytes from file and saves in &i
     \begin{itemize}
       \item We read an integer from file and save it in i
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{fread: Examples}
   \begin{itemize}
     \item Read five floats
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 float farr[5];
 fread(farr, sizeof(float), 5, fp);
-    </code></pre>
+    \end{minted}
     \item This means
     \begin{itemize}
       \item
@@ -865,37 +872,39 @@ fread(farr, sizeof(float), 5, fp);
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{fwrite: Examples}
   \begin{itemize}
     \item Writing 1 char to binary file fp
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 char c = 'A';
-fwrite(&amp;c, sizeof(char), 1, fp);
-    </code></pre>
+fwrite(&c, sizeof(char), 1, fp);
+    \end{minted}
     \item This means
     \begin{itemize}
       \item
         Write <span class="hl-orange">1</span> object from
-        <span class="hl-green">&amp;c</span> into file
+        <span class="hl-green">&c</span> into file
         <span class="hl-violet">fp</span>.
 
       \item Size of the object is <span class="hl-yellow">sizeof(char)</span>
     \end{itemize}
-    \item It writes 1 byte from address &amp;c and saves result in file
+    \item It writes 1 byte from address &c and saves result in file
     \begin{itemize}
       \item We write char c to the file
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{fwrite: Examples}
   \begin{itemize}
     \item Writing 4 doubles to binary file fp
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 double darr[4];
 fwrite(darr, sizeof(double), 4, fp);
-    </code></pre>
+    \end{minted}
     \item This means
     \begin{itemize}
       \item
@@ -913,10 +922,11 @@ fwrite(darr, sizeof(double), 4, fp);
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 struct point{
   int x, y;
@@ -933,21 +943,22 @@ int main() {
     return -1;
   }
 
-  for(i = 0; i &lt; 5; i++) {
+  for(i = 0; i < 5; i++) {
     printf("Enter X and Y: ");
-    scanf("%d %d", &amp;p.x, &amp;p.y);
-    fwrite(&amp;p, sizeof(p), 1, fp);
+    scanf("%d %d", &p.x, &p.y);
+    fwrite(&p, sizeof(p), 1, fp);
   }
 
   fclose(fp);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 struct point{
   int x, y;
 };
@@ -963,7 +974,7 @@ int main() {
   }
 
   while(1){
-    if(fread(&amp;p, sizeof(p), 1, fp) &lt; 1)
+    if(fread(&p, sizeof(p), 1, fp) < 1)
       break;
     printf("X = %d, and Y = %d\n", p.x, p.y);
   }
@@ -971,8 +982,9 @@ int main() {
   fclose(fp);
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Sequential and Random Accesses}
   \begin{itemize}
@@ -989,6 +1001,7 @@ int main() {
     \item File processing can uses Random access
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Moving FPP, Why?}
   \begin{itemize}
@@ -1011,11 +1024,12 @@ int main() {
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Moving FPP}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 int fseek(FILE *fp, long offset, int org)
-  </code></pre>
+  \end{minted}
   \begin{itemize}
     \item Set FPP in the offset respect to org
     \item org:
@@ -1027,49 +1041,52 @@ int fseek(FILE *fp, long offset, int org)
     \item Returns nonzero if it is unsuccessful
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <pre><code class="hljs">
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
 (1,1)(2,2)(3,3)(4,4)(5,5)
-  </code></pre>
-  <pre><code class="hljs lang-c">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
 fp = fopen("points.bin", "rb");
 
-fread(&amp;p, sizeof(p), 1, fp);
+fread(&p, sizeof(p), 1, fp);
 printf("%d %d\n", p.x, p.y); // 1 1
 
 fseek(fp, 2 * sizeof(p), SEEK_SET);
-fread(&amp;p, sizeof(p), 1, fp);
+fread(&p, sizeof(p), 1, fp);
 printf("%d %d\n", p.x, p.y); // 3 3
 
 fseek(fp, -3 * sizeof(p), SEEK_END);
-fread(&amp;p, sizeof(p), 1,fp);
+fread(&p, sizeof(p), 1,fp);
 printf("%d %d\n", p.x, p.y); // 3 3
 
 fseek(fp, 1 * sizeof(p), SEEK_CUR);
-fread(&amp;p, sizeof(p), 1, fp); // 5 5
+fread(&p, sizeof(p), 1, fp); // 5 5
 printf("%d %d\n", p.x, p.y);
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Other FPP related functions}
   \begin{itemize}
     \item Find out where is the FPP
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 int ftell(FILE *fp)
-    </code></pre>
+    \end{minted}
     \item ftell returns the current FPP
     \begin{itemize}
       \item With respect to SEEK_SET
     \end{itemize}
     \item Reset the FPP to the start of file
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 void rewind(FILE *fp)
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 struct point{
   int x, y;
@@ -1088,47 +1105,47 @@ int main(void){
   }
 
   printf("Enter the number of points: ");
-  scanf("%d", &amp;num);
+  scanf("%d", &num);
 
   printf("Enter new X and Y: ");
-  scanf("%d %d", &amp;(p.x), &amp;(p.y));
+  scanf("%d %d", &(p.x), &(p.y));
 
   fseek(fp, (num – 1) * sizeof(p), SEEK_SET);
-  fwrite(&amp;p, sizeof(p), 1, fp);
+  fwrite(&p, sizeof(p), 1, fp);
 
   fclose(fp);
 
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{fseek in Text files}
   \begin{itemize}
     \item Not very useful
-    \item Offset counts the number of characters including ‘\n’
+    \item Offset counts the number of characters including \mintinline{c}|'\n'|
     \item Typical useful versions
     \begin{itemize}
       \item Go to the start of file
-      <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 fseek(fp, 0, SEEK_SET)
-      </code></pre>
+      \end{minted}
       \item Go to the end of file
-      <pre><code class="hljs lang-c">
+      \begin{minted}[bgcolor=Black]{c}
 fseek(fp, 0, SEEK_END)
-      </code></pre>
+      \end{minted}
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="3"></div>
-\end{frame}
+
+\section{Bugs and avoiding them}
+
 \begin{frame}
   \frametitle{Common Bugs and Avoiding Them}
   \begin{itemize}
     \item Take care about mode in fopen
     \begin{itemize}
-      \item w &amp; w+: all data in file will be lost
+      \item w \& w+: all data in file will be lost
       \item r: you cannot write. fprintf does not do any thing
     \end{itemize}
     \item Take care about text or binary
@@ -1143,10 +1160,14 @@ fseek(fp, 0, SEEK_END)
 
 \begin{frame}
   \frametitle{Legends}
-  <img src="./img/yoda.jpg" alt="yoda" />
+  \begin{figure}
+    \includegraphics[height=.75\textheight]{./img/yoda.jpg}
+  \end{figure}
+  \pause%
+  \centering
+  \color{Violet} You
 \end{frame}
 \begin{frame}
-  <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">You</h6>
   \begin{itemize}
     \item Thanks for attending this course
   \end{itemize}
