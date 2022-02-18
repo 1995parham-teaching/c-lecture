@@ -64,7 +64,7 @@ int grade;
 
 \section{Struct Definition}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{struct: version 1}
   \begin{itemize}
     \item Set of related variables
@@ -73,12 +73,12 @@ int grade;
         Each variable in <span class="hl-cyan">struct</span> has its
         <span class="hl-orange">own type</span>
 
-      \item <span class="hl-cyan">struct</span> in C (version 1)
-      <p>
-        <span class="hl-cyan">struct</span> {<br />
-        &nbsp;<span class="hl-violet">&lt;variable declaration&gt;</span><br />
-        } <span class="hl-green">&lt;identifier list&gt;</span>;<br />
-      </p>
+      \item \texttt{\color{Cyan} struct} in C (version 1)
+      \begin{minted}[bgcolor=Black]{c}
+        struct {
+          <variable declaration>
+        } <identifier list>;
+      \end{minted}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -107,16 +107,16 @@ struct{
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{struct (version 1): Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct{
   char st_name[20];
   char st_fam_name[20];
   int id;
   int grade;
 } st1, st2, st3;
-  </code></pre>
+  \end{minted}
   \begin{itemize}
     \item
       We declare three variables: <span class="hl-orange">st1</span>,
@@ -134,24 +134,23 @@ struct{
 
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Version 2}
   \begin{itemize}
     \item <span class="hl-cyan">struct</span> in C (version 2)
-    <p>
-      <span class="hl-cyan">struct</span>
-      <span class="hl-yellow">&lt;tag&gt;</span> {<br />
-      &nbsp;<span class="hl-violet">&lt;variable declaration&gt;</span><br />
-      };<br />
-      <span class="hl-cyan">struct</span>
-      <span class="hl-yellow">&lt;tag&gt;</span>
-      <span class="hl-green">&lt;identifier list&gt;</span>;<br />
-    </p>
+    \begin{minted}[bgcolor=Black]{c}
+      struct <tag> {
+        <variable declaration>
+      };
+      struct <tag> <identifier list>;
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct (version 2): Example}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct std_info {
   char st_name[20];
   char st_fam_name[20];
@@ -159,19 +158,19 @@ struct std_info {
   int grade;
 };
 struct std_info st1, st2, st3;
-  </code></pre>
+  \end{minted}
   \begin{itemize}
-    \item We define a struct with tag <span class="hl-orange">std_info</span>
+    \item We define a struct with tag <span class="hl-orange">std\_info</span>
     \begin{itemize}
       \item We don’t allocate memory, it is just definition
     \end{itemize}
     \item
       We declare variables <span class="hl-green">st1</span>,
       <span class="hl-green">st2</span>, <span class="hl-green">st3</span> from
-      <span class="hl-orange">std_info</span>
-
+      <span class="hl-orange">std\_info</span>
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{typedef}
   \begin{itemize}
@@ -182,11 +181,11 @@ struct std_info st1, st2, st3;
         <span class="hl-orange">“int”</span>
 
       \item
-        Assign name <span class="hl-green">“int_array”</span> to
+        Assign name <span class="hl-green">“int\_array”</span> to
         <span class="hl-orange">“int[100]”</span>
 
       \item
-        Assign name <span class="hl-green">“int_pointer”</span> to
+        Assign name <span class="hl-green">“int\_pointer”</span> to
         <span class="hl-orange">“int *”</span>
 
     \end{itemize}
@@ -196,9 +195,10 @@ struct std_info st1, st2, st3;
 
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{typedef: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 /* Assign new name integer to type int */
 typedef int integer;
 
@@ -210,11 +210,12 @@ typedef char alephba;
 
 /* Use the new name */
 alephba c1, c2;
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{typedef: Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 /* Assign new name intptr to type int * */
 typedef int * intptr;
 
@@ -225,11 +226,12 @@ typedef int int_arr1[10], int_arr2[20];
 
 int_arr1 array1;
 int_arr2 array2;
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{typedef: Cons}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 typedef int arr[100];
 
 int main() {
@@ -238,30 +240,27 @@ int main() {
 
   a1 = a2; // error: array type 'arr' (aka 'int [100]') is not assignable
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Version 3.1}
   \begin{itemize}
     \item <span class="hl-cyan">struct</span> in C (version 3.1)
     \item Using the <span class="hl-orange">typedef</span>
-    <p>
-      <span class="hl-cyan">struct</span>
-      <span class="hl-yellow">&lt;tag&gt;</span> {<br />
-      &nbsp;<span class="hl-violet">&lt;variable declaration&gt;</span><br />
-      };<br />
-      <span class="hl-orange">typedef</span>
-      <span class="hl-cyan">struct</span>
-      <span class="hl-yellow">&lt;tag&gt;</span>
-      <span class="hl-red">&lt;new_name&gt;</span>;<br />
-      <span class="hl-red">&lt;new_name&gt;</span>
-      <span class="hl-green">&lt;identifier list&gt;</span>;<br />
-    </p>
+    \begin{minted}[bgcolor=Black]{c}
+      struct <tag> {
+        <variable declaration>
+      };
+      typedef struct <tag> <new_name>;
+      <new_name> <identifier list>;
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct (Version 3.1): Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct std_info{
   char st_name[20];
   char st_fam_name[20];
@@ -272,26 +271,26 @@ struct std_info{
 typedef struct std_info information;
 
 information st1, st2;
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Version 3.2}
   \begin{itemize}
     \item <span class="hl-cyan">struct</span> in C (version 3.2)
     \item Using the <span class="hl-orange">typedef</span>
-    <p>
-      <span class="hl-orange">typedef</span>
-      <span class="hl-cyan">struct</span> {<br />
-      &nbsp;<span class="hl-violet">&lt;variable declaration&gt;</span><br />
-      } <span class="hl-red">&lt;new_name&gt;</span>;<br />
-      <span class="hl-red">&lt;new_name&gt;</span>
-      <span class="hl-green">&lt;identifier list&gt;</span>;<br />
-    </p>
+    \begin{minted}[bgcolor=Black]{c}
+      typedef struct <tag> {
+        <variable declaration>
+      } <new_name>;
+      <new_name> <identifier list>;
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct (Version 3.2): Examples}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 typedef struct {
   char st_name[20];
   char st_fam_name[20];
@@ -299,8 +298,9 @@ typedef struct {
   int grade;
 } information;
 information st1, st2;
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Structures as New Data Type}
   \begin{itemize}
@@ -320,6 +320,7 @@ information st1, st2;
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Size of struct}
   \begin{itemize}
@@ -328,12 +329,8 @@ information st1, st2;
       members
 
     \begin{itemize}
-      \item
-        <pre><code class="hljs lang-c">struct test_size{char c; int i; };</code></pre>
-
-      \item
-        <pre><code class="hljs lang-c">sizeof(struct test_size) = 8</code></pre>
-
+      \item \mintinline{c}|struct test_size{char c; int i; };|
+      \item \mintinline{c}|sizeof(struct test_size); // 8|
     \end{itemize}
     \item This is because of <span class="hl-orange">Structure Padding</span>
     \begin{itemize}
@@ -344,17 +341,14 @@ information st1, st2;
       \end{itemize}
       \item The padding is to align the address
       \item
-        More details &amp; examples:
-        <a href="https://fresh2refresh.com/c-programming/c-structure-padding"
-          >Here</a
-        >
-
+        More details \& examples:
+        \href{Here}{https://fresh2refresh.com/c-programming/c-structure-padding}
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
+
+\section{Using Struct}
+
 \begin{frame}
   \frametitle{Using struct}
   \begin{itemize}
@@ -365,13 +359,13 @@ information st1, st2;
     \item How to access to the members of struct
     \begin{itemize}
       \item
-        <span class="hl-orange">&lt;struct variable&gt;</span>.<span
+        <span class="hl-orange"><struct variable></span>.<span
           class="hl-green"
-          >&lt;element name&gt;</span
+          ><element name></span
         >
 
       \item
-        <span class="hl-cyan">st1.st_name</span> is a array of char in struct
+        <span class="hl-cyan">st1.st\_name</span> is a array of char in struct
         st1
 
       \item
@@ -380,50 +374,51 @@ information st1, st2;
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \begin{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Using struct}
+  \begin{itemize}
+    \item Similar to array initialization
+    \begin{minted}[bgcolor=Black]{c}
+struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
+    \end{minted}
+    \item
+      {\color{Orange} ``Parham''} is assigned to
+      \texttt{\color{LimeGreen} st\_name}
+
+    \item
+      {\color{Orange} ``Alvani''} is assigned to
+      \texttt{\color{LimeGreen} st\_fam\_name}
+
+    \item
+      {\color{Orange} 9231058} is assigned to
+      \texttt{\color{LimeGreen} id}
+
+    \item
+      {\color{Orange} 18} is assigned to
+      \texttt{\color{LimeGreen} grade}
+  \end{itemize}
+
+  \begin{block}{}
     \begin{itemize}
-      \item Similar to array initialization
-      <pre><code class="hljs lang-c">
-  struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
-      </code></pre>
-      \item
-        <span class="hl-orange">“Parham”</span> is assigned to
-        <span class="hl-green">st_name</span>
-
-      \item
-        <span class="hl-orange">“Alvani”</span> is assigned to
-        <span class="hl-green">st_fam_name</span>
-
-      \item
-        <span class="hl-orange">9231058</span> is assigned to
-        <span class="hl-green">id</span>
-
-      \item
-        <span class="hl-orange">18</span> is assigned to
-        <span class="hl-green">grade</span>
-
-      <li class="hl-cyan">
-        Order of values should be exactly the order of the members
-
-      <li class="hl-violet">
-        The number of values should be &lt;= the number of members
-
-      <li class="hl-red">
-        Initial values cannot be assigned in struct definition
-
+      \item Order of values should be exactly the order of the members
+      \item The number of values should be <= the number of members
+      \item Initial values cannot be assigned in struct definition
     \end{itemize}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
-  struct std_info st1 = { .st_name = "Parham", .st_fam_name = "Alvani", .id = 9231058, .score = 18};
-    </code></pre>
-  \end{frame}
+  \end{block}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Using struct}
+  \begin{minted}[bgcolor=Black]{c}
+struct std_info st1 = { .st_name = "Parham", .st_fam_name = "Alvani", .id = 9231058, .score = 18};
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 typedef struct {
   char name[20];
@@ -440,17 +435,18 @@ void main(void){
 
   scanf("%s", st2.name);
   scanf("%s", st2.fam_name);
-  scanf("%d", &amp;st2.id);
-  scanf("%d", &amp;st2.grade);
+  scanf("%d", &st2.id);
+  scanf("%d", &st2.grade);
 
   printf("Your Input is: \n");
   printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n", st2.name, st2.fam_name, st2.id, st2.grade);
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Nested struct}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct date_type{
   int day, month, year;
 };
@@ -462,36 +458,36 @@ typedef struct{
   int grade;
   struct date_type date;
 } information;
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{Nested struct}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{Nested struct}
+  \begin{minted}[bgcolor=Black]{c}
 information st1 = {"A", "B", 1, 10, {2, 3, 1368}};
-    </code></pre>
-    <pre><code class="hljs lang-c">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
 information st2;
 // st2.name = "C"; char[20] is not assignable
 // st2.fam_name = "D"; char[20] is not assignable
 st2.id = 2;
 st2.grade = 15;
-    </code></pre>
-    <pre><code class="hljs lang-c">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
 st2.date.day = 10;
 st2.date.month = 5;
 st2.date.year = 1390;
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    \frametitle{More on "char[20] is not assignable"}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{More on "char[20] is not assignable"}
+  \begin{minted}[bgcolor=Black]{c}
 struct person {
   char name[200];
   char family[200];
 };
-    </code></pre>
-    <pre><code class="hljs lang-c">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{c}
 char hello[200] = "Hello world";
 printf("%s\n", hello);
 
@@ -507,12 +503,12 @@ p1.name[0] = 'p';
 printf("%s\n", p1.name);
 
 // p1.name = "123";
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Copy and Assignment}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct date_type{
   int day, month, year;
 };
@@ -525,11 +521,12 @@ d1 = d2;
   d1.month = d2.month;
   d1.year = d2.year;
 */
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Copy and Assignment 😮}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct test_type{
   char name[10];
   int id[10];
@@ -542,9 +539,10 @@ d1 = d2;
  d1.id = {1, 2, 3};
 */
 
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Comparing}
   \begin{itemize}
     \item
@@ -552,45 +550,46 @@ d1 = d2;
       <span class="hl-cyan">struct</span> variables
 
     \begin{itemize}
-      \item ==, &lt;=, &lt;, &gt;, &gt;= cannot be used for struct
+      \item ==, <=, <, >, >= cannot be used for struct
     \end{itemize}
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 information st1, st2;
 
-if(st1 &lt;= st2){
+if(st1 <= st2){
   // Compile Error ...
 }
 
-    </code></pre>
+    \end{minted}
     \item Why?
     \begin{itemize}
-      \item What does this mean? st1 &lt;= st2
+      \item What does this mean? st1 <= st2
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{struct: Comparing}
   \begin{itemize}
     \item We can compare members of structs
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 if(
-  (st1.id == st2.id) &amp;&amp;
-  (strcmp(st1.name, st2.name) == 0) &amp;&amp;
+  (st1.id == st2.id) &&
+  (strcmp(st1.name, st2.name) == 0) &&
   (strcmp(st1.fam_name, st2.fam_name) == 0)
 ) {
   /* st1 == st2 */
 }
-    </code></pre>
-    \item We can define &lt;, &lt;=, &gt;, &gt;= for struct
-    <pre><code class="hljs lang-c">
+    \end{minted}
+    \item We can define <, <=, >, >= for struct
+    \begin{minted}[bgcolor=Black]{c}
 if (
-  (st1.id &gt; st2.id) &amp;&amp;
-  (strcmp(st1.name, st2.name) == 0) &amp;&amp;
+  (st1.id > st2.id) &&
+  (strcmp(st1.name, st2.name) == 0) &&
   (strcmp(st1.fam_name, st2.fam_name) == 0)
 ) {
-  /* st1 &gt; st2 */
+  /* st1 > st2 */
 }
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
 \begin{frame}
@@ -601,17 +600,17 @@ if (
     \item We have an example in the following slides
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
-\begin{frame}
+
+\subsection{Array of Struct}
+
+\begin{frame}[fragile]
   \frametitle{Array of struct: Definition}
   \begin{itemize}
     \item
-      <span class="hl-cyan">struct</span> is a type &rarr; We can define array
+      \textit{\color{Cyan} struct} is a type \textrightarrow We can define array
       of struct
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 struct std1{
   int id;
   int grad;
@@ -623,13 +622,14 @@ typedef struct{
   int grad;
 } std2;
 std2 std_arr[20];
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Upper Average Students 🤓}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 int main(void){
   struct std {
@@ -642,30 +642,31 @@ int main(void){
   double sum, average;
   int i;
   struct std std_arr[num];
-  for (i = 0; i &lt; num; i++){
+  for (i = 0; i < num; i++){
     printf("Enter ID and grade\n");
-    scanf("%d", &amp;(std_arr[i].id));
-    scanf("%d", &amp;(std_arr[i].grade));
+    scanf("%d", &(std_arr[i].id));
+    scanf("%d", &(std_arr[i].grade));
   }
 
   sum = 0;
-  for(i = 0; i &lt; num; i++)
+  for(i = 0; i < num; i++)
     sum += std_arr[i].grade;
 
   average = sum / num;
 
-  for (i = 0; i &lt; num; i++)
-    if (std_arr[i].grade &gt;= average)
+  for (i = 0; i < num; i++)
+    if (std_arr[i].grade >= average)
       printf("Student %d passed\n", std_arr[i].id);
 
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Find Student}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 int main(void) {
   struct std{
@@ -678,17 +679,17 @@ int main(void) {
   struct std std_arr[num];
 
   int sid, i;
-  for (i = 0; i &lt; num; i++){
+  for (i = 0; i < num; i++){
     printf("Enter Name, ID and grade\n");
     scanf("%s", std_arr[i].name);
-    scanf("%d", &amp;(std_arr[i].id));
-    scanf("%d", &amp;(std_arr[i].grade));
+    scanf("%d", &(std_arr[i].id));
+    scanf("%d", &(std_arr[i].grade));
   }
-￼￼￼￼
-  printf("Enter Search ID: ");
-  scanf("%d", &amp;sid);
 
-  for (i = 0; i &lt; num; i++) {
+  printf("Enter Search ID: ");
+  scanf("%d", &sid);
+
+  for (i = 0; i < num; i++) {
     if (std_arr[i].id == sid) {
       printf("Found:\n");
       printf("Name = %s\n", std_arr[i].name);
@@ -698,12 +699,12 @@ int main(void) {
   }
   return 0;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
-\begin{frame}
+
+\subsection{Pointer to struct}
+
+\begin{frame}[fragile]
   \frametitle{Pointer to struct: Definition}
   \begin{itemize}
     \item
@@ -713,7 +714,7 @@ int main(void) {
       It has <span class="hl-green">address</span>, we can have
       <span class="hl-cyan">pointer</span> to it
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 struct std{
   int id;
   int grade;
@@ -721,16 +722,17 @@ struct std{
 struct std st1;
 struct std *ps;
 ps = &st1;
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Pointer to struct: Usage (Version 1)}
   \begin{itemize}
     \item We can use *pointer method
     \item
       <span class="hl-orange">*ps</span> means the content of the address that
-      <span class="hl-orange">ps</span> refers to there &rarr; it is struct
+      <span class="hl-orange">ps</span> refers to there \textrightarrow it is struct
 
     \item
       <span class="hl-cyan">(*ps).id</span> is the member of struct that
@@ -742,31 +744,32 @@ ps = &st1;
 
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Pointer to struct: Usage (Version 2)}
   \begin{itemize}
-    \item We can use <span class="hl-orange">“-&gt;"</span> method
-    <pre><code class="hljs lang-c">
+    \item We can use \texttt{\color{Orange} ``->''} method
+    \begin{minted}[bgcolor=Black]{c}
 struct std {
   int id;
   int grade;
 };
 struct std st1, *ps;
-ps = &amp;st1
+ps = &st1
 // (*ps).id
-int y = ps-&gt;id;
+int y = ps->id;
 // (*ps).grade
-int z = ps-&gt;grade;
-    </code></pre>
+int z = ps->grade;
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="2"></div>
-\end{frame}
-\begin{frame}
-  \frametitle{struct &amp; Functions}
+
+\subsection{struct \& Functions}
+
+\begin{frame}[fragile]
+  \frametitle{struct \& Functions}
   \begin{itemize}
-    \item struct is a type &rarr; It can be used
+    \item struct is a type \textrightarrow It can be used
     \begin{itemize}
       \item
         In <span class="hl-orange">input</span> parameter list of functions
@@ -777,19 +780,20 @@ int z = ps-&gt;grade;
       \end{itemize}
       \item In <span class="hl-orange">return type</span> of functions
     \end{itemize}
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 void f(struct std s1); // call by value
 void g(struct std *s2); // call by reference
 struct std h(void); // return type
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \frametitle{struct &amp; Functions: Example}
+
+\begin{frame}[fragile]
+  \frametitle{struct \& Functions: Example}
   \begin{itemize}
     \item struct as call by value input parameter
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void print_st_info(information st){
   printf("Name = %s\n", st.name);
   printf("Fam = %s\n", st.fam_name);
@@ -799,119 +803,119 @@ void print_st_info(information st){
 // ----- Calling the function ----
 information st1;
 print_st_info(st1);
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \frametitle{struct &amp; Functions: Example}
+
+\begin{frame}[fragile]
+  \frametitle{struct \& Functions: Example}
   \begin{itemize}
     \item struct as call by reference input parameter
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 void read_st_info(information *pst) {
-  scanf("%s", pst-&gt;name);
-  scanf("%s", pst-&gt;fam_name);
-  scanf("%d", &amp;(pst-&gt;id));
-  scanf("%d", &amp;(pst-&gt;grade));
+  scanf("%s", pst->name);
+  scanf("%s", pst->fam_name);
+  scanf("%d", &(pst->id));
+  scanf("%d", &(pst->grade));
 }
 // ----- Calling the function ----
 information st1;
-read_st_info(&amp;st1);
-  </code></pre>
+read_st_info(&st1);
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{struct &amp; Functions in Action}
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{struct \& Functions in Action}
+  \begin{minted}[bgcolor=Black]{c}
 struct student {
   char first_name[200];
   char last_name[200];
   int id;
 };
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <p>
-      Sets ID field of student with given identification. As you may guess this
-      function must recieve <span class="hl-orange">a pointer</span> of student
-      structure.
-    </p>
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \begin{block}{}
+    Sets ID field of student with given identification. As you may guess this
+    function must recieve <span class="hl-orange">a pointer</span> of student
+    structure.
+  \end{block}
+  \begin{minted}[bgcolor=Black]{c}
 void student_set_id(struct student *std, int id) {
-  std-&gt;id = id;
+  std->id = id;
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <p>
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \begin{block}{}
       Sets first name field of student with given Name As you may guess this
       function must recieve <span class="hl-orange">a pointer</span> of student
       structure. But why?
-    </p>
-    <pre><code class="hljs lang-c">
+  \end{block}
+  \begin{minted}[bgcolor=Black]{c}
 void student_set_id(struct student *std, const char *name) {
-  strcpy(sed-&gt;first_name, name)
+  strcpy(sed->first_name, name)
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    <p>
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \begin{block}{}
       First name field of stduent is an array and as you may remember arrays
       name contains the address of array's first cell. So is the following code
       correct? 🤔
-    </p>
-    <pre><code class="hljs lang-c">
+  \end{block}
+  \begin{minted}[bgcolor=Black]{c}
 void student_set_id_wrong(struct student std, const char *name) {
   strcpy(sed.first_name, name)
 }
-    </code></pre>
-    <p>
+  \end{minted}
+  \begin{block}{}
       <span class="hl-red">No.</span> It doesn't change first name of given
       student structure.
-    </p>
-    <p>
+  \end{block}
+  \begin{block}{}
       Because C copies all of the structures' members,
       <span class="hl-green">even if they are arrays</span>, so
       <span class="hl-orange">Calling by Value</span> makes a copy from each
       field of the structure that changing them doesn't change anything in the
       source.
-    </p>
-  \end{frame}
-  \begin{frame}
-    <p>
+  \end{block}
+\end{frame}
+\begin{frame}[fragile]
+  \begin{block}{}
       As a rule of thumb <span class="hl-violet">always</span> use pointer of
       structures in your functions even you don't want to change them. In case
       of read-only functions use <span class="hl-cyan">const</span> pointers to
       tell the users you don't want to change the given structure.
-    </p>
-    <pre><code class="hljs lang-c">
+  \end{block}
+  \begin{minted}[bgcolor=Black]{c}
 void student_print(const struct student *std) {
-  printf("Name: %s %s\n", std-&gt;first_name, std-&gt;last_name);
-  printf("ID: %d\n", std-&gt;id);
+  printf("Name: %s %s\n", std->first_name, std->last_name);
+  printf("ID: %d\n", std->id);
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \frametitle{struct &amp; Functions: Example}
+
+\begin{frame}[fragile]
+  \frametitle{struct \& Functions: Example}
   \begin{itemize}
     \item struct as output of function
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 information create_st_info(void) {
   information tmp;
   scanf("%s", tmp.name);
   scanf("%s", tmp.fam_name);
-  scanf("%d", &amp;tmp.id);
-  scanf("%d", &amp;tmp.grade);
+  scanf("%d", &tmp.id);
+  scanf("%d", &tmp.grade);
   return tmp;
 }
 // ----- Calling the function ----
 information st1;
 st1 = create_st_info();
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Scope of struct definition}
   \begin{itemize}
@@ -954,58 +958,57 @@ st1 = create_st_info();
     \end{itemize}
   \end{itemize}
 \end{frame}
+
+\section{Linked List}
+
 \begin{frame}
-  <div class="toc" data-selected="3"></div>
-\end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{More Dynamic Data Structures}
-    \begin{itemize}
-      \item In Arrays
-      \begin{itemize}
-        \item
-          We know the size of array when you
-          <span class="hl-green">develop code (coding time)</span>
-
-        \item
-          We know the size of array when
-          <span class="hl-cyan">program runs</span>
-
-      \end{itemize}
-      \item
-        What can we do, if we
-        <span class="hl-orange">don’t know data size</span> even in run time?
-
-      \begin{itemize}
-        \item We use dynamic memory allocation &amp; resize
-        \begin{itemize}
-          \item Resizing array has cost &amp; overhead
-        \end{itemize}
-      \end{itemize}
-    \end{itemize}
-  \end{frame}
-  \begin{frame}
+  \frametitle{More Dynamic Data Structures}
+  \begin{itemize}
+    \item In Arrays
     \begin{itemize}
       \item
-        What can we do, if we want to
-        <span class="hl-orange">add/remove</span> an element to/from middle of
-        the array?
+        We know the size of array when you
+        <span class="hl-green">develop code (coding time)</span>
 
+      \item
+        We know the size of array when
+        <span class="hl-cyan">program runs</span>
+
+    \end{itemize}
+    \item
+      What can we do, if we
+      <span class="hl-orange">don’t know data size</span> even in run time?
+
+    \begin{itemize}
+      \item We use dynamic memory allocation \& resize
       \begin{itemize}
-        \item We use dynamic memory allocation &amp; resize
-        \begin{itemize}
-          \item Resizing array has cost &amp; overhead
-        \end{itemize}
-        \item Is there any other better approach?
+        \item Resizing array has cost \& overhead
       \end{itemize}
     \end{itemize}
-  \end{frame}
+  \end{itemize}
 \end{frame}
+\begin{frame}
+  \begin{itemize}
+    \item
+      What can we do, if we want to
+      <span class="hl-orange">add/remove</span> an element to/from middle of
+      the array?
+
+    \begin{itemize}
+      \item We use dynamic memory allocation \& resize
+      \begin{itemize}
+        \item Resizing array has cost \& overhead
+      \end{itemize}
+      \item Is there any other better approach?
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Dynamic Data Structures: Linked List}
   \begin{itemize}
     \item
-      <span class="hl-orange">linked list</span> data structure can be used to
+      \textbf{\color{Orange} linked list} data structure can be used to
       implement the dynamic structures
 
     \item linked list: Nodes that linked together
@@ -1018,43 +1021,56 @@ st1 = create_st_info();
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
-  <img alt="ll-1" src="img/ll-1.png" />
-  <img alt="ll-2" src="img/ll-2.png" />
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth]{./img/ll-1.png}
+      \end{figure}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+        \includegraphics[width=\textwidth]{./img/ll-2.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{linked list in C}
   \begin{itemize}
     \item
       linked list is implemented by
-      <span class="hl-orange">struct</span> and
-      <span class="hl-green">pointer to struct</span>
-
+      \textbf{\color{YellowOrange} struct} and
+      \textbf{\color{LimeGreen} pointer to struct}
     \item Struct has a member to save the info
     \item Struct has a pointer to point the next node
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 struct node{
   int info;
   struct node *next;
 };
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <p>
+
+\begin{frame}[fragile]
+  \begin{block}{}
     Please note that we <span class="hl-red">cannot</span> have structures that
     <span class="hl-green">contain themselves</span>:
-  </p>
-  <pre><code class="hljs lang-c">
+  \end{block}
+  \begin{minted}[bgcolor=Black]{c}
 struct node{
   int info;
   struct node next;
 }; // compile error
-  </code></pre>
-  <p>
+  \end{minted}
+  \begin{block}{}
     <span class="hl-orange">struct node</span> conatins a pointer to its type.
-  </p>
+  \end{block}
 \end{frame}
+
 \begin{frame}
   \frametitle{Create nodes}
   \begin{itemize}
@@ -1067,9 +1083,10 @@ struct node{
     </ol>
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Create Node}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct node{
   int info;
   struct node *next;
@@ -1087,174 +1104,179 @@ struct node* node_construct(int i) {
    return NULL;
   }
 
-  nn-&gt;info = i;
-  nn-&gt;next = NULL;
+  nn->info = i;
+  nn->next = NULL;
 
   return nn;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
-  <p>
+  \begin{block}{}
     We <span class="hl-orange">can return</span> the address of
     <span class="hl-green">heap-allocated</span> variables
     <span class="hl-violet">from functions</span>. Heap variables are under our
     control, so they are <span class="hl-cyan">continue existing</span> after
     the function completes.
-  </p>
+  \end{block}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example: 3 Nodes List}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 struct node* list = NULL;
 list = node_construct(10);
-list-&gt;next = node_construct(20);
-list-&gt;next-&gt;next = node_construct(30);
-  </code></pre>
+list->next = node_construct(20);
+list->next->next = node_construct(30);
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Operation on linked list}
   \begin{itemize}
-    \item Print the list: <span class="hl-orange">list_print</span>
+    \item Print the list: \texttt{\color{Orange} list\_print}
     \item
       Add new node to end of list:
-      <span class="hl-green">list_push_back</span>
+      \texttt{\color{LimeGreen} list\_push\_back}
 
     \item
       Add new node to front of list:
-      <span class="hl-yellow">list_push_front</span>
+      \texttt{\color{Yellow} list\_push\_front}
 
     \item
       Insert new node after some node:
-      <span class="hl-cyan">list_push_next</span>
+      \texttt{\color{Cyan} list\_push\_next}
 
     \item
       Delete the first node in list:
-      <span class="hl-violet">list_pop_front</span>
+      \texttt{\color{Violet} list\_pop\_front}
 
     \item
       Delete the end node in list:
-      <span class="hl-material">list_pop_back</span>
+      \texttt{\color{RubineRed} list\_pop\_back}
 
     \item
       Delete a node from the middle of list:
-      <span class="hl-red">list_pop_next</span>
+      \texttt{\color{RedOrange} list\_pop\_next}
 
   \end{itemize}
 \end{frame}
-\begin{frame}
-  \frametitle{list_print}
-  <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{list\_print}
+  \begin{minted}[bgcolor=Black]{c}
 void list_print(struct node *head){
   struct node* current;
 
-  for(current = head; current != NULL; current = current-&gt; next) {
-    printf("%d\n", current-&gt;info)
+  for(current = head; current != NULL; current = current-> next) {
+    printf("%d\n", current->info)
   }
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \frametitle{list_push_back}
-  <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{list\_push\_back}
+  \begin{minted}[bgcolor=Black]{c}
 void list_push_back(struct node* head, struct node* nn){
   struct node* current;
 
-  for(current = head; current-&gt; next != NULL; current = current-&gt; next);
+  for(current = head; current-> next != NULL; current = current-> next);
 
-  current-&gt;next = nn;
-  nn-&gt;next = NULL;
+  current->next = nn;
+  nn->next = NULL;
 }
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{list_pop_back (if more than 1 nodes)}
-    <p>X &rarr; Y &rarr; NULL</p>
-    <hr />
-    \begin{itemize}
-      \item Y = X-&gt;next
-    \end{itemize}
-    <hr />
-    <ol>
-      \item free(Y)
-      \item X-&gt;next = NULL
-    </ol>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{list\_pop\_back (if more than 1 nodes)}
+  \[X \rightarrow Y \rightarrow NULL\]
+  \begin{itemize}
+    \item \mintinline{c}|Y = X->next|
+  \end{itemize}
+  \begin{enumerate}
+    \item \mintinline{c}|free(Y)|
+    \item \mintinline{c}|X->next = NULL|
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
 void list_pop_back(struct node* head) {
   struct node* current = head;
-  while(current-&gt;next-&gt;next != NULL) {
-    current = current-&gt;next;
+  while(current->next->next != NULL) {
+    current = current->next;
   }
 
-  free(current-&gt;next);
-  current-&gt;next = NULL;
+  free(current->next);
+  current->next = NULL;
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{list_push_front 🤔}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{list\_push\_front 🤔}
+  \begin{minted}[bgcolor=Black]{c}
 void list_push_front(struct node* head, struct node* nn) {
-  nn-&gt;next = list;
+  nn->next = list;
   head = nn;
 }
-    </code></pre>
-  \end{frame}
-  \begin{frame}
-    \frametitle{list_push_front 😱}
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{list\_push\_front 😱}
+  \begin{minted}[bgcolor=Black]{c}
 void list_push_front(struct node** phead, struct node* nn) {
-  nn-&gt;next = *phead;
+  nn->next = *phead;
   *phead = nn;
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
-\begin{frame}
-  \begin{frame}
-    \frametitle{list_pop_next}
-    <p>X &rarr; Y &rarr; Z</p>
-    <hr />
-    \begin{itemize}
-      \item Y = X-&gt;next
-      \item Z = Y-&gt;next
-      \item Z = X-&gt;next-&gt;next
-    \end{itemize}
-    <hr />
-    <ol>
-      \item X-&gt;next = Z
-      \item free(Y)
-    </ol>
-  \end{frame}
-  \begin{frame}
-    <pre><code class="hljs lang-c">
+
+\begin{frame}[fragile]
+  \frametitle{list\_pop\_next}
+  \[X \rightarrow Y \rightarrow Z\]
+  \begin{itemize}
+    \item \mintinline{c}|Y = X->next|
+    \item \mintinline{c}|Z = Y->next|
+    \item \mintinline{c}|Z = X->next->next|
+  \end{itemize}
+  \begin{enumerate}
+    \item \mintinline{c}|X->next = Z|
+    \item \mintinline{c}|free(Y)|
+  \end{enumerate}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{list\_pop\_next}
+  \begin{minted}[bgcolor=Black]{c}
 void list_pop_by_info(struct node* head, int v) {
   // find a node before the node that contains v
   struct node* current = head;
-  for (current = list; current-&gt;next != NULL &amp;&amp; current-&gt;next-&gt;info != v; current = current-&gt;next);
+  for (current = list; current->next != NULL && current->next->info != v; current = current->next);
 
   // there is no node that conaints v
-  if (current-&gt;next == NULL) {
+  if (current->next == NULL) {
     return;
   }
 
   list_pop_next(current);
 }
-    </code></pre>
-    <pre><code class="hljs lang-c">
+  \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{list\_pop\_next}
+  \begin{minted}[bgcolor=Black]{c}
 void list_pop_next(struct node* adjacent_to_delete_node) {
-  struct node* to_delete = adjacent_to_delete_node-&gt;next;
-  adjacent_to_delete_node-&gt;next = to_delete-&gt;next;
+  struct node* to_delete = adjacent_to_delete_node->next;
+  adjacent_to_delete_node->next = to_delete->next;
   free(to_delete);
 }
-    </code></pre>
-  \end{frame}
+  \end{minted}
 \end{frame}
+
 \begin{frame}
   \frametitle{Common Bugs}
   \begin{itemize}
@@ -1269,13 +1291,13 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
     \begin{itemize}
       \item When list is empty
       \item When we want to add to the first of list
-      \item ...
+      \item \ldots
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="4"></div>
-\end{frame}
+
+\section{Enum Definition}
+
 \begin{frame}
   \frametitle{Introduction}
   \begin{itemize}
@@ -1292,17 +1314,18 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
     \item We need an array
     \begin{itemize}
       \item
-        visitors[<span class="hl-green">0</span>] &rarr; The number of visitors
+        visitors[<span class="hl-green">0</span>] \textrightarrow The number of visitors
         in <span class="hl-orange">Saturday</span>
 
       \item
-        visitors[<span class="hl-green">1</span>] &rarr; The number of visitors
+        visitors[<span class="hl-green">1</span>] \textrightarrow The number of visitors
         in <span class="hl-orange">Sunday</span>
 
     \end{itemize}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Introduction}
   \begin{itemize}
     \item
@@ -1314,127 +1337,132 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
       \item More readable core
     \end{itemize}
     \item E.g.
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 visitors[saturday], visitors[friday]
 salary[april], salary[june]
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{enum}
   \begin{itemize}
     \item
-      <span class="hl-orange">enum</span> is used to define a set of names and
+      \textit{\color{LimeGreen} enum} is used to define a set of names and
       their corresponding numbers
 
-    <pre><code class="hljs lang-c">
-enum tag {name_1, name_2, …, name_N};
-    </code></pre>
-    \item <span class="hl-green">tag</span> is the enumeration type
+    \begin{minted}[bgcolor=Black]{c}
+enum tag {name_1, name_2, ..., name_N};
+    \end{minted}
+    \item \textsc{\color{Yellow} tag} is the enumeration type
     \begin{itemize}
       \item We use it to define variables
     \end{itemize}
     \item
-      <span class="hl-cyan">name_1</span> is
-      <span class="hl-red">0</span>
-
+      $name_1$ is $0$
     \item
-      <span class="hl-cyan">name_2</span> is
-      <span class="hl-red">1</span>
-
+      $name_2$ is $1$
     \item
-      <span class="hl-cyan">name_{i}</span> is
-      <span class="hl-red">name_{i-1} + 1</span>
+      $name_{i}$ is $name_{i-1} + 1$
 
   \end{itemize}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{enum}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 enum week {sat, sun, mon, tue, wed, thu, fri};
-  </code></pre>
-  <p>sat = 0, sun = 1, mon = 2, …, fri = 6</p>
-  <pre><code class="hljs lang-c">
+  \end{minted}
+  sat = 0, sun = 1, mon = 2, \ldots, fri = 6
+
+  \begin{minted}[bgcolor=Black]{c}
 enum year {feb, jan, mar, apr, may, jun, jul, aug, sep, oct, nov, des};
-  </code></pre>
-  <p>feb = 0, jan = 1, …, nov = 10, des = 11</p>
+  \end{minted}
+  feb = 0, jan = 1, \ldots, nov = 10, des = 11
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{enum}
   <p>We can assign the numbers</p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 enum week {sat = 1, sun, mon, tue, wed, thu, fri};
-  </code></pre>
+  \end{minted}
   <p>sat = 1, sun = 2, mon = 3, …, fri = 7</p>
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 enum condition {False = 0, True, No = 0, Yes, Ghalat = 0, Dorost};
-  </code></pre>
+  \end{minted}
   <p>
     False = No = Ghalat = 0<br />
     True = Yes = Dorost = 1
   </p>
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{enum}
   \begin{itemize}
     \item After definition of an enumeration
     \item We can use the tag to declare variables
     \item We can use the names to assign values to the variables
   \end{itemize}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 enum week { sat, sun, mon, tue, wed, thu, fri };
 enum week day = sat;
-for(day = sat; day &lt;= fri; day++)
-  </code></pre>
+for(day = sat; day <= fri; day++)
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Example: Read the number of visitors}
-  <pre><code class="hljs lang-c">
+  \begin{minted}[bgcolor=Black]{c}
 enum week {sat, sun, mon, tue, wed, thu, fri};
 int visitors[7];
 enum week day;
-for(day = sat; day &lt;= fri; day++)
-  scanf("%d", &amp;visitors[day]);
-  </code></pre>
+for(day = sat; day <= fri; day++)
+  scanf("%d", &visitors[day]);
+  \end{minted}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[fragile]
   \frametitle{Caution}
   \begin{itemize}
     \item
       C compiler <span class="hl-orange">does not</span> check the value is
       assigned to the enum variables
 
-    <pre><code class="hljs lang-c">
+    \begin{minted}[bgcolor=Black]{c}
 enum test1 {t1, t2, t3};
 enum test2 {t4, t5, t6};
 enum test1 t1v = t1;
 enum test2 t2v = t4;
-if(t1v == t2v) &rarr; true
+if(t1v == t2v) // true
 t1v = t5;
 t2v = 100;
-    </code></pre>
+    \end{minted}
   \end{itemize}
 \end{frame}
-\begin{frame}
-  <div class="toc" data-selected="5"></div>
-\end{frame}
+
+\section{Union Definition}
+
 \begin{frame}
   \frametitle{Introduction}
   \begin{itemize}
     \item
       Like Structures,
-      <span class="hl-orange">union is a user defined data type</span>.
-
+      \textsc{\color{Orange} union is a user defined data type}.
     \item In union, all members share the same memory location.
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Introduction}
-  <img src="img/union.png" />
+  \begin{figure}
+  \includegraphics[width=\textwidth]{./img/union.png}
+  \end{figure}
 \end{frame}
-\begin{frame}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 // Declaration of union is same as structures
 union test {
@@ -1455,18 +1483,19 @@ int main()
            t.x, t.y);
     return 0;
 }
-  </code></pre>
-  <pre><code class="hljs no-highlight">
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{output}
 After making x = 2:
  x = 2, y = 2
 
 After making y = 10:
  x = 10, y = 10
-  </code></pre>
+  \end{minted}
 \end{frame}
-\begin{frame}
-  <pre><code class="hljs lang-c">
-#include &lt;stdio.h&gt;
+
+\begin{frame}[fragile]
+  \begin{minted}[bgcolor=Black]{c}
+#include <stdio.h>
 
 union test1 {
     int x;
@@ -1491,27 +1520,32 @@ int main()
            sizeof(Test2), sizeof(Test3));
     return 0;
 }
-  </code></pre>
-  <pre><code class="hljs no-highlight">
+  \end{minted}
+
+  \begin{minted}[bgcolor=Black]{output}
 sizeof(test1) = 4, sizeof(test2) = 4, sizeof(test3) = 40
-  </code></pre>
+  \end{minted}
 \end{frame}
+
 \begin{frame}
-  \begin{frame}
-    \frametitle{Legends}
-    <img height="300px" src="img/rob.jpg" />
-  \end{frame}
-  \begin{frame}
-    <h6 class="fragment" data-fragment-index="1" style="color: #ff99ff">
-      Rob Pike
-    </h6>
-    \begin{itemize}
-      \item Canadian programmer and author
-      \item
-        He is best known for his work on the Go programming language and at Bell
-        Labs
-    \end{itemize}
-  \end{frame}
+  \frametitle{Legends}
+  \begin{figure}
+    \includegraphics[height=.75\textheight]{./img/rob.jpg}
+  \end{figure}
+  \pause%
+  \centering
+  \color{Violet} Rob Pike
 \end{frame}
+
+\begin{frame}
+  \frametitle{Legends}
+  \begin{itemize}
+    \item Canadian programmer and author
+    \item
+      He is best known for his work on the Go programming language and at Bell
+      Labs
+  \end{itemize}
+\end{frame}
+
 
 \end{document}
