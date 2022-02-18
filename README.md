@@ -9,6 +9,11 @@ Introduction to Programming Course.
 
 - Introduction - 2 Sessions
 - Algorithm Design - 2 Sessions
+- C Programming Basics - 3 Sessions
+- Calculation - 2 Sessions
+- Interaction - 2 Sessions
+- Making Decisions - 2 Sessions
+- Repeating Statements - 2 Sessions
 
 ## How to build a nice courses page
 
@@ -17,6 +22,8 @@ Introduction to Programming Course.
 - teaching assistents and how to contact them.
 
 ## Requirements
+
+To build the lectures you will need the following packages:
 
 ```sh
 sudo tlmgr install datetime2 fmtcount algorithm2e ifoddpage relsize tracklang
