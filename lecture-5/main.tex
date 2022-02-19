@@ -72,7 +72,7 @@ printf("%X\n", i); // 1A
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 printf("%f", 100.5f);
-100.500000
+// 100.500000
 
 float f = -2;
 double d = 100;
@@ -101,7 +101,7 @@ printf("%c, %c, %c", c1, 'b', 65);
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Special Character}
   \begin{table}
   \begin{tabular}{cc}
@@ -112,33 +112,35 @@ printf("%c, %c, %c", c1, 'b', 65);
 
     \midrule
 
-    \\n &
+    \mintinline{c}|'\n'| &
     newline \\
 
     \midrule
 
-    \\r &
+    \mintinline{c}|'\r'| &
     carriage return \\
 
     \midrule
 
-    \\b &
+    \mintinline{c}|'\b'| &
     backspace \\
 
     \midrule
 
-    \\'' &
+    \mintinline{c}|"\""| &
     '' \\
 
     \midrule
 
-    \%\% &
+    \mintinline{c}|"%%"| &
     \% \\
 
     \midrule
 
-    \\\%
-    \%
+    \mintinline{c}|"\%"| &
+    \% \\
+
+    \bottomrule
   \end{tabular}
   \end{table}
 \end{frame}
@@ -442,23 +444,21 @@ Input: 123 456 → I = 123 c = ‘4’ j = 56
 \begin{frame}
   \frametitle{Reading chars (cont’d)}
   \begin{itemize}
-    \item getchar()
+    \item \mintinline{c}|getchar()|
     \begin{itemize}
       \item Read char \textbf{\color{Orange} after Enter}
     \end{itemize}
-    \item getch()
+    \item \mintinline{c}|getch()|
     \begin{itemize}
       \item
         Read char \textbf{\color{Orange} without Enter},
-        <span class="hl-green">does NOT show</span> the char
-
+        \textbf{\color{LimeGreen} does NOT show} the char
     \end{itemize}
-    \item getche()
+    \item \mintinline{c}|getche()|
     \begin{itemize}
       \item
-        Read char <span class="hl-orange">without Enter</span>,
-        <span class="hl-green">shows</span> the char
-
+        Read char \textbf{\color{Orange} without Enter},
+        \textbf{\color{LimeGreen} shows} the char
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -473,8 +473,9 @@ Input: 123 456 → I = 123 c = ‘4’ j = 56
   \begin{minted}[bgcolor=Black]{c}
 char str[20];
 gets(str);
-
-Input: ABC DEF → str = "ABC DEF"
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{output}
+Input: ABC DEF -> str = "ABC DEF"
   \end{minted}
 \end{frame}
 
@@ -482,7 +483,7 @@ Input: ABC DEF → str = "ABC DEF"
   \frametitle{Field length in scanf}
   \begin{itemize}
     \item
-      Field length specifies the <span class="hl-orange">maximum</span> number
+      Field length specifies the \textbf{\color{Orange} maximum} number
       of input characters (in the buffer) used for scanning
 
   \end{itemize}
@@ -509,8 +510,9 @@ Input: 123456 7 → i = 12345, j = 6
   \begin{minted}[bgcolor=Black]{c}
 int y, m, d;
 scanf("%d/%d/%d", &y, &m, &d);
-
-Input: 1389/12/1 → y = 1389, m = 12, d = 1
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{output}
+Input: 1389/12/1 -> y = 1389, m = 12, d = 1
   \end{minted}
 \end{frame}
 
@@ -518,7 +520,7 @@ Input: 1389/12/1 → y = 1389, m = 12, d = 1
   \frametitle{Format of actual input data}
   \begin{itemize}
     \item
-      The format of actual input data <span class="hl-orange">MUST</span> match
+      The format of actual input data \textsc{\color{YellowOrange} must} match
       with the format of scanf
 
   \end{itemize}
@@ -526,10 +528,11 @@ Input: 1389/12/1 → y = 1389, m = 12, d = 1
 int a, b;
 float f;
 scanf("%d--%d%f", &a, &b, &f);
-
-Input: 1--2 3.0 → a = 1, b = 2, f = 3.0
-Input: 1-2 3.0 → a = 1, b = 57, f = 0.0
-Input: 1.0--2 3.0 → a = 1, b = 57, f = 0.0
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{output}
+Input: 1--2 3.0 -> a = 1, b = 2, f = 3.0
+Input: 1-2 3.0 -> a = 1, b = 57, f = 0.0
+Input: 1.0--2 3.0 -> a = 1, b = 57, f = 0.0
   \end{minted}
 \end{frame}
 
