@@ -21,27 +21,27 @@
     \toprule
 
     Addition &
-    +\\
+    $+$\\
 
     \midrule
 
     Subtraction &
-    - \\
+    $-$\\
 
     \midrule
 
     Division &
-    / \\
+    $/$\\
 
     \midrule
 
     Multiplication &
-    * \\
+    $*$\\
 
     \midrule
 
     Modulus &
-    \% \\
+    $\%$\\
 
     \bottomrule
   \end{tabular}
@@ -128,8 +128,8 @@ int main(void) {
   \frametitle{Effect of types}
   \begin{itemize}
     \item
-      If both operand of division (/) is \textit{\color{Orange} int}
-    \item $\Rightarrow$ data lost
+      If both operand of division ($/$) is \textit{\color{Orange} int}
+    \item \textrightarrow\ data lost
   \end{itemize}
 \end{frame}
 
@@ -190,11 +190,11 @@ int main(void) {
   \frametitle{Precedence}
   \begin{enumerate}
     \item Parenthesis
-    \item Unary + - (for sign): +4, -8
+    \item Unary $+$ $-$ (for sign): $+4$, $-8$
     \item Explicit casting
-    \item / * \%
-    \item Binary + -: 4 + 8
-    \item If multiple + - or / * \%: from left to right
+    \item $/$ $*$ $\%$
+    \item Binary $+$ $-$: $4 + 8$
+    \item If multiple $+$ $-$ or $/$ $*$ $\%$: from left to right
   \end{enumerate}
 \end{frame}
 
@@ -239,8 +239,8 @@ int main(void){
   \frametitle{Increment \& Decrement of Variables}
   \begin{itemize}
     \item Unary operators only for variables
-    \item $++$ : increase by one
-    \item $--$ : decrease by one
+    \item $++$: increase by one
+    \item $--$: decrease by one
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 int i = 10;
@@ -300,6 +300,7 @@ i *= i + j - 6 + i / j;
       \item From right to left
     \end{itemize}
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int i, j, k, l;
 i = j = k = l = 1;
@@ -459,7 +460,7 @@ i = j + i++; // i = 11 or ???
 \begin{frame}
   \frametitle{Overflow and Underflow}
   \begin{itemize}
-    \item Computer’s precision is limited
+    \item Computer's precision is limited
     \begin{itemize}
       \item
         {\color{Orange} The number of bits} in each type is
@@ -505,6 +506,7 @@ int main(void){
   \begin{itemize}
     \item \mint{c}|#include <math.h>|
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 double f = 36;
 fabs(-f) // 36.000000
@@ -605,6 +607,7 @@ srand(t);
 
 \begin{frame}[fragile]
   \frametitle{Random Numbers}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
