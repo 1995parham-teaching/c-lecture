@@ -8,12 +8,12 @@ Introduction to Programming Course.
 ## Agenda
 
 - Introduction - 2 Sessions
-- Algorithm Design - 2 Sessions
+- Algorithm Design - 2 Sessions (HW1)
 - C Programming Basics - 3 Sessions
 - Calculation - 2 Sessions
-- Interaction - 2 Sessions
-- Making Decisions - 2 Sessions
-- Repeating Statements - 2 Sessions
+- Interaction - 2 Sessions (HW2)
+- Making Decisions - 2 Sessions (HW3)
+- Repeating Statements - 2 Sessions (HW4)
 
 ## How to build a nice courses page
 
