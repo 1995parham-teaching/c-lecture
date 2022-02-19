@@ -264,12 +264,12 @@ i = i - 1; // i = 10
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 int i = 10, k = 6, j;
-j = i + -1; // i = 10, j = 11
-j = i++;    // i = 9, j = 10
-j = ++i;    // i = 10, j = 12
-j = i--;    // i = 9, j = 12
-j = --i;    // i = 8, j = 10
-j = i - -1; // i = 10, j = 9
+j = i + 1;  // i = 10, j = 11
+j = i++;    // i = 11, j = 10
+j = ++i;    // i = 12, j = 12
+j = i--;    // i = 11, j = 12
+j = --i;    // i = 10, j = 10
+j = i - 1;  // i = 10, j = 9
   \end{minted}
 \end{frame}
 
@@ -336,22 +336,22 @@ i += -3 // [i = -2]
 
     \midrule
 
-    $++ -- (type)$ &
+    $++$ $--$ $(type)$ &
     \\
 
     \midrule
 
-    $* / \%$ &
+    $*$ $/$ $\%$ &
     Left to Right \\
 
     \midrule
 
-    $+ -$ &
+    $+$ $-$ &
     Left to Right \\
 
     \midrule
 
-    $+= -= *= /= \%=$ &
+    $+=$ $-=$ $*=$ $/=$ $\%=$ &
     Right to Left \\
 
     \bottomrule
@@ -381,7 +381,7 @@ i = c - ch + 'X' - 'Z'; // i = -5
   \begin{itemize}
     \item \mintinline{c}|sizeof| is a unary operator
     \begin{itemize}
-      \item Return the size of operand
+      \item Return the size of operand in bytes
       \item Operand can be {\color{Cyan} Variable, value or type}
       \item The operand inside the \mintinline{c}|sizeof()| operator is not evaluated
     \end{itemize}
@@ -392,10 +392,10 @@ i = c - ch + 'X' - 'Z'; // i = -5
   \frametitle{sizeof operator}
   \begin{minted}[bgcolor=Black]{c}
 int size, i = 10;
-size = sizeof i;
-size = sizeof(i);
-size = sizeof(2000);
-size = sizeof(char)
+size = sizeof i;     // 4
+size = sizeof(i);    // 4
+size = sizeof(2000); // 4
+size = sizeof(char); // 1
   \end{minted}
 \end{frame}
 
@@ -415,22 +415,22 @@ size = sizeof(char)
 
     \midrule
 
-    $++ -- (type) sizeof()$ &
+    $++$ $--$ $(type)$ $sizeof()$ &
     \\
 
     \midrule
 
-    $* / \%$ &
+    $*$ $/$ $\%$ &
     Left to Right \\
 
     \midrule
 
-    $+ -$ &
+    $+$ $-$ &
     Left to Right \\
 
     \midrule
 
-    $+= -= *= /= \%=$ &
+    $+=$ $-=$ $*=$ $/=$ $\%=$ &
     Right to Left \\
 
     \bottomrule
@@ -481,7 +481,7 @@ i = j + i++; // i = 11 or ???
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Quadratic Equation}
+  \frametitle{Quadratic Term}
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -520,8 +520,8 @@ fmax(10.1, 20.2) // 20.2
 fmin(10.1, 20.2) // 10.1
 rint(10.2) // 10.0
 rint(-10.2) // -10.0
-rint(20.6) // 21
-rint(-20.6) // -21
+rint(20.6) // 21.0
+rint(-20.6) // -21.0
   \end{minted}
 \end{frame}
 
@@ -554,8 +554,8 @@ int main(void){
   scanf("%lf", &r);
   double area = M_PI * pow(r, 2);
   double perimeter = 2 * M_PI * r;
-  printf("Area = %f\n", area);
-  printf("Perimeter = %f\n", perimeter);
+  printf("Area = %lf\n", area);
+  printf("Perimeter = %lf\n", perimeter);
   return 0;
 }
   \end{minted}
@@ -573,7 +573,7 @@ int main(void){
     \end{itemize}
     \item How does it work
     \begin{itemize}
-      \item Start from a {\color{Orange} seed} number
+      \item Start from a {\color{Orange} seed\_number}
       \item $X_0 = F(seed\_number)$
       \item $X_{n + 1} = F(X_n)$
     \end{itemize}
