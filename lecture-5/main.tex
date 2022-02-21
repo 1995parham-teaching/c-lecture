@@ -40,14 +40,17 @@ printf("i is %d and char is %c", i, '6');
     \item \mint{c}|%d, %i, %ld|
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
+long long int a = 10;
 printf("%d", 100);
 // 100
 printf("%d, %d", +1000, -100);
 // 1000, -100
 printf("%i", 100);
 // 100
-printf("%ld, %i", +1000, -100);
+printf("%ld, %i", +1000l, -100);
 // 1000, -100
+printf("%lld", a);
+// 10
   \end{minted}
 \end{frame}
 
@@ -78,8 +81,8 @@ float f = -2;
 double d = 100;
 printf("%f, %f", f, d);
 // -2.000000, 100.000000
-printf("%f, %e", 1e3, 1e3);
-// 1000.000000, 1.000000e+003
+printf("%f, %e, %E", 1e3, 1e3, 1e10);
+// 1000.000000, 1.000000e+03, 1.000000E+10
   \end{minted}
 \end{frame}
 
@@ -187,14 +190,14 @@ printf("%s", str1);
 \begin{frame}[fragile]
   \frametitle{Field length}
   \begin{minted}[bgcolor=Black]{c}
-printf("|%4d|\n", 1);       // |    1|
-printf("|%4d|\n", 12345);   // |12345|
-printf("|%4d|\n", -12345);  // |-12345|
-printf("|%4f|\n", 1234.0);  // |1234.000000|
-printf("|%15f|\n", 1234.0); // |    1234.000000|
-printf("|%4c|\n", 'A');     // |   A|
-printf("|%4s|\n", "ABC");   // | ABC|
-printf("|%4s|\n", "ABCDE"); // |ABCDE|
+printf("|%4d|\n", 1);        // |   1|
+printf("|%4d|\n", 12345);    // |12345|
+printf("|%4d|\n", -12345);   // |-12345|
+printf("|%4lf|\n", 1234.0);  // |1234.000000|
+printf("|%15lf|\n", 1234.0); // |    1234.000000|
+printf("|%4c|\n", 'A');      // |   A|
+printf("|%4s|\n", "ABC");    // | ABC|
+printf("|%4s|\n", "ABCDE");  // |ABCDE|
   \end{minted}
 \end{frame}
 
@@ -225,13 +228,13 @@ printf("|%4s|\n", "ABCDE"); // |ABCDE|
 \begin{frame}[fragile]
   \frametitle{Precision}
   \begin{minted}[bgcolor=Black]{c}
-printf("|%.4d|\n", 1); // |0001|
-printf("|%.4d|\n", 12345); // |12345|
-printf("|%.4d|\n", -12345); // |-12345|
-printf("|%.4f|\n", 1234.0); // |1234.0000|
-printf("|%.10f|\n", 1234.0);// |1234.0000000000|
-printf("|%.4s|\n", "ABC"); // |ABC|
-printf("|%.4s|\n", "ABCDEF"); // |ABCD|
+printf("|%.4d|\n", 1);         // |0001|
+printf("|%.4d|\n", 12345);     // |12345|
+printf("|%.4d|\n", -12345);    // |-12345|
+printf("|%.4lf|\n", 1234.0);   // |1234.0000|
+printf("|%.10lf|\n", 1234.0);  // |1234.0000000000|
+printf("|%.4s|\n", "ABC");     // |ABC|
+printf("|%.4s|\n", "ABCDEF");  // |ABCD|
   \end{minted}
 \end{frame}
 
@@ -247,33 +250,32 @@ printf("|%.4s|\n", "ABCDEF"); // |ABCD|
 \begin{frame}[fragile]
   \frametitle{Field length and Precision}
   \begin{minted}[bgcolor=Black]{c}
-printf("|%10.5d|\n", 12);
-// | 00012|
-
-printf("|%3.5d|\n", 12);
-// |00012|
-
-printf("|%10.5f|\n", 1.234567890123);
-// | 1.23457|
-
-printf("|%0.5f|\n", 1.234567890123);
-// |1.23457|
-
-printf("|%15.10s|\n", "Hello, world");
-// | Hello, wor|
-
-printf("|%5.10s|\n", "Hello, world");
-// |Hello, wor|
+printf("|%10.5d|\n", 12);              // |     00012|
+printf("|%3.5d|\n", 12);               // |00012|
+printf("|%10.5lf|\n", 1.234567890123); // |   1.23457|
+printf("|%0.5f|\n", 1.234567890123);   // |1.23457|
+printf("|%15.10s|\n", "Hello, world"); // |     Hello, wor|
+printf("|%5.10s|\n", "Hello, world");  // |Hello, wor|
   \end{minted}
 \end{frame}
 
+\begin{frame}
+  \frametitle{\textit{\%g for doubles}}
+  \begin{itemize}
+    \item The double argument is converted in style f or e (or F or E for G conversions).
+    \item The precision specifies the number of significant digits.
+    \item If the precision is missing, 6 digits are given; if the precision is zero, it is treated as 1.
+    \item Style e is used if the exponent from its conversion is less than -4 or greater than or equal to the precision.
+    \item Trailing zeros are removed from the fractional part of the result; a decimal point appears only if it is followed by at least one digit.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
-  \frametitle{Variable Field Length \& Precision : *}
+  \frametitle{Variable Field Length \& Precision: *}
   \begin{itemize}
     \item
       * can be used to specify field length and precision which is replaced by a
       variable
-
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 int i = 30;
@@ -286,23 +288,21 @@ printf("%0*.*f\n", i, j, f);
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{PI with user-defined precision}
+  \inputminted[bgcolor=Black]{c}{./src/pi.c}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Cast in printing (do NOT use)}
   \begin{minted}[bgcolor=Black]{c}
 int i = -60;
 unsigned int j = 4147482648;
 float f = -700.05;
 
-printf("i = %f\n", i);
-// i = 0.000000
-
-printf("i = %u\n", i);
-// i = 4294967236
-
-printf("j = %d\n", j);
-// j = -147484648
-
-printf("f = %d\n", f);
-// f = 1610612736
+printf("i = %f\n", i); // i = 0.000000
+printf("i = %u\n", i); // i = 4294967236
+printf("j = %d\n", j); // j = -147484648
+printf("f = %d\n", f); // f = -762932576
   \end{minted}
 \end{frame}
 
@@ -358,15 +358,15 @@ scanf("%ld", &l); // 60
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 scanf("%o", &i);
-// Input: 12 → i = 10
+// Input: 12 -> i = 10
 
 scanf("%x", &i);
-// Input: 1a → i = 26
+// Input: 1a -> i = 26
 
 scanf("%i", &i);
-// Input: 12 → i = 12
-// Input: 012 → i = 10 (It reads in base 8)
-// Input: 0x12 → i = 18 (It reads in base 16)
+// Input: 12 -> i = 12
+// Input: 012 -> i = 10 (It reads in base 8)
+// Input: 0x12 -> i = 18 (It reads in base 16)
   \end{minted}
 \end{frame}
 
@@ -381,8 +381,8 @@ double d;
 scanf("%f", &f);
 scanf("%lf", &d);
 
-// 90.9 → 90.9 is saved in memory f
-// 88.123456789 → 88.123456789 saved in memory d
+// 90.9 -> 90.9 is saved in memory f
+// 88.123456789 -> 88.123456789 saved in memory d
   \end{minted}
   \begin{block}{}
   Spaces at the beginning are ignored
@@ -396,11 +396,11 @@ float f1, f2;
 scanf("%f", &f1);
 scanf("%e", &f2);
 
-// 1.23 → f1 = 1.23
-// 4.56 → f2 = 4.56
+// 1.23 -> f1 = 1.23
+// 4.56 -> f2 = 4.56
 
-// 1.23e+1 → f1 = 12.3
-// 4.56e-1 → f2 = 0.456
+// 1.23e+1 -> f1 = 12.3
+// 4.56e-1 -> f2 = 0.456
   \end{minted}
 \end{frame}
 
@@ -433,11 +433,34 @@ scanf("%c", &c3);
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 scanf("%d%c%d", &i, &c, &j);
-Input: 123 45 → I = 123 c = ‘ ‘ j = 45
+// Input: 123 45 -> I = 123 c = ‘ ‘ j = 45
 
 scanf("%d %c%d", &i, &c, &j);
-Input: 123 4 56 → I = 123 c = ‘4’ j = 56
-Input: 123 456 → I = 123 c = ‘4’ j = 56
+// Input: 123 4 56 -> I = 123 c = ‘4’ j = 56
+// Input: 123 456 -> I = 123 c = ‘4’ j = 56
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Reading chars (cont’d)}
+  \inputminted[bgcolor=Black]{c}{./src/read-with-whitespaces.c}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Reading chars (cont’d)}
+  \begin{minted}[bgcolor=Black]{output}
+> 10 ,90
+> p
+d1 = 10, d2 = 90, c1 = ",", c2 = "p"
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{output}
+> 10          90
+> p
+d1 = 10, d2 = 0, c1 = "9", c2 = "p"
+  \end{minted}
+  \begin{minted}[bgcolor=Black]{output}
+> 10    ,90,
+d1 = 10, d2 = 90, c1 = ",", c2 = ","
   \end{minted}
 \end{frame}
 
