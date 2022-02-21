@@ -125,7 +125,7 @@ bl = a <= b;
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Boolean operations}
   \begin{itemize}
     \item and \&\&
@@ -136,11 +136,11 @@ bl = a <= b;
   \begin{tabular}{ccccc}
     \toprule
 
-    $p$ &
-    $q$ &
-    $p \&\& q$ &
-    $p || q$ &
-    $!p$ \\
+    \mintinline{c}|p| &
+    \mintinline{c}|q| &
+    \mintinline{c}|p && q| &
+    \mintinline{c}{p || q} &
+    \mintinline{c}|!p| \\
 
     \midrule
 
