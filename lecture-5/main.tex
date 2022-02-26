@@ -443,6 +443,7 @@ scanf("%d %c%d", &i, &c, &j);
 
 \begin{frame}[fragile]
   \frametitle{Reading chars (cont’d)}
+  \scriptsize
   \inputminted[bgcolor=Black]{c}{./src/read-with-whitespaces.c}
 \end{frame}
 
@@ -491,7 +492,7 @@ d1 = 10, d2 = 90, c1 = ",", c2 = ","
   \begin{itemize}
     \item How to read a line
     \item Contains spaces (read until end of line)
-    \item gets(s)
+    \item \mint{c}|gets(s)|
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 char str[20];
