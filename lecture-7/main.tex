@@ -200,13 +200,13 @@ for(<expression1>; <expression2>; <expression3>)
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
-int main(void){
+int main(void) {
   int grade, count, i;
   double average, sum;
   sum = 0;
   printf("Enter the number of students: ");
   scanf("%d", &count);
-  for(i = 0; i < count; i++){
+  for(i = 0; i < count; i++) {
     printf("Enter the grade of %d-th student: ", (i + 1));
     scanf("%d", &grade);
     sum += grade;
@@ -365,9 +365,9 @@ for(int i = 0; i < 10; i++)
       int arr[20]
     \end{minted}
     \item
-      <Elements’ Type>: int, char, float,
+      \mintinline{c}|<Elements’ Type>|: int, char, float,
       \ldots
-    \item <size>
+    \item \mintinline{c}|<size>|
     \begin{itemize}
       \item Old compilers (standard): it should be constant
       \item New compilers (standard): it can be variable
@@ -403,14 +403,22 @@ for(int i = 0; i < 10; i++)
 \begin{frame}[fragile]
   \frametitle{Array Initialization: Known Length}
   \begin{itemize}
-    \mint{c}|int num[3]={10, 20, 60};|
-    \item num is the array of 3 integers, \mint{c}|num[0] is 10, ...|
-    \mint{c}|int num[]={40, 50, 60, 70, 70, 80};|
-    \item num is the array of 6 integers
-    \mint{c}|int num[10]={40, 50, 60};|
-    \item num is the array of 10 integers
-    \item \mint{c}|num[0] is 40 num[1] is 50, num[2] is 60|
-    \item \mint{c}|num[3], num[4], ..., num[9] are 0|
+    \item \mint{c}|int num[3]={10, 20, 60};|
+    \begin{itemize}
+      \item num is the array of 3 integers, \mintinline{c}|num[0]| is 10, \ldots
+    \end{itemize}
+
+    \item \mint{c}|int num[]={40, 50, 60, 70, 70, 80};|
+    \begin{itemize}
+      \item num is the array of 6 integers
+    \end{itemize}
+
+    \item \mint{c}|int num[10]={40, 50, 60};|
+    \begin{itemize}
+      \item num is the array of 10 integers
+      \item \mintinline{c}|num[0]| is 40, \mintinline{c}|num[1]| is 50, \mintinline{c}|num[2]| is 60
+      \item \mintinline{c}|num[3], num[4], ..., num[9]| are 0
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
