@@ -754,7 +754,7 @@ if (
 double var1, var2;
 if (var1 <= 1.1)
   <statements 1>
-if (var1 == var2)
+else if (var1 == var2)
   <statements 2>
     \end{minted}
   \end{itemize}
@@ -808,7 +808,7 @@ else
 \begin{frame}[fragile]
   \frametitle{Conditional Expression: Examples}
   \begin{minted}[bgcolor=Black]{c}
-y = (x > 0) ? x : -x
+abs = (x > 0) ? x : -x
 
 sign = (x < 0) ? -1 : ((x > 0) ? 1 : 0)
   \end{minted}
@@ -823,18 +823,24 @@ sign = (x < 0) ? -1 : ((x > 0) ? 1 : 0)
     \item
       Two float numbers may or may \textbf{\color{RubineRed} NOT} be equal
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 double d1, d2;
 d1 = 1e20 + 1;
 d2 = 1e20 - 1;
+printf("%lf\n", d1);
+printf("%lf\n", d2);
 if(d1 == d2)
   printf("They are equal :-o \n");
 else
   printf("They are not equal :D \n");
   \end{minted}
-  \begin{block}{}
-  They are equal :-o
-  \end{block}
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{output}
+100000000000000000000.000000
+100000000000000000000.000000
+They are equal :-o
+  \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -886,7 +892,7 @@ if (a && b < 0) // Logical Error
   \begin{itemize}
     \item
       The assert macro is defined in \textit{\color{Orange} assert.h}
-    \item assert(an expression)
+    \item \mint{c}|assert(<expression>)|
     \begin{itemize}
       \item If the expression is true: nothing
       \item If the expression is false: error message + halt
