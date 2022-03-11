@@ -15,6 +15,11 @@ Introduction to Programming Course.
 - Making Decisions - 2 Sessions (HW3)
 - Repeating Statements - 2 Sessions (HW4)
 
+## Assignments
+
+- HW1: Introduction, Algorithm Design
+- HW2: C Programming Basics, Calculation, Interaction, Making Decisions
+
 ## How to build a nice courses page
 
 - course image from [unsplash](https://unsplash.com/photos/mDinBvq1Sfg)
