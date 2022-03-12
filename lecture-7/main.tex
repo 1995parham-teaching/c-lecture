@@ -442,6 +442,11 @@ int num[5]={[0] = 3, [4] = 6};
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{Array Initialization (cont’d)}
+  \inputminted[bgcolor=Black]{c}{./src/init_with_zero.c}
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Initializing Variable Length Arrays}
   \begin{minted}[bgcolor=Black]{c}
 int n;
@@ -464,7 +469,9 @@ int n;
 scanf("%d", &n);
 int num[n];
   \end{minted}
-  \textit{\color{Orange} num} is usable
+  \begin{block}{}
+    \textit{\color{Orange} num} is usable
+  \end{block}
   \begin{minted}[bgcolor=Black]{c}
 int n;
 int num[n];
@@ -485,11 +492,17 @@ scanf("%d", &n);
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 while(<expression>) ;
-E.g.,
+  \end{minted}
+e.g.,
+  \begin{minted}[bgcolor=Black]{c}
 while(i++ <= n) ;
+  \end{minted}
 
+  \begin{minted}[bgcolor=Black]{c}
 for(<expression1>; <expression2>; <expression3>) ;
-E.g.,
+  \end{minted}
+e.g.,
+  \begin{minted}[bgcolor=Black]{c}
 for(i = 0; i < 10; printf("%d\n",i), i++) ;
   \end{minted}
 \end{frame}
