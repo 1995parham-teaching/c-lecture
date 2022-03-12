@@ -44,10 +44,10 @@
   \begin{itemize}
     \item Solving a large and complex problem
     \item Design the overall algorithm
-    \item Some portions are <span class="hl-orange">black-box</span>
+    \item Some portions are \textbf{\color{Orange} black-box}
     \begin{itemize}
-      \item We know <span class="hl-green">what</span> each box does
-      \item But we don't worry <span class="hl-cyan">how</span>
+      \item We know \textit{\color{LimeGreen} what} each box does
+      \item But we don't worry \textit{\color{Cyan} how}
       \item Later, we think about the black-boxes and develop them
     \end{itemize}
     \item
@@ -80,19 +80,19 @@
   \begin{itemize}
     \item Functions in mathematics
     \begin{itemize}
-      \item \mint{c}|z = f(x, y)|
+      \item \mintinline{c}|z = f(x, y)|
     \end{itemize}
     \item Functions in C
     \begin{itemize}
       \item \textbf{\color{YellowOrange} Queries}: Return a value
       \begin{itemize}
-        \item \mint{c}|sin()|, \mint{c}|fabs()|
+        \item \mintinline{c}|sin()|, \mintinline{c}|fabs()|
       \end{itemize}
       \item
         \textbf{\color{LimeGreen} Commands}: do some tasks, do not return
         any value
       \begin{itemize}
-        \item \mint{c}|printf_my_info(...)|
+        \item \mintinline{c}|printf_my_info(...)|
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -119,18 +119,20 @@
 
 \begin{frame}[fragile]
   \frametitle{Function \textbf{prototype}}
-  \mint{c}|<output type> <function name>(<input parameter types>);|
+  \begin{minted}[bgcolor=Black]{c}
+<output type> <function name>(<input parameter types>);
+  \end{minted}
   \begin{itemize}
-    \item <output type>
+    \item \mintinline{c}|<output type>|
     \begin{itemize}
       \item \textmd{\color{Orange} Queries}: int, float, \ldots
       \item \textmd{\color{LimeGreen} Command}: void
     \end{itemize}
     \item
-      <function name> is an identifier
-    \item <input parameter types>
+      \mintinline{c}|<function name>| is an identifier
+    \item \mintinline{c}|<input parameter types>|
     \begin{itemize}
-      \item <type>, <type>, \ldots
+      \item \mintinline{c}|<type>, <type>, ...|
       \begin{itemize}
         \item int, float, \ldots
       \end{itemize}
@@ -147,7 +149,7 @@
 }
   \end{minted}
   \begin{itemize}
-    \item <output type>
+    \item \mintinline{c}|<output type>|
     \begin{itemize}
       \item \textmd{\color{Orange} Queries}: int, float, \ldots
       \item \textmd{\color{LimeGreen} Command}: void
@@ -192,18 +194,19 @@
 
 \begin{frame}[fragile]
   \frametitle{Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
-/* Function declaration */
+/* function declaration */
 void my_info(void);
 
 int main(void){
   printf("This is my info");
-  my_info(); /* Function call */
+  my_info(); /* function call */
   printf("=============");
   return 0;
 }
 
-/* Function definition */
+/* function definition */
 void my_info(void){
   printf("Student name is Parham Alvani\n");
   printf("Student number: 9231058\n");
@@ -213,8 +216,9 @@ void my_info(void){
 
 \begin{frame}[fragile]
   \frametitle{Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
-/* Function definition */
+/* function definition */
 void my_info(void) {
   printf("Student name is Parham Alvani\n");
   printf("Student number: 9231058\n");
@@ -222,7 +226,7 @@ void my_info(void) {
 
 int main(void) {
   printf("This is my info");
-  my_info(); /* Function call */
+  my_info(); /* function call */
   printf("=============");
   return 0;
 }
@@ -230,7 +234,7 @@ int main(void) {
 \end{frame}
 
 \begin{frame}
-  \frametitle{Function Declaration?!!!!}
+  \frametitle{FunCtion Declaration?!}
   \begin{itemize}
     \item Is function declaration needed?
     \item Is there any useful application of function declaration?
@@ -266,6 +270,7 @@ void f(int a, b) // compile error
 \end{frame}
 
 \begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
