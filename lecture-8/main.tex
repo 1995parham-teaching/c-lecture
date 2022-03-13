@@ -777,21 +777,20 @@ for(int i = 0; i <; 10; i++){
   \begin{itemize}
     \item
       All variables defined in a function are the
-      <span class="hl-orange">local variable</span> of the function
-
+      \textit{\color{YellowOrange} local variable} of the function
     \item
       Can \textsc{\color{LimeGreen} only} be used in the function, not other
       functions
-
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
-void func(void){
+void func(void) {
   /* These are local variables */
   int i, j;
   float f;
 }
 
-int main(void){
+int main(void) {
   i = 10; /* compile error, why? */
   f = 0; /* compile error, why? */
 }
@@ -803,14 +802,13 @@ int main(void){
   \begin{itemize}
     \item Global variables are defined outside of all functions
     \item
-      Global variables are <span class="hl-orange">initialized</span> to
-      <span class="hl-cyan">zero</span>
-
+      Global variables are \textit{\color{Cyan} initialized} to
+      \textbf{\color{ProcessBlue} zero}
     \item
       Global variables are available to all
-      <span class="hl-green">subsequent</span> functions
-
+      \textit{\color{LimeGreen} subsequent} functions
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void f(){
    i = 0; // compile error
@@ -865,16 +863,15 @@ void main(void){
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}
   \begin{itemize}
     \item
-      <span class="hl-red">Don’t</span> use this method. Parameters should be
+      \textsc{\color{RubineRed} Don't} use this method. Parameters should be
       passed by input parameter list.
-
     \item
       Global variable are used to define (large) variables that are used in
       many functions
-
   \end{itemize}
 \end{frame}
 
