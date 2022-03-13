@@ -978,7 +978,6 @@ int main(void) {
       \item
         Generated in
         \textit{\color{Purple} the first run of the block}
-
       \item Destroyed \textbf{\color{Cyan} when program finishes}
       \item Initialized
       \begin{itemize}
@@ -992,11 +991,11 @@ int main(void) {
 \begin{frame}
   \frametitle{Storage Classes: Static (Cont.)}
   \begin{itemize}
-    \item Keyword <span class="hl-orange">static</span> comes before them
-    \item For <span class="hl-yellow">global</span> variables:
+    \item Keyword \textit{\color{YellowOrange} static} comes before them
+    \item For \textbf{\color{Goldenrod} global} variables:
     \begin{itemize}
-      \item Generated <span class="hl-green">when program starts</span>
-      \item Destroyed <span class="hl-cyan">when program finishes</span>
+      \item Generated \textit{\color{Purple} when program starts}
+      \item Destroyed \textbf{\color{Cyan} when program finishes}
       \item Initialized
       \begin{itemize}
         \item If no value: initialized by 0
@@ -1022,6 +1021,7 @@ int main(void) {
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes, Auto: Examples}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void f(int i, double d){
   int i2;
@@ -1037,6 +1037,7 @@ void f(int i, double d){
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes, Extern: Examples}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int i = 10, j = 20;
 
@@ -1058,6 +1059,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes: Examples}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int i;
 
@@ -1080,6 +1082,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes, Static: Examples}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void func(void) {
   int j;
@@ -1101,6 +1104,7 @@ int main(void) {
 
 \begin{frame}[fragile]
   \frametitle{Storage Classes, Register: Examples}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 register int i;
 for(i = 0; i <; 100; i++)
@@ -1266,7 +1270,7 @@ Conjecture is incorrect
   \begin{algorithm}[H]
   \KwData{$n$}
   \KwResult{$1$ if $n$ is prime else $0$}
-  \For{$i$ from $2$ to $sqrt{n}$}{
+  \For{$i$ from $2$ to $\sqrt{n}$}{
     \If{$n \% i == 0$}{
       $n$ is not prime\;
     }
@@ -1318,8 +1322,8 @@ int main(void) {
     \item Iteration vs. Recursion
     \item Factorial
     \begin{itemize}
-      \item n! = n x n-1 x \ldots x 2 x 1
-      \item n! = n x (n-1)!
+      \item $n! = n \times n-1 \times \ldots \times 2 \times 1$
+      \item $n! = n \times (n-1)!$
     \end{itemize}
     \item GCD
     \begin{itemize}
@@ -1342,7 +1346,7 @@ int main(void) {
       \end{itemize}
     \end{itemize}
     \item
-      There is a simple (<span class="hl-red">basic</span>) problem which we can
+      There is a simple (\textbf{\color{RubineRed} basic}) problem which we can
       solve it directly (without recursion)
     \begin{itemize}
       \item 1! = 1 in factorial, b = 0 in GCD
@@ -1398,23 +1402,23 @@ void main(void){
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Function Call Graph + Stacks}
   \begin{itemize}
-    \item factorial(4) = ?
-    \item factorial(3) = ?
-    \item factorial(2) = ?
-    \item factorial(1) = ?
+    \item \mintinline{c}|factorial(4) = ?|
+    \item \mintinline{c}|factorial(3) = ?|
+    \item \mintinline{c}|factorial(2) = ?|
+    \item \mintinline{c}|factorial(1) = ?|
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Function Call Graph + Stacks}
   \begin{itemize}
-    \item factorial(4) = 4 * (3 * (2 * 1))
-    \item factorial(3) = 3 * (2 * 1)
-    \item factorial(2) = 2 * 1
-    \item factorial(1) = 1
+    \item<1-> \mintinline{c}|factorial(4) = 4 * (3 * (2 * 1))|
+    \item<2-> \mintinline{c}|factorial(3) = 3 * (2 * 1)|
+    \item<3-> \mintinline{c}|factorial(2) = 2 * 1|
+    \item<4-> \mintinline{c}|factorial(1) = 1|
   \end{itemize}
 \end{frame}
 
@@ -1557,8 +1561,11 @@ int main(void) {
   \begin{itemize}
     \item Be careful about the order of input parameter
     \begin{minted}[bgcolor=Black]{c}
-int diff(int a, int b){return a - b;}
-diff(x,y) or diff(y,x)
+int diff(int a, int b) {
+  return a - b;
+}
+
+diff(x,y) /* or */ diff(y,x)
     \end{minted}
     \item Be careful about casting in functions
     \item
