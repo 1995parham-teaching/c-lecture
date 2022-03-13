@@ -908,11 +908,9 @@ void main(void){
     \item
       Generated at the
       \textit{\color{LimeGreen} start of each run of the block}
-
     \item
       Destroyed at the
       \textit{\color{LimeGreen} end of each run of the block}
-
     \item Are not initialized
   \end{itemize}
 \end{frame}
@@ -926,7 +924,7 @@ void main(void){
       \item Are generated when program starts
       \item Are destroyed when program finishes
     \end{itemize}
-    \item Usage of keyword <span class="hl-orange">extern</span>
+  \item Usage of keyword \textit{\color{YellowOrange} extern}
     \begin{itemize}
       \item To use global variables in other files
       \item To use global variables before definition
@@ -942,13 +940,13 @@ void main(void){
   \begin{itemize}
     \item We only declare <code>var</code> and later define it.
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
-#include <stdio.h>;
+#include <stdio.h>
 
 extern int var;
 
-int main(void)
-{
+int main(void) {
   printf("%d\n", var);
   return 0;
 }
@@ -956,15 +954,15 @@ int main(void)
 int var = 20;
   \end{minted}
   \begin{itemize}
-    \item We declare and define <code>var</code>. (optional usage)
+    \item We declare and define \textit{\color{YellowOrange} var}. (optional usage)
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
 extern int var = 10;
 
-int main(void)
-{
+int main(void) {
   printf("%d\n", var);
   return 0;
 }
@@ -974,14 +972,14 @@ int main(void)
 \begin{frame}
   \frametitle{Storage Classes: Static}
   \begin{itemize}
-    \item Keyword <span class="hl-orange">static</span> comes before them
-    \item For <span class="hl-yellow">local</span> variables:
+    \item Keyword \textit{\color{YellowOrange} static} comes before them
+    \item For \textbf{\color{Goldenrod} local} variables:
     \begin{itemize}
       \item
         Generated in
-        <span class="hl-green">the first run of the block</span>
+        \textit{\color{Purple} the first run of the block}
 
-      \item Destroyed <span class="hl-cyan">when program finishes</span>
+      \item Destroyed \textbf{\color{Cyan} when program finishes}
       \item Initialized
       \begin{itemize}
         \item If no value: initialized by 0
