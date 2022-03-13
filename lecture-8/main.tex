@@ -647,16 +647,16 @@ void main(void){
   \begin{itemize}
     \item Scopes are determined by Blocks
     \begin{itemize}
-      \item Start with { and finished by }
+      \item Start with \{ and finished by \}
       \item
         Example: statements of a function, statement of a if or while, \ldots
     \end{itemize}
     \item Variables
     \begin{itemize}
-      \item <span class="hl-orange">Can be</span> declared in a block
-      \item <span class="hl-green">Can be</span> used in the declared block
+      \item \textsc{\color{Orange} Can be} declared in a block
+      \item \textsc{\color{Orange} Can be} used in the declared block
       \item
-        <span class="hl-cyan">Cannot be</span> used outside the declared block
+        \textsc{\color{RubineRed} Cannot be} used outside the declared block
     \end{itemize}
     \item The declared block is the scope of the variable
   \end{itemize}
@@ -664,6 +664,7 @@ void main(void){
 
 \begin{frame}[fragile]
   \frametitle{Variables in Blocks}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -671,13 +672,13 @@ int main(void){
   int i;
   for(i = 1; i <= 10; i++){
     int number;
-    printf("Enter %d-th number: ", i);
+    printf("enter %d-th number: ", i);
     scanf("%d", &number);
 
     if((number % 2) == 0)
-        printf("Your number is even\n");
+        printf("your number is even\n");
      else
-         printf("Your number is odd\n");
+         printf("your number is odd\n");
   }
   /* compile error
    printf("The last number is %d\n", number); */
@@ -691,9 +692,10 @@ int main(void){
   \begin{itemize}
     \item Scopes can be nested
     \begin{itemize}
-      \item Example: Nested if, nested for, ...
+      \item Example: Nested if, nested for, \ldots
     \end{itemize}
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void main(){ // block 1
   int i;
@@ -716,20 +718,19 @@ void main(){ // block 1
       \item Scope of inner block contains the outer block
     \end{itemize}
     \item
-      Variables in inner block <span class="hl-red">cannot</span> be used in
+      Variables in inner block \textsc{\color{RubineRed} cannot} be used in
       outer block
-
     \begin{itemize}
       \item
         Scope of the outer block
-        <span class="hl-red">does not</span> contains the inner block
-
+        \textsc{\color{RubineRed} does not} contains the inner block
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Variables in Nested Blocks: Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int k;
 
@@ -759,19 +760,16 @@ for(int i = 0; i <; 10; i++){
     \item
       If a variable in inner block has the same identifier of a variable in
       outer block
-
     \begin{itemize}
       \item
-        The inner variable <span class="hl-orange">hides</span> the outer
+        The inner variable \textit{\color{YellowOrange} hides} the outer
         variable
-
       \item
         Changing inner variables
-        <span class="hl-green">does not</span> change outer variable
-
+        \textit{\color{LimeGreen} does not} change outer variable
     \end{itemize}
   \end{itemize}
-  <p class="hl-red" style="font-size: 120px">Do Not Use It</p>
+  \textsc{\color{RubineRed} Do Not Use It}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -782,7 +780,7 @@ for(int i = 0; i <; 10; i++){
       <span class="hl-orange">local variable</span> of the function
 
     \item
-      Can <span class="hl-green">ONLY</span> be used in the function, not other
+      Can \textsc{\color{LimeGreen} only} be used in the function, not other
       functions
 
   \end{itemize}
