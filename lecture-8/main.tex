@@ -123,14 +123,14 @@
 <output type> <function name>(<input parameter types>);
   \end{minted}
   \begin{itemize}
-    \item \textit{<output type>}
+    \item \textit{\color{VioletRed} <output type>}
     \begin{itemize}
       \item \textmd{\color{Orange} Queries}: int, float, \ldots
       \item \textmd{\color{LimeGreen} Command}: void
     \end{itemize}
     \item
-      \textit{<function name>} is an identifier
-    \item \textit{<input parameter types>}
+      \textit{\color{LimeGreen} <function name>} is an identifier
+    \item \textit{\color{Cyan} <input parameter types>}
     \begin{itemize}
       \item \textit{<type>, <type>, \ldots}
       \begin{itemize}
@@ -149,7 +149,7 @@
 }
   \end{minted}
   \begin{itemize}
-    \item \textit{<output type>}
+    \item \textit{\color{VioletRed} <output type>}
     \begin{itemize}
       \item \textmd{\color{Orange} Queries}: int, float, \ldots
       \item \textmd{\color{LimeGreen} Command}: void
@@ -184,7 +184,7 @@
     \item Command function
     \textit{\color{LimeGreen} <function name>(inputs)}
     \item Query function
-    \textit{\color{LimeGreen} <variable> = <function name>(inputs)}
+    \textit{\color{YellowOrange} <variable> = <function name>(inputs)}
     \item Inputs should match by function definition
     \item Functions are called by another function
     \begin{itemize}
@@ -235,7 +235,7 @@ int main(void) {
 \end{frame}
 
 \begin{frame}
-  \frametitle{FunCtion Declaration?!}
+  \frametitle{Function Declaration?!}
   \begin{itemize}
     \item Is function declaration needed?
     \item Is there any useful application of function declaration?
@@ -336,10 +336,10 @@ res = a - b;
   \begin{itemize}
     \item
       value of d1 is copied the memory location
-      \textit{\color{LimeGreen} a}
+      \textbf{\color{LimeGreen} a}
     \item
       value of d2 is copied to memory location
-      \textit{\color{YellowOrange} b}
+      \textbf{\color{YellowOrange} b}
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
 double a = 10.1;
@@ -347,6 +347,7 @@ double b = 6.0;
 double res;
 res = a - b;
   \end{minted}
+  \pause
   \textbf{\color{RubineRed} Call by Value}
 \end{frame}
 
@@ -416,19 +417,17 @@ int main(void){
 \begin{frame}
   \frametitle{Producing output}
   \begin{itemize}
-    \item What we have seen are the “Command”
+    \item What we have seen are the ``Command''
     \item Query functions
     \begin{itemize}
       \item Produce output
       \item
-        Output <span class="hl-red">cannot</span> be produced by the “call by
-        value” parameters
-
+        Output \textsc{\color{RubineRed} cannot} be produced by the \textbf{\color{YellowOrange} call by value} parameters
     \end{itemize}
     \item To produce an output
     \begin{itemize}
       \item Declare output type
-      \item Generate the output by <span class="hl-orange">return</span>
+      \item Generate the output by \textit{\color{YellowOrange} return}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -439,7 +438,7 @@ int main(void){
     \item To generate a result by a function
     \mint{c}|return <value>;|
     \item Only one value can be returned
-    \item <span class="hl-green">return</span> finishes running the function
+    \item \textit{\color{LimeGreen} return} finishes running the function
     \item Function can have multiple return
     \begin{itemize}
       \item Only one of them runs each time
@@ -453,6 +452,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{Exmaple: my\_fabs (Version 1)}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   double res;
@@ -475,6 +475,7 @@ void main(void){
 
 \begin{frame}[fragile]
   \frametitle{Exmaple: my\_fabs (Version 2)}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 double my_fabs(double x){
   if(x >= 0)
@@ -498,7 +499,7 @@ void main(void){
   \begin{itemize}
     \item
       A function can produce
-      <span class="hl-orange">at most one</span> output
+      \textbf{\color{YellowOrange} at most one} output
 
     \item Output of functions can be dropped
   \end{itemize}
@@ -515,15 +516,14 @@ gcd(10, 20); // we drop the output of gcd
     \item Cast for input
     \begin{itemize}
       \item
-        Prototype: <span class="hl-orange">void f(int a, double b);</span>
-
-      \item Call: <span class="hl-green">f(10.1, 20.2);</span>
+        Prototype: \mintinline{c}|void f(int a, double b);|
+      \item Call: \mintinline{c}|f(10.1, 20.2);|
     \end{itemize}
     \item Cast for output
     \begin{itemize}
-      \item Prototype: <span class="hl-orange">int f(int a);</span>
-      \item Call: <span class="hl-green">double d = f(10);</span>
-      \item In return: <span class="hl-cyan">return 10.20</span>
+      \item Prototype: \mintinline{c}|int f(int a);|
+      \item Call: \mintinline{c}|double d = f(10);|
+      \item In return: \mintinline{c}|return 10.20|
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -538,6 +538,7 @@ gcd(10, 20); // we drop the output of gcd
       \item Casting may not work
     \end{itemize}
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 f1(a){
   printf("a = %d\n", a); return a / 2;
@@ -567,17 +568,16 @@ int main(){
     \begin{itemize}
       \item 2 approaches to reduce the overhead
     \end{itemize}
-    \item <span class="hl-orange">inline</span> function
+    \item \textbf{\color{Peach}inline} function
     \begin{itemize}
       \item To ask from compiler to compile it as inline, but no guarantee
       \item
-        <span class="hl-green">GCC</span> and
-        <span class="hl-green">Clang</span> don't support
-        <span class="hl-orange">inline</span> functions
+        \textbf{GCC} and
+        \textbf{Clang} don't support
+        \textit{inline} functions
     \end{itemize}
     \begin{minted}[bgcolor=Black]{c}
 inline int f(float x)
-      </code></pre>
     \end{minted}
     \item Macros
     \begin{minted}[bgcolor=Black]{c}
@@ -588,6 +588,7 @@ inline int f(float x)
 
 \begin{frame}[fragile]
   \frametitle{Example: GCD}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #define PRINT_INT(x) printf("%d\n",x); \
                       printf("===================\n");
