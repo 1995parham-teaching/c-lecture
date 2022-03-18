@@ -100,7 +100,7 @@
 
 \begin{frame}
   \frametitle{Functions in C}
-  Three steps to use functions in C:
+  Three steps to use functions in C:\@
   \begin{enumerate}
     \item Function prototype (declaration)
     \begin{itemize}
@@ -602,7 +602,13 @@ inline int gcd(int a, int b){ /* return gcd of a and b */
   }
   return a;
 }
+  \end{minted}
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Example: GCD (Cont'd)}
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{c}
 void main(void){
   int i = 20, j = 35, g;
 
@@ -822,6 +828,7 @@ void g(){
 
 \begin{frame}[fragile]
   \frametitle{Global/External Variables: Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int i, j;
 float f;
