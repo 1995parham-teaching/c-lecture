@@ -40,7 +40,7 @@
   \frametitle{Array}
   \begin{itemize}
     \item A collection of \textbf{\color{Peach}same type} variables
-    \item A $nx1$ vector of
+    \item A $n \times 1$ vector of
     \begin{itemize}
       \item Integers, chars, floats, \ldots
     \end{itemize}
@@ -108,10 +108,10 @@
       <Elements' Type> <identifier> [<size>]
     \end{minted}
     \item
-      <Elements' Type>: int, char, float,
+      Elements' Type: int, char, float,
       \ldots
 
-    \item <size>:
+    \item size:
     \begin{itemize}
       \item
         Old compilers (standard):
@@ -133,19 +133,19 @@
     \item
       \textit{\color{Orange} num} is array of 20
       \textit{\color{LimeGreen} integers}
-    \item <span class="hl-orange">num[0]</span> is the first integer variable
-    \item <span class="hl-orange">num[19]</span> is the last integer
+    \item \mintinline{c}|num[0]| is the first integer variable
+    \item \mintinline{c}|num[19]| is the last integer
   \end{itemize}
   \mint{c}|float farr[100];|
   \begin{itemize}
     \item
-      <span class="hl-orange">farr</span> is array of 100
-      <span class="hl-green">floats</span>
-    \item <span class="hl-orange">farr[0]</span> is the first float
+      \textit{\color{YellowOrange} farr} is array of 100
+      \textit{\color{GreenYellow} floats}
+    \item \textit{\color{Purple} farr[0]} is the first float
     \item
-      <span class="hl-orange">farr[49]</span> is the 50th
-      <span class="hl-green">float</span>
-    \item <span class="hl-orange">farr[99]</span> is the last float
+      \textit{\color{YellowOrange} farr[49]} is the 50th
+      \textit{\color{GreenYellow} float}
+    \item \textit{\color{Purple} farr[99]} is the last float
   \end{itemize}
 \end{frame}
 
@@ -245,41 +245,45 @@ void main(void) {
 
 \begin{frame}
   \frametitle{Array Size in Functions}
-  \begin{itemize}
-    \item
-      If array is an \textit{\color{Orange} input parameter} of a
-      function
+  \begin{block}{}
     \begin{itemize}
       \item
-        It \textit{\color{RubineRed} cannot} find out the size of the array
+        If array is an \textit{\color{Orange} input parameter} of a
+        function
+      \begin{itemize}
+        \item
+          It \textit{\color{RubineRed} cannot} find out the size of the array
+      \end{itemize}
     \end{itemize}
-  \end{itemize}
+  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
   \begin{itemize}
     \item
       Array size should be passed from caller function to called function
-
     \begin{itemize}
       \item Using definitions
       \begin{minted}[bgcolor=Black]{c}
 #define SIZE 20
-void func(int a[]){ for(int i = 0; i < SIZE; i++)
+void func(int a[]) {
+  for(int i = 0; i < SIZE; i++)
       \end{minted}
       \item Using input variable
       \begin{minted}[bgcolor=Black]{c}
-void read(int a[], int size){ for(int i = 0; i < size; i++)
+void read(int a[], int size) {
+  for(int i = 0; i < size; i++)
       \end{minted}
       \begin{minted}[bgcolor=Black]{c}
-void read(int size, int a[size]){ for(int i = 0; i < size; i++)
+void read(int size, int a[size]) {
+  for(int i = 0; i < size; i++)
       \end{minted}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Array Size in Functions (cont’d)}
+  \frametitle{Array Size in Functions (cont'd)}
   \begin{itemize}
     \item If array is declared in a function
     \begin{itemize}
@@ -327,31 +331,30 @@ x[20] = 30;
 
 \begin{frame}[fragile]
   \frametitle{Out-of-range Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
-void init_array(int size, int arr[]){
+void init_array(int size, int arr[]) {
   int i;
   for(i = 0; i < size; i++)
     arr[i] = i;
 }
 
-void print_array(int size, int arr[]){
+void print_array(int size, int arr[]) {
   int i;
   for(i = 0; i < size; i++)
     printf("arr[%d] = %d\n", i, arr[i]);
 }
 
-void main(void){
-  int x = 1;
-  int y = 2;
+void main(void) {
+  int x = 1, y = 2;
   int a[10] = {0};
   init_array(10, a);   // OK
   print_array(10, a);  // OK
   print_array(30, a);  // Wrong output
-  init_array(1000, a); // May be Run-time error!!!
-  init_array(20, a);   // May changes X, Y!!!
-                       // Logical error
+  init_array(1000, a); // May be Run-time error!
+  init_array(20, a);   // May changes X, Y! Logical error
   printf("x = %d, y = %d\n" , x, y);
 }
   \end{minted}
@@ -359,6 +362,7 @@ void main(void){
 
 \begin{frame}[fragile]
   \frametitle{Max Index Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -380,6 +384,7 @@ void main(void){
 
 \begin{frame}[fragile]
   \frametitle{Array Swap Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -451,10 +456,9 @@ int main(void){
   \frametitle{Binary Search}
   \begin{itemize}
     \item
-      Given a <span class="hl-orange">sorted array</span> arr[] of n elements,
+      Given a \textbf{\color{YellowOrange} sorted array} arr[] of n elements,
       write a function to
-      <span class="hl-green">search a given element</span> x in arr[].
-
+      \textbf{\color{GreenYellow} search a given element} x in arr[].
   \end{itemize}
   \begin{figure}
     \includegraphics[width=.75\textwidth]{./img/binary-search.png}
@@ -462,6 +466,7 @@ int main(void){
 \end{frame}
 
 \begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int bsearch(int start, int end, int a[], int value){
   int mid = (start + end) / 2;
