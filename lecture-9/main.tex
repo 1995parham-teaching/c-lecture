@@ -604,7 +604,7 @@ int main (void){
       { 12, 10, 52, 0, 7 },
       { -2, 1, 2, 4, 9 }
     };
-    printf ("Original matrix:\n");
+    printf("Original matrix:\n");
     display_matrix(3, 5, sample);
 }
   \end{minted}
@@ -648,8 +648,8 @@ int main() {
   \begin{itemize}
     \item Until now
     \begin{itemize}
-      \item We have seen strings in <span class="hl-cyan">printf</span>
-      \item Our old definition: string is a set of char between “” 😂
+      \item We have seen strings in \textit{\color{Cyan} printf}
+      \item Our old definition: string is a set of char between `` '' 😂
       \begin{minted}[bgcolor=Black]{c}
 printf("This is a string\n");
 printf("This is %s\n", "a string\n");
@@ -693,14 +693,14 @@ char *str4 = "program"; //we will see later
 \begin{frame}[fragile]
   \frametitle{Reading \& Writing Strings}
   \begin{itemize}
-    \item <span class="hl-orange">printf</span> can be used to print strings
+    \item \textit{\color{SpringGreen} printf} can be used to print strings
     \begin{minted}[bgcolor=Black]{c}
 printf("program");
 printf("%s", "program");
     \end{minted}
   \end{itemize}
   \begin{itemize}
-    \item <span class="hl-green">scanf</span> can be used to read strings
+    \item \textit{\color{LimeGreen} scanf} can be used to read strings
     \begin{minted}[bgcolor=Black]{c}
 char str[200];
 scanf("%s", str);
