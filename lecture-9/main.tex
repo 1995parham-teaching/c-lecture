@@ -474,7 +474,8 @@ int bsearch(int start, int end, int a[], int value){
   else if(value > a[mid])
     return bsearch(mid + 1, end, a, value);
   else
-    return bsearch(start, mid - 1 , a, value); }
+    return bsearch(start, mid - 1 , a, value);
+}
   \end{minted}
 \end{frame}
 
@@ -489,7 +490,7 @@ int bsearch(int start, int end, int a[], int value){
     \begin{minted}[bgcolor=Black]{c}
 int t[10][20];
     \end{minted}
-    \item 10x20 matrix of integers
+    \item $10 \times 20$ matrix of integers
     \begin{minted}[bgcolor=Black]{c}
 t[1][1];
 // t[1,1] // compile error
@@ -541,7 +542,7 @@ int num[][2] = { {1, 1}, {2, 2}, {3, 3} };
 void func(int a[10][20][5]);
     \end{minted}
     \begin{itemize}
-      \item Input is a 10x20x5 integer matrix
+      \item Input is a $10 \times 20 \times 5$ integer matrix
     \end{itemize}
     \begin{minted}[bgcolor=Black]{c}
 void func(int a[][20][30], int size);
@@ -562,14 +563,14 @@ void func(int size1, int size2, int a[size1][size2]);
   \begin{minted}[bgcolor=Black]{c}
 #define SIZE 5
 
-void swap(int a[SIZE][SIZE], int i, int j){
+void swap(int a[SIZE][SIZE], int i, int j) {
   int tmp;
   tmp = a[i][j];
   a[i][j] = a[j][i];
   a[j][i] = tmp;
 }
 
-void transpose(int a[][SIZE]){
+void transpose(int a[][SIZE]) {
   int i, j;
   for(i = 0; i < SIZE; i++)
     for(j = i; j < SIZE; j++)
@@ -706,7 +707,7 @@ scanf("%s", str);
       Read until \textit{\color{Orange} space} or
       \mintinline{c}|'\n'| (which is replaced by \mintinline{c}|\0|)
 
-    \item We must allocate <span class="hl-material">sufficient size</span>
+    \item We must allocate \textbf{\color{RubineRed} sufficient size}
   \end{itemize}
 \end{frame}
 
@@ -714,20 +715,20 @@ scanf("%s", str);
   \frametitle{Reading \& Writing Strings (cont’d)}
   \begin{itemize}
     \item
-      <span class="hl-orange">puts(str)</span> is very simple version of
-      <span class="hl-green">printf</span>
+      \textit{\color{YellowOrange} puts(str)} is \textsc{\color{Cyan} very} simple version of
+      \textit{\color{LimeGreen}printf}
 
     \begin{itemize}
       \item Can only be used to print strings
       \item Adds \mintinline{c}|'\n'| to end of string
     \end{itemize}
     \item
-      <span class="hl-orange">gets(char str[])</span> can be used to read
+      \textit{\color{YellowOrange} gets(char str[])} can be used to read
       strings
 
     \item
-      <span class="hl-orange">gets</span> does
-      <span class="hl-red">not</span> ignore the white spaces
+      \textit{\color{YellowOrange} gets} does
+      \textsc{\color{RubineRed} not} ignore the white spaces
 
     \begin{itemize}
       \item Read until \mintinline{c}|'\n'|
