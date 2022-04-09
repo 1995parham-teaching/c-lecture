@@ -178,18 +178,15 @@ void h(void) {
     \item
       Array can \textbf{\color{RubineRed} not} be used as output type of
       function
-
     \begin{minted}[bgcolor=Black]{c}
       int[] f(int x, int y);
-      //compile error
+      // compile error
     \end{minted}
     \item Arrays can be used in input list of functions
     \item
       Arrays are \textit{\color{Orange} not} passed by Call By Value
-
     \item
       Arrays are passed by Call By \textbf{\color{LimeGreen} Reference}
-
     \begin{itemize}
       \item If we change array elements in a function
       \item The element is changed in the caller function
@@ -203,7 +200,6 @@ void h(void) {
     \item
       Function \textit{\color{Orange} arr\_func} takes an array of
       integers
-
     \begin{minted}[bgcolor=Black]{c}
 int arr_func(int num[90]) {
 }
@@ -215,7 +211,6 @@ int arr_func(int num[]) {
     \item
       Array \textit{\color{Orange}a} is passed to function
       \textit{\color{Orange} arr\_func}
-
     \begin{minted}[bgcolor=Black]{c}
 int a[90];
 i = arr_func(a);
@@ -224,6 +219,7 @@ i = arr_func(a);
 \end{frame}
 
 \begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
