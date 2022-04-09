@@ -1118,6 +1118,12 @@ for(i = 0; i <; 100; i++)
   \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Storage Classes, Static: Example}
+  \scriptsize
+  \inputminted[bgcolor=Black]{c}{./src/static.c}
+\end{frame}
+
 \begin{frame}
   \frametitle{Be careful: loop \& automatic variables}
   \begin{itemize}
@@ -1259,17 +1265,16 @@ int main(){
   \begin{algorithm}[H]
   \KwData{$n$}
   \KwResult{$0$ if conjecture is incorrect else $1$}
-  \For{i from 2 to n/2}{%
-    $j \gets n – i$\;
-    \If{$is\_prime(j))$}{%
+  $i \gets 2$\;
+  \While{$i \leq n/2$}{%
+    $j \gets n - i$\;
+    \If{$is\_prime(j)$}{%
       conjecture is correct
     }
     $i \gets next\_prime\_number(i)$\;
   }
+  conjecture is incorrect
   \end{algorithm}
-  \begin{block}{}
-Conjecture is incorrect
-  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -1277,8 +1282,8 @@ Conjecture is incorrect
   \begin{algorithm}[H]
   \KwData{$n$}
   \KwResult{$1$ if $n$ is prime else $0$}
-  \For{$i$ from $2$ to $\sqrt{n}$}{
-    \If{$n \% i == 0$}{
+  \For{$i$ from $2$ to $\sqrt{n}$}{%
+    \If{$n \% i == 0$}{%
       $n$ is not prime\;
     }
   }
