@@ -184,7 +184,7 @@ void h(void) {
     \end{minted}
     \item Arrays can be used in input list of functions
     \item
-      Arrays are \textit{\color{Orange} not} passed by Call By Value
+      Arrays are \textit{\color{RubineRed} not} passed by Call By Value
     \item
       Arrays are passed by Call By \textbf{\color{LimeGreen} Reference}
     \begin{itemize}
@@ -344,8 +344,7 @@ void print_array(int size, int arr[]) {
 }
 
 void main(void) {
-  int x = 1, y = 2;
-  int a[10] = {0};
+  int x = 1, y = 2, a[10] = {0};
   init_array(10, a);   // OK
   print_array(10, a);  // OK
   print_array(30, a);  // Wrong output
@@ -763,7 +762,7 @@ scanf("%s", str);
     \item <span class="hl-orange">strlen(str)</span>: Length of string
     \item
       From start to first occurrence of the
-      <span class="hl-green">null char</span>
+      \textsc{\color{LimeGreen} null} char
 
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
@@ -897,30 +896,30 @@ printf("%s\n", str2); // Test String
 \begin{frame}
   \frametitle{Sized Version of the Functions}
   \begin{itemize}
-    \item <span class="hl-orange">strncpy(dst, src, n):</span>
+    \item \textit{\color{YellowOrange} strncpy(dst, src, n):}
     \begin{itemize}
       \item
-        copys <span class="hl-green">n</span> chars from
-        <span class="hl-cyan">src</span> to <span class="hl-material">dst</span>
+        copys \textit{\color{RubineRed} n} chars from
+        \textit{\color{Cyan} src} to \textit{\color{Melon} dst}
 
       \item if(strlen(src) > n)
       \begin{itemize}
-        \item Copies n chars to <span class="hl-material">dst</span>
+        \item Copies n chars to \textit{\color{Melon} dst}
         \item
-          Does not add \mintinline{c}|'\0'| to end of <span class="hl-material">dst</span>
+          Does not add \mintinline{c}|'\0'| to end of \textit{\color{Melon} dst}
 
       \end{itemize}
       \item if(strlen(src) < n)
       \begin{itemize}
         \item
-          Copy <span class="hl-cyan">src</span> to
-          <span class="hl-material">dst</span>
+          Copy \textit{\color{Cyan} src} to
+          \textit{\color{Melon} dst}
 
         \item
           Add n – strlen(src) – 1 \mintinline{c}|'\0'|s to end of
           dst
 
-        \item dst must be large enough
+        \item \textit{\color{Melon} dst} must be large enough
         \item n < size of dst
       \end{itemize}
     \end{itemize}
