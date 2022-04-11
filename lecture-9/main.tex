@@ -414,7 +414,7 @@ void array_swap(int a[], int i, int j){
   a[j] = tmp;
 }
 
-void bubble_sort(int a[], int size){
+void selection_sort(int a[], int size){
   int i, j;
 
   for(i = 0; i < size - 1; i++)
@@ -431,21 +431,21 @@ void bubble_sort(int a[], int size){
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
-void print(int a[], int size){
+void print(int a[], int size) {
   int i;
   for(i = 0; i < size; i++)
     printf("%d ", a[i]);
   printf("\n");
 }
 
-int main(void){
+int main(void) {
   int arr[] = {1, 7, 3, 7, 11, 0};
   int size = sizeof(arr) / sizeof(arr[0]);
 
   printf("Before sort: ");
   print(arr, size);
 
-  bubble_sort(arr, size);
+  selection_sort(arr, size);
 
   printf("After sort: ");
   print(arr, size);
