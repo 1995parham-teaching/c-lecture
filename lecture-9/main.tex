@@ -560,13 +560,13 @@ void func(int size1, int size2, int a[size1][size2]);
     \begin{itemize}
       \item
         Input is a matrix of integers that both rows and columns are variable
-
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Matrix Transpose}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #define SIZE 5
 
@@ -588,6 +588,7 @@ void transpose(int a[][SIZE]) {
 
 \begin{frame}[fragile]
   \frametitle{Matrix Print}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -830,7 +831,7 @@ i = strcmp(s9, s10); // i = 1, s9 is greater than s10
 \begin{frame}[fragile]
   \frametitle{Compare Strings}
   \begin{itemize}
-    \item <span class="hl-orange">strcmpi(str1, str2)</span>
+    \item \textit{\color{YellowOrange} strcmpi(str1, str2)}
     \item Compares str1 and str2 similar to strcmp
     \item But ignores uppercase/lowercase difference
   \end{itemize}
@@ -937,11 +938,11 @@ printf("%s\n", str2); // Test String
 \begin{frame}
   \frametitle{Sized Version of the Functions}
   \begin{itemize}
-    \item <span class="hl-orange">strncmp(str1, str2, n):</span>
+    \item \textit{\color{YellowOrange}strncmp(str1, str2, n)}:
     \begin{itemize}
-      \item compares the first <span class="hl-green">x</span> chars
+      \item compares the first \textit{\color{LimeGreen}x} chars
       \item
-        <span class="hl-green">x</span> = min( n, strlen(str1) + 1,
+        \textit{\color{LimeGreen} x} = min( n, strlen(str1) + 1,
         strlen(str2) + 1 )
 
     \end{itemize}
@@ -989,8 +990,8 @@ sprintf(str1, "%0.2f", f); // str1 = “10.11”
 
     \end{minted}
     \item
-      String <span class="hl-orange">str1</span> should have
-      <span class="hl-material">sufficient size</span>
+      String \textit{\color{YellowOrange} str1} should have
+      \textit{\color{CarnationPink} sufficient size}
 
   \end{itemize}
 \end{frame}
@@ -1034,6 +1035,7 @@ str1[2] = '2';
   \frametitle{Array of Strings}
   \begin{itemize}
     \item 2 dimensional array, each row is a string
+    \scriptsize
     \begin{minted}[bgcolor=Black]{c}
 char numeri[][8] = { "zero", "uno", "due", "tre", "quattro" }; 🇮🇹
 char numeri[][] = { "zero", "uno", "due", "tre", "quattro" }; // Compile Error
