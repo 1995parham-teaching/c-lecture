@@ -949,9 +949,9 @@ printf("%s\n", str2); // Test String
     \item \mintinline{c}|strncat(dst, src, n)|:
     \begin{itemize}
       \item
-        Appends the <span class="hl-green">x</span> chars from src to dst
+        Appends the \textit{\color{LimeGreen} x} chars from src to dst
 
-      \item \textit{\color{RubineRed} x} = min{ n, strlen(src) }
+      \item \textit{\color{LimeGreen} x} = min( n, strlen(src) )
       \item
         Adds \mintinline{c}|'\0'| to end of dst \textbf{\color{RubineRed} unlike}
         \textit{\color{Cyan} strncpy}
