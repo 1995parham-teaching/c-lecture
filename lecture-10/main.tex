@@ -56,47 +56,44 @@ int *pi, *pj, i, j;
   \end{minted}
   \begin{itemize}
     \item
-      <span class="hl-orange">pi</span> variable contains the memory address
-
+      \textit{\color{YellowOrange} pi} variable contains the memory address
     \begin{itemize}
       \item
         If you assign a value to it:
-        \mint{c}|pi = &i;|
-
+        \mintinline{c}|pi = &i;|
       \begin{itemize}
-        \item The address is saved in <span class="hl-cyan">pi</span>
+        \item The address is saved in \textit{\color{Cyan} pi}
       \end{itemize}
-      \item If you read it: <span class="hl-green">pj = pi;</span>
+      \item If you read it: \mintinline{c}|pj = pi;|
       \begin{itemize}
         \item
-          The address is copied from <span class="hl-cyan">pi</span> from
-          <span class="hl-cyan">pj</span>
-
+          The address is copied from \textit{\color{Cyan} pi} from
+          \textit{\color{LimeGreen} pj}
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{itemize}
     \item
-      <span class="hl-orange">*pi</span> is the value of referred memory
+      \textit{\color{YellowOrange} *pi} is the value of referred memory
 
     \begin{itemize}
-      \item If you read it: <span class="hl-green">j = *pi;</span>
+      \item If you read it: \mintinline{c}|j = *pi;|
       \begin{itemize}
         \item
-          The <span class="hl-cyan">value in the referred address</span> is
+          The \textbf{\color{Cyan} value in the referred address} is
           read from pi
 
       \end{itemize}
       \item
-        If you assign a value to it: <span class="hl-green">*pj = i;</span>
+        If you assign a value to it: \mintinline{c}|*pj = i;|
 
       \begin{itemize}
         \item
           The value is saved in the
-          <span class="hl-cyan">referred address</span>
-
+          \textbf{\color{Cyan} referred address}
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -140,7 +137,7 @@ printf("d2 = %f\n", d2); // d2 = 35.0
     \item Pointer variable contains an address
     \item There is a special address
     \mint{c}|NULL|
-    \item We can <span class="hl-green">NOT</span>
+    \item We can \textsc{\color{RubineRed} Not}
     \begin{itemize}
       \item Read any value from \mintinline{c}|NULL|
       \item Write any value to \mintinline{c}|NULL|
@@ -172,8 +169,8 @@ void main(void){
   \begin{itemize}
     \item Call by value
     \begin{itemize}
-      \item The <span class="hl-orange">value</span> of the x is copied to y
-      \item By changing y, x is <span class="hl-green">not</span> changed
+      \item The \textit{\color{YellowOrange} value} of the x is copied to y
+      \item By changing y, x is \textsc{\color{RubineRed} not} changed
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -184,7 +181,7 @@ void main(void){
     \item Call by reference
     \begin{itemize}
       \item
-        The value of variable is <span class="hl-red">not</span> copied to
+        The value of variable is \textsc{\color{RubineRed}not} copied to
         function
       \item
         If function changes the input parameter \textrightarrow the variable passed to
@@ -229,16 +226,16 @@ int main(void) {
     \item The address of result is 100, value of result is 0
     \mint{c}|add(d1, d2, &result);|
     \item
-      <span class="hl-orange">Value</span> of d1,
-      <span class="hl-orange">Value</span> of d2 and the
-      <span class="hl-green">address</span> of result is
-      <span class="hl-green">copied</span> to add
+      \textit{\color{YellowOrange} Value} of d1,
+      \textit{\color{YellowOrange} Value} of d2 and the
+      \textit{\color{LimeGreen} address} of result is
+      \textsc{\color{Purple} copied} to add
 
     \mint{c}|add(double a, double b, double *res)|
     \item
       Value of a is the value of d1, value of b is the value of d2 and value
-      of <span class="hl-orange">res is 100</span> and the
-      <span class="hl-green">value of *res is 0</span>
+      of \textit{\color{LimeGreen} res is 100} and the
+      \textit{\color{YellowOrange} value of *res is 0}
   \end{itemize}
 \end{frame}
 
@@ -247,15 +244,16 @@ int main(void) {
     \mint{c}|*res = a + b;|
     \item
       Value of a is added to b and output is saved in
-      <span class="hl-orange">the referred address by res (100)</span>
+      \textbf{\color{YellowOrange} the referred address by res (100)}
     \item
-      But the 100 is the address of <span class="hl-cyan">result</span>.
+      But the 100 is the address of \textbf{\color{Cyan} result}.
       Therefore the value is saved in memory location result
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Swap function ❌}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void swap(double a, double b) {
   double temp;
@@ -277,6 +275,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{Swap function ✅}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void swap(double *a, double *b) {
   double temp;
@@ -306,8 +305,8 @@ void main(void) {
     \begin{itemize}
       \item The pointed variable must be exist
       \item
-        It must <span class="hl-red">not</span> be
-        <span class="hl-orange">automatic local variable</span> of the function
+        It must \textsc{\color{RubineRed} not} be
+        \textit{\color{Orange} automatic local variable} of the function
 
       \item
         It can be static local variable, global variable, or the input parameter
@@ -338,17 +337,19 @@ float *func_b(void) {
   \frametitle{Operations on Pointers}
   \begin{itemize}
     \item Arithmetic
-    <p>
-      <span class="hl-orange"><pointer></span> - or +
-      <span class="hl-green"><integer></span> (or
-      <span class="hl-orange"><pointer></span> -= or +=
-      <span class="hl-green"><integer></span>)<br />
-      <span class="hl-orange"><pointer></span> -
-      <span class="hl-orange"><pointer></span> (they must be the same
-      type)<br />
-      <span class="hl-orange"><pointer></span>++ or
-      <span class="hl-orange"><pointer></span>--
-    </p>
+    \begin{block}{}
+      \textit{\color{YellowOrange}<pointer>} - or +
+      \textit{\color{YellowOrange}<integer>} (or
+      \textit{\color{YellowOrange}<pointer>} -= or +=
+      \textit{\color{YellowOrange}<integer>})
+
+      \textit{\color{YellowOrange}<pointer>} -
+      \textit{\color{YellowOrange}<pointer>} (they must be the same
+      type)
+
+      \textit{\color{YellowOrange}<pointer>}++ or
+      \textit{\color{YellowOrange}<pointer>}--
+    \end{block}
     \item Comparison between pointers
     \begin{minted}[bgcolor=Black]{c}
 int arr[20];
