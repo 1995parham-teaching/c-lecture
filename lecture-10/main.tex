@@ -814,9 +814,8 @@ char *str4 = "program";
     \item str1,str2 and str3 are array
     \item str4 is a pointer
     \item
-      We can <span class="hl-orange">not</span> assign a new value to str1,
+      We can \textsc{\color{RubineRed} not} assign a new value to str1,
       str2, str3
-
     \begin{itemize}
       \item Array is a fix location in memory
       \item We can change the elements of array
@@ -824,13 +823,11 @@ char *str4 = "program";
     \item We can assign a new value for str4
     \begin{itemize}
       \item
-        Pointer is <span class="hl-cyan">not</span> fix location, pointer
+        Pointer is \textsc{\color{RubineRed} not} fix location, pointer
         contains address of memory
-
       \item
-        Content of str4 is <span class="hl-green">constant</span>, you can not
+        Content of str4 is \textbf{\color{LimeGreen} constant}, you can not
         change elements
-
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -859,8 +856,8 @@ str2[1] = 'z'; // Runtime Error
   \begin{itemize}
     \item Empty string ""
     \begin{itemize}
-      \item Is <span class="hl-orange">not</span> null pointer
-      \item Is <span class="hl-green">not</span> uninitialized pointer
+      \item Is \textsc{\color{RubineRed} not} \textbf{\color{YellowOrange} null pointer}
+      \item Is \textsc{\color{RubineRed} not} \textbf{\color{LimeGreen} uninitialized pointer}
     \end{itemize}
     \begin{figure}
       \includegraphics[height=.75\textheight]{img/null-empty-string.png}
