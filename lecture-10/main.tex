@@ -424,11 +424,11 @@ pa = a;
       \item pa + 2 = 108
     \end{itemize}
   \end{itemize}
-  <p>
-    <span class="hl-orange">p[i]</span>
-    <span class="hl-cyan">is equal to</span>
-    <span class="hl-green">*(p + i)</span>
-  </p>
+  \begin{block}{}
+    \textit{\color{YellowOrange}p[i]}
+    \textit{\color{LimeGreen}is equal to}
+    \textit{\color{Yellow}*(p + i)}
+  \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -457,7 +457,7 @@ j = pi[8]; // value of element 10
   \begin{itemize}
     \item We can change pointers
     \begin{itemize}
-      \item Assign new value, arithmetic and ...
+      \item Assign new value, arithmetic and \ldots
     \end{itemize}
     \item We cannot change the array variable
   \end{itemize}
@@ -548,6 +548,7 @@ int main() {
 
 \begin{frame}[fragile]
   \frametitle{A Function which Copies an Array into another}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void array_copy1(int dst[], int src[], int size){
 	for(int i = 0; i < size; i++)
@@ -579,6 +580,7 @@ int main() {
 
 \begin{frame}[fragile]
   \frametitle{A Function which Copies an Array into another}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void array_copy2(int *dst, int *src, int size){
 	for(int i = 0; i < size; i++)
@@ -610,6 +612,7 @@ int main() {
 
 \begin{frame}[fragile]
   \frametitle{A Function which Copies an Array into another}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void array_copy3(int *dst, int *src, int size){
   for(int i = 0; i < size; i++)
@@ -641,6 +644,7 @@ int main() {
 
 \begin{frame}[fragile]
   \frametitle{A Function which Copies an Array into another}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void array_copy4(int *dst, int *src, int size){
   for(int i = 0; i < size; i++, src++, dst++)
@@ -705,6 +709,7 @@ t4 = { 0 0 0 0 0 0 9 10 0 0 }
 
 \begin{frame}[fragile]
   \frametitle{Difference between two sets}
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
