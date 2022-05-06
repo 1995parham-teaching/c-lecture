@@ -709,7 +709,7 @@ t4 = { 0 0 0 0 0 0 9 10 0 0 }
 
 \begin{frame}[fragile]
   \frametitle{Difference between two sets}
-  \tiny
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -732,6 +732,13 @@ int sub_set(int *arr1, int size_arr1, int *arr2, int size_arr2, int *res){
   }
   return result_index;
 }
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Difference between two sets (cont'd)}
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{c}
 
 void print_arr(int *arr, int size) {
   for(int i = 0; i < size; i++)
@@ -833,7 +840,7 @@ char *str4 = "program";
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{char Array vs. char *: Example}
+  \frametitle{\mintinline{c}|char| Array vs. \mintinline{c}|char *|: Example}
   \begin{minted}[bgcolor=Black]{c}
 // this is array initialization
 char str1[8] = "program";
@@ -851,10 +858,10 @@ str2[1] = 'z'; // Runtime Error
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Empty vs. Null}
   \begin{itemize}
-    \item Empty string ""
+    \item Empty string \mintinline{c}|""|
     \begin{itemize}
       \item Is \textsc{\color{RubineRed} not} \textbf{\color{YellowOrange} null pointer}
       \item Is \textsc{\color{RubineRed} not} \textbf{\color{LimeGreen} uninitialized pointer}
@@ -869,15 +876,15 @@ str2[1] = 'z'; // Runtime Error
   \frametitle{More String Functions}
   \begin{itemize}
     \item
-      char * strchr( <span class="hl-orange">const char *s</span>,
-      <span class="hl-green">char c</span>
-      )
+    \begin{minted}[bgcolor=Black]{c}
+char * strchr(const char *s, char c)
+    \end{minted}
     \begin{itemize}
       \item
-        Return the <span class="hl-cyan">pointer</span> to the first
-        occurrence of <span class="hl-green">c</span> in
-        <span class="hl-orange">s</span> or
-        <span class="hl-yellow">NULL</span>
+        Return the \textit{\color{Cyan} pointer} to the first
+        occurrence of \textbf{\color{LimeGreen} c} in
+        \textbf{\color{YellowOrange} s} or
+        \textsc{\color{Purple} NULL}
 
       \begin{minted}[bgcolor=Black]{c}
 char *s="ABZDEZFZ";
@@ -893,16 +900,16 @@ First index of Z = 2
 \begin{frame}[fragile]
   \begin{itemize}
     \item
-      char * strstr( <span class="hl-orange">const char *s1</span>,
-      <span class="hl-green">const char *s2</span>
-      )
+    \begin{minted}[bgcolor=Black]{c}
+char * strstr(const char *s1, const char *s2)
+    \end{minted}
 
     \begin{itemize}
       \item
-        Return <span class="hl-cyan">pointer</span> to the first occurrence of
-        <span class="hl-green">s2</span> in
-        <span class="hl-orange">s1</span> or
-        <span class="hl-yellow">NULL</span>
+        Return \textit{\color{Cyan} pointer} to the first occurrence of
+        \textbf{\color{LimeGreen} s2} in
+        \textbf{\color{YellowOrange} s1} or
+        \textsc{\color{Purple} NULL}
 
       \begin{minted}[bgcolor=Black]{c}
 char *s="ABCDxyEFxyGH";
@@ -918,18 +925,18 @@ First index of xy = 4
 \begin{frame}[fragile]
   \begin{itemize}
     \item
-      char * strdup(
-      <span class="hl-orange">const char *s1</span>
-      )
+    \begin{minted}[bgcolor=Black]{c}
+char *strdup(const char *s1)
+    \end{minted}
 
     \begin{itemize}
       \item
-        Returns <span class="hl-cyan">a pointer</span> to a null-terminated
+        Returns a \textit{\color{Cyan} pointer} to a null-terminated
         byte string, which is a duplicate of the string pointed to by
-        <span class="hl-orange">s1</span>.
+        \textbf{\color{YellowOrange} s1}.
 
       \item
-        The returned pointer must be passed to free to avoid a memory leak.
+        The returned pointer \textsc{\color{Purple} must} be passed to free to avoid a memory leak.
 
       \item More on free/malloc later
       \begin{minted}[bgcolor=Black]{c}
@@ -950,6 +957,7 @@ free(dst);
 
 \begin{frame}[fragile]
   \frametitle{Compare n Digits after decimal point of Two Double Number}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <string.h>
@@ -974,7 +982,13 @@ int check_equal(double d1, double d2, int n) {
   else
     return 0;
 }
+  \end{minted}
+\end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Compare n Digits after decimal point of Two Double Number (cont'd)}
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{c}
 int main(void) {
   int n;
   double d1, d2;
@@ -997,6 +1011,7 @@ int main(void) {
 
 \begin{frame}[fragile]
   \frametitle{String Tokenizer}
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <string.h>
@@ -1035,6 +1050,13 @@ int tokenizer(const char *s, const char *token, char result[][100]){
   return result_index;
 }
 
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{String Tokenizer (cont'd)}
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{c}
 int main(void){
   char *s = "a123bb123ccc123dddd123eeeee123fffffffffff123";
   char *token = "123";
@@ -1094,7 +1116,7 @@ printf("%d\n", *pj); // 30
   \end{minted}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Pointer to functions}
   \begin{itemize}
     \item Functions are stored in memory
@@ -1105,27 +1127,27 @@ printf("%d\n", *pj); // 30
     \begin{itemize}
       \item A pointer that store the address of a function
     \end{itemize}
-    <p>
-      <span class="hl-orange"><type></span> (
-      <span class="hl-green">*<identifier></span>)(
-      <span class="hl-cyan"><type1></span>,
-      <span class="hl-cyan"><type2></span>, ...)
-    </p>
-    <p>
-      <span class="hl-orange">int</span> (<span class="hl-green">*pf</span>)(
-      <span class="hl-cyan">char</span>, <span class="hl-cyan">float</span>)
-    </p>
-    <p>
-      <span class="hl-green">pf</span> is a pointer to a function that the
-      function return <span class="hl-orange">int</span> and its inputs are
-      <span class="hl-cyan">char</span> and
-      <span class="hl-cyan">float</span>
-    </p>
+    \begin{block}{}
+      \textit{\color{YellowOrange} <type>} (
+      \textit{\color{LimeGreen}*<identifier>})(
+      \textit{\color{Cyan}<type1>},
+      \textit{\color{Cyan}<type2>}, \ldots)
+    \end{block}
+    \begin{minted}[bgcolor=Black]{c}
+int (*pf)(char, float)
+    \end{minted}
+    \begin{block}{}
+      \textit{\color{LimeGreen} pf} is a pointer to a function that the
+      function return \textit{\color{YellowOrange} int} and its inputs are
+      \textit{\color{Cyan} char} and
+      \textit{\color{Cyan} float}
+    \end{block}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int f1(int x, char c){
   printf("This is f1: x = %d, c = %c\n", x, c);
@@ -1174,6 +1196,7 @@ int atexit(void (*function)(void));
 \end{frame}
 
 \begin{frame}[fragile]
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -1216,18 +1239,20 @@ int main(void){
       \end{itemize}
       \item Example: qsort function in <stdlib.h>
       \begin{minted}[bgcolor=Black]{c}
-void qsort(void *arr, int num, int element_size, int (*compare)(void *, void *))
+void qsort(void *arr, int num,
+  int element_size, int (*compare)(void *, void *))
       \end{minted}
       \item
-        To sort array <span class="hl-orange">arr</span> with
-        <span class="hl-green">num</span> elements of size
-        <span class="hl-cyan">element\_size</span>. The order between elements is
-        specified by the <span class="hl-red">compare</span> function
+        To sort array \textit{\color{YellowOrange} arr} with
+        \textit{\color{LimeGreen} num} elements of size
+        \textit{\color{Cyan} element\_size}. The order between elements is
+        specified by the \textit{\color{RubineRed} compare} function
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -1263,6 +1288,7 @@ int main(void) {
 
 \begin{frame}[fragile]
   \frametitle{Sort Names with qsort}
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <string.h>
@@ -1306,25 +1332,24 @@ int main() {
 
       \item
         Memory is allocated for the variables
-        <span class="hl-violet">when the scope starts</span>
+        {\color{Purple} when the scope starts}
 
       \item
         Allocated memory is released
-        <span class="hl-yellow">when the scope finishes</span>
+        {\color{Purple} when the scope finishes}
 
     \end{itemize}
     \item
-      We <span class="hl-cyan">cannot change</span> the size of the allocated
+      We \textbf{\color{RubineRed} cannot change} the size of the allocated
       memories
 
     \begin{itemize}
       \item We cannot change the size of array
     \end{itemize}
-    \item These variables are in <span class="hl-orange">stack</span>
+    \item These variables are in \textit{\color{YellowOrange} stack}
     \item
       We want to see how to allocate memory in
-      <span class="hl-green">heap</span>
-
+      \textit{\color{YellowOrange} heap}
   \end{itemize}
 \end{frame}
 
@@ -1335,22 +1360,19 @@ int main() {
     \begin{itemize}
       \item
         Stack is one of the logical sections that is used for function calls
-
       \item All automatic variables are allocated in stack
       \begin{itemize}
         \item Stack is managed by operating system
         \item Created by function call and destroyed when function ends
       \end{itemize}
     \end{itemize}
-    \item Another logical section is <span class="hl-yellow">Heap</span>
+    \item Another logical section is \textit{\color{YellowOrange} Heap}
     \begin{itemize}
       \item
-        Heap is used for <span class="hl-green">dynamic memory allocation</span>
-
+        Heap is used for \textsc{\color{LimeGreen} dynamic memory allocation}
       \item
-        Heap is managed <span class="hl-orange">by programmer</span> (at least
+        Heap is managed \textbf{\color{RubineRed} by programmer} (at least
         in C)
-
       \item Memory allocation functions \& the Free function
     \end{itemize}
   \end{itemize}
@@ -1359,15 +1381,14 @@ int main() {
 \begin{frame}[fragile]
   \frametitle{Dynamic Memory Allocation (cont’d)}
   \begin{itemize}
-    \item Memory allocation by <span class="hl-orange">calloc</span>
+    \item Memory allocation by \textit{\color{YellowOrange} calloc}
     \begin{minted}[bgcolor=Black]{c}
 #include <stdlib.h>
-void * calloc(int num, int size);
+void *calloc(int num, int size);
     \end{minted}
     \item
-      <span class="hl-green">void *</span> is generic pointer, it can be
+      \mintinline{c}|void *| is generic pointer, it can be
       converted to every pointer type
-
     \item Initializes allocated memory to zero
     \item If memory is not available calloc returns \mintinline{c}|NULL|
   \end{itemize}
@@ -1376,13 +1397,13 @@ void * calloc(int num, int size);
 \begin{frame}[fragile]
   \frametitle{Dynamic Memory Allocation (cont’d)}
   \begin{itemize}
-    \item Memory allocation by <span class="hl-orange">malloc</span>
+    \item Memory allocation by \textit{\color{YellowOrange} malloc}
     \begin{minted}[bgcolor=Black]{c}
 #include <stdlib.h>
 void * malloc(int size);
     \end{minted}
     \item
-      <span class="hl-green">void *</span> is generic pointer, it can be
+      \mintinline{c}|void *| is generic pointer, it can be
       converted to every pointer type
 
     \item If memory is not available malloc returns \mintinline{c}|NULL|
@@ -1410,11 +1431,9 @@ pd = calloc(1,sizeof(double));
   \begin{itemize}
     \item
       In static memory allocation, memory is freed when block/scope is finished
-
     \item
       In dynamic memory allocation,
       \textbf{\color{Orange} we must free} the allocated memory
-
     \begin{minted}[bgcolor=Black]{c}
 int *pi;
 pi = malloc(sizeof(int));
@@ -1426,6 +1445,7 @@ if (pi != NULL)
 
 \begin{frame}[fragile]
   \frametitle{1 x N Array}
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -1458,6 +1478,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{N x M Array}
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -1470,9 +1491,17 @@ int main(void){
   scanf("%d%d", &n, &m);
 
   arr = malloc(n * sizeof(int *));
+  if (arr == NULL){
+    printf("cannot allocate memory\n");
+    exit(-1);
+  }
 
   for(i = 0; i < n; i++)
     arr[i] = malloc(m * sizeof(int));
+    if (arr[i] == NULL){
+      printf("cannot allocate memory\n");
+      exit(-1);
+    }
 
   for(i = 0; i < n; i++)
     for(j = 0; j < m; j++)
@@ -1530,21 +1559,21 @@ int main(void){
     \begin{itemize}
       \item Expand or Shrink it
     \end{itemize}
-    \mint{c}|void * realloc(void *p, int newsize);|
+    \mint[bgcolor=Black]{c}|void * realloc(void *p, int newsize);|
     \item
-      Allocate <span class="hl-orange">newsize</span> bytes for pointer
-      <span class="hl-green">p</span>
+      Allocate \textit{\color{YellowOrange} newsize} bytes for pointer
+      \textit{\color{LimeGreen} p}
 
-    \item Previous data of <span class="hl-green">p</span> does not change
+    \item Previous data of \textit{\color{LimeGreen} p} does not change
     \item
-      <span class="hl-cyan">UPDATE</span> <span class="hl-green">p</span> with
+      \textsc{\color{RubineRed} Update} \textit{\color{LimeGreen} p} with
       its returned address
-
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Reallocation: Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 int *p;
 p = calloc(2, sizeof(int));
