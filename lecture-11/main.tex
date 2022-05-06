@@ -45,19 +45,21 @@
   \frametitle{Introduction}
   \begin{itemize}
     \item How to save the student information?
-    \item 1- Use separated variables
-    \begin{minted}[bgcolor=Black]{c}
+    \begin{enumerate}
+      \item Use separated variables
+      \begin{minted}[bgcolor=Black]{c}
 char st_name[20];
 char st_fam_name[20];
 int id;
 int grade;
-    \end{minted}
-    \item 2- Put them altogether, they are related
+      \end{minted}
+      \item Put them altogether, they are related
+    \end{enumerate}
     \begin{itemize}
       \item Use \textit{\color{Cyan} struct}
       \item
         This concept is extended in OOP as the
-        <span class="hl-green">object</span>
+        \textit{\color{YellowOrange} object}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -70,14 +72,14 @@ int grade;
     \item Set of related variables
     \begin{itemize}
       \item
-        Each variable in <span class="hl-cyan">struct</span> has its
-        <span class="hl-orange">own type</span>
+        Each variable in \textit{\color{Cyan} struct} has its
+        \textit{\color{YellowOrange} own type}
 
       \item \texttt{\color{Cyan} struct} in C (version 1)
       \begin{minted}[bgcolor=Black]{c}
-        struct {
-          <variable declaration>
-        } <identifier list>;
+struct {
+  <variable declaration>
+} <identifier list>;
       \end{minted}
     \end{itemize}
   \end{itemize}
@@ -94,15 +96,15 @@ struct{
 } st1;
   \end{minted}
   \begin{itemize}
-    \item We declare a variable <span class="hl-orange">st1</span>
-    \item Type of <span class="hl-orange">st1</span> is struct
+    \item We declare a variable \textit{\color{YellowOrange} st1}
+    \item Type of \textit{\color{YellowOrange} st1} is struct
     \item
-      <span class="hl-violet">id</span> is a
-      <span class="hl-green">member</span> of the struct
+      \textit{\color{Purple} id} is a
+      \textbf{\color{LimeGreen} member} of the struct
 
     \item
-      <span class="hl-violet">grade</span> is a
-      <span class="hl-green">member</span> of the struct
+      \textit{\color{Purple} grade} is a
+      \textit{\color{LimeGreen}member} of the struct
 
   \end{itemize}
 \end{frame}
@@ -119,31 +121,28 @@ struct{
   \end{minted}
   \begin{itemize}
     \item
-      We declare three variables: <span class="hl-orange">st1</span>,
-      <span class="hl-orange">st2</span>,
-      <span class="hl-orange">st3</span>
-
+      We declare three variables: \textit{\color{YellowOrange} st1},
+      \textit{\color{YellowOrange} st2},
+      \textit{\color{YellowOrange} st3}
     \item
-      Type of <span class="hl-orange">st1</span>,
-      <span class="hl-orange">st2</span>, <span class="hl-orange">st3</span> is
+      Type of \texit{\color{YellowOrange}st1},
+      \textit{\color{YellowOrange} st2}, \texit{\color{YellowOrange} st3} is
       the struct
-
     \item
       In this model, we cannot reuse the struct definition in other location
       (e.g., input of function)
-
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{struct: Version 2}
   \begin{itemize}
-    \item <span class="hl-cyan">struct</span> in C (version 2)
+    \item \textit{\color{Cyan} struct} in C (version 2)
     \begin{minted}[bgcolor=Black]{c}
-      struct <tag> {
-        <variable declaration>
-      };
-      struct <tag> <identifier list>;
+struct <tag> {
+  <variable declaration>
+};
+struct <tag> <identifier list>;
     \end{minted}
   \end{itemize}
 \end{frame}
@@ -160,14 +159,14 @@ struct std_info {
 struct std_info st1, st2, st3;
   \end{minted}
   \begin{itemize}
-    \item We define a struct with tag <span class="hl-orange">std\_info</span>
+    \item We define a struct with tag \textit{\color{YellowOrange} std\_info}
     \begin{itemize}
       \item We don’t allocate memory, it is just definition
     \end{itemize}
     \item
-      We declare variables <span class="hl-green">st1</span>,
-      <span class="hl-green">st2</span>, <span class="hl-green">st3</span> from
-      <span class="hl-orange">std\_info</span>
+      We declare variables \textit{\color{LimeGreen} st1},
+      \textit{\color{LimeGreen} st2}, \textit{\color{LimeGreen}st3} from
+      \textit{\color{YellowOrange} std\_info}
   \end{itemize}
 \end{frame}
 
@@ -177,19 +176,17 @@ struct std_info st1, st2, st3;
     \item We can assign a new name for each type
     \begin{itemize}
       \item
-        Assign name <span class="hl-green">“integer”</span> to
-        <span class="hl-orange">“int”</span>
-
+        Assign name \textit{\color{LimeGreen} ``integer''} to
+        \textit{\color{YellowOrange} ``int''}
       \item
-        Assign name <span class="hl-green">“int\_array”</span> to
-        <span class="hl-orange">“int[100]”</span>
-
+        Assign name \textit{\color{LimeGreen} ``int\_array''} to
+        \textit{\color{YellowOrange} ``int[100]''}
       \item
-        Assign name <span class="hl-green">“int\_pointer”</span> to
-        <span class="hl-orange">“int *”</span>
+        Assign name \textit{\color{LimeGreen} ``int\_pointer''} to
+        \textit{\color{YellowOrange} ``int *''}
 
     \end{itemize}
-    \item New names are assigned by <span class="hl-violet">typedef</span>
+    \item New names are assigned by \textit{\color{Purple} typedef}
     \item
       After we assigned the new name, we can use it in identifier declaration
 
@@ -198,6 +195,7 @@ struct std_info st1, st2, st3;
 
 \begin{frame}[fragile]
   \frametitle{typedef: Examples}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 /* Assign new name integer to type int */
 typedef int integer;
@@ -246,14 +244,14 @@ int main() {
 \begin{frame}[fragile]
   \frametitle{struct: Version 3.1}
   \begin{itemize}
-    \item <span class="hl-cyan">struct</span> in C (version 3.1)
-    \item Using the <span class="hl-orange">typedef</span>
+    \item \textit{\color{Cyan} struct} in C (version 3.1)
+    \item Using the \textit{\color{YellowOrange} typedef}
     \begin{minted}[bgcolor=Black]{c}
-      struct <tag> {
-        <variable declaration>
-      };
-      typedef struct <tag> <new_name>;
-      <new_name> <identifier list>;
+struct <tag> {
+  <variable declaration>
+};
+typedef struct <tag> <new_name>;
+<new_name> <identifier list>;
     \end{minted}
   \end{itemize}
 \end{frame}
@@ -277,13 +275,13 @@ information st1, st2;
 \begin{frame}[fragile]
   \frametitle{struct: Version 3.2}
   \begin{itemize}
-    \item <span class="hl-cyan">struct</span> in C (version 3.2)
-    \item Using the <span class="hl-orange">typedef</span>
+    \item \textit{\color{Cyan} struct} in C (version 3.2)
+    \item Using the \textit{\color{YellowOrange} typedef}
     \begin{minted}[bgcolor=Black]{c}
-      typedef struct <tag> {
-        <variable declaration>
-      } <new_name>;
-      <new_name> <identifier list>;
+typedef struct <tag> {
+  <variable declaration>
+} <new_name>;
+<new_name> <identifier list>;
     \end{minted}
   \end{itemize}
 \end{frame}
@@ -325,14 +323,14 @@ information st1, st2;
   \frametitle{Size of struct}
   \begin{itemize}
     \item
-      The size of struct is <span class="hl-red">NOT</span> the sum of size of
+      The size of struct is \textsc{\color{RubineRed}NOT} the sum of size of
       members
 
     \begin{itemize}
       \item \mintinline{c}|struct test_size{char c; int i; };|
-      \item \mintinline{c}|sizeof(struct test_size); // 8|
+      \item \mintinline{c}|sizeof(struct test_size); /* 8 */|
     \end{itemize}
-    \item This is because of <span class="hl-orange">Structure Padding</span>
+    \item This is because of \textit{\color{YellowOrange} Structure Padding}
     \begin{itemize}
       \item Computer HW cannot (should not) read any arbitrary address
       \item The address should be aligned in word
@@ -363,14 +361,11 @@ information st1, st2;
           class="hl-green"
           ><element name></span
         >
-
       \item
         <span class="hl-cyan">st1.st\_name</span> is a array of char in struct
         st1
-
       \item
         <span class="hl-cyan">st2.grade</span> is a int variable in struct st2
-
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -1329,7 +1324,7 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
   \frametitle{Introduction}
   \begin{itemize}
     \item
-      <span class="hl-orange">Enumeration</span> is a mechanism to assign a name
+      \textbf{\color{YellowOrange} Enumeration} is a mechanism to assign a name
       for each number
 
     \item We can use numbers instead of numbers
@@ -1391,10 +1386,10 @@ enum week {sat = 1, sun, mon, tue, wed, thu, fri};
   \begin{minted}[bgcolor=Black]{c}
 enum condition {False = 0, True, No = 0, Yes, Ghalat = 0, Dorost};
   \end{minted}
-  <p>
-    False = No = Ghalat = 0<br />
+  \begin{minted}[bgcolor=Black]{output}
+    False = No = Ghalat = 0
     True = Yes = Dorost = 1
-  </p>
+  \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1426,7 +1421,7 @@ for(day = sat; day <= fri; day++)
   \frametitle{Caution}
   \begin{itemize}
     \item
-      C compiler <span class="hl-orange">does not</span> check the value is
+      C compiler \textsc{\color{RubineRed} does not} check the value is
       assigned to the enum variables
 
     \begin{minted}[bgcolor=Black]{c}
@@ -1461,6 +1456,7 @@ t2v = 100;
 \end{frame}
 
 \begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -1494,6 +1490,7 @@ After making y = 10:
 \end{frame}
 
 \begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
