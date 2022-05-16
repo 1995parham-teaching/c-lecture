@@ -357,15 +357,12 @@ information st1, st2;
     \item How to access to the members of struct
     \begin{itemize}
       \item
-        <span class="hl-orange"><struct variable></span>.<span
-          class="hl-green"
-          ><element name></span
-        >
+        <struct variable>.<element name>
       \item
-        <span class="hl-cyan">st1.st\_name</span> is a array of char in struct
+        \mintinline{c}|st1.st_name| is a array of char in struct
         st1
       \item
-        <span class="hl-cyan">st2.grade</span> is a int variable in struct st2
+        \mintinline{c}|st2.grade| is a int variable in struct st2
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -412,6 +409,7 @@ struct std_info st1 = { .st_name = "Parham", .st_fam_name = "Alvani", .id = 9231
 
 \begin{frame}[fragile]
   \frametitle{Example}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -441,6 +439,7 @@ void main(void){
 
 \begin{frame}[fragile]
   \frametitle{Nested struct}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 struct date_type{
   int day, month, year;
@@ -474,6 +473,7 @@ st2.date.month = 5;
 st2.date.year = 1390;
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \frametitle{More on "char[20] is not assignable"}
   \begin{minted}[bgcolor=Black]{c}
@@ -541,9 +541,7 @@ d1 = d2;
   \frametitle{struct: Comparing}
   \begin{itemize}
     \item
-      We <span class="hl-orange">cannot</span> compare
-      <span class="hl-cyan">struct</span> variables
-
+      We cannot compare struct variables
     \begin{itemize}
       \item ==, <=, <, >, >= cannot be used for struct
     \end{itemize}
@@ -587,6 +585,7 @@ if (
     \end{minted}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{struct: Arithmetic operations}
   \begin{itemize}
