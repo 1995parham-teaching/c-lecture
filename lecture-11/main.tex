@@ -112,7 +112,7 @@ struct{
 \begin{frame}[fragile]
   \frametitle{struct (version 1): Example}
   \begin{minted}[bgcolor=Black]{c}
-struct{
+struct {
   char st_name[20];
   char st_fam_name[20];
   int id;
@@ -598,7 +598,7 @@ if (
 \begin{frame}
   \frametitle{struct: Arithmetic operations}
   \begin{itemize}
-    \item No arithmetic operation (+, -, /, ...) is defined for structures
+    \item No arithmetic operation (+, -, /, \ldots) is defined for structures
     \item We can define ours operations
     \item We have an example in the following slides
   \end{itemize}
@@ -612,8 +612,9 @@ if (
     \item
       \textit{\color{Cyan} struct} is a type \textrightarrow We can define array
       of struct
-
-    \begin{minted}[bgcolor=Black]{c}
+  \end{itemize}
+  \scriptsize
+  \begin{minted}[bgcolor=Black]{c}
 struct std1{
   int id;
   int grad;
@@ -625,12 +626,12 @@ typedef struct{
   int grad;
 } std2;
 std2 std_arr[20];
-    \end{minted}
-  \end{itemize}
+  \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Upper Average Students 🤓}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -668,6 +669,7 @@ int main(void){
 
 \begin{frame}[fragile]
   \frametitle{Find Student}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -711,11 +713,11 @@ int main(void) {
   \frametitle{Pointer to struct: Definition}
   \begin{itemize}
     \item
-      A variable of struct type is a <span class="hl-orange">variable</span>
+      A variable of struct type is a \textit{\color{YellowOrange} variable}
 
     \item
-      It has <span class="hl-green">address</span>, we can have
-      <span class="hl-cyan">pointer</span> to it
+      It has \textit{\color{LimeGreen} address}, we can have
+      \textbf{\color{Cyan} pointer} to it
 
     \begin{minted}[bgcolor=Black]{c}
 struct std{
@@ -734,16 +736,16 @@ ps = &st1;
   \begin{itemize}
     \item We can use *pointer method
     \item
-      <span class="hl-orange">*ps</span> means the content of the address that
-      <span class="hl-orange">ps</span> refers to there \textrightarrow it is struct
+      \textit{\color{LimeGreen} *ps} means the content of the address that
+      \textit{\color{YellowOrange} ps} refers to there \textrightarrow it is struct
 
     \item
-      <span class="hl-cyan">(*ps).id</span> is the member of struct that
-      <span class="hl-orange">ps</span> refers to it
+      \textit{\color{Cyan} (*ps).id} is the member of struct that
+      \textit{\color{YellowOrange} ps} refers to it
 
     \item
-      <span class="hl-cyan">(*ps).grade</span> is the member of struct that
-      <span class="hl-orange">ps</span> refers to it
+      \textit{\color{Cyan} (*ps).grade} is the member of struct that
+      \textit{\color{YellowOrange} ps} refers to it
 
   \end{itemize}
 \end{frame}
@@ -775,13 +777,13 @@ int z = ps->grade;
     \item struct is a type \textrightarrow It can be used
     \begin{itemize}
       \item
-        In <span class="hl-orange">input</span> parameter list of functions
+        In \textit{\color{YellowOrange} input} parameter list of functions
 
       \begin{itemize}
-        \item Call by <span class="hl-green">value</span>
-        \item Call by <span class="hl-green">reference</span>
+        \item Call by \textit{\color{LimeGreen} value}
+        \item Call by \textit{\color{LimeGreen} reference}
       \end{itemize}
-      \item In <span class="hl-orange">return type</span> of functions
+      \item In \textbf{\color{YellowOrange} return type} of functions
     \end{itemize}
     \begin{minted}[bgcolor=Black]{c}
 void f(struct std s1); // call by value
@@ -797,7 +799,7 @@ struct std h(void); // return type
     \item struct as call by value input parameter
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
-void print_st_info(information st){
+void print_st_info(information st) {
   printf("Name = %s\n", st.name);
   printf("Fam = %s\n", st.fam_name);
   printf("id = %d\n", st.id);
@@ -837,10 +839,11 @@ struct student {
 };
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \begin{block}{}
     Sets ID field of student with given identification. As you may guess this
-    function must recieve <span class="hl-orange">a pointer</span> of student
+    function must recieve \textit{\color{YellowOrange} a pointer} of student
     structure.
   \end{block}
   \begin{minted}[bgcolor=Black]{c}
@@ -849,10 +852,11 @@ void student_set_id(struct student *std, int id) {
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \begin{block}{}
       Sets first name field of student with given Name As you may guess this
-      function must recieve <span class="hl-orange">a pointer</span> of student
+      function must recieve \textit{\color{YellowOrange} a pointer} of student
       structure. But why?
   \end{block}
   \begin{minted}[bgcolor=Black]{c}
@@ -861,6 +865,7 @@ void student_set_id(struct student *std, const char *name) {
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \begin{block}{}
       First name field of stduent is an array and as you may remember arrays
@@ -873,23 +878,24 @@ void student_set_id_wrong(struct student std, const char *name) {
 }
   \end{minted}
   \begin{block}{}
-      <span class="hl-red">No.</span> It doesn't change first name of given
-      student structure.
+    \textsc{\color{RubineRed} No.} It doesn't change first name of given
+    student structure.
   \end{block}
   \begin{block}{}
-      Because C copies all of the structures' members,
-      <span class="hl-green">even if they are arrays</span>, so
-      <span class="hl-orange">Calling by Value</span> makes a copy from each
-      field of the structure that changing them doesn't change anything in the
-      source.
+    Because C copies all of the structures' members,
+    \textbf{\color{LimeGreen} even if they are arrays}, so
+    \textbf{\color{YellowOrange} Calling by Value} makes a copy from each
+    field of the structure that changing them doesn't change anything in the
+    source.
   \end{block}
 \end{frame}
+
 \begin{frame}[fragile]
   \begin{block}{}
-      As a rule of thumb <span class="hl-violet">always</span> use pointer of
-      structures in your functions even you don't want to change them. In case
-      of read-only functions use <span class="hl-cyan">const</span> pointers to
-      tell the users you don't want to change the given structure.
+    As a rule of thumb \textit{\color{Violet} always} use pointer of
+    structures in your functions even you don't want to change them. In case
+    of read-only functions use \textbf{\color{Cyan} const} pointers to
+    tell the users you don't want to change the given structure.
   \end{block}
   \begin{minted}[bgcolor=Black]{c}
 void student_print(const struct student *std) {
@@ -904,6 +910,7 @@ void student_print(const struct student *std) {
   \begin{itemize}
     \item struct as output of function
   \end{itemize}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 information create_st_info(void) {
   information tmp;
@@ -942,14 +949,12 @@ st1 = create_st_info();
   \frametitle{Scope of struct variables}
   \begin{itemize}
     \item
-      The scope of struct <span class="hl-orange">variables</span> are the same
+      The scope of struct \textit{\color{YellowOrange} variables} are the same
       other variables
-
     \item If struct variable is global
     \begin{itemize}
       \item
         Initialized to zero and visible to the functions after its declaration
-
     \end{itemize}
     \item If struct variable is automatic local
     \begin{itemize}
@@ -971,17 +976,14 @@ st1 = create_st_info();
     \begin{itemize}
       \item
         We know the size of array when you
-        <span class="hl-green">develop code (coding time)</span>
-
+        \textit{\color{LimeGreen} develop code (coding time)}
       \item
         We know the size of array when
-        <span class="hl-cyan">program runs</span>
-
+        \textit{\color{Cyan} program runs}
     \end{itemize}
     \item
       What can we do, if we
-      <span class="hl-orange">don’t know data size</span> even in run time?
-
+      \textbf{\color{YellowOrange} don’t know data size} even in run time?
     \begin{itemize}
       \item We use dynamic memory allocation \& resize
       \begin{itemize}
@@ -990,11 +992,12 @@ st1 = create_st_info();
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{itemize}
     \item
       What can we do, if we want to
-      <span class="hl-orange">add/remove</span> an element to/from middle of
+      \textit{\color{YellowOrange} add/remove} an element to/from middle of
       the array?
 
     \begin{itemize}
@@ -1016,11 +1019,10 @@ st1 = create_st_info();
 
     \item linked list: Nodes that linked together
     \begin{itemize}
-      \item <span class="hl-green">info(s)</span>: Save the information
-      \item <span class="hl-cyan">next</span>: Pointer to the next node
+      \item \textbf{\color{LimeGreen} info(s)}: Save the information
+      \item \textbf{\color{Cyan} next}: Pointer to the next node
       \item
-        <span class="hl-violet">previous</span>: Pointer to the previous node
-
+        \textbf{\color{Violet} previous}: Pointer to the previous node
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -1060,8 +1062,8 @@ struct node{
 
 \begin{frame}[fragile]
   \begin{block}{}
-    Please note that we <span class="hl-red">cannot</span> have structures that
-    <span class="hl-green">contain themselves</span>:
+    Please note that we \textsc{\color{RubineRed} cannot} have structures that
+    \textbf{\color{LimeGreen} contain themselves}:
   \end{block}
   \begin{minted}[bgcolor=Black]{c}
 struct node{
@@ -1070,7 +1072,7 @@ struct node{
 }; // compile error
   \end{minted}
   \begin{block}{}
-    <span class="hl-orange">struct node</span> conatins a pointer to its type.
+    \textbf{\color{YellowOrange} struct node} conatins a pointer to its type.
   \end{block}
 \end{frame}
 
@@ -1078,12 +1080,12 @@ struct node{
   \frametitle{Create nodes}
   \begin{itemize}
     \item We need a function to create each node in list. The function does:
-    <ol>
-      \item <span class="hl-orange">Allocate</span> the memory
-      \item Set the <span class="hl-green">info</span> member
-      \item Set the <span class="hl-cyan">next</span> member
-      \item <span class="hl-violet">Return</span> the pointer to new node
-    </ol>
+    \begin{enumerate}
+      \item \textit{\color{YellowOrange} Allocate} the memory
+      \item \textit{\color{LimeGreen} info} member
+      \item Set the \textit{\color{Cyan} next} member
+      \item \textit{\color{Violet} Return} the pointer to new node
+    \end{enumerate}
   \end{itemize}
 \end{frame}
 
@@ -1117,10 +1119,10 @@ struct node* node_construct(int i) {
 
 \begin{frame}
   \begin{block}{}
-    We <span class="hl-orange">can return</span> the address of
-    <span class="hl-green">heap-allocated</span> variables
-    <span class="hl-violet">from functions</span>. Heap variables are under our
-    control, so they are <span class="hl-cyan">continue existing</span> after
+    We \textbf{\color{YellowOrange} can return} the address of
+    \textbf{\color{LimeGreen} heap-allocated} variables
+    \textbf{\color{Violet} from functions}. Heap variables are under our
+    control, so they are \textbf{\color{Cyan} continue existing} after
     the function completes.
   \end{block}
 \end{frame}
