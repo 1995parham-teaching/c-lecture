@@ -26,6 +26,7 @@
 \institute[AUT]{Amirkabir University of Technology}
 \date{\DTMsetdatestyle{mmyy}\Today}
 
+\hypersetup{colorlinks=true,allcolors=.,urlcolor=orange}
 \setbeamertemplate{headline}[infolines theme]
 % the following command suppresses all navigation symbols
 \setbeamertemplate{navigation symbols}{}
