@@ -340,7 +340,7 @@ information st1, st2;
       \item The padding is to align the address
       \item
         More details \& examples:
-        \href{Here}{https://fresh2refresh.com/c-programming/c-structure-padding}
+        \href{https://fresh2refresh.com/c-programming/c-structure-padding}{Here}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -402,14 +402,20 @@ struct std_info st1 = {"Parham", "Alvani", 9231058, 18};
 
 \begin{frame}[fragile]
   \frametitle{Using struct}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
-struct std_info st1 = { .st_name = "Parham", .st_fam_name = "Alvani", .id = 9231058, .score = 18};
+struct std_info st1 = {
+  .st_name = "Parham",
+  .st_fam_name = "Alvani",
+  .id = 9231058,
+  .score = 18,
+};
   \end{minted}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Example}
-  \scriptsize
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -424,7 +430,8 @@ void main(void){
   information st2, st1 = {"Parham", "Alvani", 9231058, 20};
 
   printf("After init: \n");
-  printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n", st1.name, st1.fam_name, st1.id, st1.grade);
+  printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n",
+    st1.name, st1.fam_name, st1.id, st1.grade);
 
   scanf("%s", st2.name);
   scanf("%s", st2.fam_name);
@@ -432,7 +439,8 @@ void main(void){
   scanf("%d", &st2.grade);
 
   printf("Your Input is: \n");
-  printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n", st2.name, st2.fam_name, st2.id, st2.grade);
+  printf("Name = %s, \nFam. Name = %s, \nid = %d, \ngrade = %d\n",
+    st2.name, st2.fam_name, st2.id, st2.grade);
 }
   \end{minted}
 \end{frame}
@@ -445,7 +453,7 @@ struct date_type{
   int day, month, year;
 };
 
-typedef struct{
+typedef struct {
   char name[20];
   char fam_name[20];
   int id;
@@ -482,6 +490,7 @@ struct person {
   char family[200];
 };
   \end{minted}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 char hello[200] = "Hello world";
 printf("%s\n", hello);
