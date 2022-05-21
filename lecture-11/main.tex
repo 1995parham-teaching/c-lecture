@@ -483,7 +483,7 @@ st2.date.year = 1390;
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{More on "char[20] is not assignable"}
+  \frametitle{More on ``char[20] is not assignable''}
   \begin{minted}[bgcolor=Black]{c}
 struct person {
   char name[200];
@@ -557,7 +557,7 @@ d1 = d2;
     \begin{minted}[bgcolor=Black]{c}
 information st1, st2;
 
-if(st1 <= st2){
+if (st1 <= st2) {
   // Compile Error ...
 }
 
@@ -573,6 +573,7 @@ if(st1 <= st2){
   \frametitle{struct: Comparing}
   \begin{itemize}
     \item We can compare members of structs
+    \scriptsize
     \begin{minted}[bgcolor=Black]{c}
 if(
   (st1.id == st2.id) &&
@@ -582,7 +583,9 @@ if(
   /* st1 == st2 */
 }
     \end{minted}
+    \normalsize
     \item We can define <, <=, >, >= for struct
+    \scriptsize
     \begin{minted}[bgcolor=Black]{c}
 if (
   (st1.id > st2.id) &&
@@ -753,7 +756,7 @@ ps = &st1;
 \begin{frame}[fragile]
   \frametitle{Pointer to struct: Usage (Version 2)}
   \begin{itemize}
-    \item We can use \texttt{\color{Orange} ``->''} method
+    \item We can use \texttt{\color{Orange} ->} method
     \begin{minted}[bgcolor=Black]{c}
 struct std {
   int id;
@@ -1256,11 +1259,14 @@ void list_push_front(struct node** phead, struct node* nn) {
 \end{frame}
 \begin{frame}[fragile]
   \frametitle{list\_pop\_next}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 void list_pop_by_info(struct node* head, int v) {
   // find a node before the node that contains v
   struct node* current = head;
-  for (current = list; current->next != NULL && current->next->info != v; current = current->next);
+  for (current = list;
+    current->next != NULL && current->next->info != v;
+    current = current->next);
 
   // there is no node that conaints v
   if (current->next == NULL) {
@@ -1286,7 +1292,7 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
   \frametitle{Common Bugs}
   \begin{itemize}
     \item
-      The last <span class="hl-orange">NULL</span> in Liked-list is very
+      The last \textsc{\color{YellowOrange} NULL} in Linked-list is very
       important
 
     \begin{itemize}
@@ -1319,13 +1325,12 @@ void list_pop_next(struct node* adjacent_to_delete_node) {
     \item We need an array
     \begin{itemize}
       \item
-        visitors[<span class="hl-green">0</span>] \textrightarrow The number of visitors
-        in <span class="hl-orange">Saturday</span>
+        visitors[\textit{\color{LimeGreen} 0}] \textrightarrow The number of visitors
+        in \textbf{\color{YellowOrange} Saturday}
 
       \item
-        visitors[<span class="hl-green">1</span>] \textrightarrow The number of visitors
-        in <span class="hl-orange">Sunday</span>
-
+        visitors[\textit{\color{LimeGreen} 1}] \textrightarrow The number of visitors
+        in \textbf{\color{YellowOrange} Sunday}
     \end{itemize}
   \end{itemize}
 \end{frame}
