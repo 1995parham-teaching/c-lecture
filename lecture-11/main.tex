@@ -863,8 +863,8 @@ void student_set_id(struct student *std, int id) {
       structure. But why?
   \end{block}
   \begin{minted}[bgcolor=Black]{c}
-void student_set_id(struct student *std, const char *name) {
-  strcpy(sed->first_name, name)
+void student_set_first_name(struct student *std, const char *name) {
+  strcpy(std->first_name, name)
 }
   \end{minted}
 \end{frame}
@@ -873,11 +873,11 @@ void student_set_id(struct student *std, const char *name) {
   \begin{block}{}
       First name field of stduent is an array and as you may remember arrays
       name contains the address of array's first cell. So is the following code
-      correct? 🤔
+      correct?
   \end{block}
   \begin{minted}[bgcolor=Black]{c}
-void student_set_id_wrong(struct student std, const char *name) {
-  strcpy(sed.first_name, name)
+void student_set_first_name_wrong(struct student std, const char *name) {
+  strcpy(std.first_name, name)
 }
   \end{minted}
   \begin{block}{}
@@ -948,6 +948,7 @@ st1 = create_st_info();
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Scope of struct variables}
   \begin{itemize}
@@ -1094,6 +1095,7 @@ struct node{
 
 \begin{frame}[fragile]
   \frametitle{Create Node}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 struct node{
   int info;
@@ -1175,9 +1177,11 @@ list->next->next = node_construct(30);
   \frametitle{list\_print}
   \begin{minted}[bgcolor=Black]{c}
 void list_print(struct node *head){
-  struct node* current;
-
-  for(current = head; current != NULL; current = current-> next) {
+  for(
+    struct node *current = head;
+    current != NULL;
+    current = current-> next
+  ) {
     printf("%d\n", current->info)
   }
 }
@@ -1188,9 +1192,11 @@ void list_print(struct node *head){
   \frametitle{list\_push\_back}
   \begin{minted}[bgcolor=Black]{c}
 void list_push_back(struct node* head, struct node* nn){
-  struct node* current;
-
-  for(current = head; current-> next != NULL; current = current-> next);
+  for(
+    struct node *current = head;
+    current-> next != NULL;
+    current = current-> next
+  );
 
   current->next = nn;
   nn->next = NULL;
@@ -1263,10 +1269,11 @@ void list_push_front(struct node** phead, struct node* nn) {
   \begin{minted}[bgcolor=Black]{c}
 void list_pop_by_info(struct node* head, int v) {
   // find a node before the node that contains v
-  struct node* current = head;
-  for (current = list;
+  for (
+    struct node *current = head;
     current->next != NULL && current->next->info != v;
-    current = current->next);
+    current = current->next
+  );
 
   // there is no node that conaints v
   if (current->next == NULL) {
@@ -1393,13 +1400,14 @@ enum year {feb, jan, mar, apr, may, jun, jul, aug, sep, oct, nov, des};
 
 \begin{frame}[fragile]
   \frametitle{enum}
-  <p>We can assign the numbers</p>
+  We can assign the numbers
   \begin{minted}[bgcolor=Black]{c}
 enum week {sat = 1, sun, mon, tue, wed, thu, fri};
   \end{minted}
-  <p>sat = 1, sun = 2, mon = 3, …, fri = 7</p>
+  sat = 1, sun = 2, mon = 3, …, fri = 7
   \begin{minted}[bgcolor=Black]{c}
-enum condition {False = 0, True, No = 0, Yes, Ghalat = 0, Dorost};
+enum condition {False = 0, True, No = 0,
+  Yes, Ghalat = 0, Dorost};
   \end{minted}
   \begin{minted}[bgcolor=Black]{output}
     False = No = Ghalat = 0
@@ -1495,6 +1503,10 @@ int main()
     return 0;
 }
   \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{output}
 After making x = 2:
  x = 2, y = 2
@@ -1506,34 +1518,11 @@ After making y = 10:
 
 \begin{frame}[fragile]
   \scriptsize
-  \begin{minted}[bgcolor=Black]{c}
-#include <stdio.h>
+  \inputminted[bgcolor=Black]{c}{./src/union-size.c}
+\end{frame}
 
-union test1 {
-    int x;
-    int y;
-} Test1;
-
-union test2 {
-    int x;
-    char y;
-} Test2;
-
-union test3 {
-    int arr[10];
-    char y;
-} Test3;
-
-int main()
-{
-    printf("sizeof(test1) = %lu, sizeof(test2) = %lu, "
-           "sizeof(test3) = %lu",
-           sizeof(Test1),
-           sizeof(Test2), sizeof(Test3));
-    return 0;
-}
-  \end{minted}
-
+\begin{frame}[fragile]
+  \scriptsize
   \begin{minted}[bgcolor=Black]{output}
 sizeof(test1) = 4, sizeof(test2) = 4, sizeof(test3) = 40
   \end{minted}
