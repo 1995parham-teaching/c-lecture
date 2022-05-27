@@ -11,14 +11,21 @@ Introduction to Programming Course.
 - Algorithm Design - 2 Sessions (HW1)
 - C Programming Basics - 3 Sessions
 - Calculation - 2 Sessions
-- Interaction - 2 Sessions (HW2)
-- Making Decisions - 2 Sessions (HW3)
-- Repeating Statements - 2 Sessions (HW4)
+- Interaction - 2 Sessions
+- Making Decisions - 2 Sessions
+- Repeating Statements - 2 Sessions (HW2)
+- Functions - 3 Sessions
+- Arrays - 4 Sessions
+- Pointers and Dynamic Memory Allocations - 4 Sessions (HW3)
+- Structs - 4 Sessions (HW4)
+- Files
 
 ## Assignments
 
 - HW1: Introduction, Algorithm Design
-- HW2: C Programming Basics, Calculation, Interaction, Making Decisions
+- HW2: C Programming Basics, Calculation, Interaction, Making Decisions and Repeating Statements
+- HW3: Functions, Arrays and Pointers
+- HW4: Structs and Linked-List
 
 ## How to build a nice courses page
 
