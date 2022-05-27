@@ -229,7 +229,7 @@ FILE* fopen(char* name, char* mode);
   \begin{minted}[bgcolor=Black]{c}
 FILE *fp;
 fp = fopen("c:\\test.txt", "r");
-if(fp == NULL){
+if (fp == NULL) {
   printf("Cannot open file\n");
   return -1;
 }
@@ -246,22 +246,19 @@ if(fp == NULL){
       \item
         Points to \textit{\color{YellowOrange} current location} of read and
         write
-
     \end{itemize}
     \item When file is open
     \begin{itemize}
       \item
         File-Position Pointer is set to
         \textit{\color{Cyan} start of file} except for
-        \textit{\color{LimeGreen}"a"} mode
-
+        \textit{\color{LimeGreen}``a''} mode
     \end{itemize}
     \item When you read/write from/to file
     \begin{itemize}
       \item
         The File-Position Pointer
         \textit{\color{Violet} advance according to the size of data}.
-
       \begin{itemize}
         \item If you read 2 bytes, it moves 2 bytes
         \item If you write 50 bytes, it advances 50 bytes
@@ -274,7 +271,7 @@ if(fp == NULL){
   \frametitle{Closing Files}
   \begin{itemize}
     \item Each opened file should be closed.
-    \item If we write to a file and don’t close it, some of data may be LOST
+    \item If we write to a file and don't close it, some of data may be LOST
     \item To close the file
     \begin{minted}[bgcolor=Black]{c}
 fclose(FILE *fp);
@@ -318,7 +315,7 @@ int fprintf(FILE *fp,"format", parameters);
 
 \begin{frame}[fragile]
   \frametitle{Average of Students' Grade}
-  \scriptsize
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -362,7 +359,7 @@ int main() {
 
 \begin{frame}[fragile]
   \frametitle{Upper Average Students 🤓 v1}
-  \scriptsize
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -411,10 +408,10 @@ int main() {
   fscanf(fpin,"%d", &num);
   fprintf(fpout, "%lf\n", average);
 
-  for(i = 0; i < num; i++) {
+  for (i = 0; i < num; i++) {
     fscanf(fpin, "%d %lf", &id, &grade);
 
-    if(grade >= average)
+    if (grade >= average)
       fprintf(fpout, "%d: %s\n", id, "passed");
     else
       fprintf(fpout, "%d: %s\n", id, "failed");
@@ -430,8 +427,8 @@ int main() {
 \end{frame}
 
 \begin{frame}[fragile]
-  \scriptsize
   \frametitle{Upper Average Students 🤓 v2}
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <tstdio.h>
 #include <stdlib.h>
@@ -451,14 +448,14 @@ int main() {
   int num;
   double sum = 0;
 
-	printf("input file: ");
-	scanf("%s", inname);
+  printf("input file: ");
+  scanf("%s", inname);
 
   printf("output file: ");
   scanf("%s", outname);
 
-	fpin = fopen(inname, "r");
-	if (fpin == NULL) {
+  fpin = fopen(inname, "r");
+  if (fpin == NULL) {
 		printf("cannot open file %s\n", inname);
 		return 1;
 	}
@@ -513,7 +510,7 @@ fputc(char c, FILE *fp)
 char fgetc(FILE *fp);
     \end{minted}
   \end{itemize}
-  <p>Returns EOF if reaches to End of File</p>
+  Returns EOF if reaches to End of File
 \end{frame}
 
 \begin{frame}[fragile]
@@ -536,7 +533,7 @@ int main() {
   scanf("%s", outname);
 
   fpin = fopen(inname, "r");
-  if (fpin == NULL){
+  if (fpin == NULL) {
     printf("Cannot open %s\n", inname);
     return -1;
   }
@@ -582,19 +579,19 @@ int main() {
 \end{frame}
 
 \begin{frame}
-  \begin{block}
-    feof tells that an attempt has been made to read past the end of the file,
+  \begin{block}{}
+    \textit{\color{YellowOrange} feof} tells that an attempt has been made to read past the end of the file,
     which is not the same as that we just read the last data item from a file.
-    We have to read one past the last data item for feof to return nonzero.
+    We have to read one past the last data item for \textit{\color{YellowOrange} feof} to return nonzero.
   \end{block}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Checking End of File}
   \begin{minted}[bgcolor=Black]{c}
-while(1){
+while(1) {
   c = fgetc(fpin);
-  if(feof(fpin))
+  if (feof(fpin))
     break;
   fputc(c, fpout);
 }
@@ -608,7 +605,6 @@ while(1){
     \begin{itemize}
       \item
         \textit{\color{LimeGreen} fscanf} reads until the first free space
-
     \end{itemize}
     \begin{minted}[bgcolor=Black]{c}
 char* fgets(char* buff, int maxnumber, FILE* fp);
@@ -617,7 +613,6 @@ char* fgets(char* buff, int maxnumber, FILE* fp);
     \item
       Reading stops after \textit{\color{Cyan} EOF} or
       \mintinline{c}|'\n'|
-
     \item If a \mintinline{c}|'\n'| is read it is stored in buffer
     \item Add \mintinline{c}|'\0'| to the end of string
     \item
@@ -705,16 +700,16 @@ printf("Number of Lines = %d\n", count);
 
 \begin{frame}[fragile]
   \frametitle{Maximum Line Length Issue}
-  \begin{minted}[bgcolor=Black]{c}
+  \begin{minted}[bgcolor=Black]{output}
 12345678910
 123
   \end{minted}
   fgets with maxlen = 10
-  \begin{minted}[bgcolor=Black]{c}
+  \begin{minted}[bgcolor=Black]{output}
 Number of Lines = 3
   \end{minted}
   getline
-  \begin{minted}[bgcolor=Black]{c}
+  \begin{minted}[bgcolor=Black]{output}
 Number of Lines = 2
   \end{minted}
 \end{frame}
@@ -792,12 +787,11 @@ int fwrite(void *buf, int size, int num, FILE *fp)
   \end{minted}
   \begin{itemize}
     \item
-      Writes <span class="hl-orange">num</span> objects from
-      <span class="hl-green">buf</span> to <span class="hl-violet">fp</span>.
-
-    \item Size of each object is <span class="hl-yellow">size</span>.
+      Writes \textit{\color{YellowOrange} num} objects from
+      \textit{\color{LimeGreen} buf} to \textit{\color{Violet} fp}.
+    \item Size of each object is \textit{\color{Yellow} size}.
     \item Returns the number of written objects.
-    \item If (return\_val < <span class="hl-orange">num</span>)
+    \item If (return\_val < \textit{\color{YellowOrange} num})
     \begin{itemize}
       \item There is an error
     \end{itemize}
@@ -811,12 +805,11 @@ int fread(void *buf, int size, int num, FILE *fp)
   \end{minted}
   \begin{itemize}
     \item
-      Reads <span class="hl-orange">num</span> objects from file
-      <span class="hl-violet">fp</span> to <span class="hl-green">buf</span>.
-
-    \item Size of each object is <span class="hl-yellow">size</span>.
+      Reads \textit{\color{YellowOrange} num} objects from file
+      \textit{\color{Violet} fp} to \textit{\color{LimeGreen} buf}.
+    \item Size of each object is \textit{\color{Yellow} size}.
     \item Returns the number of read objects.
-    \item If (return val < <span class="hl-orange">num</span>)
+    \item If (return val < \textit{\color{YellowOrange} num})
     \begin{itemize}
       \item There is an error
       \item Or EOF \textrightarrow Check with feof
@@ -835,17 +828,15 @@ fread(&i, sizeof(int), 1, fp);
     \item This means
     \begin{itemize}
       \item
-        Read <span class="hl-orange">1</span> object from file
-        <span class="hl-violet">fp</span>.
-
+        Read \textcolor{YellowOrange}{1} object from file
+        \textit{\color{Violet} fp}.
       \item Save result in \mintinline{c}|&i|.
       \item
-        The size of the object is <span class="hl-yellow">sizeof(int)</span>
-
+        The size of the object is \mintinline{c}|sizeof(int)|
     \end{itemize}
     \item It reads 4 bytes from file and saves in \mintinline{c}|&i|
     \begin{itemize}
-      \item We read an integer from file and save it in i
+      \item We read an integer from file and save it in \textcolor{YellowOrange}{i}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -861,14 +852,12 @@ fread(farr, sizeof(float), 5, fp);
     \item This means
     \begin{itemize}
       \item
-        Read <span class="hl-orange">5</span> objects from file
-        <span class="hl-violet">fp</span>.
-
-      \item Save result in <span class="hl-green">farr</span>.
+        Read \textcolor{YellowOrange}{5} objects from file
+        \textit{\color{Violet} fp}.
+      \item Save result in \textit{\color{LimeGreen}farr}.
       \item
         The size of each object is
-        <span class="hl-yellow">sizeof(float)</span>
-
+        \mintinline{c}|sizeof(float)|
     \end{itemize}
     \item It reads 20 bytes from file and saves in farr
     \begin{itemize}
@@ -888,11 +877,10 @@ fwrite(&c, sizeof(char), 1, fp);
     \item This means
     \begin{itemize}
       \item
-        Write <span class="hl-orange">1</span> object from
-        <span class="hl-green">\&c</span> into file
-        <span class="hl-violet">fp</span>.
-
-      \item Size of the object is <span class="hl-yellow">sizeof(char)</span>
+        Write \textcolor{YellowOrange}{1} object from
+        \textit{\color{LimeGreen} \&c} into file
+        \textit{\color{Violet}fp}.
+      \item Size of the object is \mintinline{c}|sizeof(char)|
     \end{itemize}
     \item It writes 1 byte from address \&c and saves result in file
     \begin{itemize}
@@ -912,13 +900,11 @@ fwrite(darr, sizeof(double), 4, fp);
     \item This means
     \begin{itemize}
       \item
-        Write <span class="hl-orange">4</span> object from
-        <span class="hl-green">darr</span> into file
-        <span class="hl-violet">fp</span>.
-
+        Write \textcolor{YellowOrange}{4} object from
+        \textit{\color{LimeGreen} darr} into file
+        \textit{\color{Violet} fp}.
       \item
-        Size of the object is <span class="hl-yellow">sizeof(double)</span>
-
+        Size of the object is \mintinline{c}|sizeof(double)|
     \end{itemize}
     \item It writes 32 bytes from address darr and saves result in file
     \begin{itemize}
@@ -929,6 +915,7 @@ fwrite(darr, sizeof(double), 4, fp);
 
 \begin{frame}[fragile]
   \frametitle{}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 
@@ -961,8 +948,10 @@ int main() {
 
 \begin{frame}[fragile]
   \frametitle{}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
+
 struct point{
   int x, y;
 };
@@ -972,7 +961,7 @@ int main() {
   struct point p;
   int i;
   fp = fopen("points.bin", "rb");
-  if(fp == NULL){
+  if(fp == NULL) {
     printf("Cannot read from file\n");
     return -1;
   }
@@ -994,7 +983,7 @@ int main() {
   \begin{itemize}
     \item The access to file is sequential if
     \begin{itemize}
-      \item If we don’t move the FPP manually
+      \item If we don't move the FPP manually
       \item FPP advances through read and write
     \end{itemize}
     \item The access to file is Random
@@ -1172,9 +1161,8 @@ fseek(fp, 0, SEEK_END)
   \color{Violet} You
 \end{frame}
 \begin{frame}
-  \begin{itemize}
-    \item Thanks for attending this course
-  \end{itemize}
+  \centering
+  \huge Thanks for attending this course
 \end{frame}
 
 \end{document}
