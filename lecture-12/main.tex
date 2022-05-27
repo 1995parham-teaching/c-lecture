@@ -23,16 +23,16 @@
     \begin{enumerate}
       \item Main memory (RAM)
       \begin{itemize}
-        \item It is <span class="hl-orange">volatile</span>
-        \item Read / Write data using <span class="hl-green">variables</span>
+        \item It is \textit{\color{YellowOrange} volatile}
+        \item Read / Write data using \textit{\color{LimeGreen} variables}
       \end{itemize}
       \item Secondary storage (Hard Disk)
       \begin{itemize}
         \item
-          It is <span class="hl-red">not</span>
-          <span class="hl-orange">volatile</span>
+          It is \textsc{\color{RubineRed} not}
+          \textit{\color{YellowOrange} volatile}
 
-        \item Read / Write data using <span class="hl-green">files</span>
+        \item Read / Write data using \textit{\color{LimeGreen} files}
       \end{itemize}
     \end{enumerate}
   \end{itemize}
@@ -48,7 +48,7 @@
     \item When data are stored in main memory
     \begin{itemize}
       \item It is variable
-      \item Coding is specified by the type: int, char, ...
+      \item Coding is specified by the type: int, char, \ldots
     \end{itemize}
     \item When data are stored in secondary memory
     \begin{itemize}
@@ -75,16 +75,16 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Binary Files}
   \begin{itemize}
     \item Binary encoding
     \begin{itemize}
       \item
-        int, double, float, struct, ... are directly (as 0,1) stored in the file
-
+        int, double, float, struct, \ldots are directly (as 0,1) stored in the file
     \end{itemize}
-    \item Human unreadable files
+    \item Human \textcolor{RubineRed}{un}readable files
     \begin{itemize}
       \item Is not editable by text editor
       \item Needs special editor which understands the file
@@ -97,6 +97,7 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \frametitle{Working with Files}
   \begin{itemize}
@@ -114,7 +115,7 @@
 
 \begin{frame}
   \frametitle{Working with Files}
-  <p>Main steps in working with files:</p>
+  Main steps in working with files:
   \begin{enumerate}
     \item Open file
     \begin{itemize}
@@ -138,23 +139,22 @@
 \begin{frame}[fragile]
   \frametitle{Opening Files}
   \begin{itemize}
-    \item Function <span class="hl-violet">fopen</span> opens files
+    \item Function \textit{\color{Violet} fopen} opens files
     \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 FILE* fopen(char* name, char* mode);
     \end{minted}
-    \item <span class="hl-orange">FILE*</span> is a struct
+    \item \textit{\color{YellowOrange} FILE*} is a struct
     \begin{itemize}
       \item Saves information about file.
-      \item We <span class="hl-green">don’t need</span> to know about it.
+      \item We \textsc{\color{RubineRed} don’t need} to know about it.
     \end{itemize}
     \item
-      If cannot open file, fopen returns <span class="hl-red">NULL</span>.
-
+      If cannot open file, fopen returns \textit{\color{YellowOrange} NULL}.
     \item name is the name of file:
     \begin{itemize}
-      \item <span class="hl-cyan">Absolute</span> name: C:\textbackslash prog\textbackslash test.txt
-      \item <span class="hl-cyan">Relative</span> name: Mytest.txt
+      \item \textit{\color{Cyan} Absolute} name: C:\textbackslash prog\textbackslash test.txt
+      \item \textit{\color{Cyan} Relative} name: Mytest.txt
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -162,59 +162,50 @@ FILE* fopen(char* name, char* mode);
 \begin{frame}
   \frametitle{Opening Files: Modes}
   \begin{table}
-  \begin{tabularx}{\textwidth}{cc}
+  \begin{tabularx}{\textwidth}{cX}
     \toprule
     File Mode &
     Description \\
     \midrule
-    <span class="hl-cyan">r</span> &
-    Open a file for <span class="hl-orange">reading</span>. If a file is
+    \textcolor{Cyan}{r} &
+    Open a file for \textbf{\color{YellowOrange} reading}. If a file is
     in reading mode, then
-    <span class="hl-green">no data is deleted</span> if a file is
+    \textbf{\color{LimeGreen} no data is deleted} if a file is
     already present on a system.\\
     \midrule
-    <span class="hl-cyan">w</span> &
-    Open a file for <span class="hl-orange">writing</span>. If a file is
+    \textcolor{Cyan}{w} &
+    Open a file for \textbf{\color{YellowOrange} writing}. If a file is
     in writing mode, then a new file is created if a file doesn't exist
     at all. If a file is already present on a system, then
-    <span class="hl-green"
-      >all the data inside the file is truncated</span
-    >, and it is opened for writing purposes.\\
+    \textbf{\color{LimeGreen} all the data inside the file is truncated},
+    and it is opened for writing purposes.\\
     \bottomrule
   \end{tabularx}
   \end{table}
 \end{frame}
 
 \begin{frame}
-  <table>
-    <thead>
-      <tr>
-        <th>File Mode</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="hl-cyan">a</span></td>
-        <td>
-          Open a file in append mode. If a file is in append mode, then the
-          file is opened. The content within the file doesn't change.
-        </td>
-      </tr>
-      <tr>
-        <td><span class="hl-cyan">r+</span></td>
-        <td>open for reading and writing from beginning</td>
-      </tr>
-      <tr>
-        <td><span class="hl-cyan">w+</span></td>
-        <td>open for reading and writing, overwriting a file</td>
-      </tr>
-      <tr>
-        <td><span class="hl-cyan">a+</span></td>
-        <td>open for reading and writing, appending to file</td>
-      </tr>
-    </tbody>
-  </table>
+  \begin{table}
+  \begin{tabularx}{\textwidth}{cX}
+    \toprule
+    File Mode &
+    Description \\
+    \midrule
+    \textcolor{Cyan}{a} &
+    Open a file in append mode. If a file is in append mode, then the
+    file is opened. The content within the file doesn't change. \\
+    \midrule
+    \textcolor{Cyan}{r+} &
+    open for reading and writing from beginning \\
+    \midrule
+    \textcolor{Cyan}{w+} &
+    open for reading and writing, overwriting a file \\
+    \midrule
+    \textcolor{Cyan}{a+} &
+    open for reading and writing, appending to file \\
+    \bottomrule
+  \end{tabularx}
+  \end{table}
 \end{frame}
 
 \begin{frame}
@@ -223,7 +214,7 @@ FILE* fopen(char* name, char* mode);
     \item Files are
     \begin{itemize}
       \item Text: Some strings
-      \item Binary: Image file, Video file, ...
+      \item Binary: Image file, Video file, \ldots
     \end{itemize}
     \item To open binary file, we should add b to the mode.
     \begin{itemize}
@@ -243,7 +234,7 @@ if(fp == NULL){
   return -1;
 }
   \end{minted}
-  <p>Open file c:\textbackslash test.txt for reading</p>
+  Open file c:\textbackslash test.txt for reading
 \end{frame}
 
 \begin{frame}
@@ -253,7 +244,7 @@ if(fp == NULL){
     \begin{itemize}
       \item A pointer in file
       \item
-        Points to <span class="hl-orange">current location</span> of read and
+        Points to \textit{\color{YellowOrange} current location} of read and
         write
 
     \end{itemize}
@@ -261,15 +252,15 @@ if(fp == NULL){
     \begin{itemize}
       \item
         File-Position Pointer is set to
-        <span class="hl-cyan">start of file</span> except for
-        <span class="hl-green">"a"</span> mode
+        \textit{\color{Cyan} start of file} except for
+        \textit{\color{LimeGreen}"a"} mode
 
     \end{itemize}
     \item When you read/write from/to file
     \begin{itemize}
       \item
         The File-Position Pointer
-        <span class="hl-violet">advance according to the size of data</span>
+        \textit{\color{Violet} advance according to the size of data}.
 
       \begin{itemize}
         \item If you read 2 bytes, it moves 2 bytes
@@ -296,17 +287,16 @@ fclose(FILE *fp);
 \begin{frame}[fragile]
   \frametitle{Reading/Writing Text File}
   \begin{itemize}
-    \item <span class="hl-orange">fscanf</span> reads from file.
+    \item \textit{\color{YellowOrange} fscanf} reads from file.
     \item
-      <span class="hl-orange">fscanf</span> is same to
-      <span class="hl-green">scanf</span>.
+      \textit{\color{YellowOrange}fscanf} is same to
+      \textit{\color{LimeGreen} scanf}.
 
     \item Returns EOF if reached to the end of file.
-    <hr />
-    \item <span class="hl-cyan">fprintf</span> writes to file.
+    \item \textit{\color{Cyan} fprintf} writes to file.
     \item
-      <span class="hl-cyan">fprintf</span> is same to
-      <span class="hl-violet">printf</span>.
+      \textit{\color{Cyan} fprintf} is same to
+      \textit{\color{Violet} printf}.
 
   \end{itemize}
   \begin{minted}[bgcolor=Black]{c}
@@ -325,8 +315,10 @@ int fprintf(FILE *fp,"format", parameters);
 <id of student n> <grade of student n>
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Average of Students' Grade}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -367,8 +359,10 @@ int main() {
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Upper Average Students 🤓 v1}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -434,7 +428,9 @@ int main() {
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
+  \scriptsize
   \frametitle{Upper Average Students 🤓 v2}
   \begin{minted}[bgcolor=Black]{c}
 #include <tstdio.h>
@@ -504,6 +500,7 @@ int main() {
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Reading/Writing Characters (Text Files)}
   \begin{itemize}
@@ -521,6 +518,7 @@ char fgetc(FILE *fp);
 
 \begin{frame}[fragile]
   \frametitle{cp <src> <dst>}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
@@ -582,6 +580,7 @@ int main() {
     \end{itemize}
   \end{itemize}
 \end{frame}
+
 \begin{frame}
   \begin{block}
     feof tells that an attempt has been made to read past the end of the file,
@@ -601,29 +600,29 @@ while(1){
 }
   \end{minted}
 \end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Read/Write a Line}
   \begin{itemize}
     \item We can read a line of file
     \begin{itemize}
       \item
-        <span class="hl-green">fscanf</span> reads until the first free space
+        \textit{\color{LimeGreen} fscanf} reads until the first free space
 
     \end{itemize}
     \begin{minted}[bgcolor=Black]{c}
 char* fgets(char* buff, int maxnumber, FILE* fp);
     \end{minted}
-    \item Read at most <span class="hl-orange">maxnumber-1</span> chars
+    \item Read at most \textit{\color{YellowOrange} maxnumber-1} chars
     \item
-      Reading stops after <span class="hl-cyan">EOF</span> or
+      Reading stops after \textit{\color{Cyan} EOF} or
       \mintinline{c}|'\n'|
 
     \item If a \mintinline{c}|'\n'| is read it is stored in buffer
     \item Add \mintinline{c}|'\0'| to the end of string
     \item
       If reach to end of file without reading any character, return
-      <span class="hl-red">NULL</span>
-
+      \textit{\color{Cyan} NULL}
   \end{itemize}
 \end{frame}
 
@@ -634,8 +633,8 @@ char* fgets(char* buff, int maxnumber, FILE* fp);
     \begin{minted}[bgcolor=Black]{c}
 int fputs(char* buff, FILE* fp);
     \end{minted}
-    \item Write the string <span class="hl-orange">buff</span> to file
-    \item Does <span class="hl-red">NOT</span> add \mintinline{c}|'\n'| at the end
+    \item Write the string \textit{\color{YellowOrange} buff} to file
+    \item Does \textsc{\color{RubineRed} NOT} add \mintinline{c}|'\n'| at the end
   \end{itemize}
 \end{frame}
 
@@ -645,8 +644,8 @@ int fputs(char* buff, FILE* fp);
     \item Read a line without knowing its maximum length
     \item
       The caller may provide a pointer to a malloced buffer for the line in
-      <span class="hl-orange">*linep</span> , and the capacity of the buffer in
-      <span class="hl-green">*linecapp</span>.
+      \textit{\color{YellowOrange}*linep}, and the capacity of the buffer in
+      \textit{\color{LimeGreen}*linecapp}.
 
     \begin{minted}[bgcolor=Black]{c}
 int getline(char** linep, int* linecapp, FILE* stream);
@@ -656,6 +655,7 @@ int getline(char** linep, int* linecapp, FILE* stream);
 
 \begin{frame}[fragile]
   \frametitle{Example: Count the number of lines}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 char buf[500]; // 500 > every line length
 
@@ -678,6 +678,7 @@ printf("Number of Lines = %d\n", count);
 
 \begin{frame}[fragile]
   \frametitle{Example: Count the number of lines}
+  \scriptsize
   \begin{minted}[bgcolor=Black]{c}
 char *buf = NULL;
 
@@ -708,11 +709,11 @@ printf("Number of Lines = %d\n", count);
 12345678910
 123
   \end{minted}
-  <p>fgets with maxlen = 10</p>
+  fgets with maxlen = 10
   \begin{minted}[bgcolor=Black]{c}
 Number of Lines = 3
   \end{minted}
-  <p>getline</p>
+  getline
   \begin{minted}[bgcolor=Black]{c}
 Number of Lines = 2
   \end{minted}
@@ -734,7 +735,6 @@ Number of Lines = 2
       \item
         Because, data should not be converted to/from ASCII encoding in
         writing/reading the files
-
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -745,17 +745,17 @@ Number of Lines = 2
     \item In text files, everything is saved as ASCII codes
     \begin{itemize}
       \begin{minted}[bgcolor=Black]{c}
-fprintf(fp, “%d”, 10)
+fprintf(fp, "%d", 10)
       \end{minted}
-      \item Saves 2 bytes in the file: ASCII ‘1’ ASCII ‘0’
+      \item Saves 2 bytes in the file: ASCII `1` ASCII `0`
       \begin{minted}[bgcolor=Black]{output}
 00110001 00110000
       \end{minted}
       \begin{minted}[bgcolor=Black]{c}
-fscanf(fp, “%d”, &i)
+fscanf(fp, "%d", &i)
       \end{minted}
       \item
-        Read 2 bytes from file (ASCII ‘1’ ASCII ‘0’) and convert it to base 2
+        Read 2 bytes from file (ASCII `1` ASCII `0`) and convert it to base 2
         which mean integer number 10
     \end{itemize}
   \end{itemize}
