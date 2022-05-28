@@ -322,11 +322,8 @@ int fprintf(FILE *fp,"format", parameters);
 
 int main() {
   FILE* fpin;
-
   char inname[20];
-
   int num, i, id;
-
   double sum, average, grade;
 
   printf("Enter the name of input file: ");
@@ -337,6 +334,13 @@ int main() {
     printf("Cannot open %s\n", inname);
     return -1;
   }
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Average of Students' Grade (Cont'd)}
+  \tiny
+  \begin{minted}[bgcolor=Black]{c}
 
   /* Read the number of students */
   fscanf(fpin, "%d", &num);
@@ -358,7 +362,7 @@ int main() {
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Upper Average Students 🤓 v1}
+  \frametitle{Upper Average Students v1}
   \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
@@ -367,7 +371,6 @@ int main() {
 int main() {
   FILE* fpin;
   FILE* fpout;
-
   char inname[20], outname[20];
   int num, i, id;
   double sum, average, grade;
@@ -388,6 +391,14 @@ int main() {
   if(fpout == NULL){
     printf("Cannot open %s\n", outname); return -1;
   }
+
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Upper Average Students v1 (Cont'd)}
+  \tiny
+  \begin{minted}[bgcolor=Black]{c}
 
   /* Read the number of students */
   fscanf(fpin, "%d", &num);
@@ -427,7 +438,7 @@ int main() {
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Upper Average Students 🤓 v2}
+  \frametitle{Upper Average Students v2}
   \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <tstdio.h>
@@ -456,15 +467,22 @@ int main() {
 
   fpin = fopen(inname, "r");
   if (fpin == NULL) {
-		printf("cannot open file %s\n", inname);
-		return 1;
-	}
+    printf("cannot open file %s\n", inname);
+    return 1;
+  }
 
   fpout = fopen(outname, "w");
   if (fpout == NULL) {
-		printf("cannot open file %s\n", outname);
-		return 1;
+    printf("cannot open file %s\n", outname);
+    return 1;
   }
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Upper Average Students v2 (Cont'd)}
+  \tiny
+  \begin{minted}[bgcolor=Black]{c}
 
 	fscanf(fpin, "%d", &num);
 
@@ -515,7 +533,7 @@ char fgetc(FILE *fp);
 
 \begin{frame}[fragile]
   \frametitle{cp <src> <dst>}
-  \scriptsize
+  \tiny
   \begin{minted}[bgcolor=Black]{c}
 #include <stdio.h>
 #include <stdlib.h>
