@@ -1605,6 +1605,19 @@ printf("%d\n", *p); // ?
   \end{minted}
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{asprintf}
+  \begin{minted}[bgcolor=Black]{c}
+int asprintf(char ** strp, const char *fmt, ...);
+  \end{minted}
+  \begin{itemize}
+    \item The functions \mintinline{c}|asprintf| are analogs of \mintinline{c}|sprintf|.
+    \item Except that they \textbf{\color{YellowOrange} allocate} a string \textbf{\color{Yellow} large enough} to hold the output including the terminating null byte (\mintinline{c}|'\0'|).
+    \item Return a pointer to it via the \textit{\color{LimeGreen} first argument}.
+    \item This pointer should be passed to \mintinline{c}|free| to release the allocated storage when it is no longer needed.
+  \end{itemize}
+\end{frame}
+
 \section{Common Bugs}
 
 \begin{frame}[fragile]
