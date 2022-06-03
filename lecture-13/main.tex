@@ -84,7 +84,7 @@ int main(void) {
 
 #define ABC
 #define XYZ 1
-int main(){
+int main() {
   #ifdef ABC
   printf("ABC is defined \n");
   #endif
@@ -119,6 +119,7 @@ int main() {
 \begin{frame}[fragile]
   \begin{itemize}
     \item Here we have the generated code
+    \item Pay attention to double semi-colons.
     \begin{minted}[bgcolor=Black]{c}
 int main() {
   int a = 10;
