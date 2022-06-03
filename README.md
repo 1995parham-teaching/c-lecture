@@ -2,7 +2,8 @@
 
 ## Introduction
 
-Here is all we got for C Programming Course in Amirkabir as online materials. All slides are based on Prof.Bakhshi's slides of
+C lecture presentations and sample codes which is used in Introduction to Programming course.
+All slides are based on [Prof.Bakhshi](https://github.com/Bahador-Bakhshi)'s slides of
 Introduction to Programming Course.
 
 ## Agenda
