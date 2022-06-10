@@ -1,5 +1,7 @@
 # C-lecture
 
+![GitHub repo size](https://img.shields.io/github/repo-size/cng-by-example/c-lecture?style=flat-square)
+
 ## Introduction
 
 C lecture presentations and sample codes which is used in Introduction to Programming course.
