@@ -655,6 +655,7 @@ int fputs(char* buff, FILE* fp);
   \frametitle{Read/Write a Line}
   \begin{itemize}
     \item Read a line without knowing its maximum length
+    \item If \textit{\color{LimeGreen}*lineptr} is set to \textit{\color{RubineRed} NULL} before the call, then it will allocate a buffer for storing the line.
     \item
       The caller may provide a pointer to a malloced buffer for the line in
       \textit{\color{YellowOrange}*linep}, and the capacity of the buffer in
