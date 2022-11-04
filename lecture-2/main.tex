@@ -71,11 +71,13 @@
   \frametitle{Odd-Even-3}
   \begin{algorithm}[H]
   \KwData{$n \in \mathbb{Z}$}
-  $m \gets n$\;
   \KwResult{$n$ is even or odd}
-  \While{$n > 0$ or $n < -1$}{%
+  \SetKw{Or}{or}
+  \SetKwFunction{Sign}{sign}
+  $m \gets n$\;
+  \While{$n > 0$ \Or $n < -1$}{%
     \tcp{$sign(0) = 0, sign(n > 0) = 1, sign(n < 0) = -1$}
-    $n \gets n - sign(n) * 2$\;
+    $n \gets n - \Sign(n) * 2$\;
   }
   \eIf{$n == 0$}{%
       print $n$ ``is even''\;
