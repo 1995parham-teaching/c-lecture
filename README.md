@@ -12,6 +12,7 @@ Introduction to Programming Course.
 
 - Introduction - 2 Sessions
 - Algorithm Design - 2 Sessions (HW1)
+  * [Watch me](https://youtu.be/2yAZT_uDpuA)
 - C Programming Basics - 3 Sessions
 - Calculation - 2 Sessions
 - Interaction - 2 Sessions
