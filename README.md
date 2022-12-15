@@ -1,6 +1,6 @@
 # C-lecture
 
-![GitHub repo size](https://img.shields.io/github/repo-size/cng-by-example/c-lecture?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/1995parham-teaching/c-lecture?style=flat-square)
 
 ## Introduction
 
