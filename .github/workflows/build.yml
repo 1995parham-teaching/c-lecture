@@ -56,7 +56,7 @@ jobs:
           pre_compile: "apk add --no-cache py3-pygments"
           args: -pdfxe -file-line-error -halt-on-error -interaction=nonstopmode
       - name: upload ${{ matrix.lecture }}.pdf
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.lecture }}
           path: ${{ matrix.lecture }}/main.pdf
