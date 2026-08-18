@@ -306,6 +306,7 @@ void func(void) {
   \begin{itemize}
     \item C compiler does not check the range you access
     \begin{itemize}
+      \item[]
       \begin{minted}[bgcolor=Black]{c}
 int x[10]; x[20] = 30; y = x[100];
       \end{minted}
@@ -509,6 +510,7 @@ t[1][1];
 \begin{frame}[fragile]
   \frametitle{Initializing Multidimensional Arrays}
   \begin{itemize}
+    \item[]
     \begin{minted}[bgcolor=Black]{c}
 int num[2][3] = {1, 2, 0, 3, 4, 7};
 int num[2][3] = { {1, 2, 0}, {3, 4, 7} };
@@ -523,6 +525,7 @@ int num[5][3] = { {1, 2, 0}, {3, 4, 7} };
 
 \begin{frame}[fragile]
   \begin{itemize}
+    \item[]
     \begin{minted}[bgcolor=Black]{c}
 int num[2][3][2] = { { {1, 2}, {3, 4}, {5, 6} }, { {1}, {2}, {3} } };
     \end{minted}
