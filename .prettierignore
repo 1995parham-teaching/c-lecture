@@ -1,0 +1,3 @@
+# latex sources and the beamer class are not prettier's to reformat
+*.tex
+*.cls

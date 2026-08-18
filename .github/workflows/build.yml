@@ -1,0 +1,63 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "build-${{ github.ref }}"
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  lectures:
+    runs-on: ubuntu-latest
+    strategy:
+      # one lecture failing should not hide the state of the other thirteen
+      fail-fast: false
+      matrix:
+        lecture:
+          - lecture-1
+          - lecture-2
+          - lecture-3
+          - lecture-4
+          - lecture-5
+          - lecture-6
+          - lecture-7
+          - lecture-8
+          - lecture-9
+          - lecture-10
+          - lecture-11
+          - lecture-12
+          - lecture-13
+          - lecture-14
+    steps:
+      - name: checkout
+        uses: actions/checkout@v7
+      - name: build ${{ matrix.lecture }}
+        uses: xu-cheng/latex-action@v4
+        with:
+          working_directory: ${{ matrix.lecture }}
+          root_file: main.tex
+          latexmk_use_xelatex: true
+          # minted shells out to pygments, so it needs both the binary and
+          # --shell-escape; latexmkrc already passes the flag
+          pre_compile: "apk add --no-cache py3-pygments"
+          args: -pdfxe -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: upload ${{ matrix.lecture }}.pdf
+        uses: actions/upload-artifact@v6
+        with:
+          name: ${{ matrix.lecture }}
+          path: ${{ matrix.lecture }}/main.pdf
+          if-no-files-found: error
